@@ -1,0 +1,139 @@
+{
+  "_nota": "Fuente de verdad: Drive (assets/brand/paletas.json), se sincroniza al repo. Valida con: python3 scripts/validar_paletas.py",
+  "constantes_zype": {
+    "amarillo": "#FFE600",
+    "alerta": "#E5484D",
+    "exito": "#30A46C",
+    "texto": "#FFFFFF",
+    "regla": "Header, barra de progreso, subtítulos, línea 2 del titular y bloque CTA son SIEMPRE ZYPE, sea cual sea el clima."
+  },
+  "climas": {
+    "zype": {
+      "nombre": "ZYPE base",
+      "tipo": "oscuro",
+      "fondo_a": "#0E1215", "fondo_b": "#041420", "tinte": "#0B6082",
+      "superficie": "#1B2630", "estructura": "#7FB8C8", "acento": "#0B6082",
+      "texto": "#FFFFFF", "texto_suave": "#9FB3BE",
+      "textura": "textures/tech_grid.svg",
+      "bloques": ["problema", "hoy", "criterio", "sistema", "resultado", "cta"]
+    },
+    "brasa": {
+      "nombre": "Brasa (tensión, operación que se quema)",
+      "tipo": "oscuro",
+      "fondo_a": "#1A0F0D", "fondo_b": "#0B0605", "tinte": "#7A2E1F",
+      "superficie": "#2A1A16", "estructura": "#F2A07B", "acento": "#E5484D",
+      "texto": "#FFFFFF", "texto_suave": "#C9A99C",
+      "textura": "textures/noise_grain.svg",
+      "bloques": ["hoy"]
+    },
+    "medianoche": {
+      "nombre": "Medianoche (datos, flujo, noche del dueño)",
+      "tipo": "oscuro",
+      "fondo_a": "#0F1024", "fondo_b": "#070815", "tinte": "#3B3F9E",
+      "superficie": "#1C1E3A", "estructura": "#A5B4FC", "acento": "#818CF8",
+      "texto": "#FFFFFF", "texto_suave": "#A3A8D1",
+      "textura": "textures/dense_dots.svg",
+      "bloques": ["hoy", "sistema"]
+    },
+    "ciruela": {
+      "nombre": "Ciruela (pausa estratégica)",
+      "tipo": "oscuro",
+      "fondo_a": "#1A0E1C", "fondo_b": "#0C060E", "tinte": "#5B2A66",
+      "superficie": "#2A1830", "estructura": "#E9B8F0", "acento": "#C77DD6",
+      "texto": "#FFFFFF", "texto_suave": "#C4A8CA",
+      "textura": "textures/noise_grain.svg",
+      "bloques": ["criterio"]
+    },
+    "papel": {
+      "nombre": "Papel (pausa editorial clara)",
+      "tipo": "claro",
+      "fondo_a": "#F4F1EA", "fondo_b": "#E6E0D3", "tinte": "#D9D1C0",
+      "superficie": "#FFFFFF", "estructura": "#2B3A42", "acento": "#0B6082",
+      "texto": "#0E1215", "texto_suave": "#55626A",
+      "textura": "textures/noise_grain.svg",
+      "bloques": ["criterio"]
+    },
+    "oceano": {
+      "nombre": "Océano (calma, orden)",
+      "tipo": "oscuro",
+      "fondo_a": "#061A1F", "fondo_b": "#020C0F", "tinte": "#0F5A66",
+      "superficie": "#0F2A30", "estructura": "#8FD3DF", "acento": "#2BA3B5",
+      "texto": "#FFFFFF", "texto_suave": "#9CC2C9",
+      "textura": "textures/blueprint.svg",
+      "bloques": ["criterio", "sistema"]
+    },
+    "bosque": {
+      "nombre": "Bosque (resultado, caja que entra)",
+      "tipo": "oscuro",
+      "fondo_a": "#08160F", "fondo_b": "#030A06", "tinte": "#1E5B3C",
+      "superficie": "#12261C", "estructura": "#86EFAC", "acento": "#30A46C",
+      "texto": "#FFFFFF", "texto_suave": "#9DC4AE",
+      "textura": "textures/dense_dots.svg",
+      "bloques": ["resultado"]
+    }
+  },
+  "reglas_rotacion": {
+    "fijos_zype": ["problema", "cta"],
+    "max_climas_distintos_de_zype": 2,
+    "bloques_con_clima": [1, 2, 2],
+    "transicion_frames": 12,
+    "evitar_repetir_ultimas": 3,
+    "sin_hps_en_criterio": ["oceano"]
+  },
+  "paletas_negocio": {
+    "terracota": {
+      "rubros": ["restaurante", "comida", "cocina", "pizzer", "taquer", "parrilla", "bistro", "food"],
+      "paleta": {"fondo": "#FBF6EF", "superficie": "#FFFFFF", "primario": "#B5482A", "secundario": "#2F3B2F", "acento": "#C2410C", "texto": "#2A1F1A", "texto_suave": "#7A6A5F"},
+      "tipografia": {"titulos": {"google_font": "DM Serif Display", "estilo": "serif"}, "texto": {"google_font": "DM Sans", "estilo": "sans"}},
+      "lenguaje_visual": {"radios": "16px", "motivo": "tarjetas de plato con borde fino, chips redondeados"}
+    },
+    "cafe": {
+      "rubros": ["cafe", "cafeter", "panader", "pasteler", "brunch", "heladeria"],
+      "paleta": {"fondo": "#F5EFE6", "superficie": "#FFFDF9", "primario": "#6B4226", "secundario": "#A47148", "acento": "#9A3412", "texto": "#2B1D14", "texto_suave": "#7D6A5B"},
+      "tipografia": {"titulos": {"google_font": "Fraunces", "estilo": "serif"}, "texto": {"google_font": "Work Sans", "estilo": "sans"}},
+      "lenguaje_visual": {"radios": "20px", "motivo": "formas suaves, iconos de línea gruesa"}
+    },
+    "menta_clinica": {
+      "rubros": ["clinica", "dental", "dentista", "odontolog", "medic", "consultorio", "fisioterap", "veterinar", "psicolog", "salud"],
+      "paleta": {"fondo": "#F2FAF8", "superficie": "#FFFFFF", "primario": "#0F766E", "secundario": "#134E4A", "acento": "#0D9488", "texto": "#0F2A27", "texto_suave": "#5B7471"},
+      "tipografia": {"titulos": {"google_font": "Nunito", "estilo": "sans"}, "texto": {"google_font": "Nunito Sans", "estilo": "sans"}},
+      "lenguaje_visual": {"radios": "18px", "motivo": "limpio, mucho aire, badges de estado"}
+    },
+    "burdeos": {
+      "rubros": ["barber", "peluquer", "salon", "tattoo", "tatuaj"],
+      "paleta": {"fondo": "#141012", "superficie": "#221A1D", "primario": "#9F1239", "secundario": "#E7D8C9", "acento": "#E11D48", "texto": "#F5EDE6", "texto_suave": "#B8A79C"},
+      "tipografia": {"titulos": {"google_font": "Oswald", "estilo": "sans condensada"}, "texto": {"google_font": "Inter", "estilo": "sans"}},
+      "lenguaje_visual": {"radios": "6px", "motivo": "rayas finas diagonales, tipografía condensada"}
+    },
+    "naranja_fit": {
+      "rubros": ["gimnasio", "gym", "crossfit", "box", "entrenad", "fitness", "yoga", "pilates", "deport"],
+      "paleta": {"fondo": "#0F0F10", "superficie": "#1C1C1F", "primario": "#F97316", "secundario": "#FAFAFA", "acento": "#FB923C", "texto": "#FAFAFA", "texto_suave": "#A1A1AA"},
+      "tipografia": {"titulos": {"google_font": "Archivo Black", "estilo": "sans"}, "texto": {"google_font": "Archivo", "estilo": "sans"}},
+      "lenguaje_visual": {"radios": "10px", "motivo": "barras de progreso, contadores grandes"}
+    },
+    "coral_tienda": {
+      "rubros": ["tienda", "boutique", "ropa", "moda", "regalo", "accesorio", "floreria", "joyer", "cosmet", "estetica", "spa", "unas"],
+      "paleta": {"fondo": "#FFF7F5", "superficie": "#FFFFFF", "primario": "#C2412B", "secundario": "#3D2B3D", "acento": "#BE123C", "texto": "#2D1B24", "texto_suave": "#7C6470"},
+      "tipografia": {"titulos": {"google_font": "Playfair Display", "estilo": "serif"}, "texto": {"google_font": "Poppins", "estilo": "sans"}},
+      "lenguaje_visual": {"radios": "24px", "motivo": "tarjetas de producto con foto ilustrada, etiquetas de precio"}
+    },
+    "acero_obra": {
+      "rubros": ["contratist", "construc", "remodel", "plomer", "electric", "techad", "pintor", "carpinter", "cerrajer", "taller", "mecanic", "mudanza"],
+      "paleta": {"fondo": "#F1F4F7", "superficie": "#FFFFFF", "primario": "#1E3A5F", "secundario": "#EA580C", "acento": "#C2410C", "texto": "#111827", "texto_suave": "#5B6573"},
+      "tipografia": {"titulos": {"google_font": "Barlow Condensed", "estilo": "sans condensada"}, "texto": {"google_font": "Barlow", "estilo": "sans"}},
+      "lenguaje_visual": {"radios": "8px", "motivo": "tarjetas de presupuesto, sellos de estado"}
+    },
+    "lavanda": {
+      "rubros": ["escuela", "academia", "clases", "curso", "tutor", "idioma", "guarder"],
+      "paleta": {"fondo": "#F6F4FD", "superficie": "#FFFFFF", "primario": "#5B47C9", "secundario": "#1F1A3D", "acento": "#6D28D9", "texto": "#1E1B33", "texto_suave": "#6B6787"},
+      "tipografia": {"titulos": {"google_font": "Outfit", "estilo": "sans"}, "texto": {"google_font": "Outfit", "estilo": "sans"}},
+      "lenguaje_visual": {"radios": "16px", "motivo": "calendarios de clases, avatares circulares"}
+    },
+    "pizarra": {
+      "rubros": [],
+      "paleta": {"fondo": "#F7F7F5", "superficie": "#FFFFFF", "primario": "#334155", "secundario": "#0F172A", "acento": "#2563EB", "texto": "#0F172A", "texto_suave": "#64748B"},
+      "tipografia": {"titulos": {"google_font": "Sora", "estilo": "sans"}, "texto": {"google_font": "Inter", "estilo": "sans"}},
+      "lenguaje_visual": {"radios": "14px", "motivo": "genérico limpio (comodín)"}
+    }
+  }
+}
