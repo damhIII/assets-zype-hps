@@ -18,7 +18,7 @@ Estética de producto tech premium (Stripe, Linear, Apple): geométrica, con pes
 - El clima de un bloque puede sustituir grafito, petróleo y cian en la zona de escena y el fondo (ver `climas.md`). El amarillo, el rojo de alerta y el verde de éxito no cambian nunca.
 - Logo: `logo_transparente.png`. Si `brief.logos.zype` es false: wordmark "ZYPE." en Montserrat 900 con el punto amarillo.
 
-## Hitch Point Studio (HPS) — solo si `brief.hps` es true
+## Hitch Point Studio (HPS) — solo si `brief.hps` es true (lo decides tú: ver `decisiones.md`)
 "Creamos marcas con alma". Prepara las condiciones (estrategia, marca, oferta, contenido); ZYPE activa el sistema.
 - Negro `#000000`, blanco `#FFFFFF`, teal `#1A9488` como ÚNICO acento.
 - Playfair Display (mensajes) y Space Mono en mayúsculas (textos pequeños).
@@ -30,8 +30,8 @@ Estética de producto tech premium (Stripe, Linear, Apple): geométrica, con pes
 **Cierre (en CTA):** bajo el logo ZYPE, la línea "con Hitch Point Studio" en Space Mono 18 px blanco al 70 % y el logo HPS a ~140 px de ancho.
 
 ## Negocio del video
-- Modo `hipotetico`: el negocio es ILUSTRATIVO. Nunca lo presentes como caso real ni sus cifras como resultados.
-- La "app" del negocio dentro del mockup se identifica con `ficha.nombre_mostrado` como wordmark tipográfico + un monograma geométrico genérico (inicial dentro de una forma simple).
+- Siempre es ILUSTRATIVO: lo defines tú en `decisiones.json` → `negocio` a partir del rubro que diga el guion. Nunca lo presentes como caso real ni sus cifras como resultados.
+- La "app" del negocio dentro del mockup se identifica con `negocio.nombre_mostrado` como wordmark tipográfico + un monograma geométrico genérico (inicial dentro de una forma simple). La voz nunca dice ese nombre.
 - Interior del mockup: si hay `brief.estetica_negocio`, su paleta, tipografías, radios y motivo (así el dueño siente que el sistema es suyo). Si es null, el clima del bloque.
 
 ## Prohibido

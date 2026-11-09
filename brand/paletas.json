@@ -1,5 +1,5 @@
 {
-  "_nota": "Fuente de verdad: Drive (assets/brand/paletas.json), se sincroniza al repo. Valida con: python3 scripts/validar_paletas.py",
+  "_nota": "Fuente de verdad: este archivo del repo (ya no se sincroniza desde Drive). Valida con: python3 scripts/validar_paletas.py",
   "constantes_zype": {
     "amarillo": "#FFE600",
     "alerta": "#E5484D",

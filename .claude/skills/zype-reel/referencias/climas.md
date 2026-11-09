@@ -2,7 +2,15 @@
 
 Problema que resuelven: si todo el video es grafito + petróleo + cian, el feed se vuelve monótono. Un **clima** cambia el ambiente de color de un bloque concreto; el **marco ZYPE** (lo que hace reconocible la marca) no cambia nunca.
 
-Valores en `brand/paletas.json` → `climas`. El brief trae la asignación en `brief.climas` (`{bloque: id}`); si falta, todo es `zype`.
+Valores en `brand/paletas.json` → `climas`. La asignación la eliges tú en `decisiones.json` → `climas`; `preparar_brief.py` la valida y la deja completa en `brief.climas` (`{bloque: id}`).
+
+## Cómo elegir (reglas de `paletas.json` → `reglas_rotacion`, las comprueba el validador)
+- PROBLEMA y CTA siempre en `zype`: el video arranca y cierra reconocible.
+- 1 o 2 bloques intermedios con otro clima (nunca más de 2). Un video todo zype es válido si el guion pide sobriedad, pero no lo hagas por costumbre.
+- Cada clima solo en los bloques de su lista `bloques` (papel solo en CRITERIO, bosque solo en RESULTADO…).
+- Con sello HPS, nada de `oceano` en CRITERIO.
+- No repitas la combinación de los últimos 3 videos (el validador la busca en `briefs/*/decisiones.json` y en los `brief.json` antiguos).
+- Elige por lo que pasa en ese tramo de la voz (ver "Personalidad de cada clima" abajo), no al azar.
 
 ## Qué cambia con el clima
 | Rol del clima | Sustituye a | Dónde |

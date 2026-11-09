@@ -1,5 +1,7 @@
 # Plantillas visuales (`brief.plantilla`)
 
+La eliges tú en `decisiones.json` (cuándo usar cada una: `decisiones.md`).
+
 ## estandar
 Un bloque tras otro tal como se describe en `layout_y_bloques.md`.
 
@@ -8,7 +10,7 @@ Desde HOY hasta RESULTADO la zona de escena se divide en dos columnas (~460 px c
 Con climas: la columna izquierda puede llevar el clima del bloque y la derecha volver a zype, o al revés, pero no mezcles dos climas no-zype a la vez en pantalla.
 
 ## calculadora
-En PROBLEMA y RESULTADO aparece una calculadora: (citas o mesas perdidas por semana) × (ticket promedio de la ficha) × 4 semanas = dinero perdido al mes. Cada factor entra al mencionarse y el total cuenta rápido. Etiqueta pequeña "EJEMPLO ILUSTRATIVO" junto al total.
+En PROBLEMA y RESULTADO aparece una calculadora: (citas o mesas perdidas por semana) × (ticket promedio de `brief.negocio.items_ejemplo`) × 4 semanas = dinero perdido al mes. Cada factor entra al mencionarse y el total cuenta rápido. Etiqueta pequeña "EJEMPLO ILUSTRATIVO" junto al total.
 
 ## dato
 En PROBLEMA un número gigante animado (ej. $100 que se encoge hasta $3) con la fuente en pequeño debajo; en RESULTADO la cifra se reencuadra con lo que el negocio sí puede hacer por etapas.

@@ -1,0 +1,35 @@
+{
+  "_nota": "Biblioteca de datos con fuente. El notebook se la pasa a GPT (solo puede citar cifras de aquí, con su acotación) y Claude la usa para poner la fuente en pantalla. Claude puede añadir datos nuevos verificados contra la fuente original (con url, cita literal, fecha y anadido_por: claude).",
+  "datos": {
+    "inversion_publicidad": {
+      "dato": "Los restaurantes independientes invierten de media un 1,9 % de sus ventas en publicidad.",
+      "fuente": "Fit Small Business",
+      "corta": "Fit Small Business",
+      "acotacion": "restaurante independiente",
+      "url": null,
+      "cita_literal": null,
+      "verificado": null,
+      "anadido_por": "biblioteca inicial"
+    },
+    "recomendacion_sba": {
+      "dato": "La SBA recomienda invertir entre un 7 % y un 8 %.",
+      "fuente": "DoorDash Merchants (recomendación de la SBA)",
+      "corta": "DoorDash Merchants",
+      "acotacion": "recomendación de la SBA (Administración de Pequeñas Empresas de EE. UU.); no es un dato medido",
+      "url": null,
+      "cita_literal": null,
+      "verificado": null,
+      "anadido_por": "biblioteca inicial"
+    },
+    "margen_neto": {
+      "dato": "El margen neto medio de un restaurante independiente está entre el 3 % y el 5 %.",
+      "fuente": "Toast",
+      "corta": "Toast",
+      "acotacion": "restaurante independiente",
+      "url": null,
+      "cita_literal": null,
+      "verificado": null,
+      "anadido_por": "biblioteca inicial"
+    }
+  }
+}

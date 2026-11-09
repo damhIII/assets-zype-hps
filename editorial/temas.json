@@ -1,0 +1,525 @@
+{
+  "_nota": "Temas de inspiración para el guion (del documento 'ZYPE — 20 temas de contenido'). No son un menú cerrado: el guionista puede salirse si el seed lo pide, siempre dentro del ADN. 'datos' apunta a ids de datos_verificados.json. 'cta' y 'nicho' son sugerencias.",
+  "temas": [
+    {
+      "id": 1,
+      "titulo": "El cliente que nadie respondió",
+      "tesis": "La venta se pierde en los primeros minutos, no en el precio.",
+      "toca_hps": false,
+      "ideas": [
+        {
+          "gancho": "Preguntó a las 9 pm. A las 9:05 le compró a otro.",
+          "sistema": "Lead de contratista calificado y agendado en segundos.",
+          "cta": "LEAD",
+          "nicho": "CONTRATISTAS"
+        },
+        {
+          "gancho": "\"¿Precio?\" en el DM. Visto. Venta perdida.",
+          "sistema": "Tienda local con respuesta automática y link de pago.",
+          "cta": "DM",
+          "nicho": "TIENDAS LOCALES"
+        },
+        {
+          "gancho": "Tu horario cierra. Tus clientes no.",
+          "sistema": "El negocio que vende mientras está cerrado.",
+          "cta": "24/7",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "titulo": "La cita que no llegó",
+      "tesis": "Un hueco vacío es dinero que no vuelve.",
+      "toca_hps": false,
+      "ideas": [
+        {
+          "gancho": "Agendó. No vino. Una silla vacía.",
+          "sistema": "Clínica con confirmación y lista de espera.",
+          "cta": "AGENDA",
+          "nicho": "CLÍNICAS"
+        },
+        {
+          "gancho": "La mesa reservada que nadie ocupó.",
+          "sistema": "Restaurante con recordatorio y reasignación.",
+          "cta": "MESA",
+          "nicho": "RESTAURANTES"
+        },
+        {
+          "gancho": "Cuánto te cuesta un no-show al mes.",
+          "sistema": "La calculadora animada del hueco vacío.",
+          "cta": "CALCULA",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "titulo": "El cliente que no volvió",
+      "tesis": "Conseguir un cliente nuevo cuesta más que hacer volver al que ya tienes.",
+      "toca_hps": false,
+      "ideas": [
+        {
+          "gancho": "Se cortó hace 5 semanas. Nadie le escribió.",
+          "sistema": "Barbería con reactivación automática.",
+          "cta": "VUELVE",
+          "nicho": "BARBERÍAS"
+        },
+        {
+          "gancho": "Dejó de venir. Luego dejó de pagar.",
+          "sistema": "Gimnasio que detecta la ausencia a tiempo.",
+          "cta": "RETENER",
+          "nicho": "GIMNASIOS"
+        },
+        {
+          "gancho": "Tu mejor cliente no sabe que lo es.",
+          "sistema": "CRM que reconoce y premia a los frecuentes.",
+          "cta": "VIP",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "titulo": "Reputación y reseñas",
+      "tesis": "Tu próximo cliente lee tus reseñas antes de conocerte.",
+      "toca_hps": false,
+      "ideas": [
+        {
+          "gancho": "Mala experiencia. Te enteras en Google.",
+          "sistema": "Encuesta privada antes de la reseña pública.",
+          "cta": "RESEÑAS",
+          "nicho": null
+        },
+        {
+          "gancho": "Tus clientes felices no escriben. Los molestos sí.",
+          "sistema": "Sistema que pide la reseña en el momento justo.",
+          "cta": "5 ESTRELLAS",
+          "nicho": null
+        },
+        {
+          "gancho": "4,9 estrellas y nadie te encuentra.",
+          "sistema": "Reputación + perfil de Google bien preparado.",
+          "cta": "GOOGLE",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "titulo": "Antes de anunciarte (preparar las condiciones)",
+      "tesis": "El anuncio solo amplifica lo que ya tienes. Si lo que tienes está roto, amplifica el problema.",
+      "toca_hps": true,
+      "ideas": [
+        {
+          "gancho": "Antes de pagar un anuncio, arregla esto.",
+          "sistema": "Fotos, oferta, reseñas y link de reserva.",
+          "cta": "CHECKLIST",
+          "nicho": null
+        },
+        {
+          "gancho": "Un anuncio perfecto hacia una página que no vende.",
+          "sistema": "El embudo roto, paso a paso.",
+          "cta": "EMBUDO",
+          "nicho": null
+        },
+        {
+          "gancho": "Primero preparamos, después activamos.",
+          "sistema": "El método Hitch Point Studio + ZYPE en 30 segundos.",
+          "cta": "MÉTODO",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "titulo": "Vender por vender",
+      "tesis": "La polémica central: al dueño le venden paquetes, nosotros diseñamos por etapas.",
+      "toca_hps": true,
+      "ideas": [
+        {
+          "gancho": "Te vendieron una app. Nadie te preguntó si la necesitabas.",
+          "sistema": "Diagnóstico antes que herramienta.",
+          "cta": "DIAGNÓSTICO",
+          "nicho": null
+        },
+        {
+          "gancho": "Lo que NO te vamos a vender todavía.",
+          "sistema": "Lo que esperamos a activar hasta que el negocio esté listo.",
+          "cta": "ETAPAS",
+          "nicho": null
+        },
+        {
+          "gancho": "Automatizar algo que no vende es perder clientes más rápido.",
+          "sistema": "Por qué la estrategia va primero.",
+          "cta": "ESTRATEGIA",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "titulo": "Likes vs. caja",
+      "tesis": "No medimos lo que se ve bonito. Medimos lo que entra.",
+      "toca_hps": false,
+      "ideas": [
+        {
+          "gancho": "10.000 vistas. Cero reservas.",
+          "sistema": "La diferencia entre alcance y venta.",
+          "cta": "CAJA",
+          "nicho": null
+        },
+        {
+          "gancho": "Tu reporte tiene likes. Tu banco no.",
+          "sistema": "Las métricas que sí importan.",
+          "cta": "MÉTRICAS",
+          "nicho": null
+        },
+        {
+          "gancho": "Fin de mes: lo único que medimos.",
+          "sistema": "Dashboard de ingresos por canal.",
+          "cta": "TESORERÍA",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "titulo": "El dueño atrapado en su negocio",
+      "tesis": "Si todo depende de ti, no tienes un negocio, tienes un trabajo.",
+      "toca_hps": false,
+      "ideas": [
+        {
+          "gancho": "Respondes WhatsApp a las 11 pm.",
+          "sistema": "Lo repetitivo automatizado, el dueño libre.",
+          "cta": "TIEMPO",
+          "nicho": null
+        },
+        {
+          "gancho": "Tu equipo responde lo mismo 50 veces al día.",
+          "sistema": "Preguntas frecuentes resueltas por el sistema.",
+          "cta": "EQUIPO",
+          "nicho": null
+        },
+        {
+          "gancho": "Te fuiste una semana y todo se paró.",
+          "sistema": "El negocio que funciona sin ti presente.",
+          "cta": "LIBERTAD",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "titulo": "El lead que se enfrió",
+      "tesis": "No se pierde por falta de interés. Se pierde por falta de seguimiento.",
+      "toca_hps": false,
+      "ideas": [
+        {
+          "gancho": "Mostró interés el lunes. El viernes compró con otro.",
+          "sistema": "Seguimiento por etapas.",
+          "cta": "SEGUIMIENTO",
+          "nicho": null
+        },
+        {
+          "gancho": "El presupuesto que mandaste y nunca seguiste.",
+          "sistema": "Recordatorios que cierran ventas.",
+          "cta": "CIERRE",
+          "nicho": null
+        },
+        {
+          "gancho": "Tu CRM es una libreta.",
+          "sistema": "Del caos a un pipeline claro.",
+          "cta": "CRM",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "titulo": "El dinero que no cobraste",
+      "tesis": "Vender no es lo mismo que cobrar.",
+      "toca_hps": false,
+      "ideas": [
+        {
+          "gancho": "Hiciste el trabajo. Todavía no cobras.",
+          "sistema": "Factura y recordatorios automáticos.",
+          "cta": "COBRAR",
+          "nicho": null
+        },
+        {
+          "gancho": "Persigues pagos en vez de vender.",
+          "sistema": "El tiempo que te roba cobrar a mano.",
+          "cta": "PAGOS",
+          "nicho": null
+        },
+        {
+          "gancho": "El depósito que evita el no-show.",
+          "sistema": "Cobro anticipado al reservar.",
+          "cta": "DEPÓSITO",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "titulo": "Trabajar a ciegas",
+      "tesis": "Si no sabes de dónde viene cada cliente, no sabes dónde invertir.",
+      "toca_hps": false,
+      "ideas": [
+        {
+          "gancho": "Vendes todos los días. No sabes qué funciona.",
+          "sistema": "Un dashboard que conecta todos los canales.",
+          "cta": "MAPA",
+          "nicho": null
+        },
+        {
+          "gancho": "¿De dónde vino tu último cliente?",
+          "sistema": "El origen de cada venta, rastreado.",
+          "cta": "ORIGEN",
+          "nicho": null
+        },
+        {
+          "gancho": "El reporte del lunes que llega solo a tu WhatsApp.",
+          "sistema": "Los números sin abrir una plataforma.",
+          "cta": "REPORTE",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "titulo": "La web que no vende",
+      "tesis": "Una web no es una tarjeta de presentación. Es un vendedor que trabaja 24 horas.",
+      "toca_hps": false,
+      "ideas": [
+        {
+          "gancho": "Tu web es bonita. Nadie compra.",
+          "sistema": "De vitrina a máquina de reservas.",
+          "cta": "WEB",
+          "nicho": null
+        },
+        {
+          "gancho": "3 segundos para convencer.",
+          "sistema": "Lo que el cliente busca al entrar y no encuentra.",
+          "cta": "3 SEGUNDOS",
+          "nicho": null
+        },
+        {
+          "gancho": "El botón que nadie ve.",
+          "sistema": "Un solo camino claro hacia la acción.",
+          "cta": "BOTÓN",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "titulo": "La imagen fija el precio",
+      "tesis": "La marca no es decoración. Decide cuánto puedes cobrar. Es terreno de Hitch Point Studio.",
+      "toca_hps": true,
+      "ideas": [
+        {
+          "gancho": "Mismo plato. Distinta foto. Distinto precio.",
+          "sistema": "El poder de la fotografía profesional.",
+          "cta": "FOTO",
+          "nicho": "RESTAURANTES"
+        },
+        {
+          "gancho": "Tu logo dice \"barato\" aunque no lo seas.",
+          "sistema": "Identidad alineada con el valor real.",
+          "cta": "MARCA",
+          "nicho": null
+        },
+        {
+          "gancho": "Antes y después: la marca que justifica el precio.",
+          "sistema": "Una transformación completa.",
+          "cta": "IDENTIDAD",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "titulo": "Contenido que vende vs. contenido que llena",
+      "tesis": "Publicar todos los días no sirve si nadie da el siguiente paso.",
+      "toca_hps": true,
+      "ideas": [
+        {
+          "gancho": "Publicas todos los días. Nada cambia.",
+          "sistema": "Contenido con propósito y llamada a la acción.",
+          "cta": "CONTENIDO",
+          "nicho": null
+        },
+        {
+          "gancho": "Cada post debería llevar a una venta.",
+          "sistema": "Del post al DM y del DM a la reserva.",
+          "cta": "CONVERSIÓN",
+          "nicho": null
+        },
+        {
+          "gancho": "El video que vende no es el más bonito.",
+          "sistema": "Estrategia antes que estética.",
+          "cta": "GUION",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "titulo": "Canales de venta propios",
+      "tesis": "Cada venta que pasa por otro canal te cobra una comisión.",
+      "toca_hps": false,
+      "ideas": [
+        {
+          "gancho": "50 chats. 3 pedidos mal anotados.",
+          "sistema": "Pedidos ordenados por WhatsApp con IA.",
+          "cta": "PEDIDOS",
+          "nicho": "RESTAURANTES"
+        },
+        {
+          "gancho": "La app de delivery se queda con tu margen.",
+          "sistema": "Llevar al cliente recurrente a tu canal directo.",
+          "cta": "DIRECTO",
+          "nicho": "RESTAURANTES"
+        },
+        {
+          "gancho": "Tu cliente es tuyo, no de la plataforma.",
+          "sistema": "Construir tu propia base de clientes.",
+          "cta": "BASE",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "titulo": "El círculo vicioso del margen fino",
+      "tesis": "El restaurante independiente invierte poco en publicidad y le queda poco margen. Somos aliados para romper ese círculo.",
+      "toca_hps": false,
+      "regla": "Di siempre \"restaurante independiente\", nunca \"el sector\".",
+      "ideas": [
+        {
+          "gancho": "De cada $100 que vendes, te quedan $3.",
+          "sistema": "El dato del margen y qué hacer con él.",
+          "cta": "MARGEN",
+          "nicho": "RESTAURANTES INDEPENDIENTES"
+        },
+        {
+          "gancho": "Poco margen, no invierto, no crezco.",
+          "sistema": "El círculo animado y cómo romperlo por etapas.",
+          "cta": "CÍRCULO",
+          "nicho": "RESTAURANTES INDEPENDIENTES"
+        }
+      ],
+      "datos": [
+        "inversion_publicidad",
+        "recomendacion_sba",
+        "margen_neto"
+      ]
+    },
+    {
+      "id": 17,
+      "titulo": "IA con criterio",
+      "tesis": "La IA es una herramienta potente. Sin estrategia, solo automatiza el caos.",
+      "toca_hps": false,
+      "ideas": [
+        {
+          "gancho": "La IA no arregla un negocio desordenado. Lo acelera.",
+          "sistema": "Primero el orden, después la IA.",
+          "cta": "CRITERIO",
+          "nicho": null
+        },
+        {
+          "gancho": "Un agente de IA entrenado con tu negocio, no genérico.",
+          "sistema": "Cómo aprende tu tono, tu carta y tus reglas.",
+          "cta": "AGENTE",
+          "nicho": "RESTAURANTES"
+        },
+        {
+          "gancho": "La IA responde. Tu equipo cierra.",
+          "sistema": "Tecnología y personas trabajando juntas.",
+          "cta": "EQUIPO IA",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "titulo": "Así trabajamos",
+      "tesis": "El método es el producto: diagnóstico, preparación, activación y medición.",
+      "toca_hps": true,
+      "ideas": [
+        {
+          "gancho": "Lo primero que hacemos no es vender.",
+          "sistema": "El diagnóstico.",
+          "cta": "DIAGNÓSTICO",
+          "nicho": null
+        },
+        {
+          "gancho": "Hitch Point Studio prepara. ZYPE activa.",
+          "sistema": "Dos equipos, un solo objetivo.",
+          "cta": "ALIADOS",
+          "nicho": null
+        },
+        {
+          "gancho": "Semana 1, mes 1, mes 3.",
+          "sistema": "La evolución de un negocio con el sistema.",
+          "cta": "PROCESO",
+          "nicho": null
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "titulo": "Un día con sistema vs. sin sistema",
+      "tesis": "Pantalla dividida: el mismo negocio, dos realidades.",
+      "toca_hps": false,
+      "ideas": [
+        {
+          "gancho": "Restaurante: 8 am a 11 pm, con y sin sistema.",
+          "sistema": "El mismo día, dos realidades.",
+          "cta": "RESTAURANTE",
+          "nicho": "RESTAURANTES"
+        },
+        {
+          "gancho": "Clínica: el lunes con y sin sistema.",
+          "sistema": "El mismo lunes, dos realidades.",
+          "cta": "CLÍNICA",
+          "nicho": "CLÍNICAS"
+        },
+        {
+          "gancho": "Contratista: el mismo lead, dos finales.",
+          "sistema": "El mismo lead, dos finales.",
+          "cta": "CONTRATISTA",
+          "nicho": "CONTRATISTAS"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "titulo": "Mitos del dueño de negocio",
+      "tesis": "Creencias que frenan el crecimiento. Las desmontamos con datos y con el sistema.",
+      "toca_hps": false,
+      "ideas": [
+        {
+          "gancho": "\"Mi cliente no usa Instagram.\"",
+          "sistema": "Dónde está realmente tu cliente.",
+          "cta": "MITO",
+          "nicho": null
+        },
+        {
+          "gancho": "\"Eso es para empresas grandes.\"",
+          "sistema": "Sistemas a la medida de un negocio local.",
+          "cta": "LOCAL",
+          "nicho": null
+        },
+        {
+          "gancho": "\"El boca a boca me basta.\"",
+          "sistema": "El boca a boca existe, pero hoy pasa por internet.",
+          "cta": "BOCA A BOCA",
+          "nicho": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,55 +1,47 @@
-# brief.json — lo que manda el notebook de Colab
+# brief.json (versión 3) — los datos de render
 
-El notebook escribe guion, locución y tiempos; todo lo que varía de un video a otro llega en este archivo. Lo que no varía (marca, layout, técnica) está en las otras referencias de la skill. Impórtalo tal cual en el proyecto (`src/brief.json`) y lee de él frames, textos y colores: **no copies números a mano**.
+Lo genera `scripts/preparar_brief.py` a partir de tu `decisiones.json`, el guion y los tiempos de la voz. No lo edites a mano: si algo cambia, corrige `decisiones.json` y vuelve a ejecutar el script. Cópialo a `src/brief.json` e impórtalo; lee de él frames, textos y colores: **no copies números a mano**.
 
 ```jsonc
 {
-  "version": 2,
-  "base": "02-2_mesa_hipotetico_1105-1323", // nombre base de los archivos de salida (tema_cta_modo_fecha)
-  "modo": "hipotetico",                     // "hipotetico" (negocio ILUSTRATIVO) | "real" (cliente)
-  "audio": "02-2_mesa_hipotetico_locucion.wav",   // en la misma carpeta que el brief, o adjunto en el chat
-  "video": { "width": 1080, "height": 1920, "fps": 30, "frames": 1274, "voz_s": 40.96, "cola_s": 1.5 },
+  "version": 3,
+  "base": "20261109-1300",                  // carpeta briefs/<BASE> y nombre del MP4
+  "audio": "locucion.wav",                  // en briefs/<BASE>/
+  "video": { "width": 1080, "height": 1920, "fps": 30, "frames": 1997, "voz_s": 65.05, "cola_s": 1.5 },
 
-  "nicho_header": "RESTAURANTES",           // → "SISTEMAS PARA RESTAURANTES"
-  "cta": "MESA",
-  "plantilla": "estandar",                  // estandar | dividida | calculadora | dato | circulo → plantillas.md
-  "hps": true,                              // sello Hitch Point Studio en CRITERIO y en el cierre → marca.md
+  "nicho_header": "IMPRENTAS",              // → "SISTEMAS PARA IMPRENTAS"
+  "cta": "PAGOS",
+  "plantilla": "dividida",                  // → plantillas.md
+  "hps": false,                             // → marca.md
   "logos": { "zype": true, "hps": true },   // false = el PNG no está: usa el wordmark de texto
-  "tema": { "id": 2, "variante": 2, "titulo": "...", "tesis": "...", "gancho": "...", "sistema": "..." },
-  "fuente_en_pantalla": "",                 // fuente de un dato, si se cita alguno
-  "notas_direccion": "",                    // indicación creativa del usuario solo para este video: tiene prioridad sobre tu criterio, no sobre la marca
+  "tema": { "id": 10, "titulo": "...", "tesis": "..." },
+  "fuente_en_pantalla": "",
 
-  "climas": { "problema": "zype", "hoy": "brasa", "criterio": "papel", "sistema": "zype", "resultado": "bosque", "cta": "zype" },
-                                            // id de brand/paletas.json → climas.md. Si falta: todo "zype"
-  "estetica_negocio": {                     // interior del mockup (null = mockup en clima del bloque)
-    "origen": "curada",                     // "real" (ficha del cliente) | "curada" (paletas_negocio del repo)
-    "paleta_id": "terracota",
+  "climas": { "problema": "zype", "hoy": "zype", "criterio": "zype", "sistema": "oceano", "resultado": "bosque", "cta": "zype" },
+  "estetica_negocio": {                     // interior del mockup (null = mockup en el clima del bloque)
+    "origen": "curada", "paleta_id": "pizarra",
     "paleta": { "fondo": "#...", "superficie": "#...", "primario": "#...", "secundario": "#...", "acento": "#...", "texto": "#...", "texto_suave": "#...", "alerta": "#E5484D", "exito": "#30A46C" },
-    "tipografia": { "titulos": "\"DM Serif Display\", serif", "texto": "\"DM Sans\", sans-serif" },
-    "lenguaje_visual": { "radios": "16px", "motivo": "..." }
+    "tipografia": { "titulos": "\"Inter\", sans-serif", "texto": "\"Inter\", sans-serif" },
+    "lenguaje_visual": { "radios": "12px", "motivo": "..." }
   },
-
-  "fuentes": [                              // CSS con woff2 en base64, ya en el repo
+  "fuentes": [                              // css = fonts/css/*.css (woff2 en base64) o null si no está cacheada (usa solo el stack genérico)
     { "rol": "zype", "familia": "Montserrat", "css": "fonts/css/montserrat__400-500-700-800-900.css", "stack": "\"Montserrat\", sans-serif" }
   ],
-
-  "ficha": { "nombre_mostrado": "...", "negocio": {...}, "vocabulario": {...}, "operacion": {...} },
+  "negocio": { "nombre_mostrado": "Tinta Vecinal", "rubro": "imprenta", "moneda": "$", "items_ejemplo": [{ "nombre": "500 volantes", "precio": 600 }], "canales": ["..."] },
 
   "bloques": [
-    { "id": "problema", "ini_f": 0, "fin_f": 141, "ini_s": 0.0, "fin_s": 4.7,
-      "titular": ["línea 1 blanca", "línea 2 amarilla"], "texto": "lo que se locuta",
-      "palabras": [0, 11] },                // índices [desde, hasta) en "palabras"
-    { "id": "sistema", "...": "...", "pasos": ["Mensaje entra", "IA confirma", "Mesa asignada"],
-      "pasos_f": [612, 680, 741] }          // frame en que se nombra cada paso (null si no se encontró)
+    { "id": "problema", "ini_f": 0, "fin_f": 194, "ini_s": 0.0, "fin_s": 6.47,
+      "titular": ["Persigues pagos", "En vez de vender"], "texto": "lo que dice la voz en este tramo",
+      "palabras": [0, 14] },                // índices [desde, hasta) en "subtitulos"
+    { "id": "sistema", "...": "...", "pasos": ["Comprobante entra", "IA lo asigna", "Recordatorio sale"],
+      "pasos_f": [960, 1010, 1130] }        // frame en que la voz nombra cada paso
   ],
 
-  "subtitulos": [["Agendó.", 0.0, 0.42], ["No", 0.5, 0.61]],  // palabras del GUION alineadas con la voz → úsalas para los subtítulos
-  "palabras": [["Agendó", 0.0, 0.42], ["No", 0.5, 0.61]]      // salida cruda de Whisper [palabra, inicio_s, fin_s]
+  "subtitulos": [["Persigues", 0.0, 0.42], ["pagos", 0.5, 0.81]]   // palabras del GUION (su ortografía) con los tiempos de la voz
 }
 ```
 
 ## Reglas de lectura
-- Los rangos `ini_f`–`fin_f` de los bloques son exactos y contiguos; `video.frames` es la duración de la composición.
-- `pasos_f` es orientativo: si un valor es null, usa el reparto uniforme dentro del bloque.
-- Los subtítulos salen de `subtitulos`: ya traen la ortografía del guion con los tiempos de la voz (cifras incluidas). `palabras` queda solo como referencia.
-- Si `version` es 1 o no existe (brief viejo, prompt largo), sigue lo que diga el prompt.
+- Los rangos `ini_f`–`fin_f` son exactos y contiguos; el último acaba en `video.frames`.
+- Los subtítulos salen de `subtitulos`: ya traen la ortografía del guion con los tiempos de la voz.
+- Briefs versión 2 (pipeline anterior): mismos campos salvo `ficha` en lugar de `negocio` (`ficha.vocabulario.items_ejemplo`, `ficha.negocio.moneda`), `palabras` crudas de Whisper y `notas_direccion`.
