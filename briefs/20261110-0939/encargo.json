@@ -1,0 +1,13 @@
+{
+ "version": 2,
+ "base": "20261110-0939",
+ "tipo": "educativo",
+ "marca": "EN BRUTO",
+ "formato": "auto",
+ "formato_guion": "planta",
+ "idiomas": [
+  "es"
+ ],
+ "seed": "Como organizar tu armario hecho a medida, como distribuir puertas, gavetas, etc. para optimizar espacio, como un armario personalizado hecho a medida por un carpintero te da flexibilidad y comodidad",
+ "creado": "2026-11-10T09:40:18-05:00"
+}
