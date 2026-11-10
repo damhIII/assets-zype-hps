@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "base": "20261109-1910",
+ "marca": "EN BRUTO",
+ "marca_pendiente": false,
+ "formato": "auto",
+ "formato_guion": "comparador",
+ "idiomas": [
+  "es"
+ ],
+ "seed": "Tipos de armarios y como comprarlos",
+ "obra_pedida": "auto",
+ "obras": [],
+ "creado": "2026-11-09T19:11:25-05:00"
+}
