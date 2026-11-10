@@ -1,14 +1,13 @@
 {
   "_nota": "Parámetros de entrada de cada plantilla de escena. preparar_brief.py valida decisiones.json → plantilla.params contra este archivo. La dirección visual de cada una está en <id>.md.",
   "_tipos": {
-    "texto": "cadena, o {\"es\": ..., \"en\": ...} cuando el video sale en los dos idiomas",
+    "texto": "cadena (el video sale solo en español)",
     "numero": "número o null",
     "entero": "entero",
     "bool": "true / false",
     "enum": "uno de 'valores'",
-    "ancla": "índice de palabra del guion ([n] de alinear.py); con dos idiomas, {\"es\": n, \"en\": m}",
-    "dato": "id de editorial/datos_verificados.json con verificado: true, u 'obra:<campo>' de datos_publicables verificados de la obra elegida",
-    "activo": "nombre de archivo de la obra elegida (assets/obras/<id>/)",
+    "ancla": "índice de palabra del guion ([n] de alinear.py)",
+    "dato": "id de editorial/datos_verificados.json con verificado: true",
     "estilo": "id de diseno/tokens.json → estilos_interior",
     "icono": "nombre de icons/<nombre>.svg (sin .svg)",
     "lista": "lista de 'item', entre 'min' y 'max' elementos",
@@ -19,7 +18,6 @@
     "presupuesto": {
       "nombre": { "es": "Presupuesto desglosado", "en": "Budget breakdown" },
       "md": "presupuesto.md",
-      "usa_obra": "opcional",
       "aviso_legal": false,
       "params": {
         "titulo": { "tipo": "texto", "requerido": true },
@@ -47,7 +45,6 @@
     "cronograma": {
       "nombre": { "es": "Línea de tiempo de obra", "en": "Project timeline" },
       "md": "cronograma.md",
-      "usa_obra": "opcional",
       "aviso_legal": false,
       "params": {
         "titulo": { "tipo": "texto", "requerido": true },
@@ -76,7 +73,6 @@
     "mito_realidad": {
       "nombre": { "es": "Mito vs. realidad", "en": "Myth vs. reality" },
       "md": "mito_realidad.md",
-      "usa_obra": "no",
       "aviso_legal": true,
       "params": {
         "pares": { "tipo": "lista", "min": 1, "max": 3, "requerido": true, "item": { "tipo": "objeto", "campos": {
@@ -93,7 +89,6 @@
     "planta": {
       "nombre": { "es": "Planta 2D", "en": "2D floor plan" },
       "md": "planta.md",
-      "usa_obra": "opcional",
       "aviso_legal": false,
       "params": {
         "espacio": { "tipo": "enum", "valores": ["cocina", "bano", "sala", "dormitorio", "sala_comedor", "estudio", "lavanderia", "exterior", "apartamento"], "requerido": true },
@@ -117,7 +112,6 @@
     "errores": {
       "nombre": { "es": "Errores caros", "en": "Costly mistakes" },
       "md": "errores.md",
-      "usa_obra": "no",
       "aviso_legal": false,
       "params": {
         "contador": { "tipo": "enum", "valores": ["ninguno", "riesgo", "costo"], "defecto": "riesgo" },
@@ -139,7 +133,6 @@
     "checklist": {
       "nombre": { "es": "Checklist de verificación", "en": "Vetting checklist" },
       "md": "checklist.md",
-      "usa_obra": "no",
       "aviso_legal": true,
       "params": {
         "titulo": { "tipo": "texto", "requerido": true },
@@ -159,13 +152,11 @@
     "comparador": {
       "nombre": { "es": "Comparador de materiales", "en": "Material comparison" },
       "md": "comparador.md",
-      "usa_obra": "opcional",
       "aviso_legal": false,
       "params": {
         "opciones": { "tipo": "lista", "min": 2, "max": 3, "requerido": true, "item": { "tipo": "objeto", "campos": {
           "nombre": { "tipo": "texto", "requerido": true },
           "icono": { "tipo": "icono" },
-          "imagen": { "tipo": "activo" },
           "ancla": { "tipo": "ancla", "requerido": true }
         } } },
         "criterios": { "tipo": "lista", "min": 2, "max": 5, "requerido": true, "item": { "tipo": "objeto", "campos": {
@@ -183,39 +174,6 @@
           "texto": { "tipo": "texto", "requerido": true },
           "ancla": { "tipo": "ancla", "requerido": true }
         } }
-      }
-    },
-    "antes_despues": {
-      "nombre": { "es": "Antes / después", "en": "Before / after" },
-      "md": "antes_despues.md",
-      "usa_obra": "preferida",
-      "aviso_legal": false,
-      "params": {
-        "fuente_visual": { "tipo": "enum", "valores": ["obra", "ilustracion"], "requerido": true },
-        "antes": { "tipo": "objeto", "requerido": true, "campos": {
-          "activo": { "tipo": "activo", "requerido_si": { "param": "fuente_visual", "igual": "obra" } },
-          "etiqueta": { "tipo": "texto", "requerido": true },
-          "ancla": { "tipo": "ancla", "requerido": true }
-        } },
-        "despues": { "tipo": "objeto", "requerido": true, "campos": {
-          "activo": { "tipo": "activo", "requerido_si": { "param": "fuente_visual", "igual": "obra" } },
-          "etiqueta": { "tipo": "texto", "requerido": true },
-          "ancla": { "tipo": "ancla", "requerido": true }
-        } },
-        "proceso": { "tipo": "lista", "min": 0, "max": 4, "item": { "tipo": "objeto", "campos": {
-          "activo": { "tipo": "activo", "requerido": true },
-          "etiqueta": { "tipo": "texto" },
-          "ancla": { "tipo": "ancla", "requerido": true }
-        } } },
-        "transicion": { "tipo": "enum", "valores": ["cortina", "deslizar", "fundido_luz"], "defecto": "cortina" },
-        "datos": { "tipo": "lista", "min": 0, "max": 3, "item": { "tipo": "objeto", "campos": {
-          "etiqueta": { "tipo": "texto", "requerido": true },
-          "valor": { "tipo": "numero", "fuente_en": "fuente" },
-          "unidad": { "tipo": "enum", "valores": ["usd", "semanas", "dias", "pies2"] },
-          "fuente": { "tipo": "dato" },
-          "ancla": { "tipo": "ancla", "requerido": true }
-        } } },
-        "creditos": { "tipo": "bool", "defecto": true }
       }
     }
   }

@@ -11,8 +11,8 @@ Nunca leas `palabras.json` directamente desde Remotion: usa `brief.subtitulos` y
 | Disparador | Palabra (índice) | Animación |
 |---|---|---|
 | Cambio de bloque | `bloques[].desde` | sale el titular anterior, entra el nuevo; la escena del bloque empieza; fundido de ambiente si cambia |
-| Elemento de plantilla (partida, fase, ítem, error, opción, criterio, mueble, estilo, foto) | su `ancla` | entra el elemento (ver la ficha de la plantilla) |
-| Giro (realidad, después, antídoto, veredicto, retraso) | su `ancla…` | la transformación termina **en** la palabra (empieza unos frames antes) |
+| Elemento de plantilla (partida, fase, ítem, error, opción, criterio, mueble, estilo) | su `ancla` | entra el elemento (ver la ficha de la plantilla) |
+| Giro (realidad, antídoto, veredicto, retraso) | su `ancla…` | la transformación termina **en** la palabra (empieza unos frames antes) |
 | Cifra verificada | el `ancla` de su elemento | conteo de `conteo_frames`, termina antes de la siguiente palabra larga |
 | Palabra clave | `cta_f` (lo calcula el script: última aparición de la palabra `cta`) | pop de la caja CTA y flechas |
 | Subtítulo | cada palabra de `subtitulos` | resaltado de la palabra actual |
@@ -24,4 +24,3 @@ Nunca leas `palabras.json` directamente desde Remotion: usa `brief.subtitulos` y
 - Nada nuevo en los últimos 10 frames de un bloque (se cortaría con el cambio de titular).
 - Transición entre ambientes: `reglas_ambientes.transicion_frames` (12) centrados en `ini_f` del bloque nuevo, con `interpolateColors`; nunca un corte seco de color.
 - La cola (`cola_s`) es imagen quieta con micro-movimiento: CTA visible y legible hasta el último frame.
-- Con dos idiomas, el **orden** y el **tipo** de cada animación son idénticos; solo cambian los frames. No compenses diferencias de duración añadiendo o quitando elementos.

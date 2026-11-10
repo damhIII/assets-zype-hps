@@ -2,7 +2,7 @@
 
 **Nombre:** {{NOMBRE_MARCA}}
 
-(El nombre de la marca no se escribe en ningún archivo: vive en una sola variable, `MARCA`, de la configuración del notebook, que lo inserta aquí al construir el prompt. Mientras el nombre esté pendiente, el guion no nombra la marca.)
+(El nombre es **EN BRUTO**. Vive en una sola constante, `MARCA`, de la configuración del notebook, que lo inserta aquí al construir el prompt.)
 
 ## Qué es (y qué no es)
 Es una agencia de decoración, remodelación, construcción e interiores en Florida que **capta clientes y coordina proyectos**. La ejecución de obra la hacen contratistas y profesionales externos; un socio atiende la operación y el filtrado de las conversaciones que llegan por Instagram.

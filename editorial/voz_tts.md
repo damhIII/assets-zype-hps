@@ -7,13 +7,3 @@
 
 #### TRANSCRIPCIÓN A LOCUTAR:
 {{GUION}}
-
-# IDIOMA: en
-# PROFILE: Someone who knows Florida construction, talking straight to a homeowner like an ally who is saving them from an expensive mistake.
-- ENERGY AND PACE: warm, confident, approachable. Lively Reel pace (~155 words per minute), no hesitation. The hook lands hard; slow down slightly for the key insight; lists and phases move with precision, with a micro-pause between items; the close is direct and friendly.
-- EMPHASIS: the cost or the risk, "before you…", each list item, the result, and the keyword at the end.
-- PUNCTUATION: every period is a beat, every comma a quick breath. Never monotone or robotic.
-- LANGUAGE: natural American English, plain and modern.
-
-#### SCRIPT TO VOICE:
-{{GUION}}

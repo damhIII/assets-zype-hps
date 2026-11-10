@@ -1,9 +1,9 @@
 # Construcción técnica (Remotion)
 
 ## Proyecto
-- Remotion 4 en TypeScript. Una composición por idioma del encargo: `Reel-es` y/o `Reel-en`, cada una con `width`, `height`, `fps` y **`frames`** exactos de su brief.
-- Copia `briefs/<BASE>/<idioma>/brief.json` a `src/brief_<idioma>.json` e impórtalo; pasa el brief por props a un único componente `<Reel brief={…} />`: mismas escenas para los dos idiomas.
-- Copia a `public/` el audio (`public/<idioma>/locucion.wav`), los activos de obra que uses y SOLO los assets del repo que uses; referencia todo con `staticFile()`.
+- Remotion 4 en TypeScript. Una composición, `Reel-es`, con `width`, `height`, `fps` y **`frames`** exactos del brief.
+- Copia `briefs/<BASE>/es/brief.json` a `src/brief_es.json` e impórtalo; pasa el brief por props a un único componente `<Reel brief={…} />`.
+- Copia a `public/` el audio (`public/es/locucion.wav`) y SOLO los assets del repo que uses; referencia todo con `staticFile()`. No hay fotos ni videos: todo se dibuja.
 - Audio: la locución es la única pista. No la recortes, no la aceleres, sin música.
 
 ## Assets del repo
@@ -25,4 +25,4 @@ Carga las fuentes antes del primer frame: importa los `.css` (o inyéctalos en u
 ## Reglas de código
 - Determinismo total: prohibido `Math.random()` (usa `Math.sin`, índices o `random(seed)` de Remotion).
 - Componentes: uno por capa del marco (`ProgressBar`, `Header`, `Titular`, `Subtitulos`, `AvisoLegal`, `Fondo`), uno por bloque y uno por plantilla (`PlantillaPresupuesto`, `PlantillaCronograma`, …) que recibe `brief.plantilla.params`. El ambiente entra con un hook `useAmbiente()` que interpola colores en las fronteras.
-- Ningún texto escrito a mano en los componentes: todo viene del brief (titulares, params, `cta_previo`, `aviso_legal`, `ilustrativo`, créditos). Así la versión en inglés no arrastra español.
+- Ningún texto escrito a mano en los componentes: todo viene del brief (titulares, params, `cta_previo`, `aviso_legal`, `ilustrativo`).

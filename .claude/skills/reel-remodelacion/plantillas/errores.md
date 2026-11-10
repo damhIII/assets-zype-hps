@@ -8,11 +8,11 @@
 {
   "contador": "riesgo",                // ninguno | riesgo (medidor cualitativo) | costo (solo si TODOS tienen costo_usd + fuente)
   "errores": [                         // 2-5
-    { "titulo": { "es": "Pintar sobre la mancha", "en": "Painting over the stain" },
-      "consecuencia": { "es": "Vuelve, y ahora detrás del drywall", "en": "It comes back, now behind the drywall" },
-      "nivel": "alto", "icono": "droplets", "ancla": { "es": 20, "en": 18 } }
+    { "titulo": "Pintar sobre la mancha",
+      "consecuencia": "Vuelve, y ahora detrás del drywall",
+      "nivel": "alto", "icono": "droplets", "ancla": 20 }
   ],
-  "antidoto": { "texto": { "es": "Primero la causa: ventilación", "en": "Fix the cause first: ventilation" }, "ancla": { "es": 70, "en": 64 } }
+  "antidoto": { "texto": "Primero la causa: ventilación", "ancla": 70 }
 }
 ```
 

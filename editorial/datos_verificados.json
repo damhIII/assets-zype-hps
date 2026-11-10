@@ -1,9 +1,8 @@
 {
-  "_nota": "Biblioteca de datos con fuente. El notebook SOLO le pasa al guionista los datos con verificado: true; Claude solo pone en pantalla esos. Todos empiezan como pendientes: no hay cifras escritas de memoria. Para verificar uno: consulta la fuente oficial, reescribe 'dato' con la afirmación exacta (sin 'TODO'), rellena url (la página exacta), cita_literal (texto literal de la fuente), fecha_consulta (AAAA-MM-DD) y pon verificado: true. 'dato_en' es la versión en inglés (opcional; si falta, el adaptador la traduce). 'acotacion' es el alcance que nunca se puede omitir al citarlo (condado, tipo de obra, año).",
+  "_nota": "Biblioteca de datos con fuente. El notebook SOLO le pasa al guionista los datos con verificado: true; Claude solo pone en pantalla esos. Todos empiezan como pendientes: no hay cifras escritas de memoria. Para verificar uno: consulta la fuente oficial, reescribe 'dato' con la afirmación exacta (sin 'TODO'), rellena url (la página exacta), cita_literal (texto literal de la fuente), fecha_consulta (AAAA-MM-DD) y pon verificado: true. 'acotacion' es el alcance que nunca se puede omitir al citarlo (condado, tipo de obra, año).",
   "datos": {
     "licencia_obligatoria": {
       "dato": "TODO: qué tipos de trabajo exigen licencia estatal de contratista en Florida (estructural, techos, plomería, electricidad, aire acondicionado…) y cuáles no.",
-      "dato_en": null,
       "fuente": "Florida DBPR · Construction Industry Licensing Board; Florida Statutes, capítulo 489",
       "corta": "Florida DBPR",
       "acotacion": "Florida; depende del tipo de trabajo; algunos condados tienen licencias propias",
@@ -15,7 +14,6 @@
     },
     "verificar_licencia": {
       "dato": "TODO: cómo se comprueba en línea la licencia de un contratista en Florida (buscador oficial y qué datos muestra: estado, vencimiento, quejas).",
-      "dato_en": null,
       "fuente": "Florida DBPR (buscador de licencias)",
       "corta": "Florida DBPR",
       "acotacion": "licencias estatales; las de condado se consultan en el condado",
@@ -27,7 +25,6 @@
     },
     "contratar_sin_licencia": {
       "dato": "TODO: consecuencias para el contratista sin licencia y para el propietario que lo contrata (validez del contrato, sanciones, agravantes en estado de emergencia).",
-      "dato_en": null,
       "fuente": "Florida Statutes §489.127 y §489.128",
       "corta": "Florida Statutes",
       "acotacion": "Florida; no es asesoría legal",
@@ -39,7 +36,6 @@
     },
     "fondo_recuperacion": {
       "dato": "TODO: qué es el Florida Homeowners' Construction Recovery Fund, quién puede reclamar y en qué casos (requisito de contratista con licencia).",
-      "dato_en": null,
       "fuente": "Florida DBPR; Florida Statutes §489.140–489.144",
       "corta": "Florida DBPR",
       "acotacion": "solo contratos con contratistas con licencia estatal",
@@ -51,7 +47,6 @@
     },
     "deposito_inicial": {
       "dato": "TODO: qué exige la ley cuando un contratista recibe un depósito inicial (porcentaje que activa la obligación y plazos para pedir permisos y empezar).",
-      "dato_en": null,
       "fuente": "Florida Statutes §489.126",
       "corta": "Florida Statutes",
       "acotacion": "Florida; contratistas con licencia",
@@ -63,7 +58,6 @@
     },
     "lien_subcontratistas": {
       "dato": "TODO: cómo funciona el construction lien (reclamo sobre la propiedad) de subcontratistas y proveedores aunque el propietario le haya pagado al contratista principal, y qué documentos lo previenen (release of lien).",
-      "dato_en": null,
       "fuente": "Florida Statutes, capítulo 713 (Construction Lien Law)",
       "corta": "Florida Statutes",
       "acotacion": "Florida; no es asesoría legal",
@@ -75,7 +69,6 @@
     },
     "notice_of_commencement": {
       "dato": "TODO: qué es el Notice of Commencement, cuándo es obligatorio (umbral de monto de la obra) y dónde se registra.",
-      "dato_en": null,
       "fuente": "Florida Statutes §713.13; oficina del Clerk del condado",
       "corta": "Florida Statutes",
       "acotacion": "Florida; el umbral puede cambiar por tipo de obra",
@@ -87,7 +80,6 @@
     },
     "owner_builder": {
       "dato": "TODO: qué implica sacar un permiso como owner-builder (propietario que actúa como su propio contratista) y qué responsabilidades asume.",
-      "dato_en": null,
       "fuente": "Florida Statutes §489.103",
       "corta": "Florida Statutes",
       "acotacion": "Florida; condiciones y declaración obligatoria",
@@ -99,7 +91,6 @@
     },
     "permisos_por_condado": {
       "dato": "TODO: qué obras interiores requieren permiso y cuáles no, condado por condado (empezar por Miami-Dade, Broward, Palm Beach, Orange y Hillsborough), con el enlace oficial de cada uno.",
-      "dato_en": null,
       "fuente": "Departamento de construcción / permisos de cada condado o municipio",
       "corta": "Condado",
       "acotacion": "varía por condado y por municipio; citar siempre el condado",
@@ -111,7 +102,6 @@
     },
     "plazos_permiso": {
       "dato": "TODO: tiempos de revisión de permisos publicados por el condado (si los publica) para remodelación residencial.",
-      "dato_en": null,
       "fuente": "Portal de permisos del condado",
       "corta": "Condado",
       "acotacion": "condado concreto y tipo de permiso; los plazos cambian",
@@ -123,7 +113,6 @@
     },
     "permisos_abiertos": {
       "dato": "TODO: qué es un permiso abierto o vencido, cómo se consulta por dirección y por qué puede complicar una venta o un refinanciamiento.",
-      "dato_en": null,
       "fuente": "Portal de permisos del condado",
       "corta": "Condado",
       "acotacion": "condado concreto",
@@ -135,7 +124,6 @@
     },
     "codigo_construccion": {
       "dato": "TODO: edición vigente del Florida Building Code y desde cuándo aplica.",
-      "dato_en": null,
       "fuente": "Florida Building Commission",
       "corta": "Florida Building Code",
       "acotacion": "Florida; edición vigente en la fecha de consulta",
@@ -147,7 +135,6 @@
     },
     "zona_hvhz": {
       "dato": "TODO: qué condados están en la High-Velocity Hurricane Zone (HVHZ) y qué cambia para ventanas, puertas y techos.",
-      "dato_en": null,
       "fuente": "Florida Building Code",
       "corta": "Florida Building Code",
       "acotacion": "solo condados en HVHZ",
@@ -159,7 +146,6 @@
     },
     "aprobacion_producto": {
       "dato": "TODO: qué es la aprobación de producto (Florida Product Approval y, en Miami-Dade, la NOA) para ventanas, puertas y techos, y cómo se consulta.",
-      "dato_en": null,
       "fuente": "Florida Building Commission (Product Approval); Miami-Dade County (NOA)",
       "corta": "Florida Product Approval",
       "acotacion": "productos de envolvente exterior",
@@ -171,7 +157,6 @@
     },
     "temporada_huracanes": {
       "dato": "TODO: fechas oficiales de la temporada de huracanes del Atlántico.",
-      "dato_en": null,
       "fuente": "NOAA · National Hurricane Center",
       "corta": "NOAA",
       "acotacion": "cuenca del Atlántico",
@@ -183,7 +168,6 @@
     },
     "descuento_mitigacion": {
       "dato": "TODO: obligación de las aseguradoras de ofrecer descuentos por mitigación de viento y qué es una inspección de mitigación.",
-      "dato_en": null,
       "fuente": "Florida Office of Insurance Regulation; Florida Statutes §627.0629",
       "corta": "Florida OIR",
       "acotacion": "seguro de vivienda en Florida; el descuento depende de la aseguradora",
@@ -195,7 +179,6 @@
     },
     "my_safe_florida_home": {
       "dato": "TODO: estado actual del programa My Safe Florida Home (si acepta solicitudes, requisitos y qué mejoras cubre).",
-      "dato_en": null,
       "fuente": "My Safe Florida Home (Florida Department of Financial Services)",
       "corta": "My Safe Florida Home",
       "acotacion": "programa con fondos limitados; el estado cambia",
@@ -207,7 +190,6 @@
     },
     "regla_50_inundacion": {
       "dato": "TODO: qué es la regla de mejora sustancial (50 %) en zonas inundables y cómo afecta a una remodelación grande.",
-      "dato_en": null,
       "fuente": "FEMA (Substantial Improvement / Substantial Damage); oficina de planificación de inundaciones del condado",
       "corta": "FEMA",
       "acotacion": "propiedades en zona de inundación especial; cada municipio aplica su ordenanza",
@@ -219,7 +201,6 @@
     },
     "humedad_moho": {
       "dato": "TODO: rango de humedad interior recomendado para prevenir moho y la recomendación sobre materiales mojados.",
-      "dato_en": null,
       "fuente": "U.S. EPA (guía sobre moho)",
       "corta": "EPA",
       "acotacion": "recomendación general para viviendas",
@@ -231,7 +212,6 @@
     },
     "condominios_inspecciones": {
       "dato": "TODO: obligaciones vigentes de inspecciones de seguridad (milestone inspections) y estudios de reservas (SIRS) en condominios, y a qué edificios aplican.",
-      "dato_en": null,
       "fuente": "Florida Statutes §553.899 y §718.112; Florida DBPR (División de Condominios)",
       "corta": "Florida Statutes",
       "acotacion": "condominios de cierta altura y antigüedad; la ley se ha modificado varias veces",
@@ -243,7 +223,6 @@
     },
     "hoa_aprobacion": {
       "dato": "TODO: dónde se establece que una remodelación necesita aprobación del HOA o de la asociación del condominio (documentos de la asociación) y qué suele exigirse.",
-      "dato_en": null,
       "fuente": "Florida Statutes cap. 718 (condominios) y cap. 720 (HOA); documentos de cada asociación",
       "corta": "Documentos de la asociación",
       "acotacion": "depende de cada asociación",
@@ -255,7 +234,6 @@
     },
     "estafas_denuncia": {
       "dato": "TODO: dónde denunciar en Florida a un contratista sin licencia o una estafa de reparación (sobre todo después de un huracán).",
-      "dato_en": null,
       "fuente": "Florida DBPR (unlicensed activity); Florida Attorney General",
       "corta": "Florida DBPR",
       "acotacion": "Florida",
@@ -267,7 +245,6 @@
     },
     "retorno_remodelacion": {
       "dato": "TODO: porcentaje del costo que se recupera al vender, por tipo de remodelación, para la región que incluya Florida (año del informe).",
-      "dato_en": null,
       "fuente": "Zonda · Cost vs. Value Report (fuente comercial: decide si la aceptas)",
       "corta": "Cost vs. Value",
       "acotacion": "región y año del informe; promedio, no garantía",
@@ -278,9 +255,8 @@
       "anadido_por": "biblioteca inicial"
     },
     "costos_referencia": {
-      "dato": "TODO: rangos de costo de remodelación (cocina, baño, pisos, techo) en Florida. No hay fuente oficial: elegir una fuente comercial reconocida o usar solo obras propias documentadas.",
-      "dato_en": null,
-      "fuente": "Pendiente de elegir (fuente comercial o datos propios de obras)",
+      "dato": "TODO: rangos de costo de remodelación (cocina, baño, pisos, techo) en Florida. No hay fuente oficial: elegir una fuente comercial reconocida.",
+      "fuente": "Pendiente de elegir (fuente comercial reconocida)",
       "corta": "Pendiente",
       "acotacion": "rango orientativo, ciudad y año; nunca como cotización",
       "url": null,

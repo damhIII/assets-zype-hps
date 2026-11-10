@@ -1,0 +1,2381 @@
+diff --git a/.claude/skills/reel-remodelacion/SKILL.md b/.claude/skills/reel-remodelacion/SKILL.md
+index c2eb6be..fd25809 100644
+--- a/.claude/skills/reel-remodelacion/SKILL.md
++++ b/.claude/skills/reel-remodelacion/SKILL.md
+@@ -1,49 +1,49 @@
+ ---
+ name: reel-remodelacion
+-description: Dirige, construye y renderiza con Remotion un Reel vertical de remodelación e interiores en Florida (español, inglés o ambos) a partir del guion, la locución y los tiempos por palabra que deja el notebook en briefs/<BASE>/<idioma>/. Úsala cuando pidan crear, dirigir, renderizar o corregir un reel de la marca, o cuando haya una carpeta nueva en briefs/.
++description: Dirige, construye y renderiza con Remotion un Reel vertical educativo y 100 % animado de remodelación e interiores en Florida, en español, para la marca EN BRUTO, a partir del guion, la locución y los tiempos por palabra que deja el notebook en briefs/<BASE>/es/. Úsala cuando pidan crear, dirigir, renderizar o corregir un reel de la marca, o cuando haya una carpeta nueva en briefs/.
+ ---
+ 
+ # Reel de remodelación: dirección, montaje y render
+ 
+-El notebook te da, por idioma, **el guion** (texto plano), **la locución** (`locucion.wav`) y **el tiempo de cada palabra** (`palabras.json` v4), más un `encargo.json` común con la marca, el formato pedido, los idiomas y las obras reales disponibles. Todo lo demás es tuyo: bloques, titulares, parámetros de la plantilla, ambientes, cada escena y el render. Si hay dos idiomas, **un solo diseño de escenas** sirve a los dos: cambian los textos y los tiempos, no las escenas.
++Estos videos son **instructivos-educativos** y **solo de animación**: no hay fotos ni videos de obras reales, ni casos de clientes. El notebook te da **el guion** (texto plano en español), **la locución** (`locucion.wav`) y **el tiempo de cada palabra** (`palabras.json` v4) en `briefs/<BASE>/es/`, más un `encargo.json` con la marca (EN BRUTO), el formato que eligió el guionista y el seed del que salió el guion. Todo lo demás es tuyo: bloques, titulares, parámetros de la plantilla, ambientes, cada escena y el render.
+ 
+ ## 1. Localiza el material
+-- `briefs/<BASE>/encargo.json` + `briefs/<BASE>/<idioma>/{guion.txt, locucion.wav, palabras.json}`. "El último" = la carpeta `AAAAMMDD-HHMM` más reciente.
++- `briefs/<BASE>/encargo.json` + `briefs/<BASE>/es/{guion.txt, locucion.wav, palabras.json}`. "El último" = la carpeta `AAAAMMDD-HHMM` más reciente.
+ - Si te adjuntan un `<BASE>.zip` (el notebook no pudo subirlo), descomprímelo en `briefs/<BASE>/`.
+ - `python3 scripts/validar_repo.py` debe pasar antes de empezar.
+ 
+ ## 2. Lee la locución
+-`python3 scripts/alinear.py briefs/<BASE>/<idioma>` por cada idioma: escribe `subtitulos.json` e imprime el guion numerado con pausas (`‖0.45s`). Los `[n]` son las **anclas** de todo lo que decidas. No oyes el audio: el ritmo está ahí. Un guion = un párrafo por bloque; las pausas largas son cortes naturales.
++`python3 scripts/alinear.py briefs/<BASE>/es`: escribe `subtitulos.json` e imprime el guion numerado con pausas (`‖0.45s`). Los `[n]` son las **anclas** de todo lo que decidas. No oyes el audio: el ritmo está ahí. Un guion = un párrafo por bloque; las pausas largas son cortes naturales.
+ 
+-## 3. Lee la marca, el formato y el material
++## 3. Lee la marca, el formato y el encargo
+ - Siempre: `editorial/marca.md` (incluida la sección **Declaraciones permitidas**), `editorial/adn.md`, `referencias/layout.md`, `referencias/sincronizacion.md`, `referencias/decisiones.md`, `diseno/tokens.json`.
+-- La ficha del formato: `plantillas/<formato>.md` y sus parámetros en `plantillas/plantillas.json`. Si `encargo.formato` es `auto`, usa el que eligió el guionista (`encargo.formato_guion`) salvo que el guion pida claramente otro: dilo en la entrega.
+-- Si el encargo trae obras reales: `referencias/activos_reales.md` y el `manifest.json` de cada una. Mira las fotos (Read) antes de elegir.
++- La ficha del formato: `plantillas/<formato>.md` y sus parámetros en `plantillas/plantillas.json`. Usa el que eligió el guionista (`encargo.formato_guion`) salvo que el guion pida claramente otro: dilo en la entrega. Si viene `null`, elige tú la plantilla que mejor cuente el guion.
++- `encargo.seed` te dice la intención (tema, ángulo, servicio a promocionar…): úsala para la etiqueta, los titulares y el tono visual.
+ - Abre `contactos.png` (iconos, logos de canales, UI y texturas del repo).
+ 
+ ## 4. Revisa el guion contra el ADN
+ El guion pasó por avisos automáticos, no por un editor. Con el checklist de `editorial/adn.md`:
+-- **Cifras**: cada precio, plazo, porcentaje o norma debe estar en `editorial/datos_verificados.json` con `verificado: true`, o en `datos_publicables` verificados de la obra elegida. Si no, **no la pongas en pantalla** y dilo en la entrega. Puedes proponer en la entrega la fuente oficial que la respaldaría, pero no cambies `verificado` a `true`: eso lo hace la persona tras leer la fuente (ver README).
++- **Cifras**: cada precio, plazo, porcentaje o norma debe estar en `editorial/datos_verificados.json` con `verificado: true`. Si no, **no la pongas en pantalla** y dilo en la entrega. Puedes proponer en la entrega la fuente oficial que la respaldaría, pero no cambies `verificado` a `true`: eso lo hace la persona tras leer la fuente (ver README).
+ - **Marca**: si la voz presenta a la marca como ejecutora ("construimos") o afirma licencia, seguro o garantías no declaradas, no lo tapes con la imagen: dilo en la entrega para que se regrabe. La voz no se toca.
+-- **Dos idiomas**: comprueba que los dos guiones cuentan lo mismo, en el mismo orden y con el mismo número de párrafos. Si no, dilo.
++- **Casos**: si la voz cuenta un caso de cliente o un proyecto concreto como real, dilo en la entrega. En pantalla todo ejemplo es ilustrativo.
+ 
+ ## 5. Dirige: escribe `briefs/<BASE>/decisiones.json`
+-Formato completo en `referencias/decisiones.md`. En resumen: los 6 bloques (`gancho, escena, marco, cuerpo, resultado, cta`) anclados por idioma, titulares de dos líneas por idioma, `etiqueta` del header, `cta` por idioma, `ambientes`, `obra` (o `null`), y `plantilla.params` según `plantillas.json`.
+-Después: `python3 scripts/preparar_brief.py briefs/<BASE>`. Valida contra marca, plantillas, datos y obras, y escribe `briefs/<BASE>/<idioma>/brief.json` con frames exactos. Si da errores, corrige `decisiones.json` y repite. Nunca edites frames a mano en `brief.json`.
++Formato completo en `referencias/decisiones.md`. En resumen: los 6 bloques (`gancho, escena, marco, cuerpo, resultado, cta`) anclados al guion, titulares de dos líneas, `etiqueta` del header, `cta`, `ambientes` y `plantilla.params` según `plantillas.json`.
++Después: `python3 scripts/preparar_brief.py briefs/<BASE>`. Valida contra marca, plantillas y datos, y escribe `briefs/<BASE>/es/brief.json` con frames exactos. Si da errores, corrige `decisiones.json` y repite. Nunca edites frames a mano en `brief.json`.
+ 
+ ## 6. Construye
+-Un proyecto Remotion con una composición por idioma (`Reel-es`, `Reel-en`) que comparten componentes; cada una lee su `src/brief_<idioma>.json` (`referencias/tecnico.md`). Las escenas del bloque `cuerpo` (y lo que la ficha diga de otros bloques) salen de la plantilla del formato; todo lo que no esté en las referencias, decídelo con el sistema de diseño de `tokens.json`.
++Un proyecto Remotion con la composición `Reel-es`, que lee `src/brief_es.json` (`referencias/tecnico.md`). Las escenas del bloque `cuerpo` (y lo que la ficha diga de otros bloques) salen de la plantilla del formato; todo lo que no esté en las referencias, decídelo con el sistema de diseño de `tokens.json`. Todo se dibuja: SVG, iconos, texturas y tipografía.
+ 
+ ## 7. Revisa como un editor
+-`python3 scripts/preparar_brief.py briefs/<BASE> --stills` imprime un comando de still por bloque, transición de ambiente, ancla de la plantilla, CTA y final, por idioma. Ejecútalos y mira cada imagen con la lista de `referencias/entrega.md` → "Antes de entregar". Corrige y repite.
++`python3 scripts/preparar_brief.py briefs/<BASE> --stills` imprime un comando de still por bloque, transición de ambiente, ancla de la plantilla, CTA y final. Ejecútalos y mira cada imagen con la lista de `referencias/entrega.md` → "Antes de entregar". Corrige y repite.
+ 
+ ## 8. Render y entrega
+-Comandos, formato de salida y qué decir en la entrega: `referencias/entrega.md`. Si tienes permiso de escritura en el repo, sube `briefs/<BASE>/decisiones.json` y los `brief.json` y `subtitulos.json` de cada idioma (así el siguiente video ve qué ambientes se usaron).
++Comandos, formato de salida y qué decir en la entrega: `referencias/entrega.md`. Si tienes permiso de escritura en el repo, sube `briefs/<BASE>/decisiones.json`, `briefs/<BASE>/es/brief.json` y `briefs/<BASE>/es/subtitulos.json` (así el siguiente video ve qué ambientes se usaron).
+ 
+ ## Reglas fijas
+ - El marco (barra de progreso, header, titular, subtítulos, CTA) es igual en todos los videos; solo cambian el ambiente y la escena.
+-- Ninguna cifra en pantalla sin fuente verificada (DATOS u OBRA). Lo ilustrativo se marca como **EJEMPLO ILUSTRATIVO**.
++- Ninguna cifra en pantalla sin un dato verificado de `datos_verificados.json`. Lo ilustrativo se marca como **EJEMPLO ILUSTRATIVO**.
+ - La marca coordina; nunca aparece como quien construye, instala o repara. Ni sellos de "licenciado", "asegurado" ni "garantizado" salvo lo que `marca.md` declare con `si`.
+-- Fotos reales solo de `assets/obras/` con `uso_autorizado: true`, respetando `privacidad` y mostrando los créditos de ejecución. Nunca fotos de bancos de imágenes presentadas como obra propia, ni logos de contratistas o fabricantes.
++- Animación pura: nada de fotos ni videos (ni de obras, ni de bancos de imágenes, ni de internet), ni logos de contratistas o fabricantes.
+ - La voz no se toca: ni recortes, ni cambios de velocidad, ni música encima.
+ - Determinismo: nada de `Math.random()` en Remotion.
+diff --git a/.claude/skills/reel-remodelacion/diseno/tokens.json b/.claude/skills/reel-remodelacion/diseno/tokens.json
+index e53351c..fd381ae 100644
+--- a/.claude/skills/reel-remodelacion/diseno/tokens.json
++++ b/.claude/skills/reel-remodelacion/diseno/tokens.json
+@@ -138,7 +138,6 @@
+   "textos_fijos": {
+     "ilustrativo": { "es": "EJEMPLO ILUSTRATIVO", "en": "ILLUSTRATIVE EXAMPLE" },
+     "aviso_legal": { "es": "Contenido informativo. No es asesoría legal ni una cotización.", "en": "For information only. Not legal advice or a quote." },
+-    "cta_previo": { "es": "Comenta o envía por DM", "en": "Comment or DM us" },
+-    "creditos_obra": { "es": "Ejecución: {ejecucion} · Coordinación: {coordinacion}", "en": "Built by: {ejecucion} · Coordinated by: {coordinacion}" }
++    "cta_previo": { "es": "Comenta o envía por DM", "en": "Comment or DM us" }
+   }
+ }
+diff --git a/.claude/skills/reel-remodelacion/plantillas/antes_despues.md b/.claude/skills/reel-remodelacion/plantillas/antes_despues.md
+deleted file mode 100644
+index 44240bb..0000000
+--- a/.claude/skills/reel-remodelacion/plantillas/antes_despues.md
++++ /dev/null
+@@ -1,41 +0,0 @@
+-# Plantilla `antes_despues` · Antes / después con costo y tiempo
+-
+-**Cuándo**: el guion cuenta una transformación. Es el único formato que **prefiere** activos reales (`assets/obras/<id>/`).
+-**Bloque principal**: `cuerpo`; el `gancho` puede abrir con un destello del después.
+-
+-## Parámetros
+-```jsonc
+-{
+-  "fuente_visual": "obra",             // "obra": fotos/videos de decisiones.obra · "ilustracion": dibujo en SVG (sin obra)
+-  "antes":   { "activo": "antes_01.jpg",   "etiqueta": { "es": "Antes", "en": "Before" }, "ancla": { "es": 14, "en": 12 } },
+-  "despues": { "activo": "despues_01.jpg", "etiqueta": { "es": "Después", "en": "After" }, "ancla": { "es": 48, "en": 44 } },
+-  "proceso": [ { "activo": "proceso_01.mp4", "etiqueta": { "es": "Demolición", "en": "Demo" }, "ancla": { "es": 30, "en": 27 } } ],
+-  "transicion": "cortina",             // cortina | deslizar | fundido_luz
+-  "datos": [                           // 0-3, SOLO con fuente verificada
+-    { "etiqueta": { "es": "Tiempo de obra", "en": "Build time" }, "valor": 6, "unidad": "semanas",
+-      "fuente": "obra:duracion_semanas", "ancla": { "es": 56, "en": 51 } }
+-  ],
+-  "creditos": true
+-}
+-```
+-
+-## Escena
+-- Foto o video a sangre dentro de un marco con `radio_foto`, ocupando la escena (recorte 4:5 centrado si la foto es horizontal; nunca deformes). Ken Burns suave (`ken_burns.escala`).
+-- Chip "ANTES" / "BEFORE" en `texto` sobre `superficie`; chip "DESPUÉS" / "AFTER" en `texto_sobre_foco` sobre `foco`.
+-- `cortina`: una línea vertical `foco` barre de izquierda a derecha revelando el después; `deslizar`: el antes sale por la izquierda; `fundido_luz`: destello cálido de 6 frames.
+-- `proceso`: miniaturas o clips cortos (≤ 2 s cada uno, sin audio) en tira.
+-- `datos`: tarjetas pequeñas que cuentan su cifra (`cifra` reducida) con la fuente debajo.
+-- `creditos: true`: línea al pie con `textos_fijos.creditos_obra` rellenada con `creditos` del manifest.
+-- **Sin obra** (`fuente_visual: "ilustracion"`): dibuja el espacio en estilo planta axonométrica simple con los colores de `estilos_interior`, etiqueta **EJEMPLO ILUSTRATIVO** y ningún dato numérico salvo DATOS verificados.
+-
+-## Disparadores
+-| Elemento | Frame |
+-|---|---|
+-| foto antes | `antes.ancla_f` − 2 |
+-| clips de proceso | `proceso[i].ancla_f` |
+-| transición al después | `despues.ancla_f` − 8 (la revelación termina en la palabra) |
+-| tarjetas de datos | `datos[i].ancla_f` |
+-
+-## Honestidad y privacidad (ver `referencias/activos_reales.md`)
+-- Solo obras con `uso_autorizado: true`. Respeta `privacidad`: si `direccion_visible`, `caras_visibles` o `matriculas_visibles` son `true`, desenfoca esas zonas o descarta el activo.
+-- La obra la ejecutó un contratista: en pantalla, "coordinado por" para la marca, nunca "construido por".
+diff --git a/.claude/skills/reel-remodelacion/plantillas/checklist.md b/.claude/skills/reel-remodelacion/plantillas/checklist.md
+index 8144586..6ecbafe 100644
+--- a/.claude/skills/reel-remodelacion/plantillas/checklist.md
++++ b/.claude/skills/reel-remodelacion/plantillas/checklist.md
+@@ -6,14 +6,14 @@
+ ## Parámetros
+ ```jsonc
+ {
+-  "titulo": { "es": "Antes de contratar", "en": "Before you hire" },
++  "titulo": "Antes de contratar",
+   "items": [                           // 3-7
+-    { "texto": { "es": "Licencia activa", "en": "Active license" },
+-      "como_verificar": { "es": "Búscala en la web oficial del estado", "en": "Look it up on the state's official site" },
++    { "texto": "Licencia activa",
++      "como_verificar": "Búscala en la web oficial del estado",
+       "fuente": null,                  // "verificar_licencia" cuando esté verificado → su corta al pie
+-      "icono": "badge-check", "ancla": { "es": 24, "en": 22 } }
++      "icono": "badge-check", "ancla": 24 }
+   ],
+-  "bandera_roja": { "texto": { "es": "Te pide todo en efectivo", "en": "Wants it all in cash" }, "ancla": { "es": 66, "en": 60 } }
++  "bandera_roja": { "texto": "Te pide todo en efectivo", "ancla": 66 }
+ }
+ ```
+ 
+diff --git a/.claude/skills/reel-remodelacion/plantillas/comparador.md b/.claude/skills/reel-remodelacion/plantillas/comparador.md
+index 9def95f..268e259 100644
+--- a/.claude/skills/reel-remodelacion/plantillas/comparador.md
++++ b/.claude/skills/reel-remodelacion/plantillas/comparador.md
+@@ -7,23 +7,23 @@
+ ```jsonc
+ {
+   "opciones": [                        // 2-3
+-    { "nombre": { "es": "Vinílico", "en": "Vinyl plank" }, "icono": "layers", "ancla": { "es": 20, "en": 18 } },
+-    { "nombre": { "es": "Porcelanato", "en": "Porcelain" }, "imagen": "muestra_porcelanato.jpg", "ancla": { "es": 22, "en": 20 } }
++    { "nombre": "Vinílico", "icono": "layers", "ancla": 20 },
++    { "nombre": "Porcelanato", "icono": "box", "ancla": 22 }
+   ],
+   "criterios": [                       // 2-5; "valores" en el mismo orden que "opciones"
+-    { "nombre": { "es": "Humedad", "en": "Moisture" }, "mejor_si_alto": true,
++    { "nombre": "Humedad", "mejor_si_alto": true,
+       "valores": [ { "nivel": "alto" }, { "nivel": "alto" } ],
+-      "ancla": { "es": 30, "en": 27 } },
+-    { "nombre": { "es": "Costo relativo", "en": "Relative cost" }, "mejor_si_alto": false,
+-      "valores": [ { "nivel": "bajo" }, { "nivel": "medio", "texto": { "es": "según formato", "en": "varies by size" } } ],
+-      "ancla": { "es": 38, "en": 35 } }
++      "ancla": 30 },
++    { "nombre": "Costo relativo", "mejor_si_alto": false,
++      "valores": [ { "nivel": "bajo" }, { "nivel": "medio", "texto": "según formato" } ],
++      "ancla": 38 }
+   ],
+-  "veredicto": { "texto": { "es": "Depende de tu planta baja", "en": "It depends on your ground floor" }, "ancla": { "es": 70, "en": 64 } }
++  "veredicto": { "texto": "Depende de tu planta baja", "ancla": 70 }
+ }
+ ```
+ 
+ ## Escena
+-- **Columnas** por opción (2 o 3, ancho repartido dentro de `texto_vital`), cada una con una muestra de material arriba: textura dibujada en SVG (vetas de madera, veteado de piedra, losetas) o la `imagen` de una obra real recortada en círculo.
++- **Columnas** por opción (2 o 3, ancho repartido dentro de `texto_vital`), cada una con una muestra de material arriba: textura dibujada en SVG (vetas de madera, veteado de piedra, losetas). Nunca fotos.
+ - Cada criterio es una fila que entra al nombrarlo: su nombre a la izquierda en `etiqueta` y, por columna, un **medidor de 3 segmentos** (bajo/medio/alto) o la palabra "DEPENDE". Con `mejor_si_alto: false`, el segmento lleno se pinta al revés (menos es mejor) y una flecha pequeña lo indica.
+ - Cifras solo si el valor trae `cifra` + `fuente` verificada.
+ - `veredicto`: las columnas se atenúan y entra una tarjeta con el criterio de decisión. **Nunca una corona ni "la mejor"**.
+diff --git a/.claude/skills/reel-remodelacion/plantillas/cronograma.md b/.claude/skills/reel-remodelacion/plantillas/cronograma.md
+index 72120c6..25701f0 100644
+--- a/.claude/skills/reel-remodelacion/plantillas/cronograma.md
++++ b/.claude/skills/reel-remodelacion/plantillas/cronograma.md
+@@ -6,16 +6,16 @@
+ ## Parámetros
+ ```jsonc
+ {
+-  "titulo": { "es": "Cambio de techo", "en": "Roof replacement" },
++  "titulo": "Cambio de techo",
+   "unidad": "fases",                   // "fases": solo orden, sin duraciones (por defecto) · "semanas": cada fase con semanas + fuente
+   "fases": [                           // 3-8
+-    { "etiqueta": { "es": "Permiso", "en": "Permit" }, "icono": "stamp", "ancla": { "es": 30, "en": 27 } },
+-    { "etiqueta": { "es": "Retiro", "en": "Tear-off" }, "icono": "hammer", "riesgo": { "es": "Madera dañada", "en": "Rotten decking" }, "ancla": { "es": 36, "en": 33 } },
+-    { "etiqueta": { "es": "Inspección", "en": "Inspection" }, "icono": "clipboard-check", "inspeccion": true, "ancla": { "es": 44, "en": 40 } }
+-    // con unidad "semanas": "semanas": 2, "fuente": "obra:duracion_semanas"
++    { "etiqueta": "Permiso", "icono": "stamp", "ancla": 30 },
++    { "etiqueta": "Retiro", "icono": "hammer", "riesgo": "Madera dañada", "ancla": 36 },
++    { "etiqueta": "Inspección", "icono": "clipboard-check", "inspeccion": true, "ancla": 44 }
++    // con unidad "semanas": "semanas": 2, "fuente": "<id verificado de datos_verificados.json>"
+   ],
+-  "retraso": { "fase": 1, "texto": { "es": "Todo lo de después se mueve", "en": "Everything after it slides" }, "ancla": { "es": 50, "en": 46 } },
+-  "total": { "ancla": { "es": 58, "en": 53 } }
++  "retraso": { "fase": 1, "texto": "Todo lo de después se mueve", "ancla": 50 },
++  "total": { "ancla": 58 }
+ }
+ ```
+ 
+@@ -23,7 +23,7 @@
+ - Una **línea de tiempo vertical** (se lee mejor en 9:16) a la izquierda de la escena, con nodos circulares; a la derecha de cada nodo, una tarjeta con icono + etiqueta.
+ - `unidad: "semanas"`: una regla de semanas acompaña la línea y cada fase ocupa un alto proporcional; las cifras van en `etiqueta` ("SEMANA 3").
+ - `unidad: "fases"`: todas las fases con la misma altura; sin números de semana.
+-- `inspeccion: true`: sello circular "INSPECCIÓN" / "INSPECTION" que se estampa (rotación −8°, `spring_pop`).
++- `inspeccion: true`: sello circular "INSPECCIÓN" que se estampa (rotación −8°, `spring_pop`).
+ - `riesgo`: chip en `alerta` junto a la tarjeta.
+ - `retraso`: la fase indicada se estira con un resorte y empuja hacia abajo todas las siguientes (las tarjetas se desplazan juntas), con un pequeño shake de 3 frames.
+ - `total`: la línea completa hace un barrido de luz `foco` de arriba abajo.
+@@ -38,5 +38,4 @@
+ | barrido final | `total.ancla_f` |
+ 
+ ## Honestidad
+-- Sin `semanas` verificadas, nada de números de duración en pantalla. Etiqueta **EJEMPLO ILUSTRATIVO** si el orden de fases es genérico y no de una obra real.
+-- Si viene de una obra real (`fuente: "obra:..."`), crédito de la obra al pie.
++- Sin `semanas` verificadas, nada de números de duración en pantalla. Etiqueta **EJEMPLO ILUSTRATIVO**: el orden de fases es siempre un ejemplo genérico.
+diff --git a/.claude/skills/reel-remodelacion/plantillas/errores.md b/.claude/skills/reel-remodelacion/plantillas/errores.md
+index b016830..381294f 100644
+--- a/.claude/skills/reel-remodelacion/plantillas/errores.md
++++ b/.claude/skills/reel-remodelacion/plantillas/errores.md
+@@ -8,11 +8,11 @@
+ {
+   "contador": "riesgo",                // ninguno | riesgo (medidor cualitativo) | costo (solo si TODOS tienen costo_usd + fuente)
+   "errores": [                         // 2-5
+-    { "titulo": { "es": "Pintar sobre la mancha", "en": "Painting over the stain" },
+-      "consecuencia": { "es": "Vuelve, y ahora detrás del drywall", "en": "It comes back, now behind the drywall" },
+-      "nivel": "alto", "icono": "droplets", "ancla": { "es": 20, "en": 18 } }
++    { "titulo": "Pintar sobre la mancha",
++      "consecuencia": "Vuelve, y ahora detrás del drywall",
++      "nivel": "alto", "icono": "droplets", "ancla": 20 }
+   ],
+-  "antidoto": { "texto": { "es": "Primero la causa: ventilación", "en": "Fix the cause first: ventilation" }, "ancla": { "es": 70, "en": 64 } }
++  "antidoto": { "texto": "Primero la causa: ventilación", "ancla": 70 }
+ }
+ ```
+ 
+diff --git a/.claude/skills/reel-remodelacion/plantillas/mito_realidad.md b/.claude/skills/reel-remodelacion/plantillas/mito_realidad.md
+index 15ab5d6..9634a1d 100644
+--- a/.claude/skills/reel-remodelacion/plantillas/mito_realidad.md
++++ b/.claude/skills/reel-remodelacion/plantillas/mito_realidad.md
+@@ -7,20 +7,20 @@
+ ```jsonc
+ {
+   "pares": [                                       // 1-3
+-    { "mito": { "es": "Si es por dentro, no necesita permiso", "en": "Interior work doesn't need a permit" },
+-      "realidad": { "es": "Depende del condado y del tipo de obra", "en": "It depends on your county and the job" },
++    { "mito": "Si es por dentro, no necesita permiso",
++      "realidad": "Depende del condado y del tipo de obra",
+       "icono": "stamp",
+       "fuente": null,                              // id verificado si la realidad cita una norma concreta
+-      "ancla_mito": { "es": 0, "en": 0 }, "ancla_realidad": { "es": 9, "en": 8 } }
++      "ancla_mito": 0, "ancla_realidad": 9 }
+   ],
+   "animacion_mito": "tachado"                      // "tachado" | "voltear"
+ }
+ ```
+ 
+ ## Escena
+-- **Tarjeta MITO**: chip "MITO" / "MYTH" en `alerta`, el texto del mito en `display` grande entre comillas tipográficas, ligeramente inclinada (−1.5°).
++- **Tarjeta MITO**: chip "MITO" en `alerta`, el texto del mito en `display` grande entre comillas tipográficas, ligeramente inclinada (−1.5°).
+ - Giro: `tachado` = una línea de marcador `alerta` cruza el texto de izquierda a derecha (6 frames) y la tarjeta se encoge y baja de opacidad; `voltear` = la tarjeta gira en Y 180° y por detrás aparece la realidad.
+-- **Tarjeta REALIDAD**: chip "REALIDAD" / "REALITY" en `exito`, texto en `cuerpo` grande, recta y con sombra; una palabra clave de la realidad lleva marcador `foco`.
++- **Tarjeta REALIDAD**: chip "REALIDAD" en `exito`, texto en `cuerpo` grande, recta y con sombra; una palabra clave de la realidad lleva marcador `foco`.
+ - Con varios pares, cada mito tachado se apila arriba en miniatura (contador 1/3, 2/3…).
+ - Si la realidad depende de una norma, icono `scale` o `stamp` y, si hay `fuente`, su `corta` al pie.
+ 
+diff --git a/.claude/skills/reel-remodelacion/plantillas/planta.md b/.claude/skills/reel-remodelacion/plantillas/planta.md
+index 1a76702..90df17c 100644
+--- a/.claude/skills/reel-remodelacion/plantillas/planta.md
++++ b/.claude/skills/reel-remodelacion/plantillas/planta.md
+@@ -9,14 +9,14 @@
+   "espacio": "sala",                    // cocina | bano | sala | dormitorio | sala_comedor | estudio | lavanderia | exterior | apartamento
+   "modo": "cambiar_estilo",             // amueblar | cambiar_estilo (2-3 estilos) | redistribuir
+   "estilos": [                          // ids de tokens.estilos_interior
+-    { "estilo": "costero", "ancla": { "es": 30, "en": 27 } },
+-    { "estilo": "moderno_calido", "ancla": { "es": 41, "en": 37 } }
++    { "estilo": "costero", "ancla": 30 },
++    { "estilo": "moderno_calido", "ancla": 41 }
+   ],
+   "elementos": [                        // 0-10, en el orden en que se nombran
+-    { "tipo": "sofa", "etiqueta": { "es": "Sofá en L", "en": "L-shaped sofa" }, "ancla": { "es": 22, "en": 20 } },
+-    { "tipo": "alfombra", "ancla": { "es": 25, "en": 23 } }
++    { "tipo": "sofa", "etiqueta": "Sofá en L", "ancla": 22 },
++    { "tipo": "alfombra", "ancla": 25 }
+   ],
+-  "muro_que_cae": { "etiqueta": { "es": "¿Muro de carga? Lo confirma un profesional", "en": "Load-bearing? A pro confirms first" }, "ancla": { "es": 18, "en": 16 } },
++  "muro_que_cae": { "etiqueta": "¿Muro de carga? Lo confirma un profesional", "ancla": 18 },
+   "ilustrativo": true
+ }
+ ```
+@@ -27,7 +27,7 @@
+ - Cada elemento es un símbolo SVG simple y reconocible (sofá = rectángulo con respaldo, cama con almohadas, isla con taburetes…), dibujado por ti, con los colores del estilo activo: `piso` (relleno del suelo), `muro`, `madera`, `textil`, `metal`, `verde`, `acento`.
+ - `cambiar_estilo`: en cada `ancla_f` el relleno del piso y los colores de los elementos se interpolan al nuevo estilo durante 14 frames, y una etiqueta con `estilos_interior.<id>.nombre` entra arriba de la planta. Una pequeña muestra de materiales (3 círculos) acompaña cada estilo.
+ - `muro_que_cae`: el muro parpadea en `alerta`, aparece el aviso (`etiqueta`) y después se disuelve en polvo de partículas deterministas (índices, no `Math.random()`).
+-- Cotas: **sin números** salvo que vengan de una obra real con datos verificados.
++- Cotas: **sin números**.
+ 
+ ## Disparadores
+ | Elemento | Frame |
+@@ -38,5 +38,5 @@
+ | aviso y caída del muro | `muro_que_cae.ancla_f`, caída +18 frames |
+ 
+ ## Honestidad
+-- `ilustrativo: true` → **EJEMPLO ILUSTRATIVO** visible. Si la planta reproduce una obra real del manifest, `ilustrativo: false` y créditos al pie.
++- `ilustrativo: true` → **EJEMPLO ILUSTRATIVO** visible (siempre: las plantas son hipotéticas).
+ - Nunca insinúes que un muro se puede tirar sin revisión profesional.
+diff --git a/.claude/skills/reel-remodelacion/plantillas/plantillas.json b/.claude/skills/reel-remodelacion/plantillas/plantillas.json
+index 80181e4..23bb35c 100644
+--- a/.claude/skills/reel-remodelacion/plantillas/plantillas.json
++++ b/.claude/skills/reel-remodelacion/plantillas/plantillas.json
+@@ -1,14 +1,13 @@
+ {
+   "_nota": "Parámetros de entrada de cada plantilla de escena. preparar_brief.py valida decisiones.json → plantilla.params contra este archivo. La dirección visual de cada una está en <id>.md.",
+   "_tipos": {
+-    "texto": "cadena, o {\"es\": ..., \"en\": ...} cuando el video sale en los dos idiomas",
++    "texto": "cadena (el video sale solo en español)",
+     "numero": "número o null",
+     "entero": "entero",
+     "bool": "true / false",
+     "enum": "uno de 'valores'",
+-    "ancla": "índice de palabra del guion ([n] de alinear.py); con dos idiomas, {\"es\": n, \"en\": m}",
+-    "dato": "id de editorial/datos_verificados.json con verificado: true, u 'obra:<campo>' de datos_publicables verificados de la obra elegida",
+-    "activo": "nombre de archivo de la obra elegida (assets/obras/<id>/)",
++    "ancla": "índice de palabra del guion ([n] de alinear.py)",
++    "dato": "id de editorial/datos_verificados.json con verificado: true",
+     "estilo": "id de diseno/tokens.json → estilos_interior",
+     "icono": "nombre de icons/<nombre>.svg (sin .svg)",
+     "lista": "lista de 'item', entre 'min' y 'max' elementos",
+@@ -19,7 +18,6 @@
+     "presupuesto": {
+       "nombre": { "es": "Presupuesto desglosado", "en": "Budget breakdown" },
+       "md": "presupuesto.md",
+-      "usa_obra": "opcional",
+       "aviso_legal": false,
+       "params": {
+         "titulo": { "tipo": "texto", "requerido": true },
+@@ -47,7 +45,6 @@
+     "cronograma": {
+       "nombre": { "es": "Línea de tiempo de obra", "en": "Project timeline" },
+       "md": "cronograma.md",
+-      "usa_obra": "opcional",
+       "aviso_legal": false,
+       "params": {
+         "titulo": { "tipo": "texto", "requerido": true },
+@@ -76,7 +73,6 @@
+     "mito_realidad": {
+       "nombre": { "es": "Mito vs. realidad", "en": "Myth vs. reality" },
+       "md": "mito_realidad.md",
+-      "usa_obra": "no",
+       "aviso_legal": true,
+       "params": {
+         "pares": { "tipo": "lista", "min": 1, "max": 3, "requerido": true, "item": { "tipo": "objeto", "campos": {
+@@ -93,7 +89,6 @@
+     "planta": {
+       "nombre": { "es": "Planta 2D", "en": "2D floor plan" },
+       "md": "planta.md",
+-      "usa_obra": "opcional",
+       "aviso_legal": false,
+       "params": {
+         "espacio": { "tipo": "enum", "valores": ["cocina", "bano", "sala", "dormitorio", "sala_comedor", "estudio", "lavanderia", "exterior", "apartamento"], "requerido": true },
+@@ -117,7 +112,6 @@
+     "errores": {
+       "nombre": { "es": "Errores caros", "en": "Costly mistakes" },
+       "md": "errores.md",
+-      "usa_obra": "no",
+       "aviso_legal": false,
+       "params": {
+         "contador": { "tipo": "enum", "valores": ["ninguno", "riesgo", "costo"], "defecto": "riesgo" },
+@@ -139,7 +133,6 @@
+     "checklist": {
+       "nombre": { "es": "Checklist de verificación", "en": "Vetting checklist" },
+       "md": "checklist.md",
+-      "usa_obra": "no",
+       "aviso_legal": true,
+       "params": {
+         "titulo": { "tipo": "texto", "requerido": true },
+@@ -159,13 +152,11 @@
+     "comparador": {
+       "nombre": { "es": "Comparador de materiales", "en": "Material comparison" },
+       "md": "comparador.md",
+-      "usa_obra": "opcional",
+       "aviso_legal": false,
+       "params": {
+         "opciones": { "tipo": "lista", "min": 2, "max": 3, "requerido": true, "item": { "tipo": "objeto", "campos": {
+           "nombre": { "tipo": "texto", "requerido": true },
+           "icono": { "tipo": "icono" },
+-          "imagen": { "tipo": "activo" },
+           "ancla": { "tipo": "ancla", "requerido": true }
+         } } },
+         "criterios": { "tipo": "lista", "min": 2, "max": 5, "requerido": true, "item": { "tipo": "objeto", "campos": {
+@@ -184,39 +175,6 @@
+           "ancla": { "tipo": "ancla", "requerido": true }
+         } }
+       }
+-    },
+-    "antes_despues": {
+-      "nombre": { "es": "Antes / después", "en": "Before / after" },
+-      "md": "antes_despues.md",
+-      "usa_obra": "preferida",
+-      "aviso_legal": false,
+-      "params": {
+-        "fuente_visual": { "tipo": "enum", "valores": ["obra", "ilustracion"], "requerido": true },
+-        "antes": { "tipo": "objeto", "requerido": true, "campos": {
+-          "activo": { "tipo": "activo", "requerido_si": { "param": "fuente_visual", "igual": "obra" } },
+-          "etiqueta": { "tipo": "texto", "requerido": true },
+-          "ancla": { "tipo": "ancla", "requerido": true }
+-        } },
+-        "despues": { "tipo": "objeto", "requerido": true, "campos": {
+-          "activo": { "tipo": "activo", "requerido_si": { "param": "fuente_visual", "igual": "obra" } },
+-          "etiqueta": { "tipo": "texto", "requerido": true },
+-          "ancla": { "tipo": "ancla", "requerido": true }
+-        } },
+-        "proceso": { "tipo": "lista", "min": 0, "max": 4, "item": { "tipo": "objeto", "campos": {
+-          "activo": { "tipo": "activo", "requerido": true },
+-          "etiqueta": { "tipo": "texto" },
+-          "ancla": { "tipo": "ancla", "requerido": true }
+-        } } },
+-        "transicion": { "tipo": "enum", "valores": ["cortina", "deslizar", "fundido_luz"], "defecto": "cortina" },
+-        "datos": { "tipo": "lista", "min": 0, "max": 3, "item": { "tipo": "objeto", "campos": {
+-          "etiqueta": { "tipo": "texto", "requerido": true },
+-          "valor": { "tipo": "numero", "fuente_en": "fuente" },
+-          "unidad": { "tipo": "enum", "valores": ["usd", "semanas", "dias", "pies2"] },
+-          "fuente": { "tipo": "dato" },
+-          "ancla": { "tipo": "ancla", "requerido": true }
+-        } } },
+-        "creditos": { "tipo": "bool", "defecto": true }
+-      }
+     }
+   }
+ }
+diff --git a/.claude/skills/reel-remodelacion/plantillas/presupuesto.md b/.claude/skills/reel-remodelacion/plantillas/presupuesto.md
+index b8be6a3..e28015f 100644
+--- a/.claude/skills/reel-remodelacion/plantillas/presupuesto.md
++++ b/.claude/skills/reel-remodelacion/plantillas/presupuesto.md
+@@ -6,17 +6,17 @@
+ ## Parámetros (`decisiones.json → plantilla.params`)
+ ```jsonc
+ {
+-  "titulo": { "es": "Tu presupuesto de cocina", "en": "Your kitchen quote" },
++  "titulo": "Tu presupuesto de cocina",
+   "modo": "preguntas",                 // "preguntas": sin montos (por defecto mientras no haya datos) · "montos": cada partida con monto_usd + fuente
+   "partidas": [                        // 3-7, en el orden en que la voz las nombra
+-    { "etiqueta": { "es": "Materiales", "en": "Materials" }, "icono": "paint-roller",
+-      "pregunta": { "es": "¿Marca y modelo por escrito?", "en": "Brand and model in writing?" },
+-      "ancla": { "es": 31, "en": 28 } },
+-    { "etiqueta": { "es": "Permisos", "en": "Permits" }, "icono": "stamp", "ancla": { "es": 40, "en": 36 } }
+-    // con modo "montos": "monto_usd": 1200, "fuente": "obra:costo_total_usd" o un id verificado
++    { "etiqueta": "Materiales", "icono": "paint-roller",
++      "pregunta": "¿Marca y modelo por escrito?",
++      "ancla": 31 },
++    { "etiqueta": "Permisos", "icono": "stamp", "ancla": 40 }
++    // con modo "montos": "monto_usd": 1200, "fuente": "<id verificado de datos_verificados.json>"
+   ],
+-  "alerta": { "partida": 3, "texto": { "es": "La que casi nunca aparece", "en": "The one most quotes skip" }, "ancla": { "es": 52, "en": 47 } },
+-  "total": { "ancla": { "es": 60, "en": 55 } }   // sin monto_usd = barra de total sin cifra
++  "alerta": { "partida": 3, "texto": "La que casi nunca aparece", "ancla": 52 },
++  "total": { "ancla": 60 }   // sin monto_usd = barra de total sin cifra
+ }
+ ```
+ 
+@@ -24,7 +24,7 @@
+ - Una **hoja de presupuesto** (tarjeta `superficie`, radio `radio_tarjeta`, sombra) que ocupa la escena. Encabezado con `titulo` en `display`.
+ - Cada partida es una fila: icono (máscara CSS en `estructura`), etiqueta en `cuerpo` y, a la derecha, el monto o la `pregunta` en `texto_suave`.
+ - Una **barra apilada** horizontal debajo de la tabla crece segmento a segmento. En modo `preguntas` los segmentos tienen el mismo ancho y no llevan cifras; en modo `montos`, ancho proporcional al monto y cifra en `cifra` reducida.
+-- `alerta`: la fila indicada parpadea una vez en `alerta`, entra un sello "FALTA" / "MISSING" (escala 0.3 → 1 con `spring_pop`) y la barra deja un hueco rayado.
++- `alerta`: la fila indicada parpadea una vez en `alerta`, entra un sello "FALTA" (escala 0.3 → 1 con `spring_pop`) y la barra deja un hueco rayado.
+ - `total`: línea doble y el total cuenta en `conteo_frames`; sin monto, la palabra "TOTAL" se subraya con el marcador `foco`.
+ 
+ ## Disparadores
+@@ -37,5 +37,5 @@
+ 
+ ## Honestidad
+ - En modo `preguntas`, etiqueta **EJEMPLO ILUSTRATIVO** (`textos_fijos.ilustrativo`) en la esquina de la hoja.
+-- En modo `montos`, cada monto lleva su fuente en `fuente_dato` al pie de la hoja (`corta` del dato o "Obra real · <titulo>"). Sin fuente, `preparar_brief.py` no deja pasar el monto.
++- En modo `montos`, cada monto lleva su fuente en `fuente_dato` al pie de la hoja (`corta` del dato). Sin fuente, `preparar_brief.py` no deja pasar el monto.
+ - Nunca pongas "precio final", "garantizado" ni "sin sorpresas" en la hoja.
+diff --git a/.claude/skills/reel-remodelacion/referencias/activos_reales.md b/.claude/skills/reel-remodelacion/referencias/activos_reales.md
+deleted file mode 100644
+index e118d81..0000000
+--- a/.claude/skills/reel-remodelacion/referencias/activos_reales.md
++++ /dev/null
+@@ -1,19 +0,0 @@
+-# Fotos y videos reales de obras (`assets/obras/`)
+-
+-El encargo (`encargo.json → obras`) lista las obras **utilizables**: con `uso_autorizado: true`, que no son ejemplo y cuyo manifest es válido. Si la lista está vacía o el prompt dice "animación pura", no uses fotos: todo se dibuja.
+-
+-## Elegir
+-- Elige una obra solo si encaja con lo que cuenta el guion (mismo tipo de espacio o el mismo problema). Nunca uses una obra para ilustrar algo que no le pasó.
+-- Mira cada foto (Read) antes de decidir: encuadre, luz, si se lee en vertical, si hay datos privados.
+-- Pon su id en `decisiones.obra`. Solo entonces puedes usar `activo`, `imagen` y `fuente: "obra:<campo>"` en los parámetros.
+-
+-## Usar
+-- Copia a `public/obras/<id>/` solo los archivos que uses; referencia con `staticFile()`.
+-- Fotos: `objectFit: "cover"` dentro de un marco con `radio_foto`; recorte 4:5 o 9:16 centrado en lo importante; Ken Burns suave. Nunca las deformes, no les cambies el color más allá de un ajuste ligero y nunca les añadas elementos que no estaban (muebles, ventanas): eso sería falsear el resultado.
+-- Videos: sin audio (`volume={0}`), tramos ≤ 2-3 s, a velocidad real o como mucho ×2 con la etiqueta "ACELERADO" / "SPED UP".
+-- **Privacidad**: si `privacidad.direccion_visible`, `caras_visibles` o `matriculas_visibles` es `true`, desenfoca la zona (blur ≥ 24 px con una máscara fija y determinista) o descarta el activo. En la duda, descártalo.
+-- **Créditos**: si se ve cualquier activo real, la línea `textos_fijos.creditos_obra` con `obra.creditos` va al pie durante el bloque en que aparece (escala `fuente_dato`).
+-- **Cifras**: solo `datos_publicables` con `verificado: true`, mostradas con "Obra real · <titulo>" como fuente.
+-
+-## Sin obra
+-Animación pura con el sistema de diseño: plantas, tarjetas, iconos, texturas. Lo que represente un caso concreto se marca con `ilustrativo` (**EJEMPLO ILUSTRATIVO**). No uses fotos de bancos de imágenes ni de internet.
+diff --git a/.claude/skills/reel-remodelacion/referencias/brief.md b/.claude/skills/reel-remodelacion/referencias/brief.md
+index 24ea9bc..6a50538 100644
+--- a/.claude/skills/reel-remodelacion/referencias/brief.md
++++ b/.claude/skills/reel-remodelacion/referencias/brief.md
+@@ -1,6 +1,6 @@
+-# brief.json (versión 4) — los datos de render de UN idioma
++# brief.json (versión 4) — los datos de render del video
+ 
+-Lo genera `scripts/preparar_brief.py` en `briefs/<BASE>/<idioma>/brief.json` a partir de `decisiones.json`, el guion y los tiempos de la voz. No lo edites a mano. Cópialo a `src/brief_<idioma>.json` e impórtalo; lee de él frames, textos, colores y tipografías: **no copies números a mano**.
++Lo genera `scripts/preparar_brief.py` en `briefs/<BASE>/es/brief.json` a partir de `decisiones.json`, el guion y los tiempos de la voz. No lo edites a mano. Cópialo a `src/brief_es.json` e impórtalo; lee de él frames, textos, colores y tipografías: **no copies números a mano**.
+ 
+ ```jsonc
+ {
+@@ -9,7 +9,7 @@ Lo genera `scripts/preparar_brief.py` en `briefs/<BASE>/<idioma>/brief.json` a p
+   "idioma": "es",
+   "carpeta": "briefs/20261110-0930/es",         // audio = carpeta + "/" + audio
+   "audio": "locucion.wav",
+-  "marca": { "nombre": null, "pendiente": true },   // pendiente → no dibujes wordmark: el header lleva solo la etiqueta
++  "marca": { "nombre": "EN BRUTO", "pendiente": false },
+   "formato": "checklist",
+   "video": { "width": 1080, "height": 1920, "fps": 30, "frames": 1497, "voz_s": 48.4, "cola_s": 1.5 },
+   "etiqueta": "CONTRATISTAS · FLORIDA",
+@@ -21,7 +21,6 @@ Lo genera `scripts/preparar_brief.py` en `briefs/<BASE>/<idioma>/brief.json` a p
+   "ilustrativo": "EJEMPLO ILUSTRATIVO",
+   "ambientes": { "gancho": "noche", "escena": "lino", "marco": "lino", "cuerpo": "lino", "resultado": "lino", "cta": "lino" },
+   "fuentes": [ { "rol": "display", "familia": "Fraunces", "css": "fonts/css/fraunces__400-500-700-800-900.css", "stack": "\"Fraunces\", Georgia, serif" } ],
+-  "obra": null,                                 // o { id, titulo, carpeta, creditos, privacidad, tipo_espacio, activos: [{ archivo, ruta, tipo, momento, ... }] }
+   "fuentes_en_pantalla": [ { "id": "verificar_licencia", "corta": "Florida DBPR" } ],
+   "bloques": [
+     { "id": "gancho", "ini_f": 0, "fin_f": 141, "ini_s": 0.0, "fin_s": 4.7,
+@@ -30,7 +29,7 @@ Lo genera `scripts/preparar_brief.py` en `briefs/<BASE>/<idioma>/brief.json` a p
+   "plantilla": {
+     "id": "checklist",
+     "md": ".claude/skills/reel-remodelacion/plantillas/checklist.md",
+-    "params": {                                 // textos ya en este idioma; cada ancla con su frame (<clave>_f); cada fuente con su texto (<clave>_corta)
++    "params": {                                 // textos listos; cada ancla con su frame (<clave>_f); cada fuente con su texto (<clave>_corta)
+       "titulo": "Antes de contratar",
+       "items": [ { "texto": "Licencia activa", "icono": "badge-check", "ancla": 36, "ancla_f": 402 } ],
+       "bandera_roja": { "texto": "Todo en efectivo", "ancla": 70, "ancla_f": 1011 }
+@@ -45,4 +44,4 @@ Lo genera `scripts/preparar_brief.py` en `briefs/<BASE>/<idioma>/brief.json` a p
+ - Los rangos `ini_f`–`fin_f` son exactos y contiguos; el último acaba en `video.frames`.
+ - Todo elemento de la plantilla aparece en su `*_f` menos `tokens.movimiento.anticipacion_frames` (ver `sincronizacion.md`).
+ - Los colores salen de `tokens.color` y, en cada bloque, de `tokens.ambientes[ambientes[bloque]]`.
+-- Con dos idiomas hay dos briefs con los **mismos** bloques, plantilla y ambientes; cambian textos, anclas y frames.
++- No hay fotos ni activos externos: todo lo que se ve se dibuja con `tokens` y los assets gráficos del repo.
+diff --git a/.claude/skills/reel-remodelacion/referencias/decisiones.md b/.claude/skills/reel-remodelacion/referencias/decisiones.md
+index ad6280d..237d5d3 100644
+--- a/.claude/skills/reel-remodelacion/referencias/decisiones.md
++++ b/.claude/skills/reel-remodelacion/referencias/decisiones.md
+@@ -1,58 +1,57 @@
+ # decisiones.json (versión 4) — tu dirección del video
+ 
+-Uno por video, en `briefs/<BASE>/decisiones.json`, **común a todos los idiomas**. Lo que cambia por idioma se escribe como `{"es": ..., "en": ...}`; con un solo idioma puedes escribir el valor directo. Las anclas (`desde`, `ancla…`) son los índices `[n]` de palabra que imprime `alinear.py` para cada idioma. `scripts/preparar_brief.py` lo valida y lo convierte en un `brief.json` por idioma.
++Uno por video, en `briefs/<BASE>/decisiones.json`. El video sale solo en español: cada texto es una cadena y cada ancla un número. Las anclas (`desde`, `ancla…`) son los índices `[n]` de palabra que imprime `alinear.py`. `scripts/preparar_brief.py` lo valida y lo convierte en `briefs/<BASE>/es/brief.json`.
+ 
+ ```jsonc
+ {
+   "version": 4,
+-  "idiomas": ["es", "en"],                          // los de encargo.json
+-  "formato": "checklist",                           // id de plantillas.json (los 8 formatos)
++  "idiomas": ["es"],                                // siempre ["es"] (el de encargo.json)
++  "formato": "checklist",                           // id de plantillas.json (los 7 formatos)
+   "tema": { "id": 6, "titulo": "Contratista sin licencia", "tesis": "..." },   // de editorial/temas.json (id 0 = fuera del catálogo). Informativo
+-  "etiqueta": { "es": "CONTRATISTAS · FLORIDA", "en": "CONTRACTORS · FLORIDA" },   // header, MAYÚSCULAS, ≤ 4 palabras
+-  "cta": { "es": "LICENCIA", "en": "LICENSE" },     // la palabra clave que dice la voz al final en cada idioma
+-  "obra": null,                                     // id de assets/obras/<id>/ autorizada, o null = animación pura
++  "etiqueta": "CONTRATISTAS · FLORIDA",             // header, MAYÚSCULAS, ≤ 4 palabras
++  "cta": "LICENCIA",                                // la palabra clave que dice la voz al final
+   "aviso_legal": null,                              // null = lo que diga la plantilla; true/false para forzarlo
+   "fuentes_en_pantalla": [],                        // ids verificados extra que quieras citar al pie (los de la plantilla se añaden solos)
+   "cola_s": 1.5,                                    // segundos de imagen tras la última palabra (1-2)
+   "ambientes": { "gancho": "noche" },               // solo los bloques que NO van en lino → tokens.json → ambientes
+   "bloques": [
+-    { "id": "gancho",    "desde": { "es": 0,  "en": 0 },  "titular": { "es": ["Pagaste el depósito", "Y desapareció"], "en": ["You paid the deposit", "Then he vanished"] } },
+-    { "id": "escena",    "desde": { "es": 12, "en": 11 }, "titular": { "es": ["Te lo recomendó", "Un conocido"],        "en": ["A friend's referral", "No questions asked"] } },
+-    { "id": "marco",     "desde": { "es": 25, "en": 22 }, "titular": { "es": ["Antes de firmar", "Verifica"],           "en": ["Before you sign", "Verify"] } },
+-    { "id": "cuerpo",    "desde": { "es": 33, "en": 30 }, "titular": { "es": ["Lo que revisas", "Tú mismo"],            "en": ["What you check", "Yourself"] } },
+-    { "id": "resultado", "desde": { "es": 78, "en": 70 }, "titular": { "es": ["Menos riesgo", "Obra protegida"],        "en": ["Less risk", "Protected project"] } },
+-    { "id": "cta",       "desde": { "es": 90, "en": 81 }, "titular": { "es": ["Guárdalo y comenta", "LICENCIA"],       "en": ["Save it and comment", "LICENSE"] } }
++    { "id": "gancho",    "desde": 0,  "titular": ["Pagaste el depósito", "Y desapareció"] },
++    { "id": "escena",    "desde": 12, "titular": ["Te lo recomendó", "Un conocido"] },
++    { "id": "marco",     "desde": 25, "titular": ["Antes de firmar", "Verifica"] },
++    { "id": "cuerpo",    "desde": 33, "titular": ["Lo que revisas", "Tú mismo"] },
++    { "id": "resultado", "desde": 78, "titular": ["Menos riesgo", "Obra protegida"] },
++    { "id": "cta",       "desde": 90, "titular": ["Guárdalo y comenta", "LICENCIA"] }
+   ],
+   "plantilla": {
+     "params": {                                     // según plantillas.json → plantillas.<formato>.params
+-      "titulo": { "es": "Antes de contratar", "en": "Before you hire" },
++      "titulo": "Antes de contratar",
+       "items": [
+-        { "texto": { "es": "Licencia activa", "en": "Active license" }, "icono": "badge-check", "ancla": { "es": 36, "en": 33 } },
+-        { "texto": { "es": "Contrato por escrito", "en": "Written contract" }, "icono": "file-signature", "ancla": { "es": 47, "en": 43 } },
+-        { "texto": { "es": "Pagos por etapas", "en": "Staged payments" }, "icono": "hand-coins", "ancla": { "es": 58, "en": 52 } }
++        { "texto": "Licencia activa", "icono": "badge-check", "ancla": 36 },
++        { "texto": "Contrato por escrito", "icono": "file-signature", "ancla": 47 },
++        { "texto": "Pagos por etapas", "icono": "hand-coins", "ancla": 58 }
+       ],
+-      "bandera_roja": { "texto": { "es": "Todo en efectivo", "en": "Cash only" }, "ancla": { "es": 70, "en": 63 } }
++      "bandera_roja": { "texto": "Todo en efectivo", "ancla": 70 }
+     }
+   },
+-  "notas": "1-3 líneas: por qué este formato, estos ambientes y esta obra"
++  "notas": "1-3 líneas: por qué este formato y estos ambientes"
+ }
+ ```
+ 
+ ## Cómo decidir
+-**Bloques.** Siempre los 6, en orden, el primero en la palabra 0 de cada idioma. El guion trae un párrafo por bloque: normalmente `desde` = primera palabra de cada párrafo. Si el guion mezcla dos partes, corta en la palabra que cambia de idea; si se salta una, dale un bloque corto (≥ 1,5 s) con la frase más cercana y dilo en la entrega. Mismo bloque = misma idea en los dos idiomas.
++**Bloques.** Siempre los 6, en orden, el primero en la palabra 0. El guion trae un párrafo por bloque: normalmente `desde` = primera palabra de cada párrafo. Si el guion mezcla dos partes, corta en la palabra que cambia de idea; si se salta una, dale un bloque corto (≥ 1,5 s) con la frase más cercana y dilo en la entrega. Si un guion largo deja un bloque muy extenso (por ejemplo, el cuerpo), está bien: la plantilla y las anclas se encargan de mantenerlo vivo.
+ 
+-**Titulares.** Dos líneas de ≤ 4 palabras (≈ 22 caracteres) por idioma, sin punto final, cifras en número solo si son un dato verificado. Línea 1 = contexto (`texto`); línea 2 = el golpe, con marcador `foco`. Complementan la voz, no la copian. En `cta`, línea 2 = la palabra clave de ese idioma.
++**Titulares.** Dos líneas de ≤ 4 palabras (≈ 22 caracteres), sin punto final, cifras en número solo si son un dato verificado. Línea 1 = contexto (`texto`); línea 2 = el golpe, con marcador `foco`. Complementan la voz, no la copian. En `cta`, línea 2 = la palabra clave.
+ 
+-**Etiqueta.** El header es `{MARCA} · {etiqueta}` o, si la marca está pendiente, solo la etiqueta. Usa tema + lugar: "PERMISOS · BROWARD", "HURRICANE PREP".
++**Etiqueta.** El header es `EN BRUTO · {etiqueta}`. Usa tema + lugar: "PERMISOS · BROWARD", "HURACANES · FLORIDA".
+ 
+-**Formato y parámetros.** Los de `encargo.formato` (o el que eligió el guionista si era `auto`). Rellena `plantilla.params` con la ficha `plantillas/<formato>.md`: cada elemento que aparece en pantalla lleva el ancla de la palabra en que la voz lo nombra **en cada idioma**.
++**Formato y parámetros.** El que eligió el guionista (`encargo.formato_guion`), salvo que el guion pida claramente otro. Rellena `plantilla.params` con la ficha `plantillas/<formato>.md`: cada elemento que aparece en pantalla lleva el ancla de la palabra en que la voz lo nombra.
+ 
+-**Cifras.** Un número en pantalla (monto, semanas, porcentaje) solo con `fuente` = id verificado de `datos_verificados.json` u `obra:<campo>` verificado. `preparar_brief.py` rechaza el resto. Mientras no haya datos: modos sin cifras (`preguntas`, `fases`, `riesgo`, niveles cualitativos).
++**Cifras.** Un número en pantalla (monto, semanas, porcentaje) solo con `fuente` = id verificado de `datos_verificados.json`. `preparar_brief.py` rechaza el resto. Mientras no haya datos: modos sin cifras (`preguntas`, `fases`, `riesgo`, niveles cualitativos).
+ 
+-**Obra.** Si `encargo.obras` trae obras y alguna encaja con el guion (mismo tipo de espacio o tema), elígela y úsala en la plantilla (`activo`, `imagen`, `obra:…`). Si no encaja ninguna, `null` y animación pura. Nunca uses una obra para "ilustrar" algo que no le pasó.
++**Ilustración.** Todo es animación: plantas, tarjetas, iconos, texturas. Lo que represente un caso concreto (una cocina, un presupuesto, un calendario) es un ejemplo hipotético y se marca con `ilustrativo` (**EJEMPLO ILUSTRATIVO**). Nada de fotos.
+ 
+ **Ambientes.** `cta` siempre en `lino`. Como mucho 2 bloques fuera de lino, cada ambiente solo en sus bloques (`tokens.json`): `noche` para la tensión del gancho o la escena (huracán, estafa, error caro), `arena` para un cuerpo cálido, `salvia` para la calma del marco o el resultado. No repitas la combinación de los últimos 3 videos.
+ 
+ ## Lo que comprueba `preparar_brief.py`
+-Errores (bloquean): versión, idiomas sin material, formato desconocido, bloques incompletos o fuera de orden, anclas fuera del guion o no crecientes, titulares de más de 4 palabras o sin versión por idioma, palabra CTA ausente del guion o del titular final, etiqueta ausente, ambientes inexistentes, fuera de sus bloques o de más, `cta` fuera de lino, parámetros de plantilla que no cumplen `plantillas.json` (tipos, obligatorios, listas, iconos, estilos, activos), **cifras sin dato verificado**, cifras que no coinciden con la obra, obra inexistente o no autorizada, bloques de menos de 0,5 s.
+-Avisos: textos sin versión por idioma, textos que suenan a garantía/licencia/ejecución, combinación de ambientes repetida, formato distinto del pedido, formato que prefiere obra sin obra, titulares largos, bloques de menos de 1,5 s, duraciones de bloque muy distintas entre idiomas.
++Errores (bloquean): versión, guion sin material, formato desconocido, bloques incompletos o fuera de orden, anclas fuera del guion o no crecientes, titulares de más de 4 palabras, palabra CTA ausente del guion o del titular final, etiqueta ausente, ambientes inexistentes, fuera de sus bloques o de más, `cta` fuera de lino, parámetros de plantilla que no cumplen `plantillas.json` (tipos, obligatorios, listas, iconos, estilos), **cifras sin dato verificado**, bloques de menos de 0,5 s.
++Avisos: textos que suenan a garantía/licencia/ejecución, combinación de ambientes repetida, formato distinto del que eligió el guionista, titulares largos, bloques de menos de 1,5 s.
+diff --git a/.claude/skills/reel-remodelacion/referencias/entrega.md b/.claude/skills/reel-remodelacion/referencias/entrega.md
+index ac03c0f..ca80bd2 100644
+--- a/.claude/skills/reel-remodelacion/referencias/entrega.md
++++ b/.claude/skills/reel-remodelacion/referencias/entrega.md
+@@ -4,34 +4,32 @@
+ | | |
+ |---|---|
+ | Resolución | 1080 × 1920 (9:16), 30 fps |
+-| Duración | voz + `cola_s` (1-2 s). Normalmente 30-55 s; si pasa de 90 s, avisa: el guion es demasiado largo |
++| Duración | voz + `cola_s` (1-2 s). La que pida el guion: no se recorta ni se acelera. Si pasa de 90 s, menciónalo en la entrega como dato (no como error) |
+ | Video | H.264, `yuv420p`, CRF 18 |
+ | Audio | la locución sin tocar, AAC 48 kHz |
+-| Archivos | `out/<BASE>_<idioma>.mp4` y `out/<BASE>_<idioma>_portada.png` (1080 × 1920; lo esencial dentro del recorte 3:4 de `zonas_seguras.recorte_grilla_3x4`) |
++| Archivos | `out/<BASE>_es.mp4` y `out/<BASE>_es_portada.png` (1080 × 1920; lo esencial dentro del recorte 3:4 de `zonas_seguras.recorte_grilla_3x4`) |
+ 
+ ## Comandos
+ ```bash
+ npx remotion render Reel-es out/<BASE>_es.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p --audio-codec=aac
+ npx remotion still Reel-es out/<BASE>_es_portada.png --frame=<frame del gancho con acción>
+-# y lo mismo con Reel-en si el encargo trae inglés
+ ```
+ Si el entorno no puede renderizar, entrega el proyecto en zip (sin `node_modules`) y los comandos exactos.
+ 
+-## Antes de entregar (todas deben ser ciertas, en cada idioma)
++## Antes de entregar (todas deben ser ciertas)
+ - [ ] `python3 scripts/preparar_brief.py briefs/<BASE>` sin errores y los stills revisados uno por uno.
+ - [ ] Ningún texto vital fuera de x 72–940 / y 220–1580; nada se solapa con titular, subtítulos ni aviso legal.
+ - [ ] Las fuentes cargaron (Fraunces y DM Sans; ningún serif por defecto del navegador).
+ - [ ] Cada elemento de la plantilla entra cuando la voz lo nombra (mira los stills de anclas) y el CTA hace pop en `cta_f`.
+-- [ ] Toda cifra en pantalla tiene su fuente visible (`fuente_dato`) y viene de un dato verificado o de una obra; lo ilustrativo dice **EJEMPLO ILUSTRATIVO**.
++- [ ] Toda cifra en pantalla tiene su fuente visible (`fuente_dato`) y viene de un dato verificado; lo ilustrativo dice **EJEMPLO ILUSTRATIVO**.
+ - [ ] Ningún texto ni sello dice o insinúa que la marca construye, tiene licencia o seguro, o garantiza precio, plazo o costo (salvo lo declarado con `si` en `marca.md`).
+-- [ ] Si hay fotos reales: obra autorizada, privacidad respetada (nada de direcciones, caras o matrículas visibles), créditos de ejecución en pantalla.
+-- [ ] La palabra clave en pantalla es exactamente la que dice la voz en ese idioma.
+-- [ ] La versión en inglés no tiene ningún texto en español (y al revés); las dos versiones tienen las mismas escenas en el mismo orden.
++- [ ] No hay ninguna foto ni video: todo es animación.
++- [ ] La palabra clave en pantalla es exactamente la que dice la voz.
+ - [ ] El foco (miel) solo está en el marcador del titular, la palabra activa, la barra, el foco de cada escena y el CTA.
+ - [ ] Las transiciones de ambiente son fundidos, no cortes.
+ - [ ] Duración = `video.frames`; el audio no se recortó ni se aceleró.
+ 
+-## Mensaje de entrega (3-6 líneas por idioma)
+-- Formato y plantilla usados (y por qué, si cambiaste el pedido), ambientes y obra (o "animación pura").
+-- Cualquier problema del guion visto en el paso 4 (cifra sin verificar, marca como ejecutora, idiomas que no cuadran) y qué dato habría que verificar, con su fuente oficial.
+-- Un caption sugerido por idioma: dos líneas + la invitación con la palabra clave. Sin promesas de archivos.
++## Mensaje de entrega (3-6 líneas)
++- Formato y plantilla usados (y por qué, si cambiaste el del guionista) y ambientes.
++- Cualquier problema del guion visto en el paso 4 (cifra sin verificar, marca como ejecutora, caso presentado como real) y qué dato habría que verificar, con su fuente oficial.
++- Un caption sugerido: dos líneas + la invitación con la palabra clave. Sin promesas de archivos.
+diff --git a/.claude/skills/reel-remodelacion/referencias/layout.md b/.claude/skills/reel-remodelacion/referencias/layout.md
+index 14484a5..55b9c90 100644
+--- a/.claude/skills/reel-remodelacion/referencias/layout.md
++++ b/.claude/skills/reel-remodelacion/referencias/layout.md
+@@ -9,7 +9,7 @@ Rol: motion designer y creative developer en Remotion para Reels de interiorismo
+ 
+ ## Layout fijo (px sobre 1080×1920; ver `tokens.zonas_seguras`)
+ - **Barra de progreso**: línea `foco` de 6 px en Y=0 con la punta redondeada.
+-- **Header** centrado en Y≈250: si `marca.pendiente`, solo `etiqueta`; si no, `MARCA · ETIQUETA`. Escala `header`, `texto` al 80 %, precedido de un pequeño rombo `primario`.
++- **Header** centrado en Y≈250: `EN BRUTO · ETIQUETA` (`marca.nombre` · `etiqueta`). Escala `header`, `texto` al 80 %, precedido de un pequeño rombo `primario`.
+ - **Titular** Y 300–560, alineado a la izquierda con margen 72 px, ancho ≤ 868: línea 1 en `titular_l1` (`texto`), línea 2 en `titular_l2` con **marcador** `foco` detrás (rectángulo que crece con `scaleX` 0 → 1, origen izquierdo, `spring_entrada`) y texto `texto_sobre_foco`. Si no cabe, baja hasta `px_min`. Entra desde abajo con spring y sale rápido hacia arriba en cada cambio de bloque.
+ - **Escena**: Y 600–1320, x 72–940 para todo lo que tenga texto (la columna derecha de 140 px la tapan los botones de Instagram).
+ - **Subtítulos**: Y 1370–1500.
+@@ -21,8 +21,8 @@ Rol: motion designer y creative developer en Remotion para Reels de interiorismo
+ 2. **ESCENA**: la situación del propietario, ilustrada con objetos simples (contrato, teléfono con mensajes, calendario que se estira, llaves). Sin personas fotorrealistas.
+ 3. **MARCO**: la pausa de criterio. Tipográfica y aireada: 2-3 conceptos que se ordenan en "antes → después" con conectores. Si el tema toca a la marca, una tarjeta discreta "ORIENTAMOS · COORDINAMOS" (nunca "construimos").
+ 4. **CUERPO**: la plantilla del formato (`plantillas/<formato>.md`). Es el tramo que se guarda: legible, ordenado, con la información completa visible al final del bloque ≥ 1 s.
+-5. **RESULTADO**: el impacto en dinero, tiempo o tranquilidad, sin cifras inventadas: la lista completa marcada, el calendario sin huecos, el antes/después lado a lado. Si hay dato verificado, cifra grande en `cifra` con la fuente debajo en `fuente_dato`.
+-6. **CTA**: siempre en `lino`. Encima `cta_previo`; la palabra `cta` en una caja `foco` con texto `texto_sobre_foco` en `display` 800, que hace pop en `cta_f` y late suave `1 + Math.sin(frame / 6) * 0.04`. Un icono de comentario y otro de DM (`message-circle`, `send`) a los lados. Si la marca no está pendiente, wordmark tipográfico de la marca en `display` debajo (no hay logo en el repo: no inventes uno).
++5. **RESULTADO**: el impacto en dinero, tiempo o tranquilidad, sin cifras inventadas: la lista completa marcada, el calendario sin huecos, la planta ya resuelta. Si hay dato verificado, cifra grande en `cifra` con la fuente debajo en `fuente_dato`.
++6. **CTA**: siempre en `lino`. Encima `cta_previo`; la palabra `cta` en una caja `foco` con texto `texto_sobre_foco` en `display` 800, que hace pop en `cta_f` y late suave `1 + Math.sin(frame / 6) * 0.04`. Un icono de comentario y otro de DM (`message-circle`, `send`) a los lados. Wordmark tipográfico de la marca (EN BRUTO) en `display` debajo (no hay logo en el repo: no inventes uno).
+ 
+ ## Dinamismo
+ - Cámara viva: el contenedor de la escena flota `Math.sin(frame / 14) * camara_flotante_px` en Y.
+@@ -32,5 +32,5 @@ Rol: motion designer y creative developer en Remotion para Reels de interiorismo
+ 
+ ## Subtítulos grandes
+ - Máximo 3 palabras a la vez y 2 líneas, a partir de `brief.subtitulos`.
+-- Escala `subtitulo` (64 px, baja a 54 si una palabra inglesa larga no cabe en 868 px), MAYÚSCULAS. Palabra actual `subtitulos.activo` con escala 1.12 y rebote; pasadas `subtitulos.pasado`; futuras `subtitulos.futuro`.
++- Escala `subtitulo` (64 px, baja a 54 si una palabra larga no cabe en 868 px), MAYÚSCULAS. Palabra actual `subtitulos.activo` con escala 1.12 y rebote; pasadas `subtitulos.pasado`; futuras `subtitulos.futuro`.
+ - Cápsula `subtitulos.capsula` a `capsula_opacidad`, radio `radio_chip`, `backdropFilter: blur(14px)`. La cápsula garantiza la lectura sobre fotos y fondos claros: no la quites.
+diff --git a/.claude/skills/reel-remodelacion/referencias/sincronizacion.md b/.claude/skills/reel-remodelacion/referencias/sincronizacion.md
+index 2ee38ce..7655fb0 100644
+--- a/.claude/skills/reel-remodelacion/referencias/sincronizacion.md
++++ b/.claude/skills/reel-remodelacion/referencias/sincronizacion.md
+@@ -11,8 +11,8 @@ Nunca leas `palabras.json` directamente desde Remotion: usa `brief.subtitulos` y
+ | Disparador | Palabra (índice) | Animación |
+ |---|---|---|
+ | Cambio de bloque | `bloques[].desde` | sale el titular anterior, entra el nuevo; la escena del bloque empieza; fundido de ambiente si cambia |
+-| Elemento de plantilla (partida, fase, ítem, error, opción, criterio, mueble, estilo, foto) | su `ancla` | entra el elemento (ver la ficha de la plantilla) |
+-| Giro (realidad, después, antídoto, veredicto, retraso) | su `ancla…` | la transformación termina **en** la palabra (empieza unos frames antes) |
++| Elemento de plantilla (partida, fase, ítem, error, opción, criterio, mueble, estilo) | su `ancla` | entra el elemento (ver la ficha de la plantilla) |
++| Giro (realidad, antídoto, veredicto, retraso) | su `ancla…` | la transformación termina **en** la palabra (empieza unos frames antes) |
+ | Cifra verificada | el `ancla` de su elemento | conteo de `conteo_frames`, termina antes de la siguiente palabra larga |
+ | Palabra clave | `cta_f` (lo calcula el script: última aparición de la palabra `cta`) | pop de la caja CTA y flechas |
+ | Subtítulo | cada palabra de `subtitulos` | resaltado de la palabra actual |
+@@ -24,4 +24,3 @@ Nunca leas `palabras.json` directamente desde Remotion: usa `brief.subtitulos` y
+ - Nada nuevo en los últimos 10 frames de un bloque (se cortaría con el cambio de titular).
+ - Transición entre ambientes: `reglas_ambientes.transicion_frames` (12) centrados en `ini_f` del bloque nuevo, con `interpolateColors`; nunca un corte seco de color.
+ - La cola (`cola_s`) es imagen quieta con micro-movimiento: CTA visible y legible hasta el último frame.
+-- Con dos idiomas, el **orden** y el **tipo** de cada animación son idénticos; solo cambian los frames. No compenses diferencias de duración añadiendo o quitando elementos.
+diff --git a/.claude/skills/reel-remodelacion/referencias/tecnico.md b/.claude/skills/reel-remodelacion/referencias/tecnico.md
+index cae651f..214be9e 100644
+--- a/.claude/skills/reel-remodelacion/referencias/tecnico.md
++++ b/.claude/skills/reel-remodelacion/referencias/tecnico.md
+@@ -1,9 +1,9 @@
+ # Construcción técnica (Remotion)
+ 
+ ## Proyecto
+-- Remotion 4 en TypeScript. Una composición por idioma del encargo: `Reel-es` y/o `Reel-en`, cada una con `width`, `height`, `fps` y **`frames`** exactos de su brief.
+-- Copia `briefs/<BASE>/<idioma>/brief.json` a `src/brief_<idioma>.json` e impórtalo; pasa el brief por props a un único componente `<Reel brief={…} />`: mismas escenas para los dos idiomas.
+-- Copia a `public/` el audio (`public/<idioma>/locucion.wav`), los activos de obra que uses y SOLO los assets del repo que uses; referencia todo con `staticFile()`.
++- Remotion 4 en TypeScript. Una composición, `Reel-es`, con `width`, `height`, `fps` y **`frames`** exactos del brief.
++- Copia `briefs/<BASE>/es/brief.json` a `src/brief_es.json` e impórtalo; pasa el brief por props a un único componente `<Reel brief={…} />`.
++- Copia a `public/` el audio (`public/es/locucion.wav`) y SOLO los assets del repo que uses; referencia todo con `staticFile()`. No hay fotos ni videos: todo se dibuja.
+ - Audio: la locución es la única pista. No la recortes, no la aceleres, sin música.
+ 
+ ## Assets del repo
+@@ -25,4 +25,4 @@ Carga las fuentes antes del primer frame: importa los `.css` (o inyéctalos en u
+ ## Reglas de código
+ - Determinismo total: prohibido `Math.random()` (usa `Math.sin`, índices o `random(seed)` de Remotion).
+ - Componentes: uno por capa del marco (`ProgressBar`, `Header`, `Titular`, `Subtitulos`, `AvisoLegal`, `Fondo`), uno por bloque y uno por plantilla (`PlantillaPresupuesto`, `PlantillaCronograma`, …) que recibe `brief.plantilla.params`. El ambiente entra con un hook `useAmbiente()` que interpola colores en las fronteras.
+-- Ningún texto escrito a mano en los componentes: todo viene del brief (titulares, params, `cta_previo`, `aviso_legal`, `ilustrativo`, créditos). Así la versión en inglés no arrastra español.
++- Ningún texto escrito a mano en los componentes: todo viene del brief (titulares, params, `cta_previo`, `aviso_legal`, `ilustrativo`).
+diff --git a/CLAUDE.md b/CLAUDE.md
+index 78e6a15..b326352 100644
+--- a/CLAUDE.md
++++ b/CLAUDE.md
+@@ -1,31 +1,30 @@
+-# Repo de Reels de remodelación e interiores (Florida)
++# Repo de Reels educativos de remodelación e interiores (Florida) · EN BRUTO
+ 
+-Contenido editorial, sistema de diseño, assets e instrucciones para dirigir y construir con Remotion los Reels de Instagram de una agencia de decoración, remodelación, construcción e interiores en Florida. El nombre de la marca **no está escrito en el repo**: llega en `briefs/<BASE>/encargo.json → marca` (lo pone el notebook desde su variable `MARCA`). Si vale `{{NOMBRE_MARCA}}` o está vacío, la marca está pendiente: no la dibujes ni la nombres.
++Contenido editorial, sistema de diseño, assets e instrucciones para dirigir y construir con Remotion los Reels de Instagram de **EN BRUTO**, una agencia de decoración, remodelación, construcción e interiores en Florida. Este pipeline hace **solo videos instructivos-educativos, en español y 100 % animados**: sin fotos de obras, sin casos reales de clientes. El nombre de la marca llega en `briefs/<BASE>/encargo.json → marca` (lo pone el notebook desde su constante `MARCA`).
+ 
+ ## Cómo llega un encargo
+-El notebook de Colab (`Crear_reel_remodelacion.ipynb`) hace solo esto: escribe el **guion** (GPT; en `ambos`, el inglés es una adaptación del español), lo **locuta** (Gemini TTS) y saca el **tiempo de cada palabra** (Whisper). Deja en `briefs/<BASE>/` (BASE = `AAAAMMDD-HHMM`, hora de Nueva York):
+-- `encargo.json`: marca, formato pedido y el que usó el guionista, idiomas, seed, obras reales utilizables.
+-- `<idioma>/guion.txt`, `<idioma>/locucion.wav`, `<idioma>/palabras.json` (versión 4, con `idioma`), para `es` y/o `en`.
++El notebook de Colab (`Crear_reel_remodelacion.ipynb`) tiene un solo parámetro, `SEED_PROMPT` (tema, ideas sueltas, servicio a promocionar, ángulo… o vacío). Con él escribe el **guion** (GPT, que elige también el formato), lo **locuta** (Gemini TTS) y saca el **tiempo de cada palabra** (Whisper). Deja en `briefs/<BASE>/` (BASE = `AAAAMMDD-HHMM`, hora de Nueva York):
++- `encargo.json`: marca, formato que eligió el guionista (`formato_guion`), idioma (`["es"]`) y seed.
++- `es/guion.txt`, `es/locucion.wav`, `es/palabras.json` (versión 4).
+ 
+-Todo lo demás lo haces tú con la skill **reel-remodelacion** (`.claude/skills/reel-remodelacion/SKILL.md`): revisar el guion contra el ADN, decidir bloques, titulares, ambientes, obra y parámetros de la plantilla del formato (`briefs/<BASE>/decisiones.json`, uno para los dos idiomas), construir, revisar y renderizar una versión por idioma.
++Todo lo demás lo haces tú con la skill **reel-remodelacion** (`.claude/skills/reel-remodelacion/SKILL.md`): revisar el guion contra el ADN, decidir bloques, titulares, ambientes y parámetros de la plantilla del formato (`briefs/<BASE>/decisiones.json`), construir, revisar y renderizar.
+ 
+ ## Estructura
+-- `editorial/`: marca y declaraciones permitidas (`marca.md`), ADN y checklist (`adn.md`), temas (`temas.json`), los 8 formatos (`formatos.json`), datos con fuente (`datos_verificados.json`: solo valen los `verificado: true`), prompt del guionista (`prompt_guion.md`), prompt de adaptación al inglés (`prompt_adaptacion.md`) y perfiles de voz por idioma (`voz_tts.md`).
++- `editorial/`: marca y declaraciones permitidas (`marca.md`), ADN y checklist (`adn.md`), temas (`temas.json`), los 7 formatos (`formatos.json`), datos con fuente (`datos_verificados.json`: solo valen los `verificado: true`), prompt del guionista (`prompt_guion.md`) y perfil de voz (`voz_tts.md`).
+ - `.claude/skills/reel-remodelacion/`: la skill, `plantillas/` (una ficha por formato + `plantillas.json` con sus parámetros), `diseno/tokens.json` (colores, tipografías, tamaños, márgenes seguros, movimiento) y `referencias/`.
+-- `assets/obras/<id>/`: fotos y videos reales de obras con su `manifest.json` (ver `assets/obras/LEEME.md`).
+ - `icons/` Lucide (trazo, `currentColor`) · `logos/` canales (monocromos) → siempre con máscara CSS.
+ - `ui/`, `textures/`: SVG en los colores del ambiente `lino` → para otros ambientes, `scripts/tenir_svg.py`.
+ - `contactos.png`: hoja con todos los assets gráficos. Ábrela antes de diseñar.
+ - `fonts/css/`: `@font-face` con woff2 en base64 (se usan Fraunces y DM Sans).
+-- `scripts/`: `alinear.py` (guion ↔ voz), `preparar_brief.py` (decisiones → briefs con frames), `validar_repo.py` (editorial, obras, plantillas), `validar_tokens.py` (contrastes), `tenir_svg.py`, `contactos.py`.
+-- `briefs/<BASE>/`: lo que sube el notebook + tus decisiones y los briefs generados.
++- `scripts/`: `alinear.py` (guion ↔ voz), `preparar_brief.py` (decisiones → brief con frames), `validar_repo.py` (editorial y plantillas), `validar_tokens.py` (contrastes), `tenir_svg.py`, `contactos.py`.
++- `briefs/<BASE>/`: lo que sube el notebook + tus decisiones y el brief generado.
+ 
+ ## Reglas que valen siempre
+-- **Nunca inventar datos**: ninguna cifra (precio, plazo, porcentaje, norma) en pantalla sin un dato `verificado: true` o un dato verificado de una obra real. Lo ilustrativo se marca.
++- **Videos educativos**: cada uno enseña algo concreto. Los ejemplos son hipotéticos; nunca casos de clientes ni proyectos presentados como reales.
++- **Nunca inventar datos**: ninguna cifra (precio, plazo, porcentaje, norma) en pantalla sin un dato `verificado: true`. Lo ilustrativo se marca.
+ - **La marca coordina, no ejecuta**: nunca "construimos", "remodelamos", "instalamos". Nada de licencia, seguro o garantías salvo lo que `marca.md → Declaraciones permitidas` marque con `si`.
+-- Fotos reales solo de `assets/obras/` autorizadas, respetando su privacidad y con créditos de ejecución. Nunca fotos de internet ni logos de contratistas o fabricantes.
++- **Animación pura**: nada de fotos ni videos (de obras, de bancos de imágenes o de internet), ni logos de contratistas o fabricantes.
+ - El marco (barra de progreso, header, titular, subtítulos, CTA) es fijo; solo cambian el ambiente y la escena.
+-- Dos idiomas = un diseño de escenas, dos renders.
+ - La voz no se toca: ni recortes, ni cambios de velocidad, ni música encima.
+ - Determinismo: nada de `Math.random()` en Remotion.
+ 
+diff --git a/README.md b/README.md
+index e96f9b3..a08172a 100644
+--- a/README.md
++++ b/README.md
+@@ -1,41 +1,41 @@
+-# Reels de remodelación e interiores · Florida
++# Reels educativos de remodelación e interiores · Florida · EN BRUTO
+ 
+-Pipeline de contenido para Instagram Reels de una agencia de decoración, remodelación, construcción e interiores en Florida, en español, inglés o ambos. Este sistema **solo produce contenido**: la captación por comentarios y DM la atiende el socio.
++Pipeline de contenido para Instagram Reels **instructivos-educativos, en español y 100 % animados** de EN BRUTO, una agencia de decoración, remodelación, construcción e interiores en Florida. Este sistema **solo produce contenido**: la captación por comentarios y DM la atiende el socio. (Los videos con fotos de obras reales irán en otro pipeline.)
+ 
+ ```
+ Notebook (Colab)                         Repo (este)                            Claude (skill reel-remodelacion)
+ ───────────────                          ───────────                            ───────────────────────────────
+-lee editorial/ ──► guion (GPT)           briefs/<BASE>/encargo.json             lee CLAUDE.md + skill
+-               ──► [adaptación EN]       briefs/<BASE>/es/{guion,wav,palabras}  decisiones.json (un diseño)
+-               ──► voz (Gemini TTS) ──►  briefs/<BASE>/en/{guion,wav,palabras}  preparar_brief.py → brief por idioma
+-               ──► tiempos (Whisper)                                            Remotion → MP4 por idioma
++SEED_PROMPT                              briefs/<BASE>/encargo.json             lee CLAUDE.md + skill
++lee editorial/ ──► guion + formato (GPT) briefs/<BASE>/es/{guion,wav,palabras}  decisiones.json
++               ──► voz (Gemini TTS) ──►                                         preparar_brief.py → brief
++               ──► tiempos (Whisper)                                            Remotion → MP4
+                ──► prompt para Claude
+ ```
+ 
+ ## Uso diario
+ 1. Abre `Crear_reel_remodelacion.ipynb` en Colab.
+-2. Celda **Parámetros**: `SEED_PROMPT` (la idea en una frase, o vacío), `IDIOMA` (`es`, `en`, `ambos`), `FORMATO` (uno de los 8 o `auto`), `OBRA` (`auto`, `ninguna` o el id de una carpeta de `assets/obras/`).
++2. Celda **Parámetros**: escribe el `SEED_PROMPT`. Admite cualquier cosa: un tema, ideas sueltas, un servicio a promocionar, un ángulo, un público, un gancho o una palabra clave que quieras, o varias a la vez. Vacío = el guionista elige el tema. El idioma (español), el formato (lo elige el guionista), la marca y el repo ya están fijos.
+ 3. Ejecuta **Configuración** (una vez por sesión) y **▶️ 1 · Escribir el guion**. Lee los avisos: nunca reescriben nada, tú decides si vuelves a generar. Para retocar, pega el texto en la celda 2.
+-4. **▶️ 2 · Locutar y subir**: genera voz y tiempos por idioma y los sube a `briefs/<BASE>/`. Si no se puede subir, descarga `<BASE>.zip`.
++4. **▶️ 2 · Locutar y subir**: genera la voz y los tiempos y los sube a `briefs/<BASE>/`. Si no se puede subir, descarga `<BASE>.zip`.
+ 5. Copia el **prompt para Claude** y pégalo en Claude (con acceso al repo). Si se descargó el zip, adjúntalo.
+ 
+ ## Configuración (una sola vez)
+-- En la celda Configuración: `MARCA` (el nombre; mientras sea `{{NOMBRE_MARCA}}`, el guion no la nombra) y `REPO_SLUG` (`usuario/repo`).
+ - Secretos de Colab (icono de llave): `OPENAI_API_KEY`, `GEMINI_API_KEY` (o `GOOGLE_API_KEY`) y `GITHUB_TOKEN` (token fine-grained con permiso *Contents: read and write* solo sobre este repo). Ningún secreto va en el código.
+-- Modelos y voces (`MODELO_GUION`, `TTS_MODEL`, `TTS_VOZ` por idioma) están en la celda Configuración, marcados como ajustables.
++- Modelos y voz (`MODELO_GUION`, `TTS_MODEL`, `TTS_VOZ`) están en la celda Configuración, marcados como ajustables.
+ 
+ ## Mantener el contenido
+ | Quiero… | Edito… | Compruebo con… |
+ |---|---|---|
+-| Cambiar el tono o las reglas del guion | `editorial/prompt_guion.md`, `marca.md`, `adn.md` | `python3 scripts/validar_repo.py` |
++| Cambiar el tono, las reglas o cómo se interpreta el seed | `editorial/prompt_guion.md`, `marca.md`, `adn.md` | `python3 scripts/validar_repo.py` |
+ | Permitir que la marca diga que tiene licencia/seguro | `editorial/marca.md → Declaraciones permitidas` (solo con respaldo documental) | idem |
+ | Añadir temas o ideas | `editorial/temas.json` (palabras clave únicas, sin tildes) | idem |
+ | Verificar un dato | `editorial/datos_verificados.json`: texto exacto, `url`, `cita_literal`, `fecha_consulta`, `verificado: true` | idem |
+-| Subir una obra real | `assets/obras/<id>/manifest.json` + archivos (ver `assets/obras/LEEME.md`) | idem |
+ | Cambiar colores o tipografías | `.claude/skills/reel-remodelacion/diseno/tokens.json` | `python3 scripts/validar_tokens.py` |
+ | Añadir iconos o texturas | `icons/`, `ui/`, `textures/` | `python3 scripts/contactos.py` |
+ 
+ **Datos**: el guionista solo recibe los datos con `verificado: true`; Claude solo pone en pantalla esos. Los datos los verifica una persona leyendo la fuente oficial; Claude puede sugerir fuentes en sus entregas, pero no marca nada como verificado.
+ 
++**Extensión del guion**: el prompt da una referencia (unas 70-120 palabras), pero no es un límite: manda la calidad. El notebook muestra palabras y duración estimada sin avisar por longitud.
++
+ ## Estructura
+-`editorial/` · `.claude/skills/reel-remodelacion/` (skill, plantillas, tokens, referencias) · `assets/obras/` · `icons/` · `logos/` · `ui/` · `textures/` · `fonts/css/` · `scripts/` · `briefs/` · `contactos.png`. Detalle en `CLAUDE.md`.
++`editorial/` · `.claude/skills/reel-remodelacion/` (skill, plantillas, tokens, referencias) · `icons/` · `logos/` · `ui/` · `textures/` · `fonts/css/` · `scripts/` · `briefs/` · `contactos.png`. Detalle en `CLAUDE.md`.
+diff --git a/assets/obras/LEEME.md b/assets/obras/LEEME.md
+deleted file mode 100644
+index bb3c7de..0000000
+--- a/assets/obras/LEEME.md
++++ /dev/null
+@@ -1,30 +0,0 @@
+-# Obras reales (`assets/obras/`)
+-
+-Fotos y videos de proyectos coordinados por la marca. Una carpeta por proyecto: `assets/obras/<id>/` con un `manifest.json` y los archivos. El notebook las lista para el prompt de Claude y para el guionista (solo las cifras verificadas); `preparar_brief.py` las valida y copia sus rutas al brief.
+-
+-**Carpetas que empiezan por `_`** (como `_ejemplo/`) son plantillas: se validan pero nunca se usan.
+-
+-## Antes de subir una obra
+-1. Permiso escrito del propietario para publicar. Guarda el documento fuera del repo y marca `uso_autorizado: true`.
+-2. Revisa cada foto: dirección, número de casa, caras, matrículas, documentos sobre la mesa. Si algo se ve, recorta la foto o marca el campo de `privacidad` en `true` (Claude desenfocará esa zona o descartará el activo).
+-3. Optimiza: JPG de 1080-2160 px de lado mayor (≤ 2 MB), MP4 H.264 vertical ≤ 30 s (≤ 40 MB). Sin Git LFS: el render clona el repo sin LFS.
+-
+-## `manifest.json`
+-| Campo | Obligatorio | Valores |
+-|---|---|---|
+-| `version` | sí | `1` |
+-| `id` | sí | igual al nombre de la carpeta; minúsculas, números y guiones |
+-| `ejemplo` | no | `true` = plantilla, se ignora |
+-| `titulo` | sí | texto corto, sin dirección |
+-| `tipo_espacio` | sí | `cocina`, `bano`, `sala`, `dormitorio`, `sala_comedor`, `estudio`, `lavanderia`, `exterior`, `techo`, `ventanas`, `pisos`, `fachada`, `casa_completa`, `otro` |
+-| `ciudad`, `condado` | sí | sin dirección exacta |
+-| `fecha_inicio`, `fecha_fin` | sí | `AAAA-MM-DD` o `null` |
+-| `uso_autorizado` | sí | `true` solo con permiso escrito |
+-| `creditos.ejecucion` | sí | quién ejecutó la obra (la marca coordina, no ejecuta) |
+-| `creditos.coordinacion` | sí | normalmente `{{NOMBRE_MARCA}}` (se sustituye por la variable `MARCA`) |
+-| `creditos.fotos` | no | autor |
+-| `datos_publicables.<campo>` | no | `{ "valor": número, "verificado": bool, "fuente": "documento" }`; solo los verificados se pueden decir o mostrar |
+-| `activos[]` | sí (≥ 1) | `{ archivo, tipo: foto|video, momento: antes|despues|proceso|detalle, descripcion, orientacion: vertical|horizontal|cuadrada, duracion_s? }` |
+-| `privacidad` | sí | `direccion_visible`, `caras_visibles`, `matriculas_visibles` (bool) |
+-
+-Comprueba con `python3 scripts/validar_repo.py`.
+diff --git a/assets/obras/_ejemplo/manifest.json b/assets/obras/_ejemplo/manifest.json
+deleted file mode 100644
+index cbcc2c3..0000000
+--- a/assets/obras/_ejemplo/manifest.json
++++ /dev/null
+@@ -1,36 +0,0 @@
+-{
+-  "_nota": "EJEMPLO de manifest (no es una obra real: 'ejemplo': true hace que el notebook y el renderer lo ignoren). Copia esta carpeta como assets/obras/<id>/, pon las fotos y videos junto al manifest y rellénalo. Formato completo en assets/obras/LEEME.md.",
+-  "version": 1,
+-  "id": "_ejemplo",
+-  "ejemplo": true,
+-  "titulo": "Cocina abierta en un townhouse",
+-  "tipo_espacio": "cocina",
+-  "ciudad": "Doral",
+-  "condado": "Miami-Dade",
+-  "fecha_inicio": "2026-03-02",
+-  "fecha_fin": "2026-04-17",
+-  "uso_autorizado": false,
+-  "autorizacion": {
+-    "documento": "Permiso firmado de publicación del propietario (guárdalo fuera del repo)",
+-    "fecha": null
+-  },
+-  "creditos": {
+-    "ejecucion": "Nombre del contratista que ejecutó la obra (y su número de licencia si lo muestra)",
+-    "coordinacion": "{{NOMBRE_MARCA}}",
+-    "fotos": "Autor de las fotos"
+-  },
+-  "datos_publicables": {
+-    "costo_total_usd": { "valor": null, "verificado": false, "fuente": "factura final del proyecto" },
+-    "duracion_semanas": { "valor": null, "verificado": false, "fuente": "fechas del contrato y acta de cierre" }
+-  },
+-  "activos": [
+-    { "archivo": "antes_01.jpg", "tipo": "foto", "momento": "antes", "descripcion": "Cocina cerrada vista desde la sala", "orientacion": "vertical" },
+-    { "archivo": "proceso_01.mp4", "tipo": "video", "momento": "proceso", "descripcion": "Retiro del muro (no de carga, confirmado por ingeniero)", "orientacion": "vertical", "duracion_s": 6 },
+-    { "archivo": "despues_01.jpg", "tipo": "foto", "momento": "despues", "descripcion": "Misma vista con isla y cocina abierta", "orientacion": "vertical" }
+-  ],
+-  "privacidad": {
+-    "direccion_visible": false,
+-    "caras_visibles": false,
+-    "matriculas_visibles": false
+-  }
+-}
+diff --git a/briefs/LEEME.md b/briefs/LEEME.md
+index 164b751..f050d2c 100644
+--- a/briefs/LEEME.md
++++ b/briefs/LEEME.md
+@@ -1,12 +1,14 @@
+ Cada video tiene aquí su carpeta `<BASE>/` (`AAAAMMDD-HHMM`, hora de Nueva York).
+ 
+ Lo sube el notebook de Colab:
+-- `encargo.json`: marca, formato pedido (`formato`) y el que usó el guionista (`formato_guion`), idiomas, seed y obras reales utilizables.
+-- `<idioma>/guion.txt`: el texto locutado, sin indicaciones (`es` y/o `en`; en `ambos`, el inglés es una adaptación del español con los mismos párrafos).
+-- `<idioma>/locucion.wav`: la voz (Gemini TTS).
+-- `<idioma>/palabras.json` (versión 4): idioma, duración de la voz y cada palabra con su inicio y fin (Whisper).
++- `encargo.json`: marca (EN BRUTO), formato que eligió el guionista (`formato_guion`; `formato` vale siempre `auto`), idioma (`["es"]`) y seed.
++- `es/guion.txt`: el texto locutado, sin indicaciones.
++- `es/locucion.wav`: la voz (Gemini TTS).
++- `es/palabras.json` (versión 4): idioma, duración de la voz y cada palabra con su inicio y fin (Whisper).
+ 
+ Lo añade Claude al dirigir el video:
+-- `<idioma>/subtitulos.json`: el guion alineado con la voz (`scripts/alinear.py`).
+-- `decisiones.json`: un único diseño de escenas para todos los idiomas.
+-- `<idioma>/brief.json`: los datos de render con frames exactos (`scripts/preparar_brief.py`).
++- `es/subtitulos.json`: el guion alineado con la voz (`scripts/alinear.py`).
++- `decisiones.json`: el diseño de escenas.
++- `es/brief.json`: los datos de render con frames exactos (`scripts/preparar_brief.py`).
++
++Las carpetas anteriores pueden tener otra estructura (bilingüe o sin subcarpeta `es/`): el notebook y los scripts las siguen leyendo.
+diff --git a/editorial/adn.md b/editorial/adn.md
+index 5b8c539..4c35189 100644
+--- a/editorial/adn.md
++++ b/editorial/adn.md
+@@ -3,12 +3,13 @@
+ Si un video contradice una sola de estas ideas, no se publica.
+ 
+ 1. **Antes de la obra se decide casi todo**: alcance, permisos, materiales y contrato. Enseñamos a decidir antes, no a apagar fuegos después.
+-2. **Nunca inventamos datos**: precios, plazos, normas, porcentajes y requisitos de permisos solo se dicen si están verificados con su fuente (DATOS) o vienen de una obra real documentada (OBRAS). Si no hay dato, explicamos el mecanismo sin cifras.
++2. **Nunca inventamos datos**: precios, plazos, normas, porcentajes y requisitos de permisos solo se dicen si están verificados con su fuente (DATOS). Si no hay dato, explicamos el mecanismo sin cifras.
+ 3. **La marca coordina, no ejecuta**: orientamos y conectamos; la obra la hacen profesionales externos. Nunca "construimos", "remodelamos" ni "instalamos".
+ 4. **Sin promesas que no podemos firmar**: no decimos que la marca tenga licencia, seguro, ni que garantice precio, plazo o ausencia de sobrecostos, salvo lo que `marca.md` declare con `si`.
+ 5. **Florida no es cualquier lugar**: huracanes, humedad, permisos que cambian por condado, HOA y condominios, contratistas sin licencia. Cada video aterriza en una realidad local.
+ 6. **Medimos dinero y tiempo del propietario**: el resultado es menos retrabajo, menos obra parada, una venta sin sorpresas. Nunca likes ni seguidores.
+-7. **Somos aliados, no vendedores**: el video tiene que servir aunque el espectador nunca nos escriba.
++7. **Somos aliados, no vendedores**: el video tiene que servir aunque el espectador nunca nos escriba. Incluso cuando promociona un servicio, primero enseña.
++8. **Enseñamos con ejemplos hipotéticos**: cada video es educativo. No contamos casos de clientes ni proyectos concretos como si fueran reales; los ejemplos se presentan como lo que son ("imagina que…").
+ 
+ ## Polémica sin contradecirnos
+ - Criticamos MÉTODOS ("firmar con un presupuesto de una sola línea"), nunca a un contratista, empresa o marca con nombre.
+@@ -24,4 +25,4 @@ Si un video contradice una sola de estas ideas, no se publica.
+ 5. La marca aparece como quien orienta o coordina, nunca como quien ejecuta la obra, y sin declaraciones que `marca.md` no permita.
+ 6. Los términos de obra ("change order", "GC", "lien"…) se explican en lenguaje sencillo la primera vez.
+ 7. Termina invitando a comentar o enviar por DM una palabra clave. Sin prometer guías, PDFs ni archivos.
+-8. El ejemplo es ilustrativo salvo que use una obra de `assets/obras/` con permiso de publicación; en ese caso, los créditos de ejecución se muestran.
++8. Los ejemplos son hipotéticos e ilustrativos: ningún caso de cliente, proyecto concreto ni testimonio presentado como real.
+diff --git a/editorial/datos_verificados.json b/editorial/datos_verificados.json
+index dd6c5f6..0f3fece 100644
+--- a/editorial/datos_verificados.json
++++ b/editorial/datos_verificados.json
+@@ -1,9 +1,8 @@
+ {
+-  "_nota": "Biblioteca de datos con fuente. El notebook SOLO le pasa al guionista los datos con verificado: true; Claude solo pone en pantalla esos. Todos empiezan como pendientes: no hay cifras escritas de memoria. Para verificar uno: consulta la fuente oficial, reescribe 'dato' con la afirmación exacta (sin 'TODO'), rellena url (la página exacta), cita_literal (texto literal de la fuente), fecha_consulta (AAAA-MM-DD) y pon verificado: true. 'dato_en' es la versión en inglés (opcional; si falta, el adaptador la traduce). 'acotacion' es el alcance que nunca se puede omitir al citarlo (condado, tipo de obra, año).",
++  "_nota": "Biblioteca de datos con fuente. El notebook SOLO le pasa al guionista los datos con verificado: true; Claude solo pone en pantalla esos. Todos empiezan como pendientes: no hay cifras escritas de memoria. Para verificar uno: consulta la fuente oficial, reescribe 'dato' con la afirmación exacta (sin 'TODO'), rellena url (la página exacta), cita_literal (texto literal de la fuente), fecha_consulta (AAAA-MM-DD) y pon verificado: true. 'acotacion' es el alcance que nunca se puede omitir al citarlo (condado, tipo de obra, año).",
+   "datos": {
+     "licencia_obligatoria": {
+       "dato": "TODO: qué tipos de trabajo exigen licencia estatal de contratista en Florida (estructural, techos, plomería, electricidad, aire acondicionado…) y cuáles no.",
+-      "dato_en": null,
+       "fuente": "Florida DBPR · Construction Industry Licensing Board; Florida Statutes, capítulo 489",
+       "corta": "Florida DBPR",
+       "acotacion": "Florida; depende del tipo de trabajo; algunos condados tienen licencias propias",
+@@ -15,7 +14,6 @@
+     },
+     "verificar_licencia": {
+       "dato": "TODO: cómo se comprueba en línea la licencia de un contratista en Florida (buscador oficial y qué datos muestra: estado, vencimiento, quejas).",
+-      "dato_en": null,
+       "fuente": "Florida DBPR (buscador de licencias)",
+       "corta": "Florida DBPR",
+       "acotacion": "licencias estatales; las de condado se consultan en el condado",
+@@ -27,7 +25,6 @@
+     },
+     "contratar_sin_licencia": {
+       "dato": "TODO: consecuencias para el contratista sin licencia y para el propietario que lo contrata (validez del contrato, sanciones, agravantes en estado de emergencia).",
+-      "dato_en": null,
+       "fuente": "Florida Statutes §489.127 y §489.128",
+       "corta": "Florida Statutes",
+       "acotacion": "Florida; no es asesoría legal",
+@@ -39,7 +36,6 @@
+     },
+     "fondo_recuperacion": {
+       "dato": "TODO: qué es el Florida Homeowners' Construction Recovery Fund, quién puede reclamar y en qué casos (requisito de contratista con licencia).",
+-      "dato_en": null,
+       "fuente": "Florida DBPR; Florida Statutes §489.140–489.144",
+       "corta": "Florida DBPR",
+       "acotacion": "solo contratos con contratistas con licencia estatal",
+@@ -51,7 +47,6 @@
+     },
+     "deposito_inicial": {
+       "dato": "TODO: qué exige la ley cuando un contratista recibe un depósito inicial (porcentaje que activa la obligación y plazos para pedir permisos y empezar).",
+-      "dato_en": null,
+       "fuente": "Florida Statutes §489.126",
+       "corta": "Florida Statutes",
+       "acotacion": "Florida; contratistas con licencia",
+@@ -63,7 +58,6 @@
+     },
+     "lien_subcontratistas": {
+       "dato": "TODO: cómo funciona el construction lien (reclamo sobre la propiedad) de subcontratistas y proveedores aunque el propietario le haya pagado al contratista principal, y qué documentos lo previenen (release of lien).",
+-      "dato_en": null,
+       "fuente": "Florida Statutes, capítulo 713 (Construction Lien Law)",
+       "corta": "Florida Statutes",
+       "acotacion": "Florida; no es asesoría legal",
+@@ -75,7 +69,6 @@
+     },
+     "notice_of_commencement": {
+       "dato": "TODO: qué es el Notice of Commencement, cuándo es obligatorio (umbral de monto de la obra) y dónde se registra.",
+-      "dato_en": null,
+       "fuente": "Florida Statutes §713.13; oficina del Clerk del condado",
+       "corta": "Florida Statutes",
+       "acotacion": "Florida; el umbral puede cambiar por tipo de obra",
+@@ -87,7 +80,6 @@
+     },
+     "owner_builder": {
+       "dato": "TODO: qué implica sacar un permiso como owner-builder (propietario que actúa como su propio contratista) y qué responsabilidades asume.",
+-      "dato_en": null,
+       "fuente": "Florida Statutes §489.103",
+       "corta": "Florida Statutes",
+       "acotacion": "Florida; condiciones y declaración obligatoria",
+@@ -99,7 +91,6 @@
+     },
+     "permisos_por_condado": {
+       "dato": "TODO: qué obras interiores requieren permiso y cuáles no, condado por condado (empezar por Miami-Dade, Broward, Palm Beach, Orange y Hillsborough), con el enlace oficial de cada uno.",
+-      "dato_en": null,
+       "fuente": "Departamento de construcción / permisos de cada condado o municipio",
+       "corta": "Condado",
+       "acotacion": "varía por condado y por municipio; citar siempre el condado",
+@@ -111,7 +102,6 @@
+     },
+     "plazos_permiso": {
+       "dato": "TODO: tiempos de revisión de permisos publicados por el condado (si los publica) para remodelación residencial.",
+-      "dato_en": null,
+       "fuente": "Portal de permisos del condado",
+       "corta": "Condado",
+       "acotacion": "condado concreto y tipo de permiso; los plazos cambian",
+@@ -123,7 +113,6 @@
+     },
+     "permisos_abiertos": {
+       "dato": "TODO: qué es un permiso abierto o vencido, cómo se consulta por dirección y por qué puede complicar una venta o un refinanciamiento.",
+-      "dato_en": null,
+       "fuente": "Portal de permisos del condado",
+       "corta": "Condado",
+       "acotacion": "condado concreto",
+@@ -135,7 +124,6 @@
+     },
+     "codigo_construccion": {
+       "dato": "TODO: edición vigente del Florida Building Code y desde cuándo aplica.",
+-      "dato_en": null,
+       "fuente": "Florida Building Commission",
+       "corta": "Florida Building Code",
+       "acotacion": "Florida; edición vigente en la fecha de consulta",
+@@ -147,7 +135,6 @@
+     },
+     "zona_hvhz": {
+       "dato": "TODO: qué condados están en la High-Velocity Hurricane Zone (HVHZ) y qué cambia para ventanas, puertas y techos.",
+-      "dato_en": null,
+       "fuente": "Florida Building Code",
+       "corta": "Florida Building Code",
+       "acotacion": "solo condados en HVHZ",
+@@ -159,7 +146,6 @@
+     },
+     "aprobacion_producto": {
+       "dato": "TODO: qué es la aprobación de producto (Florida Product Approval y, en Miami-Dade, la NOA) para ventanas, puertas y techos, y cómo se consulta.",
+-      "dato_en": null,
+       "fuente": "Florida Building Commission (Product Approval); Miami-Dade County (NOA)",
+       "corta": "Florida Product Approval",
+       "acotacion": "productos de envolvente exterior",
+@@ -171,7 +157,6 @@
+     },
+     "temporada_huracanes": {
+       "dato": "TODO: fechas oficiales de la temporada de huracanes del Atlántico.",
+-      "dato_en": null,
+       "fuente": "NOAA · National Hurricane Center",
+       "corta": "NOAA",
+       "acotacion": "cuenca del Atlántico",
+@@ -183,7 +168,6 @@
+     },
+     "descuento_mitigacion": {
+       "dato": "TODO: obligación de las aseguradoras de ofrecer descuentos por mitigación de viento y qué es una inspección de mitigación.",
+-      "dato_en": null,
+       "fuente": "Florida Office of Insurance Regulation; Florida Statutes §627.0629",
+       "corta": "Florida OIR",
+       "acotacion": "seguro de vivienda en Florida; el descuento depende de la aseguradora",
+@@ -195,7 +179,6 @@
+     },
+     "my_safe_florida_home": {
+       "dato": "TODO: estado actual del programa My Safe Florida Home (si acepta solicitudes, requisitos y qué mejoras cubre).",
+-      "dato_en": null,
+       "fuente": "My Safe Florida Home (Florida Department of Financial Services)",
+       "corta": "My Safe Florida Home",
+       "acotacion": "programa con fondos limitados; el estado cambia",
+@@ -207,7 +190,6 @@
+     },
+     "regla_50_inundacion": {
+       "dato": "TODO: qué es la regla de mejora sustancial (50 %) en zonas inundables y cómo afecta a una remodelación grande.",
+-      "dato_en": null,
+       "fuente": "FEMA (Substantial Improvement / Substantial Damage); oficina de planificación de inundaciones del condado",
+       "corta": "FEMA",
+       "acotacion": "propiedades en zona de inundación especial; cada municipio aplica su ordenanza",
+@@ -219,7 +201,6 @@
+     },
+     "humedad_moho": {
+       "dato": "TODO: rango de humedad interior recomendado para prevenir moho y la recomendación sobre materiales mojados.",
+-      "dato_en": null,
+       "fuente": "U.S. EPA (guía sobre moho)",
+       "corta": "EPA",
+       "acotacion": "recomendación general para viviendas",
+@@ -231,7 +212,6 @@
+     },
+     "condominios_inspecciones": {
+       "dato": "TODO: obligaciones vigentes de inspecciones de seguridad (milestone inspections) y estudios de reservas (SIRS) en condominios, y a qué edificios aplican.",
+-      "dato_en": null,
+       "fuente": "Florida Statutes §553.899 y §718.112; Florida DBPR (División de Condominios)",
+       "corta": "Florida Statutes",
+       "acotacion": "condominios de cierta altura y antigüedad; la ley se ha modificado varias veces",
+@@ -243,7 +223,6 @@
+     },
+     "hoa_aprobacion": {
+       "dato": "TODO: dónde se establece que una remodelación necesita aprobación del HOA o de la asociación del condominio (documentos de la asociación) y qué suele exigirse.",
+-      "dato_en": null,
+       "fuente": "Florida Statutes cap. 718 (condominios) y cap. 720 (HOA); documentos de cada asociación",
+       "corta": "Documentos de la asociación",
+       "acotacion": "depende de cada asociación",
+@@ -255,7 +234,6 @@
+     },
+     "estafas_denuncia": {
+       "dato": "TODO: dónde denunciar en Florida a un contratista sin licencia o una estafa de reparación (sobre todo después de un huracán).",
+-      "dato_en": null,
+       "fuente": "Florida DBPR (unlicensed activity); Florida Attorney General",
+       "corta": "Florida DBPR",
+       "acotacion": "Florida",
+@@ -267,7 +245,6 @@
+     },
+     "retorno_remodelacion": {
+       "dato": "TODO: porcentaje del costo que se recupera al vender, por tipo de remodelación, para la región que incluya Florida (año del informe).",
+-      "dato_en": null,
+       "fuente": "Zonda · Cost vs. Value Report (fuente comercial: decide si la aceptas)",
+       "corta": "Cost vs. Value",
+       "acotacion": "región y año del informe; promedio, no garantía",
+@@ -278,9 +255,8 @@
+       "anadido_por": "biblioteca inicial"
+     },
+     "costos_referencia": {
+-      "dato": "TODO: rangos de costo de remodelación (cocina, baño, pisos, techo) en Florida. No hay fuente oficial: elegir una fuente comercial reconocida o usar solo obras propias documentadas.",
+-      "dato_en": null,
+-      "fuente": "Pendiente de elegir (fuente comercial o datos propios de obras)",
++      "dato": "TODO: rangos de costo de remodelación (cocina, baño, pisos, techo) en Florida. No hay fuente oficial: elegir una fuente comercial reconocida.",
++      "fuente": "Pendiente de elegir (fuente comercial reconocida)",
+       "corta": "Pendiente",
+       "acotacion": "rango orientativo, ciudad y año; nunca como cotización",
+       "url": null,
+diff --git a/editorial/formatos.json b/editorial/formatos.json
+index b7e5c80..ae06596 100644
+--- a/editorial/formatos.json
++++ b/editorial/formatos.json
+@@ -1,53 +1,47 @@
+ {
+-  "_nota": "Los 8 formatos de video. 'guion' le dice al guionista cómo ordenar lo que se dice; 'plantilla' es la plantilla de escena de la skill (.claude/skills/reel-remodelacion/plantillas/<plantilla>.md). El notebook valida FORMATO contra estos ids.",
++  "_nota": "Los 7 formatos de video (todos educativos y animados). 'guion' le dice al guionista cómo ordenar lo que se dice; 'plantilla' es la plantilla de escena de la skill (.claude/skills/reel-remodelacion/plantillas/<plantilla>.md). El guionista elige el formato (o usa el que pida el seed) y lo declara en la primera línea de su respuesta.",
+   "formatos": {
+     "presupuesto": {
+-      "nombre": { "es": "Presupuesto desglosado", "en": "Budget breakdown" },
++      "nombre": "Presupuesto desglosado",
+       "plantilla": "presupuesto",
+-      "guion": "El cuerpo recorre las partidas de un presupuesto en orden (por ejemplo: materiales, mano de obra, permisos, retiro de escombros, imprevistos) y en cada una dice qué preguntar o qué suele faltar. Nombra cada partida con una palabra clara para que la animación la encienda al oírla. Montos solo si están en DATOS o en OBRAS con verificado; si no, habla de proporciones y preguntas, sin cifras.",
++      "guion": "El cuerpo recorre las partidas de un presupuesto en orden (por ejemplo: materiales, mano de obra, permisos, retiro de escombros, imprevistos) y en cada una dice qué preguntar o qué suele faltar. Nombra cada partida con una palabra clara para que la animación la encienda al oírla. Montos solo si están en DATOS verificados; si no, habla de proporciones y preguntas, sin cifras.",
+       "guardable": "una lista de partidas que el espectador puede usar para revisar su propio presupuesto"
+     },
+     "cronograma": {
+-      "nombre": { "es": "Línea de tiempo de obra", "en": "Project timeline" },
++      "nombre": "Línea de tiempo de obra",
+       "plantilla": "cronograma",
+-      "guion": "El cuerpo avanza fase por fase en orden (permiso, demolición, instalaciones, inspección, acabados…). Di cada fase con una palabra clara. Semanas o plazos solo si están en DATOS u OBRAS verificados; si no, cuenta el orden y qué hace que una fase se retrase, sin números de duración.",
++      "guion": "El cuerpo avanza fase por fase en orden (permiso, demolición, instalaciones, inspección, acabados…). Di cada fase con una palabra clara. Semanas o plazos solo si están en DATOS verificados; si no, cuenta el orden y qué hace que una fase se retrase, sin números de duración.",
+       "guardable": "el orden real de una obra y los puntos donde se retrasa"
+     },
+     "mito_realidad": {
+-      "nombre": { "es": "Mito vs. realidad", "en": "Myth vs. reality" },
++      "nombre": "Mito vs. realidad",
+       "plantilla": "mito_realidad",
+       "guion": "Uno a tres pares. Para cada uno, primero el mito tal como lo diría un propietario, luego la realidad en una o dos frases. Marca el giro con palabras como 'en realidad', 'la verdad es que' (en inglés: 'actually', 'here's the truth'). Si la realidad depende de una norma, dila sin cifras salvo que esté en DATOS.",
+       "guardable": "una creencia corregida que el espectador querrá enviar a quien va a remodelar"
+     },
+     "planta": {
+-      "nombre": { "es": "Planta 2D que se amuebla o cambia de estilo", "en": "2D floor plan makeover" },
++      "nombre": "Planta 2D que se amuebla o cambia de estilo",
+       "plantilla": "planta",
+       "guion": "Describe un espacio concreto (cocina, baño, sala, dormitorio) y lo que cambia: qué se mueve, qué se abre, qué estilo entra. Nombra cada elemento (isla, sofá, ducha, ventana) cuando aparece para que la planta lo dibuje al oírlo. Si se habla de tirar un muro, di que antes un profesional confirma si es de carga.",
+       "guardable": "una idea de distribución o de estilo aplicable a su casa"
+     },
+     "errores": {
+-      "nombre": { "es": "Errores caros", "en": "Costly mistakes" },
++      "nombre": "Errores caros",
+       "plantilla": "errores",
+       "guion": "Dos a cuatro errores, cada uno con su consecuencia concreta (retrabajo, multa, obra parada, problema al vender). Cierra con el antídoto: qué hacer antes. Sin montos salvo DATOS verificados: la consecuencia se cuenta en tiempo, retrabajo o riesgo.",
+       "guardable": "una lista de errores para evitar antes de firmar"
+     },
+     "checklist": {
+-      "nombre": { "es": "Checklist para verificar a un contratista", "en": "Contractor vetting checklist" },
++      "nombre": "Checklist para verificar a un contratista",
+       "plantilla": "checklist",
+       "guion": "Tres a seis comprobaciones que el propietario puede hacer él mismo, cada una con dónde o cómo se verifica (sin inventar procedimientos: si no está en DATOS, di 'pídelo por escrito' o 'compruébalo en la fuente oficial del estado'). Incluye una señal de alarma.",
+       "guardable": "una lista para revisar antes de contratar"
+     },
+     "comparador": {
+-      "nombre": { "es": "Comparador de materiales", "en": "Material comparison" },
++      "nombre": "Comparador de materiales",
+       "plantilla": "comparador",
+       "guion": "Dos o tres opciones comparadas en dos a cuatro criterios (humedad, resistencia, mantenimiento, costo relativo, apariencia). Di el criterio antes de comparar. Sin precios ni cifras técnicas salvo DATOS verificados: usa 'más', 'menos', 'depende'. Cierra con un criterio de decisión, nunca con 'el mejor'.",
+       "guardable": "una tabla mental para elegir material"
+-    },
+-    "antes_despues": {
+-      "nombre": { "es": "Antes / después con costo y tiempo", "en": "Before / after with cost and time" },
+-      "plantilla": "antes_despues",
+-      "guion": "Cuenta un antes concreto, la decisión clave y el después. Costo y tiempo SOLO si vienen de OBRAS (datos verificados del proyecto real) o de DATOS; si no hay, habla de las decisiones, no de cifras. La obra la ejecutó un contratista: la marca la coordinó. Nunca digas 'construimos' o 'remodelamos'.",
+-      "guardable": "las decisiones que cambiaron el resultado de una obra real"
+     }
+   }
+ }
+diff --git a/editorial/marca.md b/editorial/marca.md
+index 94a3467..1221d90 100644
+--- a/editorial/marca.md
++++ b/editorial/marca.md
+@@ -2,7 +2,7 @@
+ 
+ **Nombre:** {{NOMBRE_MARCA}}
+ 
+-(El nombre de la marca no se escribe en ningún archivo: vive en una sola variable, `MARCA`, de la configuración del notebook, que lo inserta aquí al construir el prompt. Mientras el nombre esté pendiente, el guion no nombra la marca.)
++(El nombre es **EN BRUTO**. Vive en una sola constante, `MARCA`, de la configuración del notebook, que lo inserta aquí al construir el prompt.)
+ 
+ ## Qué es (y qué no es)
+ Es una agencia de decoración, remodelación, construcción e interiores en Florida que **capta clientes y coordina proyectos**. La ejecución de obra la hacen contratistas y profesionales externos; un socio atiende la operación y el filtrado de las conversaciones que llegan por Instagram.
+diff --git a/editorial/prompt_adaptacion.md b/editorial/prompt_adaptacion.md
+deleted file mode 100644
+index 39b7185..0000000
+--- a/editorial/prompt_adaptacion.md
++++ /dev/null
+@@ -1,36 +0,0 @@
+-You adapt a Spanish Instagram Reel script for {{NOMBRE_MARCA}} into American English for homeowners, buyers and investors in Florida. This is an **adaptation, not a literal translation**: it must sound like it was written in English by someone who knows Florida remodeling, while telling the same story.
+-
+-# THE BRAND
+-{{MARCA}}
+-
+-# THE DNA (in Spanish; it applies to the English version too)
+-{{ADN}}
+-
+-# FORMAT OF THIS VIDEO
+-{{FORMATO}}
+-
+-# WHAT MUST STAY THE SAME (both versions share one scene design)
+-1. **Exactly the same number of paragraphs, in the same order**: each paragraph is one block of the video (hook, scene, frame, body, result, call to action). Do not merge or split paragraphs.
+-2. The same elements in the body, in the same order (the same budget lines, phases, myths, mistakes, checklist items, options or before/after beats), each named with one clear word the animation can sync to.
+-3. The same facts. Do not add data, figures, rules or claims that are not in the Spanish script. If the Spanish script cites a fact from VERIFIED DATA, keep its qualifier and source.
+-4. The brand coordinates and guides; it never builds, remodels or installs. Never say or imply the brand is licensed, insured, or guarantees price, timeline or no extra costs, unless the "Declaraciones permitidas" section of THE BRAND says "si".
+-
+-# WHAT SHOULD CHANGE
+-- Idioms, rhythm and examples that sound natural in US English. Shorter words where possible.
+-- Plain language: explain construction jargon the first time ("a change order, which is a paid change to your contract", "a lien, a legal claim on your property").
+-- The keyword: use an English keyword in CAPS, one word, no numbers. If the Spanish keyword appears in the suggested pairs below, use its English pair; otherwise pick a short, unambiguous word. Close with "Comment KEYWORD" or "DM us KEYWORD". An optional save/share nudge of six words or fewer may come right before it. Never promise a guide, PDF, template or file.
+-
+-# RULES
+-- 70 to 120 words.
+-- Numbers always spelled out in words ("three weeks", "two thousand dollars"), never digits or symbols ($, %, k): the synthetic voice misreads digits and word timings are computed by matching this text to the audio.
+-- The text cannot depend on something being seen ("look at this", "as you can see").
+-- No contractor, company or product brand names. No legal advice.
+-
+-# VERIFIED DATA (the only facts that may be cited)
+-{{DATOS}}
+-
+-# SUGGESTED KEYWORD PAIRS (Spanish → English)
+-{{CLAVES}}
+-
+-# OUTPUT
+-Return ONLY the English text to be voiced, in paragraphs (same count as the Spanish). No title, no quotes, no labels, no stage directions in brackets or parentheses, no emojis, no hashtags, no markdown. The only word in CAPS is the keyword (common acronyms like HOA are fine).
+diff --git a/editorial/prompt_guion.md b/editorial/prompt_guion.md
+index 81033b8..3637e7b 100644
+--- a/editorial/prompt_guion.md
++++ b/editorial/prompt_guion.md
+@@ -1,7 +1,23 @@
+-Eres el director editorial de {{NOMBRE_MARCA}} y escribes el texto que se va a locutar en un Reel de Instagram para propietarios, compradores e inversionistas en Florida. Solo el texto: lo que se oye. El video (escenas, plantas, tablas, fotos, colores) lo diseña otra persona después a partir de tu texto y de la locución, así que no describas imágenes ni des indicaciones.
++Eres el director editorial de {{NOMBRE_MARCA}} y escribes el texto que se va a locutar en un Reel **educativo** de Instagram para propietarios, compradores e inversionistas en Florida. Cada video enseña algo concreto y útil: cómo funciona algo, qué se decide antes, qué preguntar, qué revisar, qué error evitar. Solo escribes el texto: lo que se oye. El video es una animación (escenas, plantas, tablas, iconos, colores) que diseña otra persona después a partir de tu texto y de la locución, así que no describas imágenes ni des indicaciones.
+ 
+-# IDIOMA DE ESTE GUION
+-{{IDIOMA}}
++# IDIOMA
++Español latinoamericano neutro, natural para hispanohablantes de Florida.
++
++# EL SEED: LO QUE TE PIDEN PARA ESTE VIDEO
++En el mensaje recibes un SEED escrito a mano y sin formato fijo. Puede traer una sola cosa o varias mezcladas:
++- un tema ("permisos en Broward", "pisos para planta baja");
++- ideas sueltas, notas, preguntas del público o frases que quiere que aparezcan;
++- un servicio de la marca que conviene promocionar;
++- un ángulo o enfoque (mito que desmontar, error caro, paso a paso, comparación, tono más polémico o más tranquilo);
++- un público concreto (primer comprador, inversionista, dueño de condominio, quien vende pronto);
++- un gancho, una palabra clave o un formato que prefiere.
++
++Cómo leerlo:
++1. **Entiende la intención antes de escribir**: qué debería aprender el espectador y, si lo hay, qué servicio o idea quiere impulsar quien escribe el seed. Si trae varias ideas, encuentra el hilo que las une y escribe UN guion con una sola tesis clara; deja fuera lo que no quepa en vez de amontonarlo.
++2. **Lo explícito se respeta**: si pide un ángulo, un público, un gancho, un formato o una palabra clave, úsalos, siempre que no choquen con el ADN o con las reglas. Si chocan (una cifra sin fuente, una promesa, un caso de cliente, la marca como constructora), mandan las reglas: busca la forma más cercana de cumplir la intención sin romperlas.
++3. **Si es un servicio a promocionar, el video sigue siendo educativo**: enseña el problema y el criterio que hacen valioso ese servicio; la marca aparece en el marco como quien orienta y coordina (nunca como quien ejecuta) y la palabra clave del cierre conecta con ese servicio. Nada de tono de anuncio, precios ni promesas: el video tiene que servir aunque el espectador nunca escriba.
++4. **Si el seed es escueto**, complétalo con tu criterio (Florida, el ADN, los temas de inspiración). **Si viene vacío**, elige tú un tema que no repita los recientes.
++5. El seed es material de trabajo, no texto para copiar: reescríbelo con la voz de la marca.
+ 
+ # LA MARCA
+ {{MARCA}}
+@@ -9,25 +25,28 @@ Eres el director editorial de {{NOMBRE_MARCA}} y escribes el texto que se va a l
+ # EL ADN (cada guion lo refuerza; si contradice una sola idea, no se publica)
+ {{ADN}}
+ 
+-# EL FORMATO DE ESTE VIDEO
++# LOS FORMATOS (eliges tú el que mejor enseñe lo que pide el seed, salvo que el seed pida uno)
+ {{FORMATO}}
+ 
+ # EL RECORRIDO DE UN BUEN GUION
+-Es un arco narrativo, no una plantilla con etiquetas: el texto fluye como una sola explicación hablada. Escribe **un párrafo por parte** (seis párrafos como máximo), porque cada párrafo será un bloque del video.
++Es un arco narrativo, no una plantilla con etiquetas: el texto fluye como una sola explicación hablada. Escribe **un párrafo por parte** (seis partes, seis párrafos como máximo), porque cada párrafo será un bloque del video.
+ 1. **Gancho**: el costo o el riesgo real, concreto y de Florida (una obra parada por un permiso, un techo que no pasa inspección, un depósito que desaparece). Sin saludos. La primera frase pica.
+-2. **Escena**: lo que hace hoy el propietario, como una situación reconocible.
+-3. **Marco**: el criterio. Por qué pasa y qué se decide ANTES. Usa "antes de" o "todavía" cuando encaje. Si el tema toca a la marca, aquí cabe una frase sobre su papel: orientar y coordinar, nunca ejecutar.
+-4. **Cuerpo**: el contenido del formato (las partidas, las fases, los mitos, los errores, la lista, la comparación, el antes y el después). Didáctico, concreto y fácil de guardar. Nombra cada elemento con una palabra clara: la animación se dispara cuando la voz lo dice.
++2. **Escena**: lo que suele hacer hoy el propietario, como una situación reconocible. Es un ejemplo hipotético, nunca el caso de un cliente.
++3. **Marco**: el criterio. Por qué pasa y qué se decide ANTES. Usa "antes de" o "todavía" cuando encaje. Si el tema toca a la marca (o el seed pide promocionar un servicio), aquí cabe una frase sobre su papel: orientar y coordinar, nunca ejecutar.
++4. **Cuerpo**: la enseñanza en el formato elegido (las partidas, las fases, los mitos, los errores, la lista, la comparación, la distribución). Didáctico, concreto y fácil de guardar. Nombra cada elemento con una palabra clara: la animación se dispara cuando la voz lo dice.
+ 5. **Resultado**: el impacto en el dinero, el tiempo o la tranquilidad del propietario. Nunca likes ni seguidores.
+-6. **Cierre**: invita a comentar o enviar por DM una palabra clave en MAYÚSCULAS. En español: "Comenta PERMISO" o "Escríbenos PERMISO por DM". En inglés: "Comment PERMIT" o "DM us PERMIT". Una sola palabra, sin tildes, sin eñe y sin números. Antes puedes añadir una invitación breve a guardar o enviar el video (seis palabras como máximo). Prohibido prometer guías, PDFs, plantillas ni archivos: la palabra clave abre una conversación.
++6. **Cierre**: invita a comentar o enviar por DM una palabra clave en MAYÚSCULAS: "Comenta PERMISO" o "Escríbenos PERMISO por DM". Una sola palabra, sin tildes, sin eñe y sin números. Antes puedes añadir una invitación breve a guardar o enviar el video. Prohibido prometer guías, PDFs, plantillas ni archivos: la palabra clave abre una conversación.
+ 
+ Puedes variar el peso de cada parte, pero no te saltes el marco ni el cierre.
+ 
++# EXTENSIÓN: UNA GUÍA, NO UN LÍMITE
++Como referencia, un buen Reel educativo suele quedar entre setenta y ciento veinte palabras (unos treinta a cincuenta segundos de voz). Pero **manda la calidad**: usa las palabras que la idea necesite para quedar clara, completa y con ritmo. No rellenes para alargar ni recortes hasta dejar la explicación a medias. Cada frase tiene que ganarse su sitio: si algo sobra, que sea porque no aporta, no por contar palabras.
++
+ # REGLAS QUE NO SE NEGOCIAN
+-1. Entre 70 y 120 palabras (unos 30-48 segundos con ritmo de Reel).
+-2. Números siempre con palabras ("tres semanas", "dos mil dólares", "nueve de la mañana"; en inglés "three weeks"), nunca con dígitos ni símbolos ($, %, k). Motivo: la voz sintética lee los dígitos de forma imprevisible (en español "1,500" puede sonar "uno coma quinientos"; "$15K" o "2x4" se leen mal) y los tiempos de cada palabra se calculan comparando tu texto con lo que se oye. En pantalla las cifras sí van en dígitos: las pone el director del video.
+-3. **Nunca inventes datos.** Precios, plazos, porcentajes, multas, requisitos de permisos o normas: SOLO los de DATOS CON FUENTE (con su acotación exacta y nombrando la fuente de forma natural: "según el condado…") o los de OBRAS REALES. Si ninguno encaja, no des cifras: explica el mecanismo y di qué preguntar o dónde verificarlo.
+-4. Prohibido afirmar o insinuar que la marca tiene licencia, seguro, o que garantiza precio, plazo o ausencia de sobrecostos, salvo lo que la sección "Declaraciones permitidas" de LA MARCA marque con "si". La marca nunca construye, remodela ni instala: coordina.
++1. Números siempre con palabras ("tres semanas", "dos mil dólares", "nueve de la mañana"), nunca con dígitos ni símbolos ($, %, k). Motivo: la voz sintética lee los dígitos de forma imprevisible ("1,500" puede sonar "uno coma quinientos"; "$15K" o "2x4" se leen mal) y los tiempos de cada palabra se calculan comparando tu texto con lo que se oye. En pantalla las cifras sí van en dígitos: las pone el director del video.
++2. **Nunca inventes datos.** Precios, plazos, porcentajes, multas, requisitos de permisos o normas: SOLO los de DATOS CON FUENTE, con su acotación exacta y nombrando la fuente de forma natural ("según el condado…"). Si ninguno encaja, no des cifras: explica el mecanismo y di qué preguntar o dónde verificarlo.
++3. **Solo ejemplos hipotéticos.** Nada de casos de clientes, proyectos concretos, testimonios ni "antes y después" presentados como reales ("a un cliente nuestro le pasó…", "en una obra que hicimos…"). Si un ejemplo ayuda, que se note que es hipotético ("imagina que…", "pongamos que…").
++4. Prohibido afirmar o insinuar que la marca tiene licencia, seguro, o que garantiza precio, plazo o ausencia de sobrecostos, salvo lo que la sección "Declaraciones permitidas" de LA MARCA marque con "si". La marca nunca construye, remodela ni instala: orienta y coordina.
+ 5. Jerga de obra ("change order", "GC", "lien", "permiso abierto", "allowance", "punch list"): si la usas, explícala en la misma frase con palabras sencillas ("un change order, o sea, un cambio al contrato que se paga aparte").
+ 6. Nada de asesoría legal: di qué revisar y dónde, no qué es legal en el caso del espectador.
+ 7. Sin nombres de contratistas, empresas ni marcas de productos.
+@@ -36,14 +55,11 @@ Puedes variar el peso de cada parte, pero no te saltes el marco ni el cierre.
+ # DATOS CON FUENTE (los únicos datos que puedes citar; todos están verificados)
+ {{DATOS}}
+ 
+-# OBRAS REALES (proyectos documentados con permiso de publicación; sus cifras solo si dicen "verificado")
+-{{OBRAS}}
+-
+-# TEMAS DE INSPIRACIÓN (no es un menú cerrado: puedes salirte si el seed lo pide o si tienes un ángulo mejor dentro del ADN)
++# TEMAS DE INSPIRACIÓN (no es un menú cerrado: el seed manda, y puedes salirte si tienes un ángulo mejor dentro del ADN)
+ {{TEMAS}}
+ 
+-# GUIONES RECIENTES (no repitas su tema, su arranque ni su palabra clave)
++# GUIONES RECIENTES (no repitas su tema, su arranque ni su palabra clave, salvo que el seed lo pida)
+ {{RECIENTES}}
+ 
+ # SALIDA
+-La primera línea es exactamente `FORMATO: <id>` con el id del formato que usaste (uno de: {{FORMATOS}}). Después, una línea en blanco y ÚNICAMENTE el texto a locutar, en párrafos. Sin título, sin comillas, sin etiquetas como "Gancho:", sin acotaciones entre paréntesis o corchetes, sin emojis, sin hashtags, sin markdown. La única palabra en MAYÚSCULAS es la palabra clave del cierre (las siglas comunes como HOA se permiten).
++La primera línea es exactamente `FORMATO: <id>` con el id del formato que usaste (uno de: {{FORMATOS}}). Después, una línea en blanco y ÚNICAMENTE el texto a locutar, en párrafos. Sin título, sin comillas, sin etiquetas como "Gancho:", sin acotaciones entre paréntesis o corchetes, sin emojis, sin hashtags, sin markdown. La única palabra en MAYÚSCULAS es la palabra clave del cierre (se permiten las siglas comunes como HOA y el nombre de la marca tal como se escribe).
+diff --git a/editorial/temas.json b/editorial/temas.json
+index 5a58fad..7d7d6a1 100644
+--- a/editorial/temas.json
++++ b/editorial/temas.json
+@@ -1,5 +1,5 @@
+ {
+-  "_nota": "Temas de inspiración para el guion. No son un menú cerrado: el guionista puede salirse si el seed lo pide, siempre dentro del ADN. 'formato' es uno de editorial/formatos.json (lo que verá la animación); 'cta' sugiere la palabra clave en cada idioma (corta, sin tildes ni eñe, única en todo el archivo); 'datos' apunta a ids de datos_verificados.json (solo se citan si están verificados); 'toca_marca' = el tema conecta con el papel de la marca (orientar y coordinar).",
++  "_nota": "Temas de inspiración para el guion. No son un menú cerrado: el seed manda y el guionista puede salirse, siempre dentro del ADN. 'formato' es uno de editorial/formatos.json (lo que verá la animación); 'cta' sugiere la palabra clave (corta, sin tildes ni eñe, única en todo el archivo); 'datos' apunta a ids de datos_verificados.json (solo se citan si están verificados); 'toca_marca' = el tema conecta con el papel de la marca (orientar y coordinar).",
+   "temas": [
+     {
+       "id": 1,
+@@ -16,26 +16,17 @@
+         {
+           "gancho": "Ventanas de impacto o paneles: lo que nadie te compara.",
+           "formato": "comparador",
+-          "cta": {
+-            "es": "VENTANA",
+-            "en": "WINDOW"
+-          }
++          "cta": "VENTANA"
+         },
+         {
+           "gancho": "La cinta en forma de equis no protege tu ventana.",
+           "formato": "mito_realidad",
+-          "cta": {
+-            "es": "CINTA",
+-            "en": "TAPE"
+-          }
++          "cta": "CINTA"
+         },
+         {
+           "gancho": "Antes de instalar ventanas nuevas, pide estos papeles.",
+           "formato": "checklist",
+-          "cta": {
+-            "es": "IMPACTO",
+-            "en": "IMPACT"
+-          }
++          "cta": "IMPACTO"
+         }
+       ]
+     },
+@@ -53,26 +44,17 @@
+         {
+           "gancho": "Cambiar el techo, fase por fase: dónde se para la obra.",
+           "formato": "cronograma",
+-          "cta": {
+-            "es": "TECHO",
+-            "en": "ROOF"
+-          }
++          "cta": "TECHO"
+         },
+         {
+           "gancho": "Techar encima sin revisar la madera de abajo.",
+           "formato": "errores",
+-          "cta": {
+-            "es": "MADERA",
+-            "en": "DECK"
+-          }
++          "cta": "MADERA"
+         },
+         {
+           "gancho": "Teja, metal o shingle: qué cambia en Florida.",
+           "formato": "comparador",
+-          "cta": {
+-            "es": "METAL",
+-            "en": "METAL"
+-          }
++          "cta": "METAL"
+         }
+       ]
+     },
+@@ -89,26 +71,17 @@
+         {
+           "gancho": "Pintar encima de la mancha es pagar dos veces.",
+           "formato": "errores",
+-          "cta": {
+-            "es": "MOHO",
+-            "en": "MOLD"
+-          }
++          "cta": "MOHO"
+         },
+         {
+           "gancho": "La pared de la ducha no se arma con cualquier placa.",
+           "formato": "comparador",
+-          "cta": {
+-            "es": "PLACA",
+-            "en": "DRYWALL"
+-          }
++          "cta": "PLACA"
+         },
+         {
+           "gancho": "El baño sin ventana que nunca termina de secarse.",
+           "formato": "planta",
+-          "cta": {
+-            "es": "EXTRACTOR",
+-            "en": "FAN"
+-          }
++          "cta": "EXTRACTOR"
+         }
+       ]
+     },
+@@ -126,26 +99,17 @@
+         {
+           "gancho": "Si es por dentro, no necesita permiso. Eso depende.",
+           "formato": "mito_realidad",
+-          "cta": {
+-            "es": "PERMISO",
+-            "en": "PERMIT"
+-          }
++          "cta": "PERMISO"
+         },
+         {
+           "gancho": "Por qué tu obra empieza mucho después de firmar.",
+           "formato": "cronograma",
+-          "cta": {
+-            "es": "REVISION",
+-            "en": "REVIEW"
+-          }
++          "cta": "REVISION"
+         },
+         {
+           "gancho": "Remodelar sin inspección y descubrirlo al vender.",
+           "formato": "errores",
+-          "cta": {
+-            "es": "INSPECCION",
+-            "en": "INSPECT"
+-          }
++          "cta": "INSPECCION"
+         }
+       ]
+     },
+@@ -162,26 +126,17 @@
+         {
+           "gancho": "Antes de comprar, revisa esto en el portal del condado.",
+           "formato": "checklist",
+-          "cta": {
+-            "es": "ABIERTO",
+-            "en": "OPEN"
+-          }
++          "cta": "ABIERTO"
+         },
+         {
+           "gancho": "Comprar con un permiso abierto y heredar el problema.",
+           "formato": "errores",
+-          "cta": {
+-            "es": "HEREDAR",
+-            "en": "INHERIT"
+-          }
++          "cta": "HEREDAR"
+         },
+         {
+           "gancho": "La inspección de compra no siempre revisa los permisos.",
+           "formato": "mito_realidad",
+-          "cta": {
+-            "es": "COMPRA",
+-            "en": "BUYER"
+-          }
++          "cta": "COMPRA"
+         }
+       ]
+     },
+@@ -201,26 +156,17 @@
+         {
+           "gancho": "Lo que revisas antes de contratar a cualquiera.",
+           "formato": "checklist",
+-          "cta": {
+-            "es": "LICENCIA",
+-            "en": "LICENSE"
+-          }
++          "cta": "LICENCIA"
+         },
+         {
+           "gancho": "Camioneta rotulada no significa licencia.",
+           "formato": "mito_realidad",
+-          "cta": {
+-            "es": "ROTULO",
+-            "en": "TRUCK"
+-          }
++          "cta": "ROTULO"
+         },
+         {
+           "gancho": "Contratar al conocido de un amigo para tu cocina.",
+           "formato": "errores",
+-          "cta": {
+-            "es": "AMIGO",
+-            "en": "FRIEND"
+-          }
++          "cta": "AMIGO"
+         }
+       ]
+     },
+@@ -238,26 +184,17 @@
+         {
+           "gancho": "Pagar por adelantado a quien tocó tu puerta.",
+           "formato": "errores",
+-          "cta": {
+-            "es": "PUERTA",
+-            "en": "KNOCK"
+-          }
++          "cta": "PUERTA"
+         },
+         {
+           "gancho": "Señales de una estafa de reparación después de la tormenta.",
+           "formato": "checklist",
+-          "cta": {
+-            "es": "ESTAFA",
+-            "en": "SCAM"
+-          }
++          "cta": "ESTAFA"
+         },
+         {
+           "gancho": "Si paga la aseguradora, da igual a quién contrates. Falso.",
+           "formato": "mito_realidad",
+-          "cta": {
+-            "es": "SEGURO",
+-            "en": "CLAIM"
+-          }
++          "cta": "SEGURO"
+         }
+       ]
+     },
+@@ -275,26 +212,17 @@
+         {
+           "gancho": "Cómo se reparten los pagos de una obra sana.",
+           "formato": "presupuesto",
+-          "cta": {
+-            "es": "PAGOS",
+-            "en": "PAYMENTS"
+-          }
++          "cta": "PAGOS"
+         },
+         {
+           "gancho": "Los pagos alineados con cada inspección, fase por fase.",
+           "formato": "cronograma",
+-          "cta": {
+-            "es": "ADELANTO",
+-            "en": "DEPOSIT"
+-          }
++          "cta": "ADELANTO"
+         },
+         {
+           "gancho": "Le pagué al contratista, así que no debo nada. Cuidado.",
+           "formato": "mito_realidad",
+-          "cta": {
+-            "es": "RECLAMO",
+-            "en": "LIEN"
+-          }
++          "cta": "RECLAMO"
+         }
+       ]
+     },
+@@ -303,7 +231,7 @@
+       "titulo": "Presupuestos que se pueden leer",
+       "tesis": "Un presupuesto de una sola línea esconde los sobrecostos.",
+       "toca_marca": true,
+-      "regla": "Sin montos salvo DATOS u OBRAS verificados: habla de partidas y preguntas.",
++      "regla": "Sin montos salvo DATOS verificados: habla de partidas y preguntas.",
+       "datos": [
+         "costos_referencia"
+       ],
+@@ -311,26 +239,17 @@
+         {
+           "gancho": "Lo que debe tener un presupuesto de cocina, línea por línea.",
+           "formato": "presupuesto",
+-          "cta": {
+-            "es": "DESGLOSE",
+-            "en": "BREAKDOWN"
+-          }
++          "cta": "DESGLOSE"
+         },
+         {
+           "gancho": "Tres presupuestos que en realidad no se pueden comparar.",
+           "formato": "comparador",
+-          "cta": {
+-            "es": "COMPARA",
+-            "en": "COMPARE"
+-          }
++          "cta": "COMPARA"
+         },
+         {
+           "gancho": "La partida de materiales que no tiene precio cerrado.",
+           "formato": "errores",
+-          "cta": {
+-            "es": "MATERIAL",
+-            "en": "ALLOWANCE"
+-          }
++          "cta": "MATERIAL"
+         }
+       ]
+     },
+@@ -345,26 +264,17 @@
+         {
+           "gancho": "Cómo un cambio de azulejo retrasa todo lo que viene después.",
+           "formato": "cronograma",
+-          "cta": {
+-            "es": "CAMBIO",
+-            "en": "CHANGE"
+-          }
++          "cta": "CAMBIO"
+         },
+         {
+           "gancho": "Aprobar cambios de palabra, sin nada por escrito.",
+           "formato": "errores",
+-          "cta": {
+-            "es": "ESCRITO",
+-            "en": "WRITING"
+-          }
++          "cta": "ESCRITO"
+         },
+         {
+           "gancho": "Lo que de verdad incluye mover un enchufe: partidas escondidas.",
+           "formato": "presupuesto",
+-          "cta": {
+-            "es": "ENCHUFE",
+-            "en": "OUTLET"
+-          }
++          "cta": "ENCHUFE"
+         }
+       ]
+     },
+@@ -379,26 +289,17 @@
+         {
+           "gancho": "Abrir la cocina a la sala: lo primero que hay que preguntar.",
+           "formato": "planta",
+-          "cta": {
+-            "es": "ISLA",
+-            "en": "ISLAND"
+-          }
++          "cta": "ISLA"
+         },
+         {
+           "gancho": "Cuarzo, granito o laminado para la encimera.",
+           "formato": "comparador",
+-          "cta": {
+-            "es": "ENCIMERA",
+-            "en": "COUNTER"
+-          }
+-        },
+-        {
+-          "gancho": "La cocina cerrada que se abrió: decisiones de una obra real.",
+-          "formato": "antes_despues",
+-          "cta": {
+-            "es": "COCINA",
+-            "en": "KITCHEN"
+-          }
++          "cta": "ENCIMERA"
++        },
++        {
++          "gancho": "Elegir los gabinetes antes de cerrar la distribución.",
++          "formato": "errores",
++          "cta": "COCINA"
+         }
+       ]
+     },
+@@ -415,26 +316,17 @@
+         {
+           "gancho": "Vinílico, porcelanato o madera: qué aguanta la humedad.",
+           "formato": "comparador",
+-          "cta": {
+-            "es": "PISO",
+-            "en": "FLOOR"
+-          }
++          "cta": "PISO"
+         },
+         {
+           "gancho": "Madera natural sobre losa en planta baja.",
+           "formato": "errores",
+-          "cta": {
+-            "es": "LOSA",
+-            "en": "SLAB"
+-          }
++          "cta": "LOSA"
+         },
+         {
+           "gancho": "Misma sala, tres pisos distintos.",
+           "formato": "planta",
+-          "cta": {
+-            "es": "TONO",
+-            "en": "TONE"
+-          }
++          "cta": "TONO"
+         }
+       ]
+     },
+@@ -452,26 +344,17 @@
+         {
+           "gancho": "Toda remodelación sube el precio de la casa. No.",
+           "formato": "mito_realidad",
+-          "cta": {
+-            "es": "VALOR",
+-            "en": "VALUE"
+-          }
++          "cta": "VALOR"
+         },
+         {
+           "gancho": "Dónde poner el dinero antes de vender.",
+           "formato": "presupuesto",
+-          "cta": {
+-            "es": "VENTA",
+-            "en": "SELL"
+-          }
+-        },
+-        {
+-          "gancho": "El baño que se renovó para vender: obra real.",
+-          "formato": "antes_despues",
+-          "cta": {
+-            "es": "DUCHA",
+-            "en": "SHOWER"
+-          }
++          "cta": "VENTA"
++        },
++        {
++          "gancho": "Lo que mira un comprador en el baño antes de ofertar.",
++          "formato": "checklist",
++          "cta": "DUCHA"
+         }
+       ]
+     },
+@@ -486,26 +369,17 @@
+         {
+           "gancho": "Dónde gastar y dónde no en una casa para alquilar.",
+           "formato": "presupuesto",
+-          "cta": {
+-            "es": "ALQUILER",
+-            "en": "RENTAL"
+-          }
++          "cta": "ALQUILER"
+         },
+         {
+           "gancho": "El orden de obra que acorta el tiempo sin inquilino.",
+           "formato": "cronograma",
+-          "cta": {
+-            "es": "VACANTE",
+-            "en": "VACANT"
+-          }
++          "cta": "VACANTE"
+         },
+         {
+           "gancho": "Acabados que aguantan inquilinos.",
+           "formato": "comparador",
+-          "cta": {
+-            "es": "DURABLE",
+-            "en": "DURABLE"
+-          }
++          "cta": "DURABLE"
+         }
+       ]
+     },
+@@ -523,26 +397,17 @@
+         {
+           "gancho": "Antes de remodelar tu apartamento, pide esto a la asociación.",
+           "formato": "checklist",
+-          "cta": {
+-            "es": "CONDO",
+-            "en": "CONDO"
+-          }
++          "cta": "CONDO"
+         },
+         {
+           "gancho": "El orden real de una obra en condominio: primero la junta.",
+           "formato": "cronograma",
+-          "cta": {
+-            "es": "JUNTA",
+-            "en": "BOARD"
+-          }
++          "cta": "JUNTA"
+         },
+         {
+           "gancho": "En tu apartamento puedes tirar la pared que quieras. No.",
+           "formato": "mito_realidad",
+-          "cta": {
+-            "es": "PARED",
+-            "en": "WALL"
+-          }
++          "cta": "PARED"
+         }
+       ]
+     },
+@@ -557,26 +422,17 @@
+         {
+           "gancho": "La misma sala en tres estilos.",
+           "formato": "planta",
+-          "cta": {
+-            "es": "ESTILO",
+-            "en": "STYLE"
+-          }
++          "cta": "ESTILO"
+         },
+         {
+           "gancho": "El dormitorio pequeño que gana espacio.",
+           "formato": "planta",
+-          "cta": {
+-            "es": "ESPACIO",
+-            "en": "SPACE"
+-          }
+-        },
+-        {
+-          "gancho": "El cuarto que pasó de depósito a oficina: obra real.",
+-          "formato": "antes_despues",
+-          "cta": {
+-            "es": "OFICINA",
+-            "en": "OFFICE"
+-          }
++          "cta": "ESPACIO"
++        },
++        {
++          "gancho": "Convertir un cuarto en oficina: qué se decide primero.",
++          "formato": "planta",
++          "cta": "OFICINA"
+         }
+       ]
+     },
+@@ -593,28 +449,19 @@
+         {
+           "gancho": "Remodelar en zona inundable es igual que en cualquier parte. No.",
+           "formato": "mito_realidad",
+-          "cta": {
+-            "es": "ZONA",
+-            "en": "FLOOD"
+-          }
++          "cta": "ZONA"
+         },
+         {
+           "gancho": "Preguntas antes de comprar en zona inundable.",
+           "formato": "checklist",
+-          "cta": {
+-            "es": "ELEVACION",
+-            "en": "ELEVATION"
+-          }
++          "cta": "ELEVACION"
+         },
+         {
+           "gancho": "Dónde van el panel eléctrico y el aire en una casa inundable.",
+           "formato": "planta",
+-          "cta": {
+-            "es": "PANEL",
+-            "en": "PANEL"
+-          }
++          "cta": "PANEL"
+         }
+       ]
+     }
+   ]
+-}
+\ No newline at end of file
++}
+diff --git a/editorial/voz_tts.md b/editorial/voz_tts.md
+index 4b003c2..8978988 100644
+--- a/editorial/voz_tts.md
++++ b/editorial/voz_tts.md
+@@ -7,13 +7,3 @@
+ 
+ #### TRANSCRIPCIÓN A LOCUTAR:
+ {{GUION}}
+-
+-# IDIOMA: en
+-# PROFILE: Someone who knows Florida construction, talking straight to a homeowner like an ally who is saving them from an expensive mistake.
+-- ENERGY AND PACE: warm, confident, approachable. Lively Reel pace (~155 words per minute), no hesitation. The hook lands hard; slow down slightly for the key insight; lists and phases move with precision, with a micro-pause between items; the close is direct and friendly.
+-- EMPHASIS: the cost or the risk, "before you…", each list item, the result, and the keyword at the end.
+-- PUNCTUATION: every period is a beat, every comma a quick breath. Never monotone or robotic.
+-- LANGUAGE: natural American English, plain and modern.
+-
+-#### SCRIPT TO VOICE:
+-{{GUION}}
+diff --git a/scripts/preparar_brief.py b/scripts/preparar_brief.py
+index 2f7312f..b751dbd 100644
+--- a/scripts/preparar_brief.py
++++ b/scripts/preparar_brief.py
+@@ -6,12 +6,13 @@ Uso:
+   python3 scripts/preparar_brief.py briefs/<BASE> --stills   # además imprime los comandos de stills de revisión
+ 
+ Entrada (en briefs/<BASE>/):
+-  encargo.json                                   → lo deja el notebook (marca, formato pedido, idiomas, obra)
+-  <idioma>/guion.txt, palabras.json, locucion.wav → los deja el notebook (idioma = es, en)
++  encargo.json                                   → lo deja el notebook (marca, formato del guionista, idiomas = ["es"])
++  <idioma>/guion.txt, palabras.json, locucion.wav → los deja el notebook (idioma = es)
+   <idioma>/subtitulos.json                       → scripts/alinear.py (se genera solo si falta)
+   decisiones.json                                → lo escribes tú, UNO para todos los idiomas (mismo diseño de escenas)
+                                                    formato en .claude/skills/reel-remodelacion/referencias/decisiones.md
+ Salida: briefs/<BASE>/<idioma>/brief.json (versión 4), la única fuente de datos del proyecto (cópialo a src/brief_<idioma>.json).
++Pipeline educativo y solo de animación: no hay obras reales, fotos ni activos externos.
+ Las anclas ("desde", "ancla…") son índices de palabra del guion de cada idioma: los [n] que imprime alinear.py.
+ """
+ import json, math, re, sys, unicodedata
+@@ -56,9 +57,9 @@ def historial(base_actual):
+ 
+ 
+ class Ctx:
+-    """Lo que necesita el validador de parámetros: idiomas, longitud de cada guion, datos, obra, tokens."""
+-    def __init__(self, idiomas, n, datos_ok, obra, tokens):
+-        self.idiomas, self.n, self.datos_ok, self.obra, self.tokens = idiomas, n, datos_ok, obra, tokens
++    """Lo que necesita el validador de parámetros: idiomas, longitud de cada guion, datos, tokens."""
++    def __init__(self, idiomas, n, datos_ok, tokens):
++        self.idiomas, self.n, self.datos_ok, self.tokens = idiomas, n, datos_ok, tokens
+         self.err, self.avisos, self.raiz_params = [], [], {}
+ 
+ 
+@@ -73,8 +74,11 @@ def validar_valor(spec, v, ruta, ctx):
+         if isinstance(v, str):
+             if not v.strip():
+                 ctx.err.append(f"{ruta}: texto vacío")
+-            elif len(ctx.idiomas) > 1:
+-                ctx.avisos.append(f"{ruta}: texto sin versión por idioma ('{v}'): se mostrará igual en {', '.join(ctx.idiomas)}")
++            else:
++                if len(ctx.idiomas) > 1:
++                    ctx.avisos.append(f"{ruta}: texto sin versión por idioma ('{v}'): se mostrará igual en {', '.join(ctx.idiomas)}")
++                if RECLAMOS.search(v):
++                    ctx.avisos.append(f"{ruta}: '{v}' suena a garantía, licencia o ejecución de obra: revisa marca.md → Declaraciones")
+         elif _por_idioma(v, ctx.idiomas):
+             for i in ctx.idiomas:
+                 if not str(v[i]).strip():
+@@ -109,19 +113,8 @@ def validar_valor(spec, v, ruta, ctx):
+     elif t == "dato":
+         if not isinstance(v, str):
+             ctx.err.append(f"{ruta}: debe ser el id de un dato")
+-        elif v.startswith("obra:"):
+-            campo = v[5:]
+-            if not ctx.obra:
+-                ctx.err.append(f"{ruta}: '{v}' necesita una obra elegida en decisiones.obra")
+-            elif not ((ctx.obra.get("datos_publicables") or {}).get(campo) or {}).get("verificado") is True:
+-                ctx.err.append(f"{ruta}: el dato '{campo}' de la obra {ctx.obra['id']} no está verificado: no se puede mostrar")
+         elif v not in ctx.datos_ok:
+             ctx.err.append(f"{ruta}: el dato '{v}' no existe o no está verificado en datos_verificados.json: no se puede mostrar")
+-    elif t == "activo":
+-        if not ctx.obra:
+-            ctx.err.append(f"{ruta}: '{v}' necesita una obra elegida en decisiones.obra")
+-        elif v not in [a.get("archivo") for a in ctx.obra.get("activos", [])]:
+-            ctx.err.append(f"{ruta}: '{v}' no está en los activos de la obra {ctx.obra['id']}")
+     elif t == "estilo":
+         if v not in ctx.tokens["estilos_interior"] or str(v).startswith("_"):
+             ctx.err.append(f"{ruta}: estilo desconocido '{v}' (de tokens.json → estilos_interior)")
+@@ -161,13 +154,9 @@ def validar_campos(campos, v, ruta, ctx):
+             fuente = v.get(spec["fuente_en"])
+             if not fuente:
+                 ctx.err.append(f"{ruta}: '{k}' = {val} necesita '{spec['fuente_en']}' con un dato verificado (nunca cifras sin fuente)")
+-            elif isinstance(fuente, str) and fuente.startswith("obra:") and ctx.obra:
+-                dp = (ctx.obra.get("datos_publicables") or {}).get(fuente[5:]) or {}
+-                if dp.get("verificado") and dp.get("valor") != val:
+-                    ctx.err.append(f"{ruta}: '{k}' = {val} no coincide con la obra ({fuente[5:]} = {dp.get('valor')})")
+ 
+ 
+-def reglas_plantilla(pid, p, ctx, tiene_obra):
++def reglas_plantilla(pid, p, ctx):
+     """Reglas cruzadas que el esquema no puede expresar."""
+     if pid == "comparador":
+         n = len(p.get("opciones") or [])
+@@ -179,8 +168,6 @@ def reglas_plantilla(pid, p, ctx, tiene_obra):
+             ctx.err.append("plantilla: modo 'cambiar_estilo' necesita al menos 2 estilos")
+         if p.get("modo") in ("amueblar", "redistribuir") and not p.get("elementos"):
+             ctx.avisos.append("plantilla: una planta para amueblar o redistribuir sin 'elementos' se queda vacía")
+-    if pid == "antes_despues" and p.get("fuente_visual") == "obra" and not tiene_obra:
+-        ctx.err.append("plantilla: fuente_visual 'obra' necesita decisiones.obra (si no hay obra, usa 'ilustracion')")
+     for lista, campo, clave in (("partidas", "alerta", "partida"), ("fases", "retraso", "fase")):
+         extra = p.get(campo)
+         if isinstance(extra, dict) and isinstance(extra.get(clave), int):
+@@ -265,18 +252,13 @@ def preparar(dir_base):
+     formato = dec.get("formato")
+     if formato not in plantillas:
+         err.append(f"formato desconocido: {formato} (válidos: {', '.join(plantillas)})")
+-    elif encargo.get("formato") not in (None, "auto", formato):
+-        avisos.append(f"el encargo pedía el formato '{encargo['formato']}' y decidiste '{formato}': explícalo en la entrega")
+-
+-    # --- obra real
+-    obra_id, obra = dec.get("obra"), None
+-    if obra_id:
+-        utiles = {o["id"]: o for o in validar_repo.cargar_obras(RAIZ)}
+-        obra = utiles.get(obra_id)
+-        if not obra:
+-            err.append(f"obra '{obra_id}' no existe, no está autorizada o su manifest tiene errores (python3 scripts/validar_repo.py)")
+-    elif formato in plantillas and plantillas[formato].get("usa_obra") == "preferida":
+-        avisos.append(f"el formato {formato} luce mejor con una obra real y no hay ninguna elegida: irá como ilustración")
++    else:
++        pedido = encargo.get("formato_guion") if encargo.get("formato") in (None, "auto") else encargo.get("formato")
++        if pedido and pedido != formato:
++            avisos.append(f"el guionista usó el formato '{pedido}' y decidiste '{formato}': explícalo en la entrega")
++
++    if dec.get("obra"):
++        avisos.append("decisiones.obra se ignora: este pipeline es solo de animación (sin obras reales ni fotos)")
+ 
+     # --- bloques
+     bloques_d = dec.get("bloques") or []
+@@ -354,14 +336,14 @@ def preparar(dir_base):
+ 
+     # --- parámetros de la plantilla
+     params = (dec.get("plantilla") or {}).get("params")
+-    ctx = Ctx(idiomas, {i: mat[i]["n"] for i in idiomas}, datos_ok, obra, tokens)
++    ctx = Ctx(idiomas, {i: mat[i]["n"] for i in idiomas}, datos_ok, tokens)
+     if formato in plantillas:
+         if not isinstance(params, dict):
+             err.append("falta 'plantilla.params' (los parámetros de la plantilla del formato)")
+         else:
+             ctx.raiz_params = params
+             validar_campos(plantillas[formato]["params"], params, "plantilla", ctx)
+-            reglas_plantilla(formato, params, ctx, bool(obra))
++            reglas_plantilla(formato, params, ctx)
+     err += ctx.err
+     avisos += ctx.avisos
+     extra = dec.get("fuentes_en_pantalla") or []
+@@ -392,18 +374,8 @@ def preparar(dir_base):
+     aviso_legal = dec.get("aviso_legal")
+     if aviso_legal is None:
+         aviso_legal = plantilla_def.get("aviso_legal", False)
+-    obra_brief = None
+-    if obra:
+-        cred = dict(obra.get("creditos") or {})
+-        if cred.get("coordinacion") == PLACEHOLDER_MARCA:
+-            cred["coordinacion"] = "" if pendiente else marca_nombre
+-        obra_brief = {"id": obra["id"], "titulo": obra["titulo"], "carpeta": obra["_dir"], "creditos": cred,
+-                      "privacidad": obra["privacidad"], "tipo_espacio": obra["tipo_espacio"],
+-                      "activos": [dict(a, ruta=f"{obra['_dir']}/{a['archivo']}") for a in obra["activos"]]}
+ 
+     def corta(fid):
+-        if fid.startswith("obra:"):
+-            return f"Obra real · {obra['titulo']}" if obra else ""
+         return datos[fid].get("corta") or datos[fid]["fuente"]
+ 
+     fuentes = [{"rol": rol, "familia": t["familia"], "css": t["css"], "stack": t["stack"]}
+@@ -449,7 +421,6 @@ def preparar(dir_base):
+             "ilustrativo": tokens["textos_fijos"]["ilustrativo"][i],
+             "ambientes": ambientes,
+             "fuentes": fuentes,
+-            "obra": obra_brief,
+             "fuentes_en_pantalla": [{"id": f, "corta": corta(f)} for f in fuentes_pantalla],
+             "bloques": bloques,
+             "plantilla": {"id": formato, "md": f".claude/skills/reel-remodelacion/plantillas/{plantilla_def['md']}", "params": params_i},
+@@ -490,7 +461,7 @@ def main():
+         (d / i / "brief.json").write_text(json.dumps(brief, ensure_ascii=False, indent=1), encoding="utf-8")
+         a = ", ".join(f"{k}={v}" for k, v in brief["ambientes"].items() if v != "lino") or "todo lino"
+         print(f"[{i}] brief.json listo · {brief['video']['frames']} frames ({brief['video']['voz_s']} s de voz + {brief['video']['cola_s']} s) · "
+-              f"formato {brief['formato']} · obra {brief['obra']['id'] if brief['obra'] else 'ninguna (animación pura)'} · ambientes {a}")
++              f"formato {brief['formato']} · animación pura · ambientes {a}")
+         for b in brief["bloques"]:
+             print(f"  {b['id']:<10} {b['ini_f']:>5}–{b['fin_f']:<5} {b['titular'][0]} / {b['titular'][1]}")
+         if "--stills" in sys.argv:
+diff --git a/scripts/validar_repo.py b/scripts/validar_repo.py
+index 11519bf..8bf9893 100644
+--- a/scripts/validar_repo.py
++++ b/scripts/validar_repo.py
+@@ -1,34 +1,36 @@
+ #!/usr/bin/env python3
+-"""Valida el contenido editorial, las obras reales, las plantillas y los tokens del repo.
++"""Valida el contenido editorial, las plantillas y los tokens del repo (pipeline educativo, solo español, solo animación).
+ 
+ Uso: python3 scripts/validar_repo.py [raiz]   (sale con código 1 si hay errores)
+ 
+ También se importa desde el notebook de Colab (preparar_repo) y desde preparar_brief.py:
+   validar(raiz) -> (errores, avisos)        mensajes en español, listos para mostrar
+-  cargar_datos(raiz) / cargar_obras(raiz) / declaraciones(texto_marca)
++  cargar_datos(raiz) / declaraciones(texto_marca) / secciones_voz(texto_voz)
+ Solo lee: nunca modifica archivos.
+ """
+ import json, re, sys
+ from pathlib import Path
+ 
+ SKILL = Path(".claude/skills/reel-remodelacion")
+-EDITORIAL = ("editorial/prompt_guion.md", "editorial/prompt_adaptacion.md", "editorial/marca.md", "editorial/adn.md",
++EDITORIAL = ("editorial/prompt_guion.md", "editorial/marca.md", "editorial/adn.md",
+              "editorial/temas.json", "editorial/formatos.json", "editorial/datos_verificados.json", "editorial/voz_tts.md")
+ REQUERIDOS = EDITORIAL + ("CLAUDE.md", str(SKILL / "SKILL.md"), str(SKILL / "plantillas" / "plantillas.json"),
+                           str(SKILL / "diseno" / "tokens.json"))
+-FORMATOS = ("presupuesto", "cronograma", "mito_realidad", "planta", "errores", "checklist", "comparador", "antes_despues")
+-IDIOMAS = ("es", "en")
++FORMATOS = ("presupuesto", "cronograma", "mito_realidad", "planta", "errores", "checklist", "comparador")
++IDIOMA = "es"
+ CLAVE_RE = re.compile(r"[A-Z]{2,12}")
+ FECHA_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
+-ID_OBRA_RE = re.compile(r"_?[a-z0-9]+(-[a-z0-9]+)*")
+ DECLARACIONES = ("licencia", "seguro", "garantia_precio", "garantia_plazo", "sin_sobrecostos", "verifica_licencias")
+ PLACEHOLDERS = {
+-    "editorial/prompt_guion.md": ("{{NOMBRE_MARCA}}", "{{IDIOMA}}", "{{MARCA}}", "{{ADN}}", "{{FORMATO}}", "{{FORMATOS}}",
+-                                  "{{DATOS}}", "{{OBRAS}}", "{{TEMAS}}", "{{RECIENTES}}"),
+-    "editorial/prompt_adaptacion.md": ("{{NOMBRE_MARCA}}", "{{MARCA}}", "{{ADN}}", "{{FORMATO}}", "{{DATOS}}", "{{CLAVES}}"),
++    "editorial/prompt_guion.md": ("{{NOMBRE_MARCA}}", "{{MARCA}}", "{{ADN}}", "{{FORMATO}}", "{{FORMATOS}}",
++                                  "{{DATOS}}", "{{TEMAS}}", "{{RECIENTES}}"),
++}
++OBSOLETOS = {  # restos del pipeline anterior (bilingüe y con obras reales): avisan para que se borren
++    "editorial/prompt_adaptacion.md": "la adaptación al inglés ya no existe",
++    "assets/obras": "este pipeline solo hace animaciones, sin fotos de obras reales",
++    ".claude/skills/reel-remodelacion/referencias/activos_reales.md": "este pipeline solo hace animaciones",
++    ".claude/skills/reel-remodelacion/plantillas/antes_despues.md": "el formato antes_despues se eliminó",
+ }
+-TIPOS_ESPACIO = ("cocina", "bano", "sala", "dormitorio", "sala_comedor", "estudio", "lavanderia", "exterior", "techo",
+-                 "ventanas", "pisos", "fachada", "casa_completa", "otro")
+ CAMPOS_VIEJOS = {"toca_hps": "toca_marca", "sistema": "formato"}
+ 
+ 
+@@ -62,82 +64,6 @@ def cargar_datos(raiz, solo_verificados=False):
+     return {k: v for k, v in d.items() if v.get("verificado") is True} if solo_verificados else d
+ 
+ 
+-def _validar_obra(carpeta, m, err, avisos):
+-    nombre = carpeta.name
+-    pre = f"assets/obras/{nombre}/manifest.json"
+-    ejemplo = m.get("ejemplo") is True or nombre.startswith("_")
+-    if m.get("version") != 1:
+-        err.append(f"{pre}: 'version' debe ser 1")
+-    if not isinstance(m.get("id"), str) or not ID_OBRA_RE.fullmatch(m["id"]):
+-        err.append(f"{pre}: 'id' debe ir en minúsculas, números y guiones")
+-    elif m["id"] != nombre:
+-        err.append(f"{pre}: 'id' ({m['id']}) debe coincidir con el nombre de la carpeta ({nombre})")
+-    for k in ("titulo", "ciudad", "condado"):
+-        if not str(m.get(k) or "").strip():
+-            err.append(f"{pre}: falta '{k}'")
+-    if m.get("tipo_espacio") not in TIPOS_ESPACIO:
+-        err.append(f"{pre}: 'tipo_espacio' debe ser uno de: {', '.join(TIPOS_ESPACIO)}")
+-    for k in ("fecha_inicio", "fecha_fin"):
+-        v = m.get(k)
+-        if v is not None and not (isinstance(v, str) and FECHA_RE.fullmatch(v)):
+-            err.append(f"{pre}: '{k}' debe ser AAAA-MM-DD o null")
+-    if not isinstance(m.get("uso_autorizado"), bool):
+-        err.append(f"{pre}: 'uso_autorizado' debe ser true o false")
+-    cred = m.get("creditos") or {}
+-    if not str(cred.get("ejecucion") or "").strip():
+-        err.append(f"{pre}: falta 'creditos.ejecucion' (quién ejecutó la obra: la marca coordina, no ejecuta)")
+-    if not str(cred.get("coordinacion") or "").strip():
+-        err.append(f"{pre}: falta 'creditos.coordinacion'")
+-    for campo, dp in (m.get("datos_publicables") or {}).items():
+-        if not isinstance(dp, dict) or not isinstance(dp.get("verificado"), bool):
+-            err.append(f"{pre}: datos_publicables.{campo} necesita 'valor', 'verificado' (bool) y 'fuente'")
+-            continue
+-        if dp["verificado"] and (dp.get("valor") is None or not str(dp.get("fuente") or "").strip()):
+-            err.append(f"{pre}: datos_publicables.{campo} está verificado pero le falta 'valor' o 'fuente'")
+-    activos = m.get("activos")
+-    if not isinstance(activos, list) or not activos:
+-        err.append(f"{pre}: 'activos' debe ser una lista con al menos un archivo")
+-        activos = []
+-    for i, a in enumerate(activos):
+-        if not isinstance(a, dict) or not a.get("archivo"):
+-            err.append(f"{pre}: activos[{i}] necesita 'archivo'")
+-            continue
+-        if a.get("tipo") not in ("foto", "video"):
+-            err.append(f"{pre}: activos[{i}].tipo debe ser 'foto' o 'video'")
+-        if a.get("momento") not in ("antes", "despues", "proceso", "detalle"):
+-            err.append(f"{pre}: activos[{i}].momento debe ser antes, despues, proceso o detalle")
+-        if not ejemplo and not (carpeta / a["archivo"]).is_file():
+-            err.append(f"{pre}: no existe el archivo {a['archivo']}")
+-    priv = m.get("privacidad")
+-    claves_priv = ("direccion_visible", "caras_visibles", "matriculas_visibles")
+-    if not isinstance(priv, dict) or not all(isinstance(priv.get(k), bool) for k in claves_priv):
+-        err.append(f"{pre}: 'privacidad' necesita {', '.join(claves_priv)} (bool)")
+-    elif m.get("uso_autorizado") and any(priv[k] for k in claves_priv):
+-        avisos.append(f"{pre}: hay datos privados visibles ({', '.join(k for k in claves_priv if priv[k])}): Claude debe desenfocarlos o descartar esos activos")
+-
+-
+-def cargar_obras(raiz, solo_utilizables=True):
+-    """Manifests de assets/obras/*/ (con '_dir'). solo_utilizables: autorizadas, no ejemplo y sin errores."""
+-    base = Path(raiz) / "assets" / "obras"
+-    out = []
+-    for carpeta in sorted(p for p in base.iterdir() if p.is_dir()) if base.is_dir() else []:
+-        f = carpeta / "manifest.json"
+-        if not f.is_file():
+-            continue
+-        try:
+-            m = json.loads(f.read_text(encoding="utf-8"))
+-        except ValueError:
+-            continue
+-        if solo_utilizables:
+-            e = []
+-            _validar_obra(carpeta, m, e, [])
+-            if e or m.get("ejemplo") is True or carpeta.name.startswith("_") or m.get("uso_autorizado") is not True:
+-                continue
+-        m["_dir"] = str(carpeta.relative_to(raiz)).replace("\\", "/")
+-        out.append(m)
+-    return out
+-
+-
+ def validar(raiz):
+     raiz = Path(raiz)
+     err, avisos = [], []
+@@ -151,12 +77,15 @@ def validar(raiz):
+         if falta:
+             err.append(f"{rel}: faltan las variables {', '.join(falta)}")
+ 
++    for rel, motivo in OBSOLETOS.items():
++        if (raiz / rel).exists():
++            avisos.append(f"{rel} sobra ({motivo}): bórralo del repo")
++
+     voz = secciones_voz((raiz / "editorial/voz_tts.md").read_text(encoding="utf-8"))
+-    for idioma in IDIOMAS:
+-        if idioma not in voz:
+-            err.append(f"editorial/voz_tts.md: falta la sección '# IDIOMA: {idioma}'")
+-        elif "{{GUION}}" not in voz[idioma]:
+-            err.append(f"editorial/voz_tts.md: la sección '{idioma}' no tiene {{{{GUION}}}}")
++    if IDIOMA not in voz:
++        err.append(f"editorial/voz_tts.md: falta la sección '# IDIOMA: {IDIOMA}'")
++    elif "{{GUION}}" not in voz[IDIOMA]:
++        err.append(f"editorial/voz_tts.md: la sección '{IDIOMA}' no tiene {{{{GUION}}}}")
+ 
+     decl = declaraciones((raiz / "editorial/marca.md").read_text(encoding="utf-8"))
+     falta = [k for k in DECLARACIONES if k not in decl]
+@@ -174,9 +103,8 @@ def validar(raiz):
+     if sorted(formatos) != sorted(FORMATOS):
+         err.append(f"editorial/formatos.json: los formatos deben ser exactamente {', '.join(FORMATOS)} (llegaron {', '.join(formatos) or 'ninguno'})")
+     for fid, f in formatos.items():
+-        nombre = f.get("nombre") or {}
+-        if not all(str(nombre.get(i) or "").strip() for i in IDIOMAS):
+-            err.append(f"editorial/formatos.json: '{fid}' necesita nombre en es y en")
++        if not isinstance(f.get("nombre"), str) or not f["nombre"].strip():
++            err.append(f"editorial/formatos.json: '{fid}' necesita 'nombre' (texto)")
+         if not str(f.get("guion") or "").strip():
+             err.append(f"editorial/formatos.json: '{fid}' necesita 'guion'")
+         if f.get("plantilla") not in plantillas:
+@@ -209,7 +137,7 @@ def validar(raiz):
+     if not isinstance(temas, list) or not temas:
+         err.append("editorial/temas.json: necesita una lista 'temas'")
+         temas = []
+-    vistas = {i: {} for i in IDIOMAS}
++    vistas = {}
+     for t in temas:
+         pre = f"temas.json → tema {t.get('id', '?')}"
+         for viejo, nuevo in CAMPOS_VIEJOS.items():
+@@ -236,25 +164,13 @@ def validar(raiz):
+                 err.append(f"{p}: falta 'gancho'")
+             if idea.get("formato") not in FORMATOS:
+                 err.append(f"{p}: 'formato' debe ser uno de {', '.join(FORMATOS)}")
+-            cta = idea.get("cta") or {}
+-            for idioma in IDIOMAS:
+-                k = cta.get(idioma) if isinstance(cta, dict) else None
+-                if not (isinstance(k, str) and CLAVE_RE.fullmatch(k)):
+-                    err.append(f"{p}: cta.{idioma} debe ser una palabra en MAYÚSCULAS sin tildes, eñe ni números (2-12 letras)")
+-                elif k in vistas[idioma]:
+-                    err.append(f"{p}: palabra clave repetida ({idioma}) '{k}': ya se usa en {vistas[idioma][k]}")
+-                else:
+-                    vistas[idioma][k] = p
+-
+-    base = raiz / "assets" / "obras"
+-    for carpeta in sorted(p for p in base.iterdir() if p.is_dir()) if base.is_dir() else []:
+-        f = carpeta / "manifest.json"
+-        if not f.is_file():
+-            err.append(f"assets/obras/{carpeta.name}/: falta manifest.json")
+-            continue
+-        m = _json(raiz, f.relative_to(raiz), err)
+-        if isinstance(m, dict):
+-            _validar_obra(carpeta, m, err, avisos)
++            k = idea.get("cta")
++            if not (isinstance(k, str) and CLAVE_RE.fullmatch(k)):
++                err.append(f"{p}: 'cta' debe ser una palabra en MAYÚSCULAS sin tildes, eñe ni números (2-12 letras)")
++            elif k in vistas:
++                err.append(f"{p}: palabra clave repetida '{k}': ya se usa en {vistas[k]}")
++            else:
++                vistas[k] = p
+ 
+     tokens = _json(raiz, SKILL / "diseno" / "tokens.json", err) or {}
+     for rol in ("display", "texto"):
+@@ -272,8 +188,7 @@ def main():
+     if err:
+         print("ERRORES:\n - " + "\n - ".join(err))
+         sys.exit(1)
+-    print(f"Repo válido · {len(cargar_obras(raiz))} obras utilizables · "
+-          f"{len(cargar_datos(raiz, True))}/{len(cargar_datos(raiz))} datos verificados")
++    print(f"Repo válido · {len(cargar_datos(raiz, True))}/{len(cargar_datos(raiz))} datos verificados")
+ 
+ 
+ if __name__ == "__main__":

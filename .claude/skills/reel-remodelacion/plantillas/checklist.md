@@ -6,14 +6,14 @@
 ## Parámetros
 ```jsonc
 {
-  "titulo": { "es": "Antes de contratar", "en": "Before you hire" },
+  "titulo": "Antes de contratar",
   "items": [                           // 3-7
-    { "texto": { "es": "Licencia activa", "en": "Active license" },
-      "como_verificar": { "es": "Búscala en la web oficial del estado", "en": "Look it up on the state's official site" },
+    { "texto": "Licencia activa",
+      "como_verificar": "Búscala en la web oficial del estado",
       "fuente": null,                  // "verificar_licencia" cuando esté verificado → su corta al pie
-      "icono": "badge-check", "ancla": { "es": 24, "en": 22 } }
+      "icono": "badge-check", "ancla": 24 }
   ],
-  "bandera_roja": { "texto": { "es": "Te pide todo en efectivo", "en": "Wants it all in cash" }, "ancla": { "es": 66, "en": 60 } }
+  "bandera_roja": { "texto": "Te pide todo en efectivo", "ancla": 66 }
 }
 ```
 

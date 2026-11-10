@@ -6,12 +6,13 @@ Uso:
   python3 scripts/preparar_brief.py briefs/<BASE> --stills   # además imprime los comandos de stills de revisión
 
 Entrada (en briefs/<BASE>/):
-  encargo.json                                   → lo deja el notebook (marca, formato pedido, idiomas, obra)
-  <idioma>/guion.txt, palabras.json, locucion.wav → los deja el notebook (idioma = es, en)
+  encargo.json                                   → lo deja el notebook (marca, formato del guionista, idiomas = ["es"])
+  <idioma>/guion.txt, palabras.json, locucion.wav → los deja el notebook (idioma = es)
   <idioma>/subtitulos.json                       → scripts/alinear.py (se genera solo si falta)
   decisiones.json                                → lo escribes tú, UNO para todos los idiomas (mismo diseño de escenas)
                                                    formato en .claude/skills/reel-remodelacion/referencias/decisiones.md
 Salida: briefs/<BASE>/<idioma>/brief.json (versión 4), la única fuente de datos del proyecto (cópialo a src/brief_<idioma>.json).
+Pipeline educativo y solo de animación: no hay obras reales, fotos ni activos externos.
 Las anclas ("desde", "ancla…") son índices de palabra del guion de cada idioma: los [n] que imprime alinear.py.
 """
 import json, math, re, sys, unicodedata
@@ -56,9 +57,9 @@ def historial(base_actual):
 
 
 class Ctx:
-    """Lo que necesita el validador de parámetros: idiomas, longitud de cada guion, datos, obra, tokens."""
-    def __init__(self, idiomas, n, datos_ok, obra, tokens):
-        self.idiomas, self.n, self.datos_ok, self.obra, self.tokens = idiomas, n, datos_ok, obra, tokens
+    """Lo que necesita el validador de parámetros: idiomas, longitud de cada guion, datos, tokens."""
+    def __init__(self, idiomas, n, datos_ok, tokens):
+        self.idiomas, self.n, self.datos_ok, self.tokens = idiomas, n, datos_ok, tokens
         self.err, self.avisos, self.raiz_params = [], [], {}
 
 
@@ -73,8 +74,11 @@ def validar_valor(spec, v, ruta, ctx):
         if isinstance(v, str):
             if not v.strip():
                 ctx.err.append(f"{ruta}: texto vacío")
-            elif len(ctx.idiomas) > 1:
-                ctx.avisos.append(f"{ruta}: texto sin versión por idioma ('{v}'): se mostrará igual en {', '.join(ctx.idiomas)}")
+            else:
+                if len(ctx.idiomas) > 1:
+                    ctx.avisos.append(f"{ruta}: texto sin versión por idioma ('{v}'): se mostrará igual en {', '.join(ctx.idiomas)}")
+                if RECLAMOS.search(v):
+                    ctx.avisos.append(f"{ruta}: '{v}' suena a garantía, licencia o ejecución de obra: revisa marca.md → Declaraciones")
         elif _por_idioma(v, ctx.idiomas):
             for i in ctx.idiomas:
                 if not str(v[i]).strip():
@@ -109,19 +113,8 @@ def validar_valor(spec, v, ruta, ctx):
     elif t == "dato":
         if not isinstance(v, str):
             ctx.err.append(f"{ruta}: debe ser el id de un dato")
-        elif v.startswith("obra:"):
-            campo = v[5:]
-            if not ctx.obra:
-                ctx.err.append(f"{ruta}: '{v}' necesita una obra elegida en decisiones.obra")
-            elif not ((ctx.obra.get("datos_publicables") or {}).get(campo) or {}).get("verificado") is True:
-                ctx.err.append(f"{ruta}: el dato '{campo}' de la obra {ctx.obra['id']} no está verificado: no se puede mostrar")
         elif v not in ctx.datos_ok:
             ctx.err.append(f"{ruta}: el dato '{v}' no existe o no está verificado en datos_verificados.json: no se puede mostrar")
-    elif t == "activo":
-        if not ctx.obra:
-            ctx.err.append(f"{ruta}: '{v}' necesita una obra elegida en decisiones.obra")
-        elif v not in [a.get("archivo") for a in ctx.obra.get("activos", [])]:
-            ctx.err.append(f"{ruta}: '{v}' no está en los activos de la obra {ctx.obra['id']}")
     elif t == "estilo":
         if v not in ctx.tokens["estilos_interior"] or str(v).startswith("_"):
             ctx.err.append(f"{ruta}: estilo desconocido '{v}' (de tokens.json → estilos_interior)")
@@ -161,13 +154,9 @@ def validar_campos(campos, v, ruta, ctx):
             fuente = v.get(spec["fuente_en"])
             if not fuente:
                 ctx.err.append(f"{ruta}: '{k}' = {val} necesita '{spec['fuente_en']}' con un dato verificado (nunca cifras sin fuente)")
-            elif isinstance(fuente, str) and fuente.startswith("obra:") and ctx.obra:
-                dp = (ctx.obra.get("datos_publicables") or {}).get(fuente[5:]) or {}
-                if dp.get("verificado") and dp.get("valor") != val:
-                    ctx.err.append(f"{ruta}: '{k}' = {val} no coincide con la obra ({fuente[5:]} = {dp.get('valor')})")
 
 
-def reglas_plantilla(pid, p, ctx, tiene_obra):
+def reglas_plantilla(pid, p, ctx):
     """Reglas cruzadas que el esquema no puede expresar."""
     if pid == "comparador":
         n = len(p.get("opciones") or [])
@@ -179,8 +168,6 @@ def reglas_plantilla(pid, p, ctx, tiene_obra):
             ctx.err.append("plantilla: modo 'cambiar_estilo' necesita al menos 2 estilos")
         if p.get("modo") in ("amueblar", "redistribuir") and not p.get("elementos"):
             ctx.avisos.append("plantilla: una planta para amueblar o redistribuir sin 'elementos' se queda vacía")
-    if pid == "antes_despues" and p.get("fuente_visual") == "obra" and not tiene_obra:
-        ctx.err.append("plantilla: fuente_visual 'obra' necesita decisiones.obra (si no hay obra, usa 'ilustracion')")
     for lista, campo, clave in (("partidas", "alerta", "partida"), ("fases", "retraso", "fase")):
         extra = p.get(campo)
         if isinstance(extra, dict) and isinstance(extra.get(clave), int):
@@ -265,18 +252,13 @@ def preparar(dir_base):
     formato = dec.get("formato")
     if formato not in plantillas:
         err.append(f"formato desconocido: {formato} (válidos: {', '.join(plantillas)})")
-    elif encargo.get("formato") not in (None, "auto", formato):
-        avisos.append(f"el encargo pedía el formato '{encargo['formato']}' y decidiste '{formato}': explícalo en la entrega")
+    else:
+        pedido = encargo.get("formato_guion") if encargo.get("formato") in (None, "auto") else encargo.get("formato")
+        if pedido and pedido != formato:
+            avisos.append(f"el guionista usó el formato '{pedido}' y decidiste '{formato}': explícalo en la entrega")
 
-    # --- obra real
-    obra_id, obra = dec.get("obra"), None
-    if obra_id:
-        utiles = {o["id"]: o for o in validar_repo.cargar_obras(RAIZ)}
-        obra = utiles.get(obra_id)
-        if not obra:
-            err.append(f"obra '{obra_id}' no existe, no está autorizada o su manifest tiene errores (python3 scripts/validar_repo.py)")
-    elif formato in plantillas and plantillas[formato].get("usa_obra") == "preferida":
-        avisos.append(f"el formato {formato} luce mejor con una obra real y no hay ninguna elegida: irá como ilustración")
+    if dec.get("obra"):
+        avisos.append("decisiones.obra se ignora: este pipeline es solo de animación (sin obras reales ni fotos)")
 
     # --- bloques
     bloques_d = dec.get("bloques") or []
@@ -354,14 +336,14 @@ def preparar(dir_base):
 
     # --- parámetros de la plantilla
     params = (dec.get("plantilla") or {}).get("params")
-    ctx = Ctx(idiomas, {i: mat[i]["n"] for i in idiomas}, datos_ok, obra, tokens)
+    ctx = Ctx(idiomas, {i: mat[i]["n"] for i in idiomas}, datos_ok, tokens)
     if formato in plantillas:
         if not isinstance(params, dict):
             err.append("falta 'plantilla.params' (los parámetros de la plantilla del formato)")
         else:
             ctx.raiz_params = params
             validar_campos(plantillas[formato]["params"], params, "plantilla", ctx)
-            reglas_plantilla(formato, params, ctx, bool(obra))
+            reglas_plantilla(formato, params, ctx)
     err += ctx.err
     avisos += ctx.avisos
     extra = dec.get("fuentes_en_pantalla") or []
@@ -392,18 +374,8 @@ def preparar(dir_base):
     aviso_legal = dec.get("aviso_legal")
     if aviso_legal is None:
         aviso_legal = plantilla_def.get("aviso_legal", False)
-    obra_brief = None
-    if obra:
-        cred = dict(obra.get("creditos") or {})
-        if cred.get("coordinacion") == PLACEHOLDER_MARCA:
-            cred["coordinacion"] = "" if pendiente else marca_nombre
-        obra_brief = {"id": obra["id"], "titulo": obra["titulo"], "carpeta": obra["_dir"], "creditos": cred,
-                      "privacidad": obra["privacidad"], "tipo_espacio": obra["tipo_espacio"],
-                      "activos": [dict(a, ruta=f"{obra['_dir']}/{a['archivo']}") for a in obra["activos"]]}
 
     def corta(fid):
-        if fid.startswith("obra:"):
-            return f"Obra real · {obra['titulo']}" if obra else ""
         return datos[fid].get("corta") or datos[fid]["fuente"]
 
     fuentes = [{"rol": rol, "familia": t["familia"], "css": t["css"], "stack": t["stack"]}
@@ -449,7 +421,6 @@ def preparar(dir_base):
             "ilustrativo": tokens["textos_fijos"]["ilustrativo"][i],
             "ambientes": ambientes,
             "fuentes": fuentes,
-            "obra": obra_brief,
             "fuentes_en_pantalla": [{"id": f, "corta": corta(f)} for f in fuentes_pantalla],
             "bloques": bloques,
             "plantilla": {"id": formato, "md": f".claude/skills/reel-remodelacion/plantillas/{plantilla_def['md']}", "params": params_i},
@@ -490,7 +461,7 @@ def main():
         (d / i / "brief.json").write_text(json.dumps(brief, ensure_ascii=False, indent=1), encoding="utf-8")
         a = ", ".join(f"{k}={v}" for k, v in brief["ambientes"].items() if v != "lino") or "todo lino"
         print(f"[{i}] brief.json listo · {brief['video']['frames']} frames ({brief['video']['voz_s']} s de voz + {brief['video']['cola_s']} s) · "
-              f"formato {brief['formato']} · obra {brief['obra']['id'] if brief['obra'] else 'ninguna (animación pura)'} · ambientes {a}")
+              f"formato {brief['formato']} · animación pura · ambientes {a}")
         for b in brief["bloques"]:
             print(f"  {b['id']:<10} {b['ini_f']:>5}–{b['fin_f']:<5} {b['titular'][0]} / {b['titular'][1]}")
         if "--stills" in sys.argv:
