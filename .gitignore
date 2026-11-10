@@ -1,3 +1,12 @@
 __pycache__/
 node_modules/
 videos/
+out/
+*.zip
+.ipynb_checkpoints/
+.DS_Store
+.env
+.env.*
+# originales de obras sin optimizar o sin revisar privacidad: no se suben
+assets/obras/**/originales/
+assets/obras/**/*.raw.*

@@ -1,22 +1,43 @@
-# Marca ZYPE (+ Hitch Point Studio)
+# La marca
 
-**ZYPE** es un Digital Execution Studio: "Construimos tu marca lista para operar: Identidad · Web · CRM · IA. Creativos que ejecutan. Ejecutores que crean."
+**Nombre:** {{NOMBRE_MARCA}}
+
+(El nombre de la marca no se escribe en ningún archivo: vive en una sola variable, `MARCA`, de la configuración del notebook, que lo inserta aquí al construir el prompt. Mientras el nombre esté pendiente, el guion no nombra la marca.)
+
+## Qué es (y qué no es)
+Es una agencia de decoración, remodelación, construcción e interiores en Florida que **capta clientes y coordina proyectos**. La ejecución de obra la hacen contratistas y profesionales externos; un socio atiende la operación y el filtrado de las conversaciones que llegan por Instagram.
+
+- La marca **orienta, conecta y coordina**. No se presenta como quien construye, instala o repara.
+- Verbos permitidos para la marca: coordinar, acompañar, orientar, revisar contigo, conectar, organizar.
+- Verbos prohibidos para la marca: construir, remodelar, instalar, reparar, ejecutar, "hacemos tu obra".
+
+## Declaraciones permitidas
+El guion y el video solo pueden afirmar de la marca lo que aquí diga `si`. Todo lo demás está prohibido, aunque sea verdad en la práctica. Cambia un `no` por `si` solo con respaldo documental.
+
+- licencia: no
+- seguro: no
+- garantia_precio: no
+- garantia_plazo: no
+- sin_sobrecostos: no
+- verifica_licencias: no
+
+(`licencia` = la marca tiene licencia de contratista en Florida · `seguro` = la marca tiene seguro de responsabilidad · `garantia_precio`, `garantia_plazo`, `sin_sobrecostos` = la marca garantiza precio cerrado, fecha de entrega o ausencia de sobrecostos · `verifica_licencias` = la marca comprueba la licencia de los contratistas con los que coordina).
 
 ## Voz
-Director de Sistemas de ZYPE hablándole directo al dueño de un negocio local, como un aliado que le explica por qué pierde dinero y cómo se arregla.
+Una persona que conoce cómo funcionan las obras en Florida y le habla al propietario como un aliado que le ahorra un error caro.
 
-- Ingeniería de sistemas, sobriedad editorial, autoridad técnica, anti-humo. Explica cómo funcionan las cosas en lugar de prometer resultados.
-- Aliado del dueño, no proveedor.
-- Español latinoamericano conversacional, seguro, cercano y con autoridad. Segunda persona. Frases cortas.
-- Conceptos de negocio, nunca tecnicismos (nada de payload, API, endpoint, token, webhook): "pedido confirmado", "cliente atendido al instante", "aviso en tu celular".
+- Clara, cálida y concreta. Segunda persona. Frases cortas. Cero humo.
+- Explica cómo funcionan las cosas (orden de una obra, qué preguntar, qué revisar) en lugar de prometer resultados.
+- Lenguaje sencillo. Si un término de obra es inevitable ("change order", "GC", "lien", "permiso abierto"), se explica en la misma frase.
+- Español: neutro latinoamericano, natural en Miami, Orlando o Tampa. Inglés: estadounidense, llano.
 
 ## De qué hablamos
-Pilares (se conectan con naturalidad, sin enumerarlos): web que convierte, WhatsApp con IA, publicidad digital, CRM y automatización, IA aplicada, gestión digital integral.
+Remodelación de cocinas, baños, pisos y techos; interiores y decoración; preparación de la casa para huracanes y humedad; permisos por condado; cómo elegir y verificar contratistas; HOA y condominios; qué mejoras suman valor de reventa y cuáles no; renovaciones para alquilar.
 
-Idea de fondo: ninguna tecnología opera aislada; los problemas de negocio son fallos en el flujo del sistema. Medimos caja, no likes.
-
-## Hitch Point Studio (HPS)
-"Creamos marcas con alma". Es el socio que **prepara las condiciones** del negocio: estrategia, marca, oferta y contenido. ZYPE **activa** el sistema. Se nombra cuando la idea toca estrategia, marca, oferta, contenido o el método de trabajo: "Hitch Point Studio prepara; ZYPE activa".
+Idea de fondo: casi todos los sobrecostos de una obra se deciden antes de empezar (alcance, permisos, materiales, contrato). Medimos dinero y tiempo del propietario, no likes.
 
 ## Público
-Dueños de negocios locales latinoamericanos (restaurantes, clínicas, barberías, gimnasios, tiendas, contratistas, imprentas…) que hacen todo a mano, pierden clientes por no responder a tiempo y desconfían de las agencias que venden paquetes.
+Propietarios, compradores e inversionistas en Florida, hispanohablantes y angloparlantes. Muchos remodelan por primera vez en Estados Unidos o en Florida, desconfían de los contratistas después de una mala experiencia, y necesitan entender el proceso antes de pedir presupuestos.
+
+## Embudo
+La cuenta es nueva. Cada video busca primero que lo **guarden** o lo **envíen**; después, que comenten una palabra clave o escriban por DM. Esa conversación la continúa el socio. El video nunca promete enviar un archivo, una guía ni un PDF: invita a conversar.

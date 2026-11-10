@@ -1,26 +1,27 @@
-# ADN ZYPE
+# ADN de la marca
 
 Si un video contradice una sola de estas ideas, no se publica.
 
-1. **Estrategia antes que herramienta**: primero entendemos el negocio, después elegimos la tecnología.
-2. **Primero preparamos, después activamos**: Hitch Point Studio prepara las condiciones (estrategia, marca, oferta, contenido); ZYPE activa el sistema (web, WhatsApp con IA, anuncios, CRM, automatización).
-3. **Medimos caja, no likes**: el éxito se mide en la tesorería a fin de mes.
-4. **Solo lo que el negocio necesita ahora**: no vendemos paquetes, diseñamos el sistema por etapas.
-5. **La tecnología libera al equipo, no lo reemplaza**: automatizamos lo repetitivo para que las personas atiendan lo que importa.
-6. **Somos aliados, no proveedores**: ganamos cuando el negocio gana.
+1. **Antes de la obra se decide casi todo**: alcance, permisos, materiales y contrato. Enseñamos a decidir antes, no a apagar fuegos después.
+2. **Nunca inventamos datos**: precios, plazos, normas, porcentajes y requisitos de permisos solo se dicen si están verificados con su fuente (DATOS) o vienen de una obra real documentada (OBRAS). Si no hay dato, explicamos el mecanismo sin cifras.
+3. **La marca coordina, no ejecuta**: orientamos y conectamos; la obra la hacen profesionales externos. Nunca "construimos", "remodelamos" ni "instalamos".
+4. **Sin promesas que no podemos firmar**: no decimos que la marca tenga licencia, seguro, ni que garantice precio, plazo o ausencia de sobrecostos, salvo lo que `marca.md` declare con `si`.
+5. **Florida no es cualquier lugar**: huracanes, humedad, permisos que cambian por condado, HOA y condominios, contratistas sin licencia. Cada video aterriza en una realidad local.
+6. **Medimos dinero y tiempo del propietario**: el resultado es menos retrabajo, menos obra parada, una venta sin sorpresas. Nunca likes ni seguidores.
+7. **Somos aliados, no vendedores**: el video tiene que servir aunque el espectador nunca nos escriba.
 
 ## Polémica sin contradecirnos
-- Criticamos MÉTODOS, nunca la tecnología que vendemos: nunca "no necesitas IA"; sí "la IA sin estrategia solo automatiza el caos".
-- Usamos "todavía" y "antes de": "no necesitas anuncios todavía", "antes de automatizar, arregla tu oferta".
-- No atacamos competidores con nombre: el enemigo es "vender por vender".
-- No prometemos cifras garantizadas ("vas a facturar el doble", "+30 % de ventas"): mostramos el mecanismo y ejemplos ilustrativos.
+- Criticamos MÉTODOS ("firmar con un presupuesto de una sola línea"), nunca a un contratista, empresa o marca con nombre.
+- Usamos "antes de" y "todavía": "antes de pedir presupuestos, define el alcance".
+- No asustamos para vender: el miedo (huracán, estafa) se usa para dar un paso concreto, no para empujar a contratar.
+- No damos asesoría legal: decimos qué preguntar y dónde verificarlo ("compruébalo con tu condado", "pídelo por escrito").
 
 ## Lo que hace bueno un video (checklist antes de publicar)
-1. Muestra un problema real con su costo (dinero, tiempo o clientes).
-2. Tiene un momento de **criterio**: se ve la estrategia (por qué pasa y qué se prepara antes), no solo el sistema.
-3. Critica un método sin atacar la tecnología que vendemos ni a competidores con nombre.
-4. El resultado se mide en caja o en tiempo, no en likes ni seguidores.
-5. No promete cifras garantizadas.
-6. Los datos citados tienen fuente y conservan su acotación (por ejemplo, "restaurante independiente", nunca "el sector").
-7. Termina invitando a comentar o enviar por DM una palabra clave. Nunca promete guías, PDFs ni recursos.
-8. El negocio del ejemplo es ilustrativo: no se presenta como caso real ni sus cifras como resultados de clientes, y no se dice su nombre.
+1. Un problema real de Florida con su costo (dinero, tiempo, riesgo o estrés).
+2. Algo que vale la pena guardar o enviar: una lista, un orden, una pregunta para el contratista, una creencia corregida.
+3. Un momento de **criterio**: por qué pasa y qué se decide antes.
+4. Ninguna cifra sin fuente verificada. Los datos citados conservan su acotación (condado, tipo de obra, año).
+5. La marca aparece como quien orienta o coordina, nunca como quien ejecuta la obra, y sin declaraciones que `marca.md` no permita.
+6. Los términos de obra ("change order", "GC", "lien"…) se explican en lenguaje sencillo la primera vez.
+7. Termina invitando a comentar o enviar por DM una palabra clave. Sin prometer guías, PDFs ni archivos.
+8. El ejemplo es ilustrativo salvo que use una obra de `assets/obras/` con permiso de publicación; en ese caso, los créditos de ejecución se muestran.

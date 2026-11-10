@@ -1,523 +1,618 @@
 {
-  "_nota": "Temas de inspiración para el guion (del documento 'ZYPE — 20 temas de contenido'). No son un menú cerrado: el guionista puede salirse si el seed lo pide, siempre dentro del ADN. 'datos' apunta a ids de datos_verificados.json. 'cta' y 'nicho' son sugerencias.",
+  "_nota": "Temas de inspiración para el guion. No son un menú cerrado: el guionista puede salirse si el seed lo pide, siempre dentro del ADN. 'formato' es uno de editorial/formatos.json (lo que verá la animación); 'cta' sugiere la palabra clave en cada idioma (corta, sin tildes ni eñe, única en todo el archivo); 'datos' apunta a ids de datos_verificados.json (solo se citan si están verificados); 'toca_marca' = el tema conecta con el papel de la marca (orientar y coordinar).",
   "temas": [
     {
       "id": 1,
-      "titulo": "El cliente que nadie respondió",
-      "tesis": "La venta se pierde en los primeros minutos, no en el precio.",
-      "toca_hps": false,
+      "titulo": "Ventanas y puertas para huracanes",
+      "tesis": "En Florida una ventana se elige por lo que aguanta y por su aprobación, no solo por cómo se ve.",
+      "toca_marca": false,
+      "regla": "Si el requisito no está verificado en DATOS, no lo afirmes: di qué preguntar y dónde se verifica.",
+      "datos": [
+        "zona_hvhz",
+        "aprobacion_producto",
+        "temporada_huracanes"
+      ],
       "ideas": [
         {
-          "gancho": "Preguntó a las 9 pm. A las 9:05 le compró a otro.",
-          "sistema": "Lead de contratista calificado y agendado en segundos.",
-          "cta": "LEAD",
-          "nicho": "CONTRATISTAS"
+          "gancho": "Ventanas de impacto o paneles: lo que nadie te compara.",
+          "formato": "comparador",
+          "cta": {
+            "es": "VENTANA",
+            "en": "WINDOW"
+          }
         },
         {
-          "gancho": "\"¿Precio?\" en el DM. Visto. Venta perdida.",
-          "sistema": "Tienda local con respuesta automática y link de pago.",
-          "cta": "DM",
-          "nicho": "TIENDAS LOCALES"
+          "gancho": "La cinta en forma de equis no protege tu ventana.",
+          "formato": "mito_realidad",
+          "cta": {
+            "es": "CINTA",
+            "en": "TAPE"
+          }
         },
         {
-          "gancho": "Tu horario cierra. Tus clientes no.",
-          "sistema": "El negocio que vende mientras está cerrado.",
-          "cta": "24/7",
-          "nicho": null
+          "gancho": "Antes de instalar ventanas nuevas, pide estos papeles.",
+          "formato": "checklist",
+          "cta": {
+            "es": "IMPACTO",
+            "en": "IMPACT"
+          }
         }
       ]
     },
     {
       "id": 2,
-      "titulo": "La cita que no llegó",
-      "tesis": "Un hueco vacío es dinero que no vuelve.",
-      "toca_hps": false,
+      "titulo": "Techo listo para la temporada",
+      "tesis": "Un techo nuevo no es solo la cubierta: es lo que hay debajo y lo que aprueba la inspección.",
+      "toca_marca": false,
+      "regla": "Si el requisito no está verificado en DATOS, no lo afirmes: di qué preguntar y dónde se verifica.",
+      "datos": [
+        "codigo_construccion",
+        "descuento_mitigacion"
+      ],
       "ideas": [
         {
-          "gancho": "Agendó. No vino. Una silla vacía.",
-          "sistema": "Clínica con confirmación y lista de espera.",
-          "cta": "AGENDA",
-          "nicho": "CLÍNICAS"
+          "gancho": "Cambiar el techo, fase por fase: dónde se para la obra.",
+          "formato": "cronograma",
+          "cta": {
+            "es": "TECHO",
+            "en": "ROOF"
+          }
         },
         {
-          "gancho": "La mesa reservada que nadie ocupó.",
-          "sistema": "Restaurante con recordatorio y reasignación.",
-          "cta": "MESA",
-          "nicho": "RESTAURANTES"
+          "gancho": "Techar encima sin revisar la madera de abajo.",
+          "formato": "errores",
+          "cta": {
+            "es": "MADERA",
+            "en": "DECK"
+          }
         },
         {
-          "gancho": "Cuánto te cuesta un no-show al mes.",
-          "sistema": "La calculadora animada del hueco vacío.",
-          "cta": "CALCULA",
-          "nicho": null
+          "gancho": "Teja, metal o shingle: qué cambia en Florida.",
+          "formato": "comparador",
+          "cta": {
+            "es": "METAL",
+            "en": "METAL"
+          }
         }
       ]
     },
     {
       "id": 3,
-      "titulo": "El cliente que no volvió",
-      "tesis": "Conseguir un cliente nuevo cuesta más que hacer volver al que ya tienes.",
-      "toca_hps": false,
+      "titulo": "Humedad y moho",
+      "tesis": "En Florida la humedad no se tapa con pintura: se controla con ventilación y materiales.",
+      "toca_marca": false,
+      "regla": "",
+      "datos": [
+        "humedad_moho"
+      ],
       "ideas": [
         {
-          "gancho": "Se cortó hace 5 semanas. Nadie le escribió.",
-          "sistema": "Barbería con reactivación automática.",
-          "cta": "VUELVE",
-          "nicho": "BARBERÍAS"
+          "gancho": "Pintar encima de la mancha es pagar dos veces.",
+          "formato": "errores",
+          "cta": {
+            "es": "MOHO",
+            "en": "MOLD"
+          }
         },
         {
-          "gancho": "Dejó de venir. Luego dejó de pagar.",
-          "sistema": "Gimnasio que detecta la ausencia a tiempo.",
-          "cta": "RETENER",
-          "nicho": "GIMNASIOS"
+          "gancho": "La pared de la ducha no se arma con cualquier placa.",
+          "formato": "comparador",
+          "cta": {
+            "es": "PLACA",
+            "en": "DRYWALL"
+          }
         },
         {
-          "gancho": "Tu mejor cliente no sabe que lo es.",
-          "sistema": "CRM que reconoce y premia a los frecuentes.",
-          "cta": "VIP",
-          "nicho": null
+          "gancho": "El baño sin ventana que nunca termina de secarse.",
+          "formato": "planta",
+          "cta": {
+            "es": "EXTRACTOR",
+            "en": "FAN"
+          }
         }
       ]
     },
     {
       "id": 4,
-      "titulo": "Reputación y reseñas",
-      "tesis": "Tu próximo cliente lee tus reseñas antes de conocerte.",
-      "toca_hps": false,
+      "titulo": "Permisos que cambian por condado",
+      "tesis": "Lo que en un condado es un trámite simple, en otro puede parar tu obra.",
+      "toca_marca": false,
+      "regla": "Cita siempre el condado: nunca 'en Florida se necesita…' si el dato es de un condado. Si el requisito no está verificado en DATOS, no lo afirmes: di qué preguntar y dónde se verifica.",
+      "datos": [
+        "permisos_por_condado",
+        "plazos_permiso"
+      ],
       "ideas": [
         {
-          "gancho": "Mala experiencia. Te enteras en Google.",
-          "sistema": "Encuesta privada antes de la reseña pública.",
-          "cta": "RESEÑAS",
-          "nicho": null
+          "gancho": "Si es por dentro, no necesita permiso. Eso depende.",
+          "formato": "mito_realidad",
+          "cta": {
+            "es": "PERMISO",
+            "en": "PERMIT"
+          }
         },
         {
-          "gancho": "Tus clientes felices no escriben. Los molestos sí.",
-          "sistema": "Sistema que pide la reseña en el momento justo.",
-          "cta": "5 ESTRELLAS",
-          "nicho": null
+          "gancho": "Por qué tu obra empieza mucho después de firmar.",
+          "formato": "cronograma",
+          "cta": {
+            "es": "REVISION",
+            "en": "REVIEW"
+          }
         },
         {
-          "gancho": "4,9 estrellas y nadie te encuentra.",
-          "sistema": "Reputación + perfil de Google bien preparado.",
-          "cta": "GOOGLE",
-          "nicho": null
+          "gancho": "Remodelar sin inspección y descubrirlo al vender.",
+          "formato": "errores",
+          "cta": {
+            "es": "INSPECCION",
+            "en": "INSPECT"
+          }
         }
       ]
     },
     {
       "id": 5,
-      "titulo": "Antes de anunciarte (preparar las condiciones)",
-      "tesis": "El anuncio solo amplifica lo que ya tienes. Si lo que tienes está roto, amplifica el problema.",
-      "toca_hps": true,
+      "titulo": "Permisos abiertos al comprar",
+      "tesis": "La casa que compras puede traer obras sin cerrar del dueño anterior.",
+      "toca_marca": false,
+      "regla": "Si el requisito no está verificado en DATOS, no lo afirmes: di qué preguntar y dónde se verifica.",
+      "datos": [
+        "permisos_abiertos"
+      ],
       "ideas": [
         {
-          "gancho": "Antes de pagar un anuncio, arregla esto.",
-          "sistema": "Fotos, oferta, reseñas y link de reserva.",
-          "cta": "CHECKLIST",
-          "nicho": null
+          "gancho": "Antes de comprar, revisa esto en el portal del condado.",
+          "formato": "checklist",
+          "cta": {
+            "es": "ABIERTO",
+            "en": "OPEN"
+          }
         },
         {
-          "gancho": "Un anuncio perfecto hacia una página que no vende.",
-          "sistema": "El embudo roto, paso a paso.",
-          "cta": "EMBUDO",
-          "nicho": null
+          "gancho": "Comprar con un permiso abierto y heredar el problema.",
+          "formato": "errores",
+          "cta": {
+            "es": "HEREDAR",
+            "en": "INHERIT"
+          }
         },
         {
-          "gancho": "Primero preparamos, después activamos.",
-          "sistema": "El método Hitch Point Studio + ZYPE en 30 segundos.",
-          "cta": "MÉTODO",
-          "nicho": null
+          "gancho": "La inspección de compra no siempre revisa los permisos.",
+          "formato": "mito_realidad",
+          "cta": {
+            "es": "COMPRA",
+            "en": "BUYER"
+          }
         }
       ]
     },
     {
       "id": 6,
-      "titulo": "Vender por vender",
-      "tesis": "La polémica central: al dueño le venden paquetes, nosotros diseñamos por etapas.",
-      "toca_hps": true,
+      "titulo": "Contratista sin licencia",
+      "tesis": "Verificar una licencia toma minutos; no hacerlo puede costarte la obra.",
+      "toca_marca": false,
+      "regla": "Si el requisito no está verificado en DATOS, no lo afirmes: di qué preguntar y dónde se verifica.",
+      "datos": [
+        "licencia_obligatoria",
+        "verificar_licencia",
+        "contratar_sin_licencia",
+        "fondo_recuperacion"
+      ],
       "ideas": [
         {
-          "gancho": "Te vendieron una app. Nadie te preguntó si la necesitabas.",
-          "sistema": "Diagnóstico antes que herramienta.",
-          "cta": "DIAGNÓSTICO",
-          "nicho": null
+          "gancho": "Lo que revisas antes de contratar a cualquiera.",
+          "formato": "checklist",
+          "cta": {
+            "es": "LICENCIA",
+            "en": "LICENSE"
+          }
         },
         {
-          "gancho": "Lo que NO te vamos a vender todavía.",
-          "sistema": "Lo que esperamos a activar hasta que el negocio esté listo.",
-          "cta": "ETAPAS",
-          "nicho": null
+          "gancho": "Camioneta rotulada no significa licencia.",
+          "formato": "mito_realidad",
+          "cta": {
+            "es": "ROTULO",
+            "en": "TRUCK"
+          }
         },
         {
-          "gancho": "Automatizar algo que no vende es perder clientes más rápido.",
-          "sistema": "Por qué la estrategia va primero.",
-          "cta": "ESTRATEGIA",
-          "nicho": null
+          "gancho": "Contratar al conocido de un amigo para tu cocina.",
+          "formato": "errores",
+          "cta": {
+            "es": "AMIGO",
+            "en": "FRIEND"
+          }
         }
       ]
     },
     {
       "id": 7,
-      "titulo": "Likes vs. caja",
-      "tesis": "No medimos lo que se ve bonito. Medimos lo que entra.",
-      "toca_hps": false,
+      "titulo": "Estafas después del huracán",
+      "tesis": "Después de una tormenta llegan las ofertas puerta a puerta, y la prisa es su mejor herramienta.",
+      "toca_marca": false,
+      "regla": "Si el requisito no está verificado en DATOS, no lo afirmes: di qué preguntar y dónde se verifica.",
+      "datos": [
+        "estafas_denuncia",
+        "contratar_sin_licencia"
+      ],
       "ideas": [
         {
-          "gancho": "10.000 vistas. Cero reservas.",
-          "sistema": "La diferencia entre alcance y venta.",
-          "cta": "CAJA",
-          "nicho": null
+          "gancho": "Pagar por adelantado a quien tocó tu puerta.",
+          "formato": "errores",
+          "cta": {
+            "es": "PUERTA",
+            "en": "KNOCK"
+          }
         },
         {
-          "gancho": "Tu reporte tiene likes. Tu banco no.",
-          "sistema": "Las métricas que sí importan.",
-          "cta": "MÉTRICAS",
-          "nicho": null
+          "gancho": "Señales de una estafa de reparación después de la tormenta.",
+          "formato": "checklist",
+          "cta": {
+            "es": "ESTAFA",
+            "en": "SCAM"
+          }
         },
         {
-          "gancho": "Fin de mes: lo único que medimos.",
-          "sistema": "Dashboard de ingresos por canal.",
-          "cta": "TESORERÍA",
-          "nicho": null
+          "gancho": "Si paga la aseguradora, da igual a quién contrates. Falso.",
+          "formato": "mito_realidad",
+          "cta": {
+            "es": "SEGURO",
+            "en": "CLAIM"
+          }
         }
       ]
     },
     {
       "id": 8,
-      "titulo": "El dueño atrapado en su negocio",
-      "tesis": "Si todo depende de ti, no tienes un negocio, tienes un trabajo.",
-      "toca_hps": false,
+      "titulo": "Depósitos y pagos por etapas",
+      "tesis": "El calendario de pagos protege tu dinero más que cualquier promesa.",
+      "toca_marca": false,
+      "regla": "Si el requisito no está verificado en DATOS, no lo afirmes: di qué preguntar y dónde se verifica.",
+      "datos": [
+        "deposito_inicial",
+        "lien_subcontratistas"
+      ],
       "ideas": [
         {
-          "gancho": "Respondes WhatsApp a las 11 pm.",
-          "sistema": "Lo repetitivo automatizado, el dueño libre.",
-          "cta": "TIEMPO",
-          "nicho": null
+          "gancho": "Cómo se reparten los pagos de una obra sana.",
+          "formato": "presupuesto",
+          "cta": {
+            "es": "PAGOS",
+            "en": "PAYMENTS"
+          }
         },
         {
-          "gancho": "Tu equipo responde lo mismo 50 veces al día.",
-          "sistema": "Preguntas frecuentes resueltas por el sistema.",
-          "cta": "EQUIPO",
-          "nicho": null
+          "gancho": "Los pagos alineados con cada inspección, fase por fase.",
+          "formato": "cronograma",
+          "cta": {
+            "es": "ADELANTO",
+            "en": "DEPOSIT"
+          }
         },
         {
-          "gancho": "Te fuiste una semana y todo se paró.",
-          "sistema": "El negocio que funciona sin ti presente.",
-          "cta": "LIBERTAD",
-          "nicho": null
+          "gancho": "Le pagué al contratista, así que no debo nada. Cuidado.",
+          "formato": "mito_realidad",
+          "cta": {
+            "es": "RECLAMO",
+            "en": "LIEN"
+          }
         }
       ]
     },
     {
       "id": 9,
-      "titulo": "El lead que se enfrió",
-      "tesis": "No se pierde por falta de interés. Se pierde por falta de seguimiento.",
-      "toca_hps": false,
+      "titulo": "Presupuestos que se pueden leer",
+      "tesis": "Un presupuesto de una sola línea esconde los sobrecostos.",
+      "toca_marca": true,
+      "regla": "Sin montos salvo DATOS u OBRAS verificados: habla de partidas y preguntas.",
+      "datos": [
+        "costos_referencia"
+      ],
       "ideas": [
         {
-          "gancho": "Mostró interés el lunes. El viernes compró con otro.",
-          "sistema": "Seguimiento por etapas.",
-          "cta": "SEGUIMIENTO",
-          "nicho": null
+          "gancho": "Lo que debe tener un presupuesto de cocina, línea por línea.",
+          "formato": "presupuesto",
+          "cta": {
+            "es": "DESGLOSE",
+            "en": "BREAKDOWN"
+          }
         },
         {
-          "gancho": "El presupuesto que mandaste y nunca seguiste.",
-          "sistema": "Recordatorios que cierran ventas.",
-          "cta": "CIERRE",
-          "nicho": null
+          "gancho": "Tres presupuestos que en realidad no se pueden comparar.",
+          "formato": "comparador",
+          "cta": {
+            "es": "COMPARA",
+            "en": "COMPARE"
+          }
         },
         {
-          "gancho": "Tu CRM es una libreta.",
-          "sistema": "Del caos a un pipeline claro.",
-          "cta": "CRM",
-          "nicho": null
+          "gancho": "La partida de materiales que no tiene precio cerrado.",
+          "formato": "errores",
+          "cta": {
+            "es": "MATERIAL",
+            "en": "ALLOWANCE"
+          }
         }
       ]
     },
     {
       "id": 10,
-      "titulo": "El dinero que no cobraste",
-      "tesis": "Vender no es lo mismo que cobrar.",
-      "toca_hps": false,
+      "titulo": "Cambios a mitad de obra",
+      "tesis": "Cada cambio a mitad de obra mueve el precio y el calendario.",
+      "toca_marca": true,
+      "regla": "",
+      "datos": [],
       "ideas": [
         {
-          "gancho": "Hiciste el trabajo. Todavía no cobras.",
-          "sistema": "Factura y recordatorios automáticos.",
-          "cta": "COBRAR",
-          "nicho": null
+          "gancho": "Cómo un cambio de azulejo retrasa todo lo que viene después.",
+          "formato": "cronograma",
+          "cta": {
+            "es": "CAMBIO",
+            "en": "CHANGE"
+          }
         },
         {
-          "gancho": "Persigues pagos en vez de vender.",
-          "sistema": "El tiempo que te roba cobrar a mano.",
-          "cta": "PAGOS",
-          "nicho": null
+          "gancho": "Aprobar cambios de palabra, sin nada por escrito.",
+          "formato": "errores",
+          "cta": {
+            "es": "ESCRITO",
+            "en": "WRITING"
+          }
         },
         {
-          "gancho": "El depósito que evita el no-show.",
-          "sistema": "Cobro anticipado al reservar.",
-          "cta": "DEPÓSITO",
-          "nicho": null
+          "gancho": "Lo que de verdad incluye mover un enchufe: partidas escondidas.",
+          "formato": "presupuesto",
+          "cta": {
+            "es": "ENCHUFE",
+            "en": "OUTLET"
+          }
         }
       ]
     },
     {
       "id": 11,
-      "titulo": "Trabajar a ciegas",
-      "tesis": "Si no sabes de dónde viene cada cliente, no sabes dónde invertir.",
-      "toca_hps": false,
+      "titulo": "La cocina se decide en la planta",
+      "tesis": "La cocina que funciona se decide en el plano, no en el catálogo.",
+      "toca_marca": false,
+      "regla": "",
+      "datos": [],
       "ideas": [
         {
-          "gancho": "Vendes todos los días. No sabes qué funciona.",
-          "sistema": "Un dashboard que conecta todos los canales.",
-          "cta": "MAPA",
-          "nicho": null
+          "gancho": "Abrir la cocina a la sala: lo primero que hay que preguntar.",
+          "formato": "planta",
+          "cta": {
+            "es": "ISLA",
+            "en": "ISLAND"
+          }
         },
         {
-          "gancho": "¿De dónde vino tu último cliente?",
-          "sistema": "El origen de cada venta, rastreado.",
-          "cta": "ORIGEN",
-          "nicho": null
+          "gancho": "Cuarzo, granito o laminado para la encimera.",
+          "formato": "comparador",
+          "cta": {
+            "es": "ENCIMERA",
+            "en": "COUNTER"
+          }
         },
         {
-          "gancho": "El reporte del lunes que llega solo a tu WhatsApp.",
-          "sistema": "Los números sin abrir una plataforma.",
-          "cta": "REPORTE",
-          "nicho": null
+          "gancho": "La cocina cerrada que se abrió: decisiones de una obra real.",
+          "formato": "antes_despues",
+          "cta": {
+            "es": "COCINA",
+            "en": "KITCHEN"
+          }
         }
       ]
     },
     {
       "id": 12,
-      "titulo": "La web que no vende",
-      "tesis": "Una web no es una tarjeta de presentación. Es un vendedor que trabaja 24 horas.",
-      "toca_hps": false,
+      "titulo": "Pisos para clima húmedo",
+      "tesis": "En Florida el piso se elige por la humedad y la losa, no solo por el color.",
+      "toca_marca": false,
+      "regla": "",
+      "datos": [
+        "humedad_moho"
+      ],
       "ideas": [
         {
-          "gancho": "Tu web es bonita. Nadie compra.",
-          "sistema": "De vitrina a máquina de reservas.",
-          "cta": "WEB",
-          "nicho": null
+          "gancho": "Vinílico, porcelanato o madera: qué aguanta la humedad.",
+          "formato": "comparador",
+          "cta": {
+            "es": "PISO",
+            "en": "FLOOR"
+          }
         },
         {
-          "gancho": "3 segundos para convencer.",
-          "sistema": "Lo que el cliente busca al entrar y no encuentra.",
-          "cta": "3 SEGUNDOS",
-          "nicho": null
+          "gancho": "Madera natural sobre losa en planta baja.",
+          "formato": "errores",
+          "cta": {
+            "es": "LOSA",
+            "en": "SLAB"
+          }
         },
         {
-          "gancho": "El botón que nadie ve.",
-          "sistema": "Un solo camino claro hacia la acción.",
-          "cta": "BOTÓN",
-          "nicho": null
+          "gancho": "Misma sala, tres pisos distintos.",
+          "formato": "planta",
+          "cta": {
+            "es": "TONO",
+            "en": "TONE"
+          }
         }
       ]
     },
     {
       "id": 13,
-      "titulo": "La imagen fija el precio",
-      "tesis": "La marca no es decoración. Decide cuánto puedes cobrar. Es terreno de Hitch Point Studio.",
-      "toca_hps": true,
+      "titulo": "Valor de reventa",
+      "tesis": "No toda remodelación suma valor: suma la que el comprador de tu zona espera.",
+      "toca_marca": false,
+      "regla": "Nunca prometas que una obra sube el precio: habla de lo que el comprador revisa.",
+      "datos": [
+        "retorno_remodelacion",
+        "permisos_abiertos"
+      ],
       "ideas": [
         {
-          "gancho": "Mismo plato. Distinta foto. Distinto precio.",
-          "sistema": "El poder de la fotografía profesional.",
-          "cta": "FOTO",
-          "nicho": "RESTAURANTES"
+          "gancho": "Toda remodelación sube el precio de la casa. No.",
+          "formato": "mito_realidad",
+          "cta": {
+            "es": "VALOR",
+            "en": "VALUE"
+          }
         },
         {
-          "gancho": "Tu logo dice \"barato\" aunque no lo seas.",
-          "sistema": "Identidad alineada con el valor real.",
-          "cta": "MARCA",
-          "nicho": null
+          "gancho": "Dónde poner el dinero antes de vender.",
+          "formato": "presupuesto",
+          "cta": {
+            "es": "VENTA",
+            "en": "SELL"
+          }
         },
         {
-          "gancho": "Antes y después: la marca que justifica el precio.",
-          "sistema": "Una transformación completa.",
-          "cta": "IDENTIDAD",
-          "nicho": null
+          "gancho": "El baño que se renovó para vender: obra real.",
+          "formato": "antes_despues",
+          "cta": {
+            "es": "DUCHA",
+            "en": "SHOWER"
+          }
         }
       ]
     },
     {
       "id": 14,
-      "titulo": "Contenido que vende vs. contenido que llena",
-      "tesis": "Publicar todos los días no sirve si nadie da el siguiente paso.",
-      "toca_hps": true,
+      "titulo": "Renovar para alquilar",
+      "tesis": "En un alquiler, cada semana vacía y cada acabado frágil cuestan.",
+      "toca_marca": true,
+      "regla": "",
+      "datos": [],
       "ideas": [
         {
-          "gancho": "Publicas todos los días. Nada cambia.",
-          "sistema": "Contenido con propósito y llamada a la acción.",
-          "cta": "CONTENIDO",
-          "nicho": null
+          "gancho": "Dónde gastar y dónde no en una casa para alquilar.",
+          "formato": "presupuesto",
+          "cta": {
+            "es": "ALQUILER",
+            "en": "RENTAL"
+          }
         },
         {
-          "gancho": "Cada post debería llevar a una venta.",
-          "sistema": "Del post al DM y del DM a la reserva.",
-          "cta": "CONVERSIÓN",
-          "nicho": null
+          "gancho": "El orden de obra que acorta el tiempo sin inquilino.",
+          "formato": "cronograma",
+          "cta": {
+            "es": "VACANTE",
+            "en": "VACANT"
+          }
         },
         {
-          "gancho": "El video que vende no es el más bonito.",
-          "sistema": "Estrategia antes que estética.",
-          "cta": "GUION",
-          "nicho": null
+          "gancho": "Acabados que aguantan inquilinos.",
+          "formato": "comparador",
+          "cta": {
+            "es": "DURABLE",
+            "en": "DURABLE"
+          }
         }
       ]
     },
     {
       "id": 15,
-      "titulo": "Canales de venta propios",
-      "tesis": "Cada venta que pasa por otro canal te cobra una comisión.",
-      "toca_hps": false,
+      "titulo": "HOA y condominios",
+      "tesis": "En un condominio la obra empieza con la asociación, no con el martillo.",
+      "toca_marca": false,
+      "regla": "Si el requisito no está verificado en DATOS, no lo afirmes: di qué preguntar y dónde se verifica.",
+      "datos": [
+        "hoa_aprobacion",
+        "condominios_inspecciones"
+      ],
       "ideas": [
         {
-          "gancho": "50 chats. 3 pedidos mal anotados.",
-          "sistema": "Pedidos ordenados por WhatsApp con IA.",
-          "cta": "PEDIDOS",
-          "nicho": "RESTAURANTES"
+          "gancho": "Antes de remodelar tu apartamento, pide esto a la asociación.",
+          "formato": "checklist",
+          "cta": {
+            "es": "CONDO",
+            "en": "CONDO"
+          }
         },
         {
-          "gancho": "La app de delivery se queda con tu margen.",
-          "sistema": "Llevar al cliente recurrente a tu canal directo.",
-          "cta": "DIRECTO",
-          "nicho": "RESTAURANTES"
+          "gancho": "El orden real de una obra en condominio: primero la junta.",
+          "formato": "cronograma",
+          "cta": {
+            "es": "JUNTA",
+            "en": "BOARD"
+          }
         },
         {
-          "gancho": "Tu cliente es tuyo, no de la plataforma.",
-          "sistema": "Construir tu propia base de clientes.",
-          "cta": "BASE",
-          "nicho": null
+          "gancho": "En tu apartamento puedes tirar la pared que quieras. No.",
+          "formato": "mito_realidad",
+          "cta": {
+            "es": "PARED",
+            "en": "WALL"
+          }
         }
       ]
     },
     {
       "id": 16,
-      "titulo": "El círculo vicioso del margen fino",
-      "tesis": "El restaurante independiente invierte poco en publicidad y le queda poco margen. Somos aliados para romper ese círculo.",
-      "toca_hps": false,
-      "regla": "Di siempre \"restaurante independiente\", nunca \"el sector\".",
+      "titulo": "Estilo e interiores",
+      "tesis": "Un estilo se construye con pocas decisiones: piso, luz y paleta.",
+      "toca_marca": true,
+      "regla": "",
+      "datos": [],
       "ideas": [
         {
-          "gancho": "De cada $100 que vendes, te quedan $3.",
-          "sistema": "El dato del margen y qué hacer con él.",
-          "cta": "MARGEN",
-          "nicho": "RESTAURANTES INDEPENDIENTES"
+          "gancho": "La misma sala en tres estilos.",
+          "formato": "planta",
+          "cta": {
+            "es": "ESTILO",
+            "en": "STYLE"
+          }
         },
         {
-          "gancho": "Poco margen, no invierto, no crezco.",
-          "sistema": "El círculo animado y cómo romperlo por etapas.",
-          "cta": "CÍRCULO",
-          "nicho": "RESTAURANTES INDEPENDIENTES"
+          "gancho": "El dormitorio pequeño que gana espacio.",
+          "formato": "planta",
+          "cta": {
+            "es": "ESPACIO",
+            "en": "SPACE"
+          }
+        },
+        {
+          "gancho": "El cuarto que pasó de depósito a oficina: obra real.",
+          "formato": "antes_despues",
+          "cta": {
+            "es": "OFICINA",
+            "en": "OFFICE"
+          }
         }
-      ],
-      "datos": [
-        "inversion_publicidad",
-        "recomendacion_sba",
-        "margen_neto"
       ]
     },
     {
       "id": 17,
-      "titulo": "IA con criterio",
-      "tesis": "La IA es una herramienta potente. Sin estrategia, solo automatiza el caos.",
-      "toca_hps": false,
+      "titulo": "Zonas inundables",
+      "tesis": "En zona inundable, cuánto inviertes puede cambiar lo que te exigen.",
+      "toca_marca": false,
+      "regla": "Si el requisito no está verificado en DATOS, no lo afirmes: di qué preguntar y dónde se verifica.",
+      "datos": [
+        "regla_50_inundacion"
+      ],
       "ideas": [
         {
-          "gancho": "La IA no arregla un negocio desordenado. Lo acelera.",
-          "sistema": "Primero el orden, después la IA.",
-          "cta": "CRITERIO",
-          "nicho": null
+          "gancho": "Remodelar en zona inundable es igual que en cualquier parte. No.",
+          "formato": "mito_realidad",
+          "cta": {
+            "es": "ZONA",
+            "en": "FLOOD"
+          }
         },
         {
-          "gancho": "Un agente de IA entrenado con tu negocio, no genérico.",
-          "sistema": "Cómo aprende tu tono, tu carta y tus reglas.",
-          "cta": "AGENTE",
-          "nicho": "RESTAURANTES"
+          "gancho": "Preguntas antes de comprar en zona inundable.",
+          "formato": "checklist",
+          "cta": {
+            "es": "ELEVACION",
+            "en": "ELEVATION"
+          }
         },
         {
-          "gancho": "La IA responde. Tu equipo cierra.",
-          "sistema": "Tecnología y personas trabajando juntas.",
-          "cta": "EQUIPO IA",
-          "nicho": null
-        }
-      ]
-    },
-    {
-      "id": 18,
-      "titulo": "Así trabajamos",
-      "tesis": "El método es el producto: diagnóstico, preparación, activación y medición.",
-      "toca_hps": true,
-      "ideas": [
-        {
-          "gancho": "Lo primero que hacemos no es vender.",
-          "sistema": "El diagnóstico.",
-          "cta": "DIAGNÓSTICO",
-          "nicho": null
-        },
-        {
-          "gancho": "Hitch Point Studio prepara. ZYPE activa.",
-          "sistema": "Dos equipos, un solo objetivo.",
-          "cta": "ALIADOS",
-          "nicho": null
-        },
-        {
-          "gancho": "Semana 1, mes 1, mes 3.",
-          "sistema": "La evolución de un negocio con el sistema.",
-          "cta": "PROCESO",
-          "nicho": null
-        }
-      ]
-    },
-    {
-      "id": 19,
-      "titulo": "Un día con sistema vs. sin sistema",
-      "tesis": "Pantalla dividida: el mismo negocio, dos realidades.",
-      "toca_hps": false,
-      "ideas": [
-        {
-          "gancho": "Restaurante: 8 am a 11 pm, con y sin sistema.",
-          "sistema": "El mismo día, dos realidades.",
-          "cta": "RESTAURANTE",
-          "nicho": "RESTAURANTES"
-        },
-        {
-          "gancho": "Clínica: el lunes con y sin sistema.",
-          "sistema": "El mismo lunes, dos realidades.",
-          "cta": "CLÍNICA",
-          "nicho": "CLÍNICAS"
-        },
-        {
-          "gancho": "Contratista: el mismo lead, dos finales.",
-          "sistema": "El mismo lead, dos finales.",
-          "cta": "CONTRATISTA",
-          "nicho": "CONTRATISTAS"
-        }
-      ]
-    },
-    {
-      "id": 20,
-      "titulo": "Mitos del dueño de negocio",
-      "tesis": "Creencias que frenan el crecimiento. Las desmontamos con datos y con el sistema.",
-      "toca_hps": false,
-      "ideas": [
-        {
-          "gancho": "\"Mi cliente no usa Instagram.\"",
-          "sistema": "Dónde está realmente tu cliente.",
-          "cta": "MITO",
-          "nicho": null
-        },
-        {
-          "gancho": "\"Eso es para empresas grandes.\"",
-          "sistema": "Sistemas a la medida de un negocio local.",
-          "cta": "LOCAL",
-          "nicho": null
-        },
-        {
-          "gancho": "\"El boca a boca me basta.\"",
-          "sistema": "El boca a boca existe, pero hoy pasa por internet.",
-          "cta": "BOCA A BOCA",
-          "nicho": null
+          "gancho": "Dónde van el panel eléctrico y el aire en una casa inundable.",
+          "formato": "planta",
+          "cta": {
+            "es": "PANEL",
+            "en": "PANEL"
+          }
         }
       ]
     }

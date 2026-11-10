@@ -2,12 +2,13 @@
 """Alinea el guion (texto) con las palabras de Whisper y deja los subtítulos con la ortografía del guion.
 
 Uso:
-  python3 scripts/alinear.py briefs/<BASE>            # escribe briefs/<BASE>/subtitulos.json e imprime el guion numerado
-  python3 scripts/alinear.py briefs/<BASE> --quiet
+  python3 scripts/alinear.py briefs/<BASE>/<idioma>   # escribe briefs/<BASE>/<idioma>/subtitulos.json e imprime el guion numerado
+  python3 scripts/alinear.py briefs/<BASE>/<idioma> --quiet
 
-Entrada (la deja el notebook): guion.txt, palabras.json ({"duracion_s", "palabras": [[palabra, ini_s, fin_s], ...]}).
+Entrada (la deja el notebook): guion.txt, palabras.json (versión 4: {"idioma", "duracion_s", "palabras": [[palabra, ini_s, fin_s], ...]};
+también acepta la versión 3, sin idioma, y carpetas sin subcarpeta de idioma).
 Salida, subtitulos.json:
-  {"version": 3, "base", "audio", "duracion_s",
+  {"version": 4, "base", "idioma", "audio", "duracion_s",
    "palabras": [{"i": 0, "w": "Persigues", "ini": 0.12, "fin": 0.41, "frase": 0}, ...],   # i = índice para anclar bloques y pasos
    "frases":   [{"i": 0, "desde": 0, "hasta": 11, "ini": 0.12, "fin": 3.9, "texto": "..."}]}   # hasta = exclusivo
 La impresión numerada marca las pausas de la voz (‖) para leer el ritmo de la locución.
@@ -16,6 +17,7 @@ import difflib, json, re, sys, unicodedata
 from pathlib import Path
 
 PAUSA_S = 0.3
+IDIOMAS = ("es", "en")
 
 
 def sin_tildes(s):
@@ -83,18 +85,21 @@ def construir(dir_base):
     if not palabras:
         raise SystemExit("guion.txt está vacío")
     tiempos = alinear(palabras, pj["palabras"])
+    en_idioma = d.name in IDIOMAS
+    base = d.parent.name if en_idioma else d.name
+    idioma = pj.get("idioma") or (d.name if en_idioma else "es")
     lista, frases, f, desde = [], [], 0, 0
     for i, (w, (a, b)) in enumerate(zip(palabras, tiempos)):
         lista.append({"i": i, "w": w, "ini": a, "fin": b, "frase": f})
         if re.search(r"[.?!…]['\"»”)]*$", w) or i == len(palabras) - 1:
             frases.append({"i": f, "desde": desde, "hasta": i + 1, "ini": lista[desde]["ini"], "fin": b, "texto": " ".join(palabras[desde:i + 1])})
             f, desde = f + 1, i + 1
-    return {"version": 3, "base": d.name, "audio": pj.get("audio", "locucion.wav"),
+    return {"version": 4, "base": base, "idioma": idioma, "audio": pj.get("audio", "locucion.wav"),
             "duracion_s": round(float(pj.get("duracion_s") or tiempos[-1][1]), 2), "palabras": lista, "frases": frases}
 
 
 def imprimir(s):
-    print(f"{s['base']} · voz {s['duracion_s']:.2f} s · {len(s['palabras'])} palabras · {len(s['frases'])} frases")
+    print(f"{s['base']} [{s.get('idioma', 'es')}] · voz {s['duracion_s']:.2f} s · {len(s['palabras'])} palabras · {len(s['frases'])} frases")
     P = s["palabras"]
     for fr in s["frases"]:
         trozos = []

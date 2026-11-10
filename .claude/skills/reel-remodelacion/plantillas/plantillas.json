@@ -1,0 +1,222 @@
+{
+  "_nota": "Parámetros de entrada de cada plantilla de escena. preparar_brief.py valida decisiones.json → plantilla.params contra este archivo. La dirección visual de cada una está en <id>.md.",
+  "_tipos": {
+    "texto": "cadena, o {\"es\": ..., \"en\": ...} cuando el video sale en los dos idiomas",
+    "numero": "número o null",
+    "entero": "entero",
+    "bool": "true / false",
+    "enum": "uno de 'valores'",
+    "ancla": "índice de palabra del guion ([n] de alinear.py); con dos idiomas, {\"es\": n, \"en\": m}",
+    "dato": "id de editorial/datos_verificados.json con verificado: true, u 'obra:<campo>' de datos_publicables verificados de la obra elegida",
+    "activo": "nombre de archivo de la obra elegida (assets/obras/<id>/)",
+    "estilo": "id de diseno/tokens.json → estilos_interior",
+    "icono": "nombre de icons/<nombre>.svg (sin .svg)",
+    "lista": "lista de 'item', entre 'min' y 'max' elementos",
+    "objeto": "objeto con 'campos'",
+    "_atributos": "requerido (bool) · requerido_si {param, igual} sobre un parámetro raíz · fuente_en: si el valor no es null, el campo hermano indicado debe ser un dato válido · defecto"
+  },
+  "plantillas": {
+    "presupuesto": {
+      "nombre": { "es": "Presupuesto desglosado", "en": "Budget breakdown" },
+      "md": "presupuesto.md",
+      "usa_obra": "opcional",
+      "aviso_legal": false,
+      "params": {
+        "titulo": { "tipo": "texto", "requerido": true },
+        "modo": { "tipo": "enum", "valores": ["preguntas", "montos"], "requerido": true },
+        "partidas": { "tipo": "lista", "min": 3, "max": 7, "requerido": true, "item": { "tipo": "objeto", "campos": {
+          "etiqueta": { "tipo": "texto", "requerido": true },
+          "icono": { "tipo": "icono" },
+          "pregunta": { "tipo": "texto" },
+          "monto_usd": { "tipo": "numero", "fuente_en": "fuente", "requerido_si": { "param": "modo", "igual": "montos" } },
+          "fuente": { "tipo": "dato" },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } } },
+        "alerta": { "tipo": "objeto", "campos": {
+          "partida": { "tipo": "entero", "requerido": true },
+          "texto": { "tipo": "texto", "requerido": true },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } },
+        "total": { "tipo": "objeto", "campos": {
+          "monto_usd": { "tipo": "numero", "fuente_en": "fuente" },
+          "fuente": { "tipo": "dato" },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } }
+      }
+    },
+    "cronograma": {
+      "nombre": { "es": "Línea de tiempo de obra", "en": "Project timeline" },
+      "md": "cronograma.md",
+      "usa_obra": "opcional",
+      "aviso_legal": false,
+      "params": {
+        "titulo": { "tipo": "texto", "requerido": true },
+        "unidad": { "tipo": "enum", "valores": ["fases", "semanas"], "requerido": true },
+        "fases": { "tipo": "lista", "min": 3, "max": 8, "requerido": true, "item": { "tipo": "objeto", "campos": {
+          "etiqueta": { "tipo": "texto", "requerido": true },
+          "icono": { "tipo": "icono" },
+          "semanas": { "tipo": "numero", "fuente_en": "fuente", "requerido_si": { "param": "unidad", "igual": "semanas" } },
+          "fuente": { "tipo": "dato" },
+          "inspeccion": { "tipo": "bool", "defecto": false },
+          "riesgo": { "tipo": "texto" },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } } },
+        "retraso": { "tipo": "objeto", "campos": {
+          "fase": { "tipo": "entero", "requerido": true },
+          "texto": { "tipo": "texto", "requerido": true },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } },
+        "total": { "tipo": "objeto", "campos": {
+          "semanas": { "tipo": "numero", "fuente_en": "fuente" },
+          "fuente": { "tipo": "dato" },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } }
+      }
+    },
+    "mito_realidad": {
+      "nombre": { "es": "Mito vs. realidad", "en": "Myth vs. reality" },
+      "md": "mito_realidad.md",
+      "usa_obra": "no",
+      "aviso_legal": true,
+      "params": {
+        "pares": { "tipo": "lista", "min": 1, "max": 3, "requerido": true, "item": { "tipo": "objeto", "campos": {
+          "mito": { "tipo": "texto", "requerido": true },
+          "realidad": { "tipo": "texto", "requerido": true },
+          "fuente": { "tipo": "dato" },
+          "icono": { "tipo": "icono" },
+          "ancla_mito": { "tipo": "ancla", "requerido": true },
+          "ancla_realidad": { "tipo": "ancla", "requerido": true }
+        } } },
+        "animacion_mito": { "tipo": "enum", "valores": ["tachado", "voltear"], "defecto": "tachado" }
+      }
+    },
+    "planta": {
+      "nombre": { "es": "Planta 2D", "en": "2D floor plan" },
+      "md": "planta.md",
+      "usa_obra": "opcional",
+      "aviso_legal": false,
+      "params": {
+        "espacio": { "tipo": "enum", "valores": ["cocina", "bano", "sala", "dormitorio", "sala_comedor", "estudio", "lavanderia", "exterior", "apartamento"], "requerido": true },
+        "modo": { "tipo": "enum", "valores": ["amueblar", "cambiar_estilo", "redistribuir"], "requerido": true },
+        "estilos": { "tipo": "lista", "min": 1, "max": 3, "item": { "tipo": "objeto", "campos": {
+          "estilo": { "tipo": "estilo", "requerido": true },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } } },
+        "elementos": { "tipo": "lista", "min": 0, "max": 10, "item": { "tipo": "objeto", "campos": {
+          "tipo": { "tipo": "enum", "valores": ["sofa", "mesa", "sillas", "cama", "isla", "encimera", "estufa", "nevera", "fregadero", "ducha", "banera", "inodoro", "lavabo", "armario", "alfombra", "planta", "lampara", "escritorio", "lavadora", "puerta", "ventana", "panel_electrico", "aire_acondicionado"], "requerido": true },
+          "etiqueta": { "tipo": "texto" },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } } },
+        "muro_que_cae": { "tipo": "objeto", "campos": {
+          "etiqueta": { "tipo": "texto", "requerido": true },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } },
+        "ilustrativo": { "tipo": "bool", "defecto": true }
+      }
+    },
+    "errores": {
+      "nombre": { "es": "Errores caros", "en": "Costly mistakes" },
+      "md": "errores.md",
+      "usa_obra": "no",
+      "aviso_legal": false,
+      "params": {
+        "contador": { "tipo": "enum", "valores": ["ninguno", "riesgo", "costo"], "defecto": "riesgo" },
+        "errores": { "tipo": "lista", "min": 2, "max": 5, "requerido": true, "item": { "tipo": "objeto", "campos": {
+          "titulo": { "tipo": "texto", "requerido": true },
+          "consecuencia": { "tipo": "texto", "requerido": true },
+          "nivel": { "tipo": "enum", "valores": ["bajo", "medio", "alto"], "defecto": "medio" },
+          "costo_usd": { "tipo": "numero", "fuente_en": "fuente", "requerido_si": { "param": "contador", "igual": "costo" } },
+          "fuente": { "tipo": "dato" },
+          "icono": { "tipo": "icono" },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } } },
+        "antidoto": { "tipo": "objeto", "campos": {
+          "texto": { "tipo": "texto", "requerido": true },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } }
+      }
+    },
+    "checklist": {
+      "nombre": { "es": "Checklist de verificación", "en": "Vetting checklist" },
+      "md": "checklist.md",
+      "usa_obra": "no",
+      "aviso_legal": true,
+      "params": {
+        "titulo": { "tipo": "texto", "requerido": true },
+        "items": { "tipo": "lista", "min": 3, "max": 7, "requerido": true, "item": { "tipo": "objeto", "campos": {
+          "texto": { "tipo": "texto", "requerido": true },
+          "como_verificar": { "tipo": "texto" },
+          "fuente": { "tipo": "dato" },
+          "icono": { "tipo": "icono" },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } } },
+        "bandera_roja": { "tipo": "objeto", "campos": {
+          "texto": { "tipo": "texto", "requerido": true },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } }
+      }
+    },
+    "comparador": {
+      "nombre": { "es": "Comparador de materiales", "en": "Material comparison" },
+      "md": "comparador.md",
+      "usa_obra": "opcional",
+      "aviso_legal": false,
+      "params": {
+        "opciones": { "tipo": "lista", "min": 2, "max": 3, "requerido": true, "item": { "tipo": "objeto", "campos": {
+          "nombre": { "tipo": "texto", "requerido": true },
+          "icono": { "tipo": "icono" },
+          "imagen": { "tipo": "activo" },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } } },
+        "criterios": { "tipo": "lista", "min": 2, "max": 5, "requerido": true, "item": { "tipo": "objeto", "campos": {
+          "nombre": { "tipo": "texto", "requerido": true },
+          "valores": { "tipo": "lista", "min": 2, "max": 3, "requerido": true, "item": { "tipo": "objeto", "campos": {
+            "nivel": { "tipo": "enum", "valores": ["bajo", "medio", "alto", "depende"], "requerido": true },
+            "texto": { "tipo": "texto" },
+            "cifra": { "tipo": "numero", "fuente_en": "fuente" },
+            "fuente": { "tipo": "dato" }
+          } } },
+          "mejor_si_alto": { "tipo": "bool", "defecto": true },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } } },
+        "veredicto": { "tipo": "objeto", "campos": {
+          "texto": { "tipo": "texto", "requerido": true },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } }
+      }
+    },
+    "antes_despues": {
+      "nombre": { "es": "Antes / después", "en": "Before / after" },
+      "md": "antes_despues.md",
+      "usa_obra": "preferida",
+      "aviso_legal": false,
+      "params": {
+        "fuente_visual": { "tipo": "enum", "valores": ["obra", "ilustracion"], "requerido": true },
+        "antes": { "tipo": "objeto", "requerido": true, "campos": {
+          "activo": { "tipo": "activo", "requerido_si": { "param": "fuente_visual", "igual": "obra" } },
+          "etiqueta": { "tipo": "texto", "requerido": true },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } },
+        "despues": { "tipo": "objeto", "requerido": true, "campos": {
+          "activo": { "tipo": "activo", "requerido_si": { "param": "fuente_visual", "igual": "obra" } },
+          "etiqueta": { "tipo": "texto", "requerido": true },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } },
+        "proceso": { "tipo": "lista", "min": 0, "max": 4, "item": { "tipo": "objeto", "campos": {
+          "activo": { "tipo": "activo", "requerido": true },
+          "etiqueta": { "tipo": "texto" },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } } },
+        "transicion": { "tipo": "enum", "valores": ["cortina", "deslizar", "fundido_luz"], "defecto": "cortina" },
+        "datos": { "tipo": "lista", "min": 0, "max": 3, "item": { "tipo": "objeto", "campos": {
+          "etiqueta": { "tipo": "texto", "requerido": true },
+          "valor": { "tipo": "numero", "fuente_en": "fuente" },
+          "unidad": { "tipo": "enum", "valores": ["usd", "semanas", "dias", "pies2"] },
+          "fuente": { "tipo": "dato" },
+          "ancla": { "tipo": "ancla", "requerido": true }
+        } } },
+        "creditos": { "tipo": "bool", "defecto": true }
+      }
+    }
+  }
+}

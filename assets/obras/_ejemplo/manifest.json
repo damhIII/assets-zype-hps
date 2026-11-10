@@ -1,0 +1,36 @@
+{
+  "_nota": "EJEMPLO de manifest (no es una obra real: 'ejemplo': true hace que el notebook y el renderer lo ignoren). Copia esta carpeta como assets/obras/<id>/, pon las fotos y videos junto al manifest y rellénalo. Formato completo en assets/obras/LEEME.md.",
+  "version": 1,
+  "id": "_ejemplo",
+  "ejemplo": true,
+  "titulo": "Cocina abierta en un townhouse",
+  "tipo_espacio": "cocina",
+  "ciudad": "Doral",
+  "condado": "Miami-Dade",
+  "fecha_inicio": "2026-03-02",
+  "fecha_fin": "2026-04-17",
+  "uso_autorizado": false,
+  "autorizacion": {
+    "documento": "Permiso firmado de publicación del propietario (guárdalo fuera del repo)",
+    "fecha": null
+  },
+  "creditos": {
+    "ejecucion": "Nombre del contratista que ejecutó la obra (y su número de licencia si lo muestra)",
+    "coordinacion": "{{NOMBRE_MARCA}}",
+    "fotos": "Autor de las fotos"
+  },
+  "datos_publicables": {
+    "costo_total_usd": { "valor": null, "verificado": false, "fuente": "factura final del proyecto" },
+    "duracion_semanas": { "valor": null, "verificado": false, "fuente": "fechas del contrato y acta de cierre" }
+  },
+  "activos": [
+    { "archivo": "antes_01.jpg", "tipo": "foto", "momento": "antes", "descripcion": "Cocina cerrada vista desde la sala", "orientacion": "vertical" },
+    { "archivo": "proceso_01.mp4", "tipo": "video", "momento": "proceso", "descripcion": "Retiro del muro (no de carga, confirmado por ingeniero)", "orientacion": "vertical", "duracion_s": 6 },
+    { "archivo": "despues_01.jpg", "tipo": "foto", "momento": "despues", "descripcion": "Misma vista con isla y cocina abierta", "orientacion": "vertical" }
+  ],
+  "privacidad": {
+    "direccion_visible": false,
+    "caras_visibles": false,
+    "matriculas_visibles": false
+  }
+}
