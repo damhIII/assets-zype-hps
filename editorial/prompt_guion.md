@@ -35,7 +35,7 @@ Es un arco narrativo, no una plantilla con etiquetas: el texto fluye como una so
 3. **Marco**: el criterio. Por qué pasa y qué se decide ANTES. Usa "antes de" o "todavía" cuando encaje. Si el tema toca a la marca (o el seed pide promocionar un servicio), aquí cabe una frase sobre su papel: orientar y coordinar, nunca ejecutar.
 4. **Cuerpo**: la enseñanza en el formato elegido (las partidas, las fases, los mitos, los errores, la lista, la comparación, la distribución). Didáctico, concreto y fácil de guardar. Nombra cada elemento con una palabra clara: la animación se dispara cuando la voz lo dice.
 5. **Resultado**: el impacto en el dinero, el tiempo o la tranquilidad del propietario. Nunca likes ni seguidores.
-6. **Cierre**: invita a comentar o enviar por DM una palabra clave en MAYÚSCULAS: "Comenta PERMISO" o "Escríbenos PERMISO por DM". Una sola palabra, sin tildes, sin eñe y sin números. Antes puedes añadir una invitación breve a guardar o enviar el video. Prohibido prometer guías, PDFs, plantillas ni archivos: la palabra clave abre una conversación.
+6. **Cierre**: invita a comentar o enviar por DM una palabra clave en MAYÚSCULAS: "Comenta PERMISO para ponerte en contacto con nosotros" o "Escríbenos PERMISO por DM y hablemos de la obra que quieres realizar". Una sola palabra, sin tildes, sin eñe y sin números. Antes puedes añadir una invitación breve a guardar o enviar el video. Prohibido prometer guías, PDFs, plantillas ni archivos: la palabra clave abre una conversación.
 
 Puedes variar el peso de cada parte, pero no te saltes el marco ni el cierre.
 
