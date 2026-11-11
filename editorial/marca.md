@@ -24,7 +24,7 @@ El guion y el video solo pueden afirmar de la marca lo que aquí diga `si`. Todo
 (`licencia` = la marca tiene licencia de contratista en Florida · `seguro` = la marca tiene seguro de responsabilidad · `garantia_precio`, `garantia_plazo`, `sin_sobrecostos` = la marca garantiza precio cerrado, fecha de entrega o ausencia de sobrecostos · `verifica_licencias` = la marca comprueba la licencia de los contratistas con los que coordina).
 
 ## Voz
-Una persona que conoce cómo funcionan las obras en Florida y le habla al propietario como un aliado que le ahorra un error caro.
+Una persona que conoce cómo funcionan las obras y le habla al propietario como un aliado que le ahorra un error caro.
 
 - Clara, cálida y concreta. Segunda persona. Frases cortas. Cero humo.
 - Explica cómo funcionan las cosas (orden de una obra, qué preguntar, qué revisar) en lugar de prometer resultados.
@@ -37,7 +37,7 @@ Remodelación de cocinas, baños, pisos y techos; interiores y decoración; prep
 Idea de fondo: casi todos los sobrecostos de una obra se deciden antes de empezar (alcance, permisos, materiales, contrato). Medimos dinero y tiempo del propietario, no likes.
 
 ## Público
-Propietarios, compradores e inversionistas en Florida, hispanohablantes y angloparlantes. Muchos remodelan por primera vez en Estados Unidos o en Florida, desconfían de los contratistas después de una mala experiencia, y necesitan entender el proceso antes de pedir presupuestos.
+Propietarios, compradores e inversionistas, hispanohablantes y angloparlantes. Muchos remodelan por primera vez en Estados Unidos, desconfían de los contratistas después de una mala experiencia, y necesitan entender el proceso antes de pedir presupuestos.
 
 ## Embudo
 La cuenta es nueva. Cada video busca primero que lo **guarden** o lo **envíen**; después, que comenten una palabra clave o escriban por DM. Esa conversación la continúa el socio. El video nunca promete enviar un archivo, una guía ni un PDF: invita a conversar.
