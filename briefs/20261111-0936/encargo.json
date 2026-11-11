@@ -1,0 +1,13 @@
+{
+ "version": 2,
+ "base": "20261111-0936",
+ "tipo": "educativo",
+ "marca": "EN BRUTO",
+ "formato": "auto",
+ "formato_guion": "cronograma",
+ "idiomas": [
+  "es"
+ ],
+ "seed": "Postes de madera que se pudren por el agua acumulada: como fijar los pilares sobre anclajes metalicos elevados que no toquen el piso mojado.",
+ "creado": "2026-11-11T09:37:39-05:00"
+}
