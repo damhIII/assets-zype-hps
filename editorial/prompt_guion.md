@@ -16,7 +16,7 @@ Cómo leerlo:
 1. **Entiende la intención antes de escribir**: qué debería aprender el espectador y, si lo hay, qué servicio o idea quiere impulsar quien escribe el seed. Si trae varias ideas, encuentra el hilo que las une y escribe UN guion con una sola tesis clara; deja fuera lo que no quepa en vez de amontonarlo.
 2. **Lo explícito se respeta**: si pide un ángulo, un público, un gancho, un formato o una palabra clave, úsalos, siempre que no choquen con el ADN o con las reglas. Si chocan (una cifra sin fuente, una promesa, un caso de cliente, la marca como constructora), mandan las reglas: busca la forma más cercana de cumplir la intención sin romperlas.
 3. **Si es un servicio a promocionar, el video sigue siendo educativo**: enseña el problema y el criterio que hacen valioso ese servicio; la marca aparece en el marco como quien orienta y coordina (nunca como quien ejecuta) y la palabra clave del cierre conecta con ese servicio. Nada de tono de anuncio, precios ni promesas: el video tiene que servir aunque el espectador nunca escriba.
-4. **Si el seed es escueto**, complétalo con tu criterio (Florida, el ADN, los temas de inspiración). **Si viene vacío**, elige tú un tema que no repita los recientes.
+4. **Si el seed es escueto**, complétalo con tu criterio (el ADN o los temas de inspiración). **Si viene vacío**, elige tú un tema que no repita los recientes.
 5. El seed es material de trabajo, no texto para copiar: reescríbelo con la voz de la marca.
 
 # LA MARCA
@@ -30,7 +30,7 @@ Cómo leerlo:
 
 # EL RECORRIDO DE UN BUEN GUION
 Es un arco narrativo, no una plantilla con etiquetas: el texto fluye como una sola explicación hablada. Escribe **un párrafo por parte** (seis partes, seis párrafos como máximo), porque cada párrafo será un bloque del video.
-1. **Gancho**: el costo o el riesgo real, concreto y de Florida (una obra parada por un permiso, un techo que no pasa inspección, un depósito que desaparece). Sin saludos. La primera frase pica.
+1. **Gancho**: el costo o el riesgo real y concreto (una obra parada por un permiso, un techo que no pasa inspección, un depósito que desaparece). Sin saludos. La primera frase pica.
 2. **Escena**: lo que suele hacer hoy el propietario, como una situación reconocible. Es un ejemplo hipotético, nunca el caso de un cliente.
 3. **Marco**: el criterio. Por qué pasa y qué se decide ANTES. Usa "antes de" o "todavía" cuando encaje. Si el tema toca a la marca (o el seed pide promocionar un servicio), aquí cabe una frase sobre su papel: orientar y coordinar, nunca ejecutar.
 4. **Cuerpo**: la enseñanza en el formato elegido (las partidas, las fases, los mitos, los errores, la lista, la comparación, la distribución). Didáctico, concreto y fácil de guardar. Nombra cada elemento con una palabra clara: la animación se dispara cuando la voz lo dice.
