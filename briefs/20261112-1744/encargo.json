@@ -1,0 +1,13 @@
+{
+ "version": 2,
+ "base": "20261112-1744",
+ "tipo": "educativo",
+ "marca": "EN BRUTO",
+ "formato": "auto",
+ "formato_guion": "checklist",
+ "idiomas": [
+  "es"
+ ],
+ "seed": "Planificar y evaluar bien tu casa antes de construir un cuarto tipo efficiency para rentar",
+ "creado": "2026-11-12T17:44:46-05:00"
+}
