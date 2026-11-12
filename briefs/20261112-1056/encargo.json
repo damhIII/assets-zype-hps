@@ -1,0 +1,13 @@
+{
+ "version": 2,
+ "base": "20261112-1056",
+ "tipo": "educativo",
+ "marca": "EN BRUTO",
+ "formato": "auto",
+ "formato_guion": null,
+ "idiomas": [
+  "es"
+ ],
+ "seed": "\"Tu vecino ya hizo la cocina exterior nueva y tu no . El ya goza de cocinar al aire libre y tú aún no . El hace fiesta y presume de ella muestras que tú escucha la música mientras tú ropa huele a lo que cocina . Tu vecino entendió que la cocina exterior no es un gasto . Es una inversión . Ahora tu vecino no tiene problemas de invitar amigos y tú si .\"",
+ "creado": "2026-11-12T10:57:05-05:00"
+}
