@@ -1,0 +1,13 @@
+{
+ "version": 2,
+ "base": "20261113-1201",
+ "tipo": "educativo",
+ "marca": "EN BRUTO",
+ "formato": "auto",
+ "formato_guion": "errores",
+ "idiomas": [
+  "es"
+ ],
+ "seed": "Humo de la parrilla que invade la casa: ubicacion de la zona de asado a favor del viento dominante, con campana o extractor exterior de acero inoxidable y distancia segura a las paredes.",
+ "creado": "2026-11-13T12:01:54-05:00"
+}
