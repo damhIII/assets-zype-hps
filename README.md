@@ -29,7 +29,7 @@ lee editorial/ ──► guion + formato (GPT) briefs/<BASE>/es/{guion,wav,palab
 | Cambiar el tono, las reglas o cómo se interpreta el seed | `editorial/prompt_guion.md`, `marca.md`, `adn.md` | `python3 scripts/validar_repo.py` |
 | Permitir que la marca diga que tiene licencia/seguro | `editorial/marca.md → Declaraciones permitidas` (solo con respaldo documental) | idem |
 | Añadir temas o ideas | `editorial/temas.json` (gancho + formato) | idem |
-| Cambiar el destino del cierre (p. ej. "link en la bio") | `editorial/marca.md → Contacto` y `prompt_guion.md → Cierre` (y `CIERRE` en el notebook) | idem |
+| Cambiar el destino del cierre (hoy: perfil → enlace de la bio) | `editorial/marca.md → Contacto`, `prompt_guion.md → Cierre`, `adn.md` (punto 6), la skill (`tokens.json → textos_fijos`, `layout.md`, `decisiones.md`), `scripts/preparar_brief.py` (`CTA_VOZ`, `CTA_TEXTO`) y los `CIERRE_*` del notebook | idem |
 | Verificar un dato | `editorial/datos_verificados.json`: texto exacto, `url`, `cita_literal`, `fecha_consulta`, `verificado: true` | idem |
 | Cambiar colores o tipografías | `.claude/skills/reel-remodelacion/diseno/tokens.json` | `python3 scripts/validar_tokens.py` |
 | Cambiar el logo | reemplaza los PNG de `brand/en_bruto/` (mismos nombres) | `python3 scripts/validar_tokens.py` y `python3 scripts/contactos.py` |

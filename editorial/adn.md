@@ -23,6 +23,6 @@ Si un video contradice una sola de estas ideas, no se publica.
 3. Ninguna cifra sin fuente verificada. Los datos citados conservan su acotación (condado, tipo de obra, año).
 4. La marca aparece como quien orienta o coordina, nunca como quien ejecuta la obra, y sin declaraciones que `marca.md` no permita.
 5. Los términos de obra ("change order", "GC", "lien"…) se explican en lenguaje sencillo la primera vez.
-6. Termina invitando a contactarnos desde el enlace de la descripción, con palabras propias del video. Sin palabras clave, sin DM y sin prometer guías, PDFs ni archivos.
+6. Termina invitando a entrar a nuestro perfil y contactarnos desde el enlace de la bio, con palabras propias del video. Sin palabras clave, sin DM y sin prometer guías, PDFs ni archivos.
 7. Los ejemplos son hipotéticos e ilustrativos: ningún caso de cliente, proyecto concreto ni testimonio presentado como real.
 8. Se disfruta: tiene ritmo, un gancho que no suena a anuncio y, si el tema lo permite, un momento que hace sonreír.

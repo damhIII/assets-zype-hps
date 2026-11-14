@@ -165,7 +165,7 @@ def validar(raiz):
                 err.append(f"{p}: 'formato' debe ser uno de {', '.join(FORMATOS)}")
             if "cta" in idea:
                 vistas[p] = idea["cta"]
-    if vistas:  # el cierre ya no usa palabra clave: lleva al enlace de la descripción
+    if vistas:  # el cierre ya no usa palabra clave: lleva al perfil y al enlace de la bio
         avisos.append(f"temas.json: {len(vistas)} ideas aún traen 'cta' (palabra clave); ya no se usa: bórralo")
 
     tokens = _json(raiz, SKILL / "diseno" / "tokens.json", err) or {}

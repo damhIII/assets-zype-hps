@@ -28,7 +28,7 @@ El guion pasó por avisos automáticos, no por un editor. Con el checklist de `e
 - **Casos**: si la voz cuenta un caso de cliente o un proyecto concreto como real, dilo en la entrega. En pantalla todo ejemplo es ilustrativo.
 
 ## 5. Dirige: escribe `briefs/<BASE>/decisiones.json`
-Formato completo en `referencias/decisiones.md`. En resumen: los 6 bloques (`gancho, escena, marco, cuerpo, resultado, cta`) anclados al guion, titulares de dos líneas, `etiqueta` del header, `cta` (texto de la caja que manda al enlace de la descripción), `ambientes` y `plantilla.params` según `plantillas.json`.
+Formato completo en `referencias/decisiones.md`. En resumen: los 6 bloques (`gancho, escena, marco, cuerpo, resultado, cta`) anclados al guion, titulares de dos líneas, `etiqueta` del header, `cta` (texto de la caja que manda al enlace de la bio), `ambientes` y `plantilla.params` según `plantillas.json`.
 Después: `python3 scripts/preparar_brief.py briefs/<BASE>`. Valida contra marca, plantillas y datos, y escribe `briefs/<BASE>/es/brief.json` con frames exactos. Si da errores, corrige `decisiones.json` y repite. Nunca edites frames a mano en `brief.json`.
 
 ## 6. Construye
@@ -42,7 +42,7 @@ Comandos, formato de salida y qué decir en la entrega: `referencias/entrega.md`
 
 ## Reglas fijas
 - El marco (barra de progreso, header con logo, titular, subtítulos, CTA con logo) es igual en todos los videos; solo cambian el ambiente y la escena.
-- El CTA manda al enlace de la descripción: nada de palabras clave, comentarios ni DM en pantalla.
+- El CTA invita a entrar al perfil y tocar el enlace de la bio: nada de palabras clave, comentarios, DM ni "link en la descripción" en pantalla.
 - Ninguna cifra en pantalla sin un dato verificado de `datos_verificados.json`. Lo ilustrativo se marca como **EJEMPLO ILUSTRATIVO**.
 - La marca coordina; nunca aparece como quien construye, instala o repara. Ni sellos de "licenciado", "asegurado" ni "garantizado" salvo lo que `marca.md` declare con `si`.
 - Animación pura: nada de fotos ni videos (ni de obras, ni de bancos de imágenes, ni de internet), ni logos de contratistas o fabricantes.

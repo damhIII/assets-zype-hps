@@ -25,7 +25,7 @@ Si el entorno no puede renderizar, entrega el proyecto en zip (sin `node_modules
 - [ ] Toda cifra en pantalla tiene su fuente visible (`fuente_dato`) y viene de un dato verificado; lo ilustrativo dice **EJEMPLO ILUSTRATIVO**.
 - [ ] Ningún texto ni sello dice o insinúa que la marca construye, tiene licencia o seguro, o garantiza precio, plazo o costo (salvo lo declarado con `si` en `marca.md`).
 - [ ] No hay ninguna foto ni video: todo es animación.
-- [ ] El CTA dice dónde está el enlace (la descripción), hace pop cuando la voz lo menciona y la flecha apunta hacia abajo; no hay iconos de comentario ni DM.
+- [ ] El CTA invita a entrar al perfil y dice dónde está el enlace (la bio), hace pop cuando la voz lo menciona y la flecha apunta hacia la foto y el nombre de la cuenta (abajo a la izquierda); no hay iconos de comentario ni DM.
 - [ ] El rojo (`foco`) solo está en el marcador del titular, el subrayado de la palabra activa, la barra, los corchetes, el foco de cada escena y el CTA; las escenas usan neutros cálidos y 2-3 matices de `apoyo`, no un video monocromo gris y rojo.
 - [ ] Las transiciones de ambiente son fundidos, no cortes.
 - [ ] Duración = `video.frames`; el audio no se recortó ni se aceleró.
@@ -33,4 +33,4 @@ Si el entorno no puede renderizar, entrega el proyecto en zip (sin `node_modules
 ## Mensaje de entrega (3-6 líneas)
 - Formato y plantilla usados (y por qué, si cambiaste el del guionista) y ambientes.
 - Cualquier problema del guion visto en el paso 4 (cifra sin verificar, marca como ejecutora, caso presentado como real) y qué dato habría que verificar, con su fuente oficial.
-- Un caption sugerido: dos líneas con el tono del video + la línea del enlace de contacto (deja `[ENLACE]` para que se pegue el real). Sin promesas de archivos.
+- Un caption sugerido: dos líneas con el tono del video + una línea que recuerde que el enlace para escribirnos está en la bio del perfil (no hace falta pegar el enlace en el caption). Sin promesas de archivos.

@@ -15,10 +15,10 @@ Lo genera `scripts/preparar_brief.py` en `briefs/<BASE>/es/brief.json` a partir 
   "formato": "checklist",
   "video": { "width": 1080, "height": 1920, "fps": 30, "frames": 1497, "voz_s": 48.4, "cola_s": 1.5 },
   "etiqueta": "CONTRATISTAS · FLORIDA",
-  "cta": "LINK EN LA DESCRIPCIÓN",              // texto de la caja del CTA
+  "cta": "LINK EN LA BIO",                      // texto de la caja del CTA
   "cta_ancla": 112,                             // palabra en que la voz manda al enlace
   "cta_f": 1430,                                // frame de esa palabra: pop de la caja y de la flecha
-  "cta_previo": "Hablemos de tu proyecto",
+  "cta_previo": "Entra a nuestro perfil",
   "tema": { "id": 6, "titulo": "...", "tesis": "..." },
   "aviso_legal": "Contenido informativo. No es asesoría legal ni una cotización.",   // null = no se muestra
   "ilustrativo": "EJEMPLO ILUSTRATIVO",

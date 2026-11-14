@@ -28,9 +28,9 @@ FPS, WIDTH, HEIGHT = 30, 1080, 1920
 ORDEN = ["gancho", "escena", "marco", "cuerpo", "resultado", "cta"]
 IDIOMAS = ("es", "en")
 PLACEHOLDER_MARCA = "{{NOMBRE_MARCA}}"
-# Palabras con las que la voz manda al enlace de la descripción (el CTA hace pop en la última que aparezca)
-CTA_VOZ = re.compile(r"^(link|links|enlace|enlaces|descripcion|caption)$")
-CTA_TEXTO = re.compile(r"link|enlace|descripci|caption", re.I)
+# Palabras con las que la voz manda al perfil y al enlace de la bio (el CTA hace pop en la última que aparezca)
+CTA_VOZ = re.compile(r"^(link|links|enlace|enlaces|bio|biografia|perfil)$")
+CTA_TEXTO = re.compile(r"link|enlace|\bbio\b|biografia|perfil|profile", re.I)
 RECLAMOS = re.compile(r"garantiz|guarante|licenciad|licensed|asegurad|insured|sin sobrecosto|no hidden|construimos|remodelamos|we build|we remodel", re.I)
 
 
@@ -296,14 +296,14 @@ def preparar(dir_base):
                 if RECLAMOS.search(linea):
                     avisos.append(f"{b.get('id')} [{i}]: titular '{linea}' suena a garantía, licencia o ejecución de obra")
 
-    # --- CTA: lleva al enlace de la descripción (ya no hay palabra clave)
+    # --- CTA: lleva al perfil y al enlace de la bio (sin palabra clave)
     cta, idx_cta = {}, {}
     for i in idiomas:
         cta[i] = str(por_idioma(dec.get("cta"), i) or tokens["textos_fijos"]["cta_defecto"][i]).strip().upper()
         if len(cta[i].split()) > 5:
             err.append(f"cta [{i}]: '{cta[i]}' es largo para la caja del CTA (máximo 5 palabras)")
         if not CTA_TEXTO.search(sin_tildes(cta[i])):
-            avisos.append(f"cta [{i}]: '{cta[i]}' no dice dónde está el enlace (link / enlace / descripción)")
+            avisos.append(f"cta [{i}]: '{cta[i]}' no dice dónde está el enlace (link / enlace / bio / perfil)")
         P = mat[i]["P"]
         ancla = por_idioma(dec.get("cta_ancla"), i)
         if ancla is not None:
@@ -317,8 +317,8 @@ def preparar(dir_base):
             else:
                 inicio = por_idioma((bloques_d[-1] if bloques_d else {}).get("desde"), i)
                 ancla = inicio if isinstance(inicio, int) and 0 <= inicio < mat[i]["n"] else max(0, mat[i]["n"] - 1)
-                avisos.append(f"[{i}] la voz no menciona el enlace ni la descripción: el CTA hará pop al empezar el bloque cta "
-                              "(revisa el guion: el cierre debe mandar al enlace de la descripción)")
+                avisos.append(f"[{i}] la voz no menciona el enlace ni la bio: el CTA hará pop al empezar el bloque cta "
+                              "(revisa el guion: el cierre debe mandar al perfil y al enlace de la bio)")
         idx_cta[i] = ancla
     etiqueta = dec.get("etiqueta")
     for i in idiomas:

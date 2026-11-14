@@ -41,9 +41,10 @@ Idea de fondo: casi todos los sobrecostos de una obra se deciden antes de empeza
 Propietarios, compradores e inversionistas, hispanohablantes y angloparlantes. Muchos remodelan por primera vez en Estados Unidos, desconfían de los contratistas después de una mala experiencia, y necesitan entender el proceso antes de pedir presupuestos.
 
 ## Embudo
-La cuenta es nueva. Cada video busca primero que lo **guarden** o lo **envíen**; después, que **nos contacten desde el enlace de la descripción**. Esa conversación la continúa el socio. El video nunca promete enviar un archivo, una guía ni un PDF: invita a conversar.
+La cuenta es nueva. Cada video busca primero que lo **guarden** o lo **envíen**; después, que **entren a nuestro perfil y nos contacten desde el enlace de la bio**. Esa conversación la continúa el socio. El video nunca promete enviar un archivo, una guía ni un PDF: invita a conversar.
 
 ## Contacto (el cierre de cada video)
-- Destino: el enlace de la descripción del video.
-- El guion lo dice con sus palabras ("tienes el link en la descripción", "el enlace para escribirnos está en la descripción"…), siempre nombrando el enlace o link y la descripción.
-- No se pide comentar palabras clave, escribir por DM ni ir al "link en la bio".
+- Destino: el enlace de la bio de nuestro perfil.
+- El guion lo dice con sus palabras ("entra a nuestro perfil y toca el enlace de la bio", "en nuestro perfil tienes el link de la bio para escribirnos"…), siempre invitando a entrar al perfil y nombrando el enlace o link y la bio.
+- "bio" se escribe en minúsculas (en mayúsculas la voz lo leería como siglas o gritando).
+- No se pide comentar palabras clave, escribir por DM ni ir al enlace de la descripción.

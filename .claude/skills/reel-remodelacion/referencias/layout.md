@@ -24,10 +24,10 @@ Rol: motion designer y creative developer en Remotion para Reels de interiorismo
 5. **RESULTADO**: el impacto en dinero, tiempo o tranquilidad, sin cifras inventadas: la lista completa marcada, el calendario sin huecos, la planta ya resuelta. Si hay dato verificado, cifra grande en `cifra` con la fuente debajo en `fuente_dato`.
 6. **CTA**: siempre en `lino`. De arriba abajo, dentro de la escena (Y 600–1320):
    - El **logo completo con lema** (`brief.marca.logos.fondo_claro`, ancho `marca.uso.cta.ancho_px` ≈ 620 px, centrado): entra al empezar el bloque, los corchetes rojos primero (se abren desde el centro) y las letras después.
-   - `cta_previo` ("Hablemos de tu proyecto") en escala `etiqueta`, `texto_suave`.
-   - La caja `foco` (rectángulo recto) con `cta` ("LINK EN LA DESCRIPCIÓN" o lo que hayas decidido) en escala `cta`, texto `texto_sobre_foco`: hace pop en `cta_f` (cuando la voz dice "link", "enlace" o "descripción") y late suave `1 + Math.sin(frame / 6) * 0.04`.
-   - Una **flecha hacia abajo** (SVG nativo, trazo grueso en `foco`) bajo la caja, que rebota hacia la descripción del Reel (la franja inferior de Instagram) a partir de `cta_f`.
-   - Nada de iconos de comentario ni de DM: el contacto es por el enlace de la descripción.
+   - `cta_previo` ("Entra a nuestro perfil") en escala `etiqueta`, `texto_suave`.
+   - La caja `foco` (rectángulo recto) con `cta` ("LINK EN LA BIO" o lo que hayas decidido) en escala `cta`, texto `texto_sobre_foco`: hace pop en `cta_f` (cuando la voz dice "bio", "link", "enlace" o "perfil") y late suave `1 + Math.sin(frame / 6) * 0.04`.
+   - Una **flecha hacia abajo y a la izquierda** (SVG nativo, trazo grueso en `foco`) bajo la caja, que rebota a partir de `cta_f` hacia la foto y el nombre de la cuenta (esquina inferior izquierda de Instagram, por donde se entra al perfil). La flecha se queda dentro de las zonas seguras: apunta hacia esa esquina, no la invade.
+   - Nada de iconos de comentario ni de DM: el contacto es por el enlace de la bio del perfil.
 
 ## Dinamismo
 - Cámara viva: el contenedor de la escena flota `Math.sin(frame / 14) * camara_flotante_px` en Y.

@@ -26,7 +26,7 @@ Todo lo demás lo haces tú con la skill **reel-remodelacion** (`.claude/skills/
 - **La marca coordina, no ejecuta**: nunca "construimos", "remodelamos", "instalamos". Nada de licencia, seguro o garantías salvo lo que `marca.md → Declaraciones permitidas` marque con `si`.
 - **Animación pura**: nada de fotos ni videos (de obras, de bancos de imágenes o de internet), ni logos de contratistas o fabricantes.
 - El marco (barra de progreso, header con logo, titular, subtítulos, CTA con logo) es fijo; solo cambian el ambiente y la escena.
-- **El cierre manda al enlace de la descripción**: nada de palabras clave, "comenta" ni DM.
+- **El cierre manda al perfil y al enlace de la bio**: nada de palabras clave, "comenta", DM ni enlace de la descripción.
 - **Duración**: el guionista elige entre 30 y 60 s de voz según la idea.
 - La voz no se toca: ni recortes, ni cambios de velocidad, ni música encima.
 - Determinismo: nada de `Math.random()` en Remotion.

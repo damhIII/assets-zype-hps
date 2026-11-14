@@ -9,8 +9,8 @@ Uno por video, en `briefs/<BASE>/decisiones.json`. El video sale solo en españo
   "formato": "checklist",                           // id de plantillas.json (los 7 formatos)
   "tema": { "id": 6, "titulo": "Contratista sin licencia", "tesis": "..." },   // de editorial/temas.json (id 0 = fuera del catálogo). Informativo
   "etiqueta": "CONTRATISTAS · FLORIDA",             // header, MAYÚSCULAS, ≤ 4 palabras
-  "cta": "LINK EN LA DESCRIPCIÓN",                  // texto de la caja del CTA (≤ 5 palabras). Si lo omites, se usa tokens.textos_fijos.cta_defecto
-  "cta_ancla": null,                                // opcional: índice de la palabra en que la voz manda al enlace. null = la última "link/enlace/descripción" del guion
+  "cta": "LINK EN LA BIO",                          // texto de la caja del CTA (≤ 5 palabras). Si lo omites, se usa tokens.textos_fijos.cta_defecto
+  "cta_ancla": null,                                // opcional: índice de la palabra en que la voz manda al enlace. null = la última "bio/link/enlace/perfil" del guion
   "aviso_legal": null,                              // null = lo que diga la plantilla; true/false para forzarlo
   "fuentes_en_pantalla": [],                        // ids verificados extra que quieras citar al pie (los de la plantilla se añaden solos)
   "cola_s": 1.5,                                    // segundos de imagen tras la última palabra (1-2)
@@ -41,9 +41,9 @@ Uno por video, en `briefs/<BASE>/decisiones.json`. El video sale solo en españo
 ## Cómo decidir
 **Bloques.** Siempre los 6, en orden, el primero en la palabra 0. El guion trae un párrafo por bloque: normalmente `desde` = primera palabra de cada párrafo. Si el guion mezcla dos partes, corta en la palabra que cambia de idea; si se salta una, dale un bloque corto (≥ 1,5 s) con la frase más cercana y dilo en la entrega. Si un guion largo deja un bloque muy extenso (por ejemplo, el cuerpo), está bien: la plantilla y las anclas se encargan de mantenerlo vivo.
 
-**Titulares.** Dos líneas de ≤ 4 palabras (≈ 22 caracteres), sin punto final, cifras en número solo si son un dato verificado. Línea 1 = contexto (`texto`); línea 2 = el golpe, con marcador `foco`. Complementan la voz, no la copian, y pueden tener la misma chispa que el guion (un guiño, un remate). En `cta`, el titular conecta el tema con la invitación ("Tu cocina, a medida" / "Hablemos"); el "link en la descripción" ya va en la caja del CTA.
+**Titulares.** Dos líneas de ≤ 4 palabras (≈ 22 caracteres), sin punto final, cifras en número solo si son un dato verificado. Línea 1 = contexto (`texto`); línea 2 = el golpe, con marcador `foco`. Complementan la voz, no la copian, y pueden tener la misma chispa que el guion (un guiño, un remate). En `cta`, el titular conecta el tema con la invitación ("Tu cocina, a medida" / "Hablemos"); el "link en la bio" ya va en la caja del CTA.
 
-**CTA.** El cierre ya no usa palabra clave: invita a contactar por el enlace de la descripción. `cta` es el texto de la caja (por defecto "LINK EN LA DESCRIPCIÓN"; puedes ajustarlo al tono del video, p. ej. "TU LINK ESTÁ ABAJO", siempre diciendo dónde está). El pop cae en `cta_f`: la última vez que la voz dice "link", "enlace" o "descripción" (o en `cta_ancla` si lo fijas).
+**CTA.** El cierre invita a entrar al perfil y contactar por el enlace de la bio. `cta` es el texto de la caja (por defecto "LINK EN LA BIO"; puedes ajustarlo al tono del video, p. ej. "TOCA EL LINK DE LA BIO", siempre diciendo que está en la bio), y encima va `cta_previo` ("Entra a nuestro perfil"). El pop cae en `cta_f`: la última vez que la voz dice "bio", "link", "enlace" o "perfil" (o en `cta_ancla` si lo fijas).
 
 **Etiqueta.** El header es el logo de la marca + `[ {etiqueta} ]`. Usa tema + lugar: "PERMISOS · BROWARD", "HURACANES · FLORIDA".
 
@@ -57,4 +57,4 @@ Uno por video, en `briefs/<BASE>/decisiones.json`. El video sale solo en españo
 
 ## Lo que comprueba `preparar_brief.py`
 Errores (bloquean): versión, guion sin material, formato desconocido, bloques incompletos o fuera de orden, anclas fuera del guion o no crecientes, titulares de más de 4 palabras, `cta` de más de 5 palabras o `cta_ancla` fuera del guion, etiqueta ausente, ambientes inexistentes, fuera de sus bloques o de más, `cta` fuera de lino, parámetros de plantilla que no cumplen `plantillas.json` (tipos, obligatorios, listas, iconos, estilos), **cifras sin dato verificado**, bloques de menos de 0,5 s.
-Avisos: la voz no menciona el enlace ni la descripción (el CTA hace pop al empezar su bloque), `cta` que no dice dónde está el enlace, textos que suenan a garantía/licencia/ejecución, combinación de ambientes repetida, formato distinto del que eligió el guionista, titulares largos, bloques de menos de 1,5 s.
+Avisos: la voz no menciona el enlace ni la bio (el CTA hace pop al empezar su bloque), `cta` que no dice que el enlace está en la bio, textos que suenan a garantía/licencia/ejecución, combinación de ambientes repetida, formato distinto del que eligió el guionista, titulares largos, bloques de menos de 1,5 s.
