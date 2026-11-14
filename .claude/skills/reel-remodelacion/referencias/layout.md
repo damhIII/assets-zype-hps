@@ -1,6 +1,6 @@
 # Layout, bloques y movimiento
 
-Rol: motion designer y creative developer en Remotion para Reels de interiorismo. Estética: editorial cálida y luminosa (revista de interiores + plano de arquitecto): fondos de lino, terracota y salvia, tipografía serif con carácter para los titulares, sans limpia para leer, mucho aire. Movimiento preciso y suave, nunca de diapositiva estática. Todos los valores en `tokens.json`.
+Rol: motion designer y creative developer en Remotion para Reels de interiorismo. Estética **EN BRUTO**: editorial, arquitectónica y cálida (plano de arquitecto + revista de interiores moderna). El rojo del logo es el acento de marca; alrededor vive una paleta cálida con matices intermedios: piedra y greige para los fondos, arcilla, terracota suave y rosa arcilla para la calidez, salvia y eucalipto para la calma, arena y madera para los materiales, niebla para lo técnico, miel para chispas de luz y carbón cálido para la tensión. Bloques sólidos de esquinas casi rectas, titulares en display condensada y pesada en MAYÚSCULAS (como las letras del logo), etiquetas en mono espaciada (como su lema) y sans limpia para leer. El rojo es escaso y siempre significa "mira aquí". Los **corchetes rojos `[ ]`** del logo son el motivo gráfico de la marca. Movimiento preciso y con golpe, nunca de diapositiva estática. Todos los valores en `tokens.json`.
 
 ## Capas (de atrás hacia delante)
 1. **Fondo**: degradado vertical `fondo_a` → `fondo_b` del ambiente del bloque, la `textura` del ambiente muy tenue (opacidad ≤ 0.10) con deriva lenta, y `textures/vignette.svg` al 25 % (al 45 % en ambientes oscuros).
@@ -8,9 +8,9 @@ Rol: motion designer y creative developer en Remotion para Reels de interiorismo
 3. **Marco** (igual en todo el video, encima de todo): barra de progreso, header, titular, subtítulos, aviso legal.
 
 ## Layout fijo (px sobre 1080×1920; ver `tokens.zonas_seguras`)
-- **Barra de progreso**: línea `foco` de 6 px en Y=0 con la punta redondeada.
-- **Header** centrado en Y≈250: `EN BRUTO · ETIQUETA` (`marca.nombre` · `etiqueta`). Escala `header`, `texto` al 80 %, precedido de un pequeño rombo `primario`.
-- **Titular** Y 300–560, alineado a la izquierda con margen 72 px, ancho ≤ 868: línea 1 en `titular_l1` (`texto`), línea 2 en `titular_l2` con **marcador** `foco` detrás (rectángulo que crece con `scaleX` 0 → 1, origen izquierdo, `spring_entrada`) y texto `texto_sobre_foco`. Si no cabe, baja hasta `px_min`. Entra desde abajo con spring y sale rápido hacia arriba en cada cambio de bloque.
+- **Barra de progreso**: línea `foco` de 6 px en Y=0, punta recta.
+- **Header** centrado en Y≈250: el **logo** de la marca sin lema (`brief.marca.logos.fondo_claro_sin_lema`, o `fondo_oscuro_sin_lema` si el ambiente del bloque es `oscuro`; alto `marca.uso.header.alto_px` = 48 px) + un separador fino + la `etiqueta` entre corchetes rojos: `[ PERMISOS · BROWARD ]`, en escala `header` (Space Mono), `texto` al 80 %. El logo cambia de variante con un fundido en la transición de ambiente. Nunca escribas el nombre de la marca con tipografía: el logo lo sustituye.
+- **Titular** Y 300–560, alineado a la izquierda con margen 72 px, ancho ≤ 868: línea 1 en `titular_l1` (`texto`, MAYÚSCULAS), línea 2 en `titular_l2` con **marcador** `foco` detrás (rectángulo recto, `radio_marcador` 0, que crece con `scaleX` 0 → 1, origen izquierdo, `spring_entrada`) y texto `texto_sobre_foco` (blanco). Si no cabe, baja hasta `px_min`. Entra desde abajo con spring y sale rápido hacia arriba en cada cambio de bloque.
 - **Escena**: Y 600–1320, x 72–940 para todo lo que tenga texto (la columna derecha de 140 px la tapan los botones de Instagram).
 - **Subtítulos**: Y 1370–1500.
 - **Aviso legal** (si `aviso_legal` no es null): Y≈1545, escala `aviso_legal`, centrado, durante el cuerpo y el CTA.
@@ -19,18 +19,25 @@ Rol: motion designer y creative developer en Remotion para Reels de interiorismo
 ## Bloques — una `<Sequence>` por bloque con EXACTAMENTE `ini_f`–`fin_f` del brief
 1. **GANCHO**: el riesgo o el costo hecho visible en un golpe (un sello de "OBRA PARADA", una hoja de presupuesto de una sola línea que se rompe, nubes y viento sobre una ventana, un mito en grande). Primer frame con acción: es la portada.
 2. **ESCENA**: la situación del propietario, ilustrada con objetos simples (contrato, teléfono con mensajes, calendario que se estira, llaves). Sin personas fotorrealistas.
-3. **MARCO**: la pausa de criterio. Tipográfica y aireada: 2-3 conceptos que se ordenan en "antes → después" con conectores. Si el tema toca a la marca, una tarjeta discreta "ORIENTAMOS · COORDINAMOS" (nunca "construimos").
+3. **MARCO**: la pausa de criterio. Tipográfica y aireada: 2-3 conceptos que se ordenan en "antes → después" con conectores; el concepto clave entre corchetes rojos que se cierran sobre él. Si el tema toca a la marca, una tarjeta discreta con el logo pequeño y "ORIENTAMOS · COORDINAMOS" (nunca "construimos").
 4. **CUERPO**: la plantilla del formato (`plantillas/<formato>.md`). Es el tramo que se guarda: legible, ordenado, con la información completa visible al final del bloque ≥ 1 s.
 5. **RESULTADO**: el impacto en dinero, tiempo o tranquilidad, sin cifras inventadas: la lista completa marcada, el calendario sin huecos, la planta ya resuelta. Si hay dato verificado, cifra grande en `cifra` con la fuente debajo en `fuente_dato`.
-6. **CTA**: siempre en `lino`. Encima `cta_previo`; la palabra `cta` en una caja `foco` con texto `texto_sobre_foco` en `display` 800, que hace pop en `cta_f` y late suave `1 + Math.sin(frame / 6) * 0.04`. Un icono de comentario y otro de DM (`message-circle`, `send`) a los lados. Wordmark tipográfico de la marca (EN BRUTO) en `display` debajo (no hay logo en el repo: no inventes uno).
+6. **CTA**: siempre en `lino`. De arriba abajo, dentro de la escena (Y 600–1320):
+   - El **logo completo con lema** (`brief.marca.logos.fondo_claro`, ancho `marca.uso.cta.ancho_px` ≈ 620 px, centrado): entra al empezar el bloque, los corchetes rojos primero (se abren desde el centro) y las letras después.
+   - `cta_previo` ("Hablemos de tu proyecto") en escala `etiqueta`, `texto_suave`.
+   - La caja `foco` (rectángulo recto) con `cta` ("LINK EN LA DESCRIPCIÓN" o lo que hayas decidido) en escala `cta`, texto `texto_sobre_foco`: hace pop en `cta_f` (cuando la voz dice "link", "enlace" o "descripción") y late suave `1 + Math.sin(frame / 6) * 0.04`.
+   - Una **flecha hacia abajo** (SVG nativo, trazo grueso en `foco`) bajo la caja, que rebota hacia la descripción del Reel (la franja inferior de Instagram) a partir de `cta_f`.
+   - Nada de iconos de comentario ni de DM: el contacto es por el enlace de la descripción.
 
 ## Dinamismo
 - Cámara viva: el contenedor de la escena flota `Math.sin(frame / 14) * camara_flotante_px` en Y.
 - Punch-in suave (1.00 → 1.05) en la palabra que remata cada bloque, con `spring_pop`.
 - Nada aparece solo con opacidad: entra desde abajo, desde escala 0.3 con overshoot, o se dibuja con trazo.
-- Sombra cálida `sombra_tarjeta` en tarjetas; nunca sombras negras duras.
+- Sombra suave `sombra_tarjeta` en tarjetas; nunca sombras negras duras.
+- **Corchetes `[ ]`** (`marca.corchetes`): el gesto de la marca. Úsalos para enmarcar lo que importa en cada bloque (una palabra, una tarjeta, el elemento activo de la plantilla): se abren desde el centro y se cierran sobre el elemento con `spring_pop`. Uno o dos por bloque como mucho, para que sigan significando algo.
+- **Rojo escaso, matices ricos**: `foco` (rojo de marca) solo en el marcador del titular, la barra, el subrayado de la palabra activa, los corchetes, el foco de cada escena y el CTA. El resto de la escena se pinta con neutros cálidos y la paleta `apoyo` de `tokens.json`: 2-3 matices por escena, preferiblemente uno de sus `pares_recomendados` (p. ej. arcilla + rosa arcilla para una cocina, salvia + arena para un patio, niebla + carbón para un plano técnico), con degradados suaves entre tonos vecinos. Los matices de apoyo nunca entran en el marco. La `alerta` (también roja, más oscura) siempre va acompañada de su icono (X, triángulo): nunca depende solo del color.
 
 ## Subtítulos grandes
 - Máximo 3 palabras a la vez y 2 líneas, a partir de `brief.subtitulos`.
-- Escala `subtitulo` (64 px, baja a 54 si una palabra larga no cabe en 868 px), MAYÚSCULAS. Palabra actual `subtitulos.activo` con escala 1.12 y rebote; pasadas `subtitulos.pasado`; futuras `subtitulos.futuro`.
+- Escala `subtitulo` (Barlow Condensed 800, 76 px, baja a 62 si una palabra larga no cabe en 868 px), MAYÚSCULAS. Palabra actual `subtitulos.activo` (blanco) con escala 1.12, rebote y una barra `subtitulos.subrayado_activo` (roja, 8 px) debajo; pasadas `subtitulos.pasado`; futuras `subtitulos.futuro`.
 - Cápsula `subtitulos.capsula` a `capsula_opacidad`, radio `radio_chip`, `backdropFilter: blur(14px)`. La cápsula garantiza la lectura sobre fotos y fondos claros: no la quites.

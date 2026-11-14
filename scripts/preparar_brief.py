@@ -28,6 +28,9 @@ FPS, WIDTH, HEIGHT = 30, 1080, 1920
 ORDEN = ["gancho", "escena", "marco", "cuerpo", "resultado", "cta"]
 IDIOMAS = ("es", "en")
 PLACEHOLDER_MARCA = "{{NOMBRE_MARCA}}"
+# Palabras con las que la voz manda al enlace de la descripción (el CTA hace pop en la última que aparezca)
+CTA_VOZ = re.compile(r"^(link|links|enlace|enlaces|descripcion|caption)$")
+CTA_TEXTO = re.compile(r"link|enlace|descripci|caption", re.I)
 RECLAMOS = re.compile(r"garantiz|guarante|licenciad|licensed|asegurad|insured|sin sobrecosto|no hidden|construimos|remodelamos|we build|we remodel", re.I)
 
 
@@ -289,21 +292,34 @@ def preparar(dir_base):
                 if len(linea.split()) > 4:
                     err.append(f"{b.get('id')} [{i}]: titular demasiado largo ('{linea}', máximo 4 palabras por línea)")
                 elif len(linea) > 22:
-                    avisos.append(f"{b.get('id')} [{i}]: '{linea}' tiene {len(linea)} caracteres; puede no caber a 88 px (baja a px_min)")
+                    avisos.append(f"{b.get('id')} [{i}]: '{linea}' tiene {len(linea)} caracteres; puede no caber al tamaño máximo (baja a px_min)")
                 if RECLAMOS.search(linea):
                     avisos.append(f"{b.get('id')} [{i}]: titular '{linea}' suena a garantía, licencia o ejecución de obra")
 
-    cta = {i: str(por_idioma(dec.get("cta"), i) or "").strip().upper() for i in idiomas}
+    # --- CTA: lleva al enlace de la descripción (ya no hay palabra clave)
+    cta, idx_cta = {}, {}
     for i in idiomas:
-        palabras_guion = [re.sub(r"[^A-Z]", "", sin_tildes(p["w"]).upper()) for p in mat[i]["P"]]
-        if not cta[i]:
-            err.append(f"falta 'cta' para '{i}' (la palabra clave que dice la voz al final)")
-        elif re.sub(r"[^A-Z]", "", sin_tildes(cta[i]).upper()) not in palabras_guion:
-            err.append(f"la palabra CTA '{cta[i]}' no aparece en el guion {i}")
-        if bloques_d and bloques_d[-1].get("id") == "cta" and cta[i]:
-            l2 = (por_idioma(bloques_d[-1].get("titular"), i) or ["", ""])[-1]
-            if sin_tildes(cta[i]) not in sin_tildes(l2):
-                err.append(f"cta [{i}]: la línea 2 del titular debe ser la palabra {cta[i]}")
+        cta[i] = str(por_idioma(dec.get("cta"), i) or tokens["textos_fijos"]["cta_defecto"][i]).strip().upper()
+        if len(cta[i].split()) > 5:
+            err.append(f"cta [{i}]: '{cta[i]}' es largo para la caja del CTA (máximo 5 palabras)")
+        if not CTA_TEXTO.search(sin_tildes(cta[i])):
+            avisos.append(f"cta [{i}]: '{cta[i]}' no dice dónde está el enlace (link / enlace / descripción)")
+        P = mat[i]["P"]
+        ancla = por_idioma(dec.get("cta_ancla"), i)
+        if ancla is not None:
+            if not isinstance(ancla, int) or isinstance(ancla, bool) or not 0 <= ancla < mat[i]["n"]:
+                err.append(f"cta_ancla [{i}]: debe ser un índice de palabra del guion (0-{mat[i]['n'] - 1})")
+                ancla = None
+        if ancla is None:
+            dichas = [j for j, p in enumerate(P) if CTA_VOZ.match(re.sub(r"[^a-z]", "", sin_tildes(p["w"])))]
+            if dichas:
+                ancla = dichas[-1]
+            else:
+                inicio = por_idioma((bloques_d[-1] if bloques_d else {}).get("desde"), i)
+                ancla = inicio if isinstance(inicio, int) and 0 <= inicio < mat[i]["n"] else max(0, mat[i]["n"] - 1)
+                avisos.append(f"[{i}] la voz no menciona el enlace ni la descripción: el CTA hará pop al empezar el bloque cta "
+                              "(revisa el guion: el cierre debe mandar al enlace de la descripción)")
+        idx_cta[i] = ancla
     etiqueta = dec.get("etiqueta")
     for i in idiomas:
         e = str(por_idioma(etiqueta, i) or "").strip()
@@ -378,8 +394,8 @@ def preparar(dir_base):
     def corta(fid):
         return datos[fid].get("corta") or datos[fid]["fuente"]
 
-    fuentes = [{"rol": rol, "familia": t["familia"], "css": t["css"], "stack": t["stack"]}
-               for rol, t in (("display", tokens["tipografia"]["display"]), ("texto", tokens["tipografia"]["texto"]))]
+    fuentes = [{"rol": rol, "familia": tokens["tipografia"][rol]["familia"], "css": tokens["tipografia"][rol]["css"],
+                "stack": tokens["tipografia"][rol]["stack"]} for rol in ("display", "texto", "mono") if rol in tokens["tipografia"]]
     briefs = {}
     for i in idiomas:
         P, n = mat[i]["P"], mat[i]["n"]
@@ -398,8 +414,6 @@ def preparar(dir_base):
             bloques.append({"id": b["id"], "ini_f": ini_f[k], "fin_f": fin_f, "ini_s": round(ini_f[k] / FPS, 2), "fin_s": round(fin_f / FPS, 2),
                             "titular": [str(t).strip().rstrip(".") for t in por_idioma(b["titular"], i)],
                             "texto": " ".join(P[j]["w"] for j in range(desdes[i][k], hasta)), "palabras": [desdes[i][k], hasta]})
-        clave = re.sub(r"[^A-Z]", "", sin_tildes(cta[i]).upper())
-        idx_cta = max(j for j, p in enumerate(P) if re.sub(r"[^A-Z]", "", sin_tildes(p["w"]).upper()) == clave)
         params_i = resolver({"tipo": "objeto", "campos": plantilla_def["params"]}, params, i, frame, corta)
         fuentes_pantalla = sorted(set(extra) | set(re.findall(r'"fuente": "([^"]+)"', json.dumps(params))))
         tema = dec.get("tema") or {}
@@ -409,12 +423,14 @@ def preparar(dir_base):
             "idioma": i,
             "carpeta": f"briefs/{d.name}/{i}",
             "audio": mat[i]["pj"].get("audio", "locucion.wav"),
-            "marca": {"nombre": None if pendiente else marca_nombre, "pendiente": pendiente},
+            "marca": {"nombre": None if pendiente else marca_nombre, "pendiente": pendiente,
+                      "logos": (tokens.get("marca") or {}).get("logos", {}), "uso": (tokens.get("marca") or {}).get("uso", {})},
             "formato": formato,
             "video": {"width": WIDTH, "height": HEIGHT, "fps": FPS, "frames": total, "voz_s": round(mat[i]["voz_s"], 2), "cola_s": cola_s},
             "etiqueta": str(por_idioma(etiqueta, i)).strip().upper(),
             "cta": cta[i],
-            "cta_f": frame(idx_cta),
+            "cta_ancla": idx_cta[i],
+            "cta_f": frame(idx_cta[i]),
             "cta_previo": tokens["textos_fijos"]["cta_previo"][i],
             "tema": {"id": tema.get("id", 0), "titulo": tema.get("titulo", ""), "tesis": tema.get("tesis", "")},
             "aviso_legal": tokens["textos_fijos"]["aviso_legal"][i] if aviso_legal else None,
@@ -475,7 +491,7 @@ def main():
                 prev = amb
             for nombre, f in anclas_f(brief["plantilla"]["params"], "plantilla_"):
                 marcas.append((nombre, min(f + 8, brief["video"]["frames"] - 1)))
-            marcas.append(("palabra_clave", min(brief["cta_f"] + 10, brief["video"]["frames"] - 1)))
+            marcas.append(("cta", min(brief["cta_f"] + 10, brief["video"]["frames"] - 1)))
             marcas.append(("final", brief["video"]["frames"] - 1))
             for nombre, f in marcas:
                 print(f"npx remotion still {comp} out/stills/{i}/{nombre}.png --frame={f}")

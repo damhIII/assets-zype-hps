@@ -9,18 +9,22 @@ Lo genera `scripts/preparar_brief.py` en `briefs/<BASE>/es/brief.json` a partir 
   "idioma": "es",
   "carpeta": "briefs/20261110-0930/es",         // audio = carpeta + "/" + audio
   "audio": "locucion.wav",
-  "marca": { "nombre": "EN BRUTO", "pendiente": false },
+  "marca": { "nombre": "EN BRUTO", "pendiente": false,
+             "logos": { "fondo_claro": "brand/en_bruto/logo_fondo_claro.png", "fondo_claro_sin_lema": "…", "fondo_oscuro": "…", "fondo_oscuro_sin_lema": "…", "original": "…" },
+             "uso": { "header": { "variante": "sin_lema", "alto_px": 48 }, "cta": { "variante": "con_lema", "ancho_px": 620 } } },
   "formato": "checklist",
   "video": { "width": 1080, "height": 1920, "fps": 30, "frames": 1497, "voz_s": 48.4, "cola_s": 1.5 },
   "etiqueta": "CONTRATISTAS · FLORIDA",
-  "cta": "LICENCIA",
-  "cta_f": 1430,                                // frame en que la voz dice la palabra clave
-  "cta_previo": "Comenta o envía por DM",
+  "cta": "LINK EN LA DESCRIPCIÓN",              // texto de la caja del CTA
+  "cta_ancla": 112,                             // palabra en que la voz manda al enlace
+  "cta_f": 1430,                                // frame de esa palabra: pop de la caja y de la flecha
+  "cta_previo": "Hablemos de tu proyecto",
   "tema": { "id": 6, "titulo": "...", "tesis": "..." },
   "aviso_legal": "Contenido informativo. No es asesoría legal ni una cotización.",   // null = no se muestra
   "ilustrativo": "EJEMPLO ILUSTRATIVO",
   "ambientes": { "gancho": "noche", "escena": "lino", "marco": "lino", "cuerpo": "lino", "resultado": "lino", "cta": "lino" },
-  "fuentes": [ { "rol": "display", "familia": "Fraunces", "css": "fonts/css/fraunces__400-500-700-800-900.css", "stack": "\"Fraunces\", Georgia, serif" } ],
+  "fuentes": [ { "rol": "display", "familia": "Barlow Condensed", "css": "fonts/css/barlow_condensed__400-500-700-800-900.css", "stack": "…" },
+               { "rol": "texto", "familia": "DM Sans", "…": "…" }, { "rol": "mono", "familia": "Space Mono", "…": "…" } ],
   "fuentes_en_pantalla": [ { "id": "verificar_licencia", "corta": "Florida DBPR" } ],
   "bloques": [
     { "id": "gancho", "ini_f": 0, "fin_f": 141, "ini_s": 0.0, "fin_s": 4.7,
@@ -43,5 +47,6 @@ Lo genera `scripts/preparar_brief.py` en `briefs/<BASE>/es/brief.json` a partir 
 ## Reglas de lectura
 - Los rangos `ini_f`–`fin_f` son exactos y contiguos; el último acaba en `video.frames`.
 - Todo elemento de la plantilla aparece en su `*_f` menos `tokens.movimiento.anticipacion_frames` (ver `sincronizacion.md`).
-- Los colores salen de `tokens.color` y, en cada bloque, de `tokens.ambientes[ambientes[bloque]]`.
+- Los colores salen de `tokens.color` y, en cada bloque, de `tokens.ambientes[ambientes[bloque]]` (incluido su `foco`).
+- El logo: `marca.logos`, variante según `tokens.ambientes[ambiente].tipo` (`claro` → `fondo_claro…`, `oscuro` → `fondo_oscuro…`).
 - No hay fotos ni activos externos: todo lo que se ve se dibuja con `tokens` y los assets gráficos del repo.

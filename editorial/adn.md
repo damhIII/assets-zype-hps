@@ -14,6 +14,7 @@ Si un video contradice una sola de estas ideas, no se publica.
 - Criticamos MÉTODOS ("firmar con un presupuesto de una sola línea"), nunca a un contratista, empresa o marca con nombre.
 - Usamos "antes de" y "todavía": "antes de pedir presupuestos, define el alcance".
 - No asustamos para vender: el miedo (huracán, estafa) se usa para dar un paso concreto, no para empujar a contratar.
+- Podemos ser divertidos: humor de situación (el vecino, la obra eterna, el "solo era un detallito"), nunca burlas hacia el espectador, un grupo de personas o un oficio.
 - No damos asesoría legal: decimos qué preguntar y dónde verificarlo ("compruébalo con tu condado", "pídelo por escrito").
 
 ## Lo que hace bueno un video (checklist antes de publicar)
@@ -22,5 +23,6 @@ Si un video contradice una sola de estas ideas, no se publica.
 3. Ninguna cifra sin fuente verificada. Los datos citados conservan su acotación (condado, tipo de obra, año).
 4. La marca aparece como quien orienta o coordina, nunca como quien ejecuta la obra, y sin declaraciones que `marca.md` no permita.
 5. Los términos de obra ("change order", "GC", "lien"…) se explican en lenguaje sencillo la primera vez.
-6. Termina invitando a comentar o enviar por DM una palabra clave. Sin prometer guías, PDFs ni archivos.
+6. Termina invitando a contactarnos desde el enlace de la descripción, con palabras propias del video. Sin palabras clave, sin DM y sin prometer guías, PDFs ni archivos.
 7. Los ejemplos son hipotéticos e ilustrativos: ningún caso de cliente, proyecto concreto ni testimonio presentado como real.
+8. Se disfruta: tiene ritmo, un gancho que no suena a anuncio y, si el tema lo permite, un momento que hace sonreír.

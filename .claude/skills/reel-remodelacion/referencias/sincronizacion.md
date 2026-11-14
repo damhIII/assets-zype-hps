@@ -14,7 +14,7 @@ Nunca leas `palabras.json` directamente desde Remotion: usa `brief.subtitulos` y
 | Elemento de plantilla (partida, fase, ítem, error, opción, criterio, mueble, estilo) | su `ancla` | entra el elemento (ver la ficha de la plantilla) |
 | Giro (realidad, antídoto, veredicto, retraso) | su `ancla…` | la transformación termina **en** la palabra (empieza unos frames antes) |
 | Cifra verificada | el `ancla` de su elemento | conteo de `conteo_frames`, termina antes de la siguiente palabra larga |
-| Palabra clave | `cta_f` (lo calcula el script: última aparición de la palabra `cta`) | pop de la caja CTA y flechas |
+| Mención del enlace | `cta_f` (lo calcula el script: la última vez que la voz dice "link", "enlace" o "descripción", o `cta_ancla`) | pop de la caja CTA y rebote de la flecha hacia abajo |
 | Subtítulo | cada palabra de `subtitulos` | resaltado de la palabra actual |
 | Remate de bloque | última palabra antes de una pausa `‖` ≥ 0,3 s | punch-in suave |
 

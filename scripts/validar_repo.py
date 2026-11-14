@@ -18,7 +18,6 @@ REQUERIDOS = EDITORIAL + ("CLAUDE.md", str(SKILL / "SKILL.md"), str(SKILL / "pla
                           str(SKILL / "diseno" / "tokens.json"))
 FORMATOS = ("presupuesto", "cronograma", "mito_realidad", "planta", "errores", "checklist", "comparador")
 IDIOMA = "es"
-CLAVE_RE = re.compile(r"[A-Z]{2,12}")
 FECHA_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 DECLARACIONES = ("licencia", "seguro", "garantia_precio", "garantia_plazo", "sin_sobrecostos", "verifica_licencias")
 PLACEHOLDERS = {
@@ -158,25 +157,28 @@ def validar(raiz):
         for j, idea in enumerate(ideas):
             p = f"{pre}, idea {j + 1}"
             if not isinstance(idea, dict):
-                err.append(f"{p}: debe ser un objeto con gancho, formato y cta")
+                err.append(f"{p}: debe ser un objeto con gancho y formato")
                 continue
             if not str(idea.get("gancho") or "").strip():
                 err.append(f"{p}: falta 'gancho'")
             if idea.get("formato") not in FORMATOS:
                 err.append(f"{p}: 'formato' debe ser uno de {', '.join(FORMATOS)}")
-            k = idea.get("cta")
-            if not (isinstance(k, str) and CLAVE_RE.fullmatch(k)):
-                err.append(f"{p}: 'cta' debe ser una palabra en MAYÚSCULAS sin tildes, eñe ni números (2-12 letras)")
-            elif k in vistas:
-                err.append(f"{p}: palabra clave repetida '{k}': ya se usa en {vistas[k]}")
-            else:
-                vistas[k] = p
+            if "cta" in idea:
+                vistas[p] = idea["cta"]
+    if vistas:  # el cierre ya no usa palabra clave: lleva al enlace de la descripción
+        avisos.append(f"temas.json: {len(vistas)} ideas aún traen 'cta' (palabra clave); ya no se usa: bórralo")
 
     tokens = _json(raiz, SKILL / "diseno" / "tokens.json", err) or {}
-    for rol in ("display", "texto"):
+    for rol in ("display", "texto", "mono"):
         css = ((tokens.get("tipografia") or {}).get(rol) or {}).get("css")
         if css and not (raiz / css).is_file():
             err.append(f"tokens.json: no existe la fuente {css}")
+    logos = ((tokens.get("marca") or {}).get("logos") or {})
+    if not logos:
+        err.append("tokens.json: falta 'marca.logos' (las rutas del logo de la marca en brand/)")
+    for vid, rel in logos.items():
+        if not (raiz / rel).is_file():
+            err.append(f"tokens.json → marca.logos.{vid}: no existe {rel} (sube el logo al repo)")
     return err, avisos
 
 

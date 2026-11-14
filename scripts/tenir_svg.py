@@ -5,7 +5,7 @@ Uso:
   python3 scripts/tenir_svg.py --ambiente noche ui/flow_node.svg ui/kpi_card.svg --out <proyecto>/public/ambientes
   → <proyecto>/public/ambientes/noche/ui/flow_node.svg, ...
 
-El foco (#F2B544) no se toca: es constante del marco en todos los ambientes.
+El foco (rojo de marca) se cambia por el 'foco' del ambiente si lo declara (p. ej. un rojo más vivo en 'noche').
 Los ambientes salen de .claude/skills/reel-remodelacion/diseno/tokens.json → ambientes.
 """
 import argparse, json, re
@@ -25,6 +25,8 @@ def mapa(tokens, ambiente):
     c = tokens["color"]
     m.setdefault(c["superficie_2"].upper(), destino["superficie"])
     m.setdefault(c["secundario"].upper(), destino["estructura"])
+    if "foco" in destino:
+        m.setdefault(base.get("foco", c["foco"]).upper(), destino["foco"])
     return m
 
 

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Valida el sistema de diseño (tokens.json de la skill): contrastes WCAG, foco y ambientes.
+"""Valida el sistema de diseño (tokens.json de la skill): contrastes WCAG, foco, ambientes, tipografías y logos.
 
 Uso: python3 scripts/validar_tokens.py [ruta]   (sale con código 1 si algo falla)
 Hereda la lógica de contraste del antiguo validar_paletas.py.
 """
-import colorsys, json, sys
+import colorsys, json, re, sys
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -57,15 +57,20 @@ def main():
         chk(f"base primario/{fondo} (gráfico)", contraste(c["primario"], c[fondo]), 3)
         chk(f"base alerta/{fondo} (texto)", contraste(c["alerta"], c[fondo]), 4.5)
         chk(f"base exito/{fondo} (texto)", contraste(c["exito"], c[fondo]), 4.5)
+        chk(f"base foco/{fondo} (barra, corchetes)", contraste(c["foco"], c[fondo]), 3)
     chk("texto blanco sobre primario", contraste("#FFFFFF", c["primario"]), 4.5)
-    chk("texto_sobre_foco / foco (marcador)", contraste(c["texto_sobre_foco"], c["foco"]), 7)
-    chk("alerta lejos del primario (grados de tono)", dist_tono(c["alerta"], c["primario"]), 20)
-    chk("foco lejos del primario (grados de tono)", dist_tono(c["foco"], c["primario"]), 15)
+    # El marcador lleva texto grande (titular ≥ 74 px, peso 800): WCAG pide 4.5 para AAA en texto grande.
+    chk("texto_sobre_foco / foco (marcador, texto grande)", contraste(c["texto_sobre_foco"], c["foco"]), 4.5)
+    # Marca de un solo acento: foco y primario pueden ser el mismo rojo. La alerta siempre va con icono (X, triángulo),
+    # así que no depende solo del color; se exige que sea más oscura que el foco para distinguirse.
+    chk("alerta más oscura que el foco (luminancia foco/alerta)", contraste(c["foco"], c["alerta"]), 1.15)
 
     s = t["subtitulos"]
     for fondo in (c["fondo_a"], t["ambientes"]["noche"]["fondo_a"]):
         cap = mezcla(s["capsula"], fondo, s["capsula_opacidad"])
         chk(f"subtítulo activo / cápsula sobre {fondo}", contraste(s["activo"], cap), 7)
+        if s.get("subrayado_activo"):
+            chk(f"subrayado activo / cápsula sobre {fondo} (gráfico)", contraste(s["subrayado_activo"], cap), 3)
         chk(f"subtítulo pasado / cápsula sobre {fondo}", contraste(s["pasado"], cap), 7)
         chk(f"subtítulo futuro / cápsula sobre {fondo}", contraste(s["futuro"], cap), 4.5)
 
@@ -80,8 +85,9 @@ def main():
             chk(f"ambiente {aid} exito/{fondo}", contraste(a["exito"], a[fondo]), 4.5)
             chk(f"ambiente {aid} primario/{fondo}", contraste(a["primario"], a[fondo]), 3)
         chk(f"ambiente {aid} superficie≠fondo", contraste(a["superficie"], a["fondo_a"]), 1.03)
-        if a["tipo"] == "oscuro":
-            chk(f"ambiente {aid} foco/fondo_a", contraste(c["foco"], a["fondo_a"]), 7)
+        foco = a.get("foco", c["foco"])
+        chk(f"ambiente {aid} foco/fondo_a (gráfico)", contraste(foco, a["fondo_a"]), 3)
+        chk(f"ambiente {aid} texto_sobre_foco/foco", contraste(c["texto_sobre_foco"], foco), 4.5)
         if not (RAIZ / a["textura"]).is_file():
             fallos.append(f"ambiente {aid}: no existe la textura {a['textura']}")
 
@@ -90,10 +96,32 @@ def main():
             continue
         chk(f"estilo {eid} piso≠muro", contraste(e["piso"], e["muro"]), 1.15)
 
-    for rol in ("display", "texto"):
+    for rol in ("display", "texto", "mono"):
+        if rol not in t["tipografia"]:
+            continue
         css = t["tipografia"][rol]["css"]
         if not (RAIZ / css).is_file():
             fallos.append(f"tipografía {rol}: no existe {css}")
+
+    familias = {k for k in t["tipografia"] if not k.startswith("_") and k != "escalas"}
+    for eid, e in t["tipografia"]["escalas"].items():
+        if e.get("familia") not in familias:
+            fallos.append(f"escala {eid}: familia '{e.get('familia')}' no está en tipografia")
+
+    apoyo = {k: v for k, v in (t.get("apoyo") or {}).items() if not k.startswith("_") and k != "pares_recomendados"}
+    for k, v in apoyo.items():
+        if not (isinstance(v, str) and re.fullmatch(r"#[0-9A-Fa-f]{6}", v)):
+            fallos.append(f"apoyo.{k}: '{v}' no es un color #RRGGBB")
+    for par in (t.get("apoyo") or {}).get("pares_recomendados", []):
+        for k in par:
+            if k not in apoyo:
+                fallos.append(f"apoyo.pares_recomendados: '{k}' no está en la paleta de apoyo")
+        if len(par) == 2 and all(k in apoyo for k in par):
+            chk(f"apoyo par {par[0]}/{par[1]} distinguible", contraste(apoyo[par[0]], apoyo[par[1]]), 1.4)
+
+    for vid, rel in ((t.get("marca") or {}).get("logos") or {}).items():
+        if not (RAIZ / rel).is_file():
+            fallos.append(f"marca.logos.{vid}: no existe {rel}")
 
     print("\n".join(filas))
     print(f"\n{len(filas) - len([f for f in fallos if ':' in f and 'mínimo' in f])}/{len(filas)} comprobaciones OK")

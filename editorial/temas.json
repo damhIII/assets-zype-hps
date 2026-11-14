@@ -1,5 +1,5 @@
 {
-  "_nota": "Temas de inspiración para el guion. No son un menú cerrado: el seed manda y el guionista puede salirse, siempre dentro del ADN. 'formato' es uno de editorial/formatos.json (lo que verá la animación); 'cta' sugiere la palabra clave (corta, sin tildes ni eñe, única en todo el archivo); 'datos' apunta a ids de datos_verificados.json (solo se citan si están verificados); 'toca_marca' = el tema conecta con el papel de la marca (orientar y coordinar).",
+  "_nota": "Temas de inspiración para el guion. No son un menú cerrado: el seed manda y el guionista puede salirse, siempre dentro del ADN. 'formato' es uno de editorial/formatos.json (lo que verá la animación); 'datos' apunta a ids de datos_verificados.json (solo se citan si están verificados); 'toca_marca' = el tema conecta con el papel de la marca (orientar y coordinar).",
   "temas": [
     {
       "id": 1,
@@ -15,18 +15,15 @@
       "ideas": [
         {
           "gancho": "Ventanas de impacto o paneles: lo que nadie te compara.",
-          "formato": "comparador",
-          "cta": "VENTANA"
+          "formato": "comparador"
         },
         {
           "gancho": "La cinta en forma de equis no protege tu ventana.",
-          "formato": "mito_realidad",
-          "cta": "CINTA"
+          "formato": "mito_realidad"
         },
         {
           "gancho": "Antes de instalar ventanas nuevas, pide estos papeles.",
-          "formato": "checklist",
-          "cta": "IMPACTO"
+          "formato": "checklist"
         }
       ]
     },
@@ -43,18 +40,15 @@
       "ideas": [
         {
           "gancho": "Cambiar el techo, fase por fase: dónde se para la obra.",
-          "formato": "cronograma",
-          "cta": "TECHO"
+          "formato": "cronograma"
         },
         {
           "gancho": "Techar encima sin revisar la madera de abajo.",
-          "formato": "errores",
-          "cta": "MADERA"
+          "formato": "errores"
         },
         {
           "gancho": "Teja, metal o shingle: qué cambia en Florida.",
-          "formato": "comparador",
-          "cta": "METAL"
+          "formato": "comparador"
         }
       ]
     },
@@ -70,18 +64,15 @@
       "ideas": [
         {
           "gancho": "Pintar encima de la mancha es pagar dos veces.",
-          "formato": "errores",
-          "cta": "MOHO"
+          "formato": "errores"
         },
         {
           "gancho": "La pared de la ducha no se arma con cualquier placa.",
-          "formato": "comparador",
-          "cta": "PLACA"
+          "formato": "comparador"
         },
         {
           "gancho": "El baño sin ventana que nunca termina de secarse.",
-          "formato": "planta",
-          "cta": "EXTRACTOR"
+          "formato": "planta"
         }
       ]
     },
@@ -98,18 +89,15 @@
       "ideas": [
         {
           "gancho": "Si es por dentro, no necesita permiso. Eso depende.",
-          "formato": "mito_realidad",
-          "cta": "PERMISO"
+          "formato": "mito_realidad"
         },
         {
           "gancho": "Por qué tu obra empieza mucho después de firmar.",
-          "formato": "cronograma",
-          "cta": "REVISION"
+          "formato": "cronograma"
         },
         {
           "gancho": "Remodelar sin inspección y descubrirlo al vender.",
-          "formato": "errores",
-          "cta": "INSPECCION"
+          "formato": "errores"
         }
       ]
     },
@@ -125,18 +113,15 @@
       "ideas": [
         {
           "gancho": "Antes de comprar, revisa esto en el portal del condado.",
-          "formato": "checklist",
-          "cta": "ABIERTO"
+          "formato": "checklist"
         },
         {
           "gancho": "Comprar con un permiso abierto y heredar el problema.",
-          "formato": "errores",
-          "cta": "HEREDAR"
+          "formato": "errores"
         },
         {
           "gancho": "La inspección de compra no siempre revisa los permisos.",
-          "formato": "mito_realidad",
-          "cta": "COMPRA"
+          "formato": "mito_realidad"
         }
       ]
     },
@@ -155,18 +140,15 @@
       "ideas": [
         {
           "gancho": "Lo que revisas antes de contratar a cualquiera.",
-          "formato": "checklist",
-          "cta": "LICENCIA"
+          "formato": "checklist"
         },
         {
           "gancho": "Camioneta rotulada no significa licencia.",
-          "formato": "mito_realidad",
-          "cta": "ROTULO"
+          "formato": "mito_realidad"
         },
         {
           "gancho": "Contratar al conocido de un amigo para tu cocina.",
-          "formato": "errores",
-          "cta": "AMIGO"
+          "formato": "errores"
         }
       ]
     },
@@ -183,18 +165,15 @@
       "ideas": [
         {
           "gancho": "Pagar por adelantado a quien tocó tu puerta.",
-          "formato": "errores",
-          "cta": "PUERTA"
+          "formato": "errores"
         },
         {
           "gancho": "Señales de una estafa de reparación después de la tormenta.",
-          "formato": "checklist",
-          "cta": "ESTAFA"
+          "formato": "checklist"
         },
         {
           "gancho": "Si paga la aseguradora, da igual a quién contrates. Falso.",
-          "formato": "mito_realidad",
-          "cta": "SEGURO"
+          "formato": "mito_realidad"
         }
       ]
     },
@@ -211,18 +190,15 @@
       "ideas": [
         {
           "gancho": "Cómo se reparten los pagos de una obra sana.",
-          "formato": "presupuesto",
-          "cta": "PAGOS"
+          "formato": "presupuesto"
         },
         {
           "gancho": "Los pagos alineados con cada inspección, fase por fase.",
-          "formato": "cronograma",
-          "cta": "ADELANTO"
+          "formato": "cronograma"
         },
         {
           "gancho": "Le pagué al contratista, así que no debo nada. Cuidado.",
-          "formato": "mito_realidad",
-          "cta": "RECLAMO"
+          "formato": "mito_realidad"
         }
       ]
     },
@@ -238,18 +214,15 @@
       "ideas": [
         {
           "gancho": "Lo que debe tener un presupuesto de cocina, línea por línea.",
-          "formato": "presupuesto",
-          "cta": "DESGLOSE"
+          "formato": "presupuesto"
         },
         {
           "gancho": "Tres presupuestos que en realidad no se pueden comparar.",
-          "formato": "comparador",
-          "cta": "COMPARA"
+          "formato": "comparador"
         },
         {
           "gancho": "La partida de materiales que no tiene precio cerrado.",
-          "formato": "errores",
-          "cta": "MATERIAL"
+          "formato": "errores"
         }
       ]
     },
@@ -263,18 +236,15 @@
       "ideas": [
         {
           "gancho": "Cómo un cambio de azulejo retrasa todo lo que viene después.",
-          "formato": "cronograma",
-          "cta": "CAMBIO"
+          "formato": "cronograma"
         },
         {
           "gancho": "Aprobar cambios de palabra, sin nada por escrito.",
-          "formato": "errores",
-          "cta": "ESCRITO"
+          "formato": "errores"
         },
         {
           "gancho": "Lo que de verdad incluye mover un enchufe: partidas escondidas.",
-          "formato": "presupuesto",
-          "cta": "ENCHUFE"
+          "formato": "presupuesto"
         }
       ]
     },
@@ -288,18 +258,15 @@
       "ideas": [
         {
           "gancho": "Abrir la cocina a la sala: lo primero que hay que preguntar.",
-          "formato": "planta",
-          "cta": "ISLA"
+          "formato": "planta"
         },
         {
           "gancho": "Cuarzo, granito o laminado para la encimera.",
-          "formato": "comparador",
-          "cta": "ENCIMERA"
+          "formato": "comparador"
         },
         {
           "gancho": "Elegir los gabinetes antes de cerrar la distribución.",
-          "formato": "errores",
-          "cta": "COCINA"
+          "formato": "errores"
         }
       ]
     },
@@ -315,18 +282,15 @@
       "ideas": [
         {
           "gancho": "Vinílico, porcelanato o madera: qué aguanta la humedad.",
-          "formato": "comparador",
-          "cta": "PISO"
+          "formato": "comparador"
         },
         {
           "gancho": "Madera natural sobre losa en planta baja.",
-          "formato": "errores",
-          "cta": "LOSA"
+          "formato": "errores"
         },
         {
           "gancho": "Misma sala, tres pisos distintos.",
-          "formato": "planta",
-          "cta": "TONO"
+          "formato": "planta"
         }
       ]
     },
@@ -343,18 +307,15 @@
       "ideas": [
         {
           "gancho": "Toda remodelación sube el precio de la casa. No.",
-          "formato": "mito_realidad",
-          "cta": "VALOR"
+          "formato": "mito_realidad"
         },
         {
           "gancho": "Dónde poner el dinero antes de vender.",
-          "formato": "presupuesto",
-          "cta": "VENTA"
+          "formato": "presupuesto"
         },
         {
           "gancho": "Lo que mira un comprador en el baño antes de ofertar.",
-          "formato": "checklist",
-          "cta": "DUCHA"
+          "formato": "checklist"
         }
       ]
     },
@@ -368,18 +329,15 @@
       "ideas": [
         {
           "gancho": "Dónde gastar y dónde no en una casa para alquilar.",
-          "formato": "presupuesto",
-          "cta": "ALQUILER"
+          "formato": "presupuesto"
         },
         {
           "gancho": "El orden de obra que acorta el tiempo sin inquilino.",
-          "formato": "cronograma",
-          "cta": "VACANTE"
+          "formato": "cronograma"
         },
         {
           "gancho": "Acabados que aguantan inquilinos.",
-          "formato": "comparador",
-          "cta": "DURABLE"
+          "formato": "comparador"
         }
       ]
     },
@@ -396,18 +354,15 @@
       "ideas": [
         {
           "gancho": "Antes de remodelar tu apartamento, pide esto a la asociación.",
-          "formato": "checklist",
-          "cta": "CONDO"
+          "formato": "checklist"
         },
         {
           "gancho": "El orden real de una obra en condominio: primero la junta.",
-          "formato": "cronograma",
-          "cta": "JUNTA"
+          "formato": "cronograma"
         },
         {
           "gancho": "En tu apartamento puedes tirar la pared que quieras. No.",
-          "formato": "mito_realidad",
-          "cta": "PARED"
+          "formato": "mito_realidad"
         }
       ]
     },
@@ -421,18 +376,15 @@
       "ideas": [
         {
           "gancho": "La misma sala en tres estilos.",
-          "formato": "planta",
-          "cta": "ESTILO"
+          "formato": "planta"
         },
         {
           "gancho": "El dormitorio pequeño que gana espacio.",
-          "formato": "planta",
-          "cta": "ESPACIO"
+          "formato": "planta"
         },
         {
           "gancho": "Convertir un cuarto en oficina: qué se decide primero.",
-          "formato": "planta",
-          "cta": "OFICINA"
+          "formato": "planta"
         }
       ]
     },
@@ -448,18 +400,15 @@
       "ideas": [
         {
           "gancho": "Remodelar en zona inundable es igual que en cualquier parte. No.",
-          "formato": "mito_realidad",
-          "cta": "ZONA"
+          "formato": "mito_realidad"
         },
         {
           "gancho": "Preguntas antes de comprar en zona inundable.",
-          "formato": "checklist",
-          "cta": "ELEVACION"
+          "formato": "checklist"
         },
         {
           "gancho": "Dónde van el panel eléctrico y el aire en una casa inundable.",
-          "formato": "planta",
-          "cta": "PANEL"
+          "formato": "planta"
         }
       ]
     }

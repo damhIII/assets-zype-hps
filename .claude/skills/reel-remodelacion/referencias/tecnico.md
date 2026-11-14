@@ -16,13 +16,15 @@
   ```
 - `ui/*.svg` y `textures/*.svg`: con `<Img>`. Vienen en los colores del ambiente `lino`; para otro ambiente genera copias teñidas: `python3 scripts/tenir_svg.py --ambiente noche ui/kpi_card.svg --out <proyecto>/public/ambientes`.
 - `logos/` son canales y herramientas (Instagram, WhatsApp, Google Maps…), nunca de un contratista o fabricante.
+- **Logo de la marca**: `brand/en_bruto/*.png` (rutas en `brief.marca.logos`). Es multicolor: va con `<Img src={staticFile(...)}>`, **nunca con máscara CSS**, sin teñir, sin deformar (respeta `marca.proporcion`) y con al menos `marca.uso.aire_min_px` de aire. Cópialo a `public/brand/en_bruto/`. Para animar los corchetes por separado, dibújalos como SVG nativo encima del logo sin lema solo si coinciden exactamente; si no, anima el logo entero (escala + recorte).
 - `fonts/css/*.css`: `@font-face` con woff2 en base64. Usa las de `brief.fuentes` con su `stack`. No descargues fuentes.
 - Lo que no exista, dibújalo como SVG nativo con los colores de `brief.tokens`.
 
 ## Fuentes
-Carga las fuentes antes del primer frame: importa los `.css` (o inyéctalos en un `<style>`) y bloquea con `delayRender`/`continueRender` hasta que `document.fonts.load` resuelva cada familia y peso usado (Fraunces 700/800, DM Sans 500/700/800), con un `catch` que también llame a `continueRender`.
+Carga las fuentes antes del primer frame: importa los `.css` de `brief.fuentes` (o inyéctalos en un `<style>`) y bloquea con `delayRender`/`continueRender` hasta que `document.fonts.load` resuelva cada familia y peso usado (Barlow Condensed 700/800, DM Sans 500/700/800, Space Mono 700), con un `catch` que también llame a `continueRender`.
 
 ## Reglas de código
 - Determinismo total: prohibido `Math.random()` (usa `Math.sin`, índices o `random(seed)` de Remotion).
 - Componentes: uno por capa del marco (`ProgressBar`, `Header`, `Titular`, `Subtitulos`, `AvisoLegal`, `Fondo`), uno por bloque y uno por plantilla (`PlantillaPresupuesto`, `PlantillaCronograma`, …) que recibe `brief.plantilla.params`. El ambiente entra con un hook `useAmbiente()` que interpola colores en las fronteras.
-- Ningún texto escrito a mano en los componentes: todo viene del brief (titulares, params, `cta_previo`, `aviso_legal`, `ilustrativo`).
+- Ningún texto escrito a mano en los componentes: todo viene del brief (titulares, params, `cta`, `cta_previo`, `aviso_legal`, `ilustrativo`).
+- Componentes de marca: `Logo` (elige la variante por ambiente y tamaño) y `Corchetes` (SVG nativo animable con `marca.corchetes`).

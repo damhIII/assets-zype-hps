@@ -11,11 +11,12 @@ Todo lo demás lo haces tú con la skill **reel-remodelacion** (`.claude/skills/
 
 ## Estructura
 - `editorial/`: marca y declaraciones permitidas (`marca.md`), ADN y checklist (`adn.md`), temas (`temas.json`), los 7 formatos (`formatos.json`), datos con fuente (`datos_verificados.json`: solo valen los `verificado: true`), prompt del guionista (`prompt_guion.md`) y perfil de voz (`voz_tts.md`).
-- `.claude/skills/reel-remodelacion/`: la skill, `plantillas/` (una ficha por formato + `plantillas.json` con sus parámetros), `diseno/tokens.json` (colores, tipografías, tamaños, márgenes seguros, movimiento) y `referencias/`.
+- `.claude/skills/reel-remodelacion/`: la skill, `plantillas/` (una ficha por formato + `plantillas.json` con sus parámetros), `diseno/tokens.json` (rojo del logo como acento + paleta cálida de apoyo con matices intermedios, tipografías, logos, tamaños, márgenes seguros, movimiento) y `referencias/`.
+- `brand/en_bruto/`: **logo oficial de EN BRUTO** (PNG transparente) en variantes para fondo claro y oscuro, con y sin lema. Va en el header y en el CTA de cada video, con `<Img>`, sin teñir ni deformar. (`logo_transparente.png`, `logo_hps.png` y `brand/paletas.json` de la raíz son de otra marca: no los uses aquí.)
 - `icons/` Lucide (trazo, `currentColor`) · `logos/` canales (monocromos) → siempre con máscara CSS.
 - `ui/`, `textures/`: SVG en los colores del ambiente `lino` → para otros ambientes, `scripts/tenir_svg.py`.
-- `contactos.png`: hoja con todos los assets gráficos. Ábrela antes de diseñar.
-- `fonts/css/`: `@font-face` con woff2 en base64 (se usan Fraunces y DM Sans).
+- `contactos.png`: hoja con todos los assets gráficos (logo incluido). Ábrela antes de diseñar.
+- `fonts/css/`: `@font-face` con woff2 en base64 (se usan Barlow Condensed, DM Sans y Space Mono).
 - `scripts/`: `alinear.py` (guion ↔ voz), `preparar_brief.py` (decisiones → brief con frames), `validar_repo.py` (editorial y plantillas), `validar_tokens.py` (contrastes), `tenir_svg.py`, `contactos.py`.
 - `briefs/<BASE>/`: lo que sube el notebook + tus decisiones y el brief generado.
 
@@ -24,7 +25,9 @@ Todo lo demás lo haces tú con la skill **reel-remodelacion** (`.claude/skills/
 - **Nunca inventar datos**: ninguna cifra (precio, plazo, porcentaje, norma) en pantalla sin un dato `verificado: true`. Lo ilustrativo se marca.
 - **La marca coordina, no ejecuta**: nunca "construimos", "remodelamos", "instalamos". Nada de licencia, seguro o garantías salvo lo que `marca.md → Declaraciones permitidas` marque con `si`.
 - **Animación pura**: nada de fotos ni videos (de obras, de bancos de imágenes o de internet), ni logos de contratistas o fabricantes.
-- El marco (barra de progreso, header, titular, subtítulos, CTA) es fijo; solo cambian el ambiente y la escena.
+- El marco (barra de progreso, header con logo, titular, subtítulos, CTA con logo) es fijo; solo cambian el ambiente y la escena.
+- **El cierre manda al enlace de la descripción**: nada de palabras clave, "comenta" ni DM.
+- **Duración**: el guionista elige entre 30 y 60 s de voz según la idea.
 - La voz no se toca: ni recortes, ni cambios de velocidad, ni música encima.
 - Determinismo: nada de `Math.random()` en Remotion.
 
