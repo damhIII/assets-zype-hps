@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "base": "20261115-1356",
+ "tipo": "educativo",
+ "marca": "EN BRUTO",
+ "formato": "auto",
+ "formato_guion": "checklist",
+ "idiomas": [
+  "es"
+ ],
+ "seed": "Electrodomesticos y gabinetes que fallan a la intemperie: seleccion de nevera, puertas y herrajes en acero inoxidable 304 o polimero marino, con tomacorrientes GFCI de tapa hermetica",
+ "cierre": "enlace_bio",
+ "duracion_objetivo_s": [
+  30,
+  60
+ ],
+ "creado": "2026-11-15T13:57:31-05:00"
+}
