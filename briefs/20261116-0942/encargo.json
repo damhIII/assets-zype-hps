@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "base": "20261116-0942",
+ "tipo": "educativo",
+ "marca": "EN BRUTO",
+ "formato": "auto",
+ "formato_guion": "checklist",
+ "idiomas": [
+  "es"
+ ],
+ "seed": "Cocina de exteriores: Instalacion de gas insegura o improvisada: tendido de linea de gas propano o natural con tuberia certificada, regulador, valvula de corte exterior y prueba de fugas antes de conectar la parrilla o estufa.",
+ "cierre": "enlace_bio",
+ "duracion_objetivo_s": [
+  30,
+  60
+ ],
+ "creado": "2026-11-16T09:45:01-05:00"
+}
