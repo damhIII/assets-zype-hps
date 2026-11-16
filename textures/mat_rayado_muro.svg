@@ -1,0 +1,8 @@
+<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="rayado" width="12" height="12" patternUnits="userSpaceOnUse">
+      <path d="M-3 3 L3 -3 M0 12 L12 0 M9 15 L15 9" stroke="#85776A" stroke-width="1.2" stroke-opacity="0.22" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#rayado)" />
+</svg>

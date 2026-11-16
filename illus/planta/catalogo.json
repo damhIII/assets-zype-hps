@@ -1,0 +1,197 @@
+{
+ "_nota": "Símbolos de planta 2D a escala real: 1 unidad del viewBox = 1 cm. Lado de la pared arriba (y=0). Colores del ambiente lino (#FFFFFF superficie, #DCD2C6 detalle, #85776A trazo, #241F1C muro, #5E544C flechas) para recolorear con el estilo activo. Generados por el notebook de assets (sin licencia de terceros).",
+ "simbolos": {
+  "cama_doble": {
+   "archivo": "illus/planta/cama_doble.svg",
+   "ancho_cm": 160,
+   "fondo_cm": 200,
+   "descripcion": "Cama doble con cabecero contra la pared"
+  },
+  "cama_individual": {
+   "archivo": "illus/planta/cama_individual.svg",
+   "ancho_cm": 90,
+   "fondo_cm": 190,
+   "descripcion": "Cama individual"
+  },
+  "mesita_noche": {
+   "archivo": "illus/planta/mesita_noche.svg",
+   "ancho_cm": 45,
+   "fondo_cm": 40,
+   "descripcion": "Mesita de noche con lámpara"
+  },
+  "sofa_3": {
+   "archivo": "illus/planta/sofa_3.svg",
+   "ancho_cm": 210,
+   "fondo_cm": 90,
+   "descripcion": "Sofá de tres plazas, respaldo contra la pared"
+  },
+  "sillon": {
+   "archivo": "illus/planta/sillon.svg",
+   "ancho_cm": 85,
+   "fondo_cm": 85,
+   "descripcion": "Sillón"
+  },
+  "mesa_centro": {
+   "archivo": "illus/planta/mesa_centro.svg",
+   "ancho_cm": 110,
+   "fondo_cm": 60,
+   "descripcion": "Mesa de centro"
+  },
+  "alfombra": {
+   "archivo": "illus/planta/alfombra.svg",
+   "ancho_cm": 200,
+   "fondo_cm": 140,
+   "descripcion": "Alfombra"
+  },
+  "mueble_tv": {
+   "archivo": "illus/planta/mueble_tv.svg",
+   "ancho_cm": 180,
+   "fondo_cm": 45,
+   "descripcion": "Mueble de TV contra la pared (pantalla en negro)"
+  },
+  "armario": {
+   "archivo": "illus/planta/armario.svg",
+   "ancho_cm": 180,
+   "fondo_cm": 60,
+   "descripcion": "Armario con barra de colgar"
+  },
+  "escritorio": {
+   "archivo": "illus/planta/escritorio.svg",
+   "ancho_cm": 120,
+   "fondo_cm": 105,
+   "descripcion": "Escritorio con silla"
+  },
+  "comedor_4": {
+   "archivo": "illus/planta/comedor_4.svg",
+   "ancho_cm": 140,
+   "fondo_cm": 180,
+   "descripcion": "Mesa de comedor rectangular con cuatro sillas"
+  },
+  "comedor_redondo": {
+   "archivo": "illus/planta/comedor_redondo.svg",
+   "ancho_cm": 190,
+   "fondo_cm": 190,
+   "descripcion": "Mesa redonda con cuatro sillas"
+  },
+  "inodoro": {
+   "archivo": "illus/planta/inodoro.svg",
+   "ancho_cm": 40,
+   "fondo_cm": 70,
+   "descripcion": "Inodoro, tanque contra la pared"
+  },
+  "lavamanos": {
+   "archivo": "illus/planta/lavamanos.svg",
+   "ancho_cm": 60,
+   "fondo_cm": 48,
+   "descripcion": "Lavamanos de mueble"
+  },
+  "banera": {
+   "archivo": "illus/planta/banera.svg",
+   "ancho_cm": 170,
+   "fondo_cm": 75,
+   "descripcion": "Bañera empotrada"
+  },
+  "ducha_plato": {
+   "archivo": "illus/planta/ducha_plato.svg",
+   "ancho_cm": 90,
+   "fondo_cm": 90,
+   "descripcion": "Plato de ducha con desagüe central (pendiente hacia el centro)"
+  },
+  "ducha_ras_lineal": {
+   "archivo": "illus/planta/ducha_ras_lineal.svg",
+   "ancho_cm": 120,
+   "fondo_cm": 90,
+   "descripcion": "Ducha a ras de piso con desagüe lineal, flecha de pendiente y mampara de vidrio a la derecha"
+  },
+  "estufa": {
+   "archivo": "illus/planta/estufa.svg",
+   "ancho_cm": 60,
+   "fondo_cm": 60,
+   "descripcion": "Estufa/placa de cuatro fuegos"
+  },
+  "fregadero": {
+   "archivo": "illus/planta/fregadero.svg",
+   "ancho_cm": 80,
+   "fondo_cm": 60,
+   "descripcion": "Fregadero doble"
+  },
+  "nevera": {
+   "archivo": "illus/planta/nevera.svg",
+   "ancho_cm": 70,
+   "fondo_cm": 70,
+   "descripcion": "Nevera (frente abajo)"
+  },
+  "lavavajillas": {
+   "archivo": "illus/planta/lavavajillas.svg",
+   "ancho_cm": 60,
+   "fondo_cm": 60,
+   "descripcion": "Lavavajillas bajo encimera"
+  },
+  "encimera_tramo": {
+   "archivo": "illus/planta/encimera_tramo.svg",
+   "ancho_cm": 60,
+   "fondo_cm": 60,
+   "descripcion": "Tramo de encimera de 60 cm (repetible); la línea discontinua es el frente de los gabinetes"
+  },
+  "isla_cocina": {
+   "archivo": "illus/planta/isla_cocina.svg",
+   "ancho_cm": 200,
+   "fondo_cm": 150,
+   "descripcion": "Isla de cocina con barra y tres taburetes"
+  },
+  "lavadora": {
+   "archivo": "illus/planta/lavadora.svg",
+   "ancho_cm": 60,
+   "fondo_cm": 60,
+   "descripcion": "Lavadora o secadora"
+  },
+  "muro_100": {
+   "archivo": "illus/planta/muro_100.svg",
+   "ancho_cm": 100,
+   "fondo_cm": 15,
+   "descripcion": "Tramo de muro de 1 m (15 cm de grosor); escálalo a lo largo"
+  },
+  "puerta_80": {
+   "archivo": "illus/planta/puerta_80.svg",
+   "ancho_cm": 95,
+   "fondo_cm": 95,
+   "descripcion": "Puerta abatible de 80 cm en su hueco (muro arriba, abre hacia abajo)"
+  },
+  "puerta_corredera": {
+   "archivo": "illus/planta/puerta_corredera.svg",
+   "ancho_cm": 190,
+   "fondo_cm": 25,
+   "descripcion": "Puerta corredera de dos hojas"
+  },
+  "ventana_120": {
+   "archivo": "illus/planta/ventana_120.svg",
+   "ancho_cm": 150,
+   "fondo_cm": 15,
+   "descripcion": "Ventana de 120 cm en muro"
+  },
+  "escalera": {
+   "archivo": "illus/planta/escalera.svg",
+   "ancho_cm": 100,
+   "fondo_cm": 300,
+   "descripcion": "Escalera recta (la flecha indica la subida)"
+  },
+  "planta_maceta": {
+   "archivo": "illus/planta/planta_maceta.svg",
+   "ancho_cm": 50,
+   "fondo_cm": 50,
+   "descripcion": "Planta en maceta"
+  },
+  "lampara_pie": {
+   "archivo": "illus/planta/lampara_pie.svg",
+   "ancho_cm": 40,
+   "fondo_cm": 40,
+   "descripcion": "Lámpara de pie"
+  },
+  "parrilla_exterior": {
+   "archivo": "illus/planta/parrilla_exterior.svg",
+   "ancho_cm": 150,
+   "fondo_cm": 65,
+   "descripcion": "Cocina exterior: parrilla con encimeras a los lados"
+  }
+ }
+}

@@ -24,7 +24,8 @@
 ## Escena
 - Vista cenital **2D** sobre papel (`textures/blueprint.svg` muy tenue). Muros de `muro_planta` px en `texto`, puertas con arco de apertura en `estructura`, ventanas como doble línea.
 - La planta se dibuja al empezar el bloque con `strokeDashoffset` (12-16 frames), luego entran los elementos.
-- Cada elemento es un símbolo SVG simple y reconocible (sofá = rectángulo con respaldo, cama con almohadas, isla con taburetes…), dibujado por ti, con los colores del estilo activo: `piso` (relleno del suelo), `muro`, `madera`, `textil`, `metal`, `verde`, `acento`.
+- Cada elemento es un símbolo SVG simple y reconocible (sofá = rectángulo con respaldo, cama con almohadas, isla con taburetes…), con los colores del estilo activo: `piso` (relleno del suelo), `muro`, `madera`, `textil`, `metal`, `verde`, `acento`.
+- **Parte de `illus/planta/`** (cama, sofá, comedor, inodoro, ducha a ras con desagüe lineal, estufa, isla, puertas, ventanas, escalera…): escala real, 1 unidad = 1 cm (`catalogo.json`), con el lado de la pared arriba. Inclúyelos inline y recolorea reemplazando los hex: `#FFFFFF` → `textil` (o `piso`), `#DCD2C6` → `madera`/detalle, `#85776A` → `metal`/trazo, `#241F1C` → `muro`, `#5E544C` → flechas. Para los suelos, `textures/mat_*.svg` (tablones, espiga, baldosa, azulejo) muy tenues. Lo que no esté, dibújalo en el mismo estilo.
 - `cambiar_estilo`: en cada `ancla_f` el relleno del piso y los colores de los elementos se interpolan al nuevo estilo durante 14 frames, y una etiqueta con `estilos_interior.<id>.nombre` entra arriba de la planta. Una pequeña muestra de materiales (3 círculos) acompaña cada estilo.
 - `muro_que_cae`: el muro parpadea en `alerta`, aparece el aviso (`etiqueta`) y después se disuelve en polvo de partículas deterministas (índices, no `Math.random()`).
 - Cotas: **sin números**.

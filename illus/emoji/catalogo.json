@@ -1,0 +1,531 @@
+{
+ "licencia": "MIT (Microsoft Fluent UI Emoji)",
+ "fuente": "https://github.com/microsoft/fluentui-emoji",
+ "emoji": {
+  "house": {
+   "nombre": "House",
+   "flat": "illus/emoji/flat/house.svg",
+   "3d": "illus/emoji/3d/house.png"
+  },
+  "house_with_garden": {
+   "nombre": "House with garden",
+   "flat": "illus/emoji/flat/house_with_garden.svg",
+   "3d": "illus/emoji/3d/house_with_garden.png"
+  },
+  "derelict_house": {
+   "nombre": "Derelict house",
+   "flat": "illus/emoji/flat/derelict_house.svg",
+   "3d": "illus/emoji/3d/derelict_house.png"
+  },
+  "building_construction": {
+   "nombre": "Building construction",
+   "flat": "illus/emoji/flat/building_construction.svg",
+   "3d": "illus/emoji/3d/building_construction.png"
+  },
+  "construction": {
+   "nombre": "Construction",
+   "flat": "illus/emoji/flat/construction.svg",
+   "3d": "illus/emoji/3d/construction.png"
+  },
+  "hammer": {
+   "nombre": "Hammer",
+   "flat": "illus/emoji/flat/hammer.svg",
+   "3d": "illus/emoji/3d/hammer.png"
+  },
+  "hammer_and_wrench": {
+   "nombre": "Hammer and wrench",
+   "flat": "illus/emoji/flat/hammer_and_wrench.svg",
+   "3d": "illus/emoji/3d/hammer_and_wrench.png"
+  },
+  "wrench": {
+   "nombre": "Wrench",
+   "flat": "illus/emoji/flat/wrench.svg",
+   "3d": "illus/emoji/3d/wrench.png"
+  },
+  "screwdriver": {
+   "nombre": "Screwdriver",
+   "flat": "illus/emoji/flat/screwdriver.svg",
+   "3d": "illus/emoji/3d/screwdriver.png"
+  },
+  "toolbox": {
+   "nombre": "Toolbox",
+   "flat": "illus/emoji/flat/toolbox.svg",
+   "3d": "illus/emoji/3d/toolbox.png"
+  },
+  "carpentry_saw": {
+   "nombre": "Carpentry saw",
+   "flat": "illus/emoji/flat/carpentry_saw.svg",
+   "3d": "illus/emoji/3d/carpentry_saw.png"
+  },
+  "axe": {
+   "nombre": "Axe",
+   "flat": "illus/emoji/flat/axe.svg",
+   "3d": "illus/emoji/3d/axe.png"
+  },
+  "ladder": {
+   "nombre": "Ladder",
+   "flat": "illus/emoji/flat/ladder.svg",
+   "3d": "illus/emoji/3d/ladder.png"
+  },
+  "brick": {
+   "nombre": "Brick",
+   "flat": "illus/emoji/flat/brick.svg",
+   "3d": "illus/emoji/3d/brick.png"
+  },
+  "wood": {
+   "nombre": "Wood",
+   "flat": "illus/emoji/flat/wood.svg",
+   "3d": "illus/emoji/3d/wood.png"
+  },
+  "rock": {
+   "nombre": "Rock",
+   "flat": "illus/emoji/flat/rock.svg",
+   "3d": "illus/emoji/3d/rock.png"
+  },
+  "bucket": {
+   "nombre": "Bucket",
+   "flat": "illus/emoji/flat/bucket.svg",
+   "3d": "illus/emoji/3d/bucket.png"
+  },
+  "broom": {
+   "nombre": "Broom",
+   "flat": "illus/emoji/flat/broom.svg",
+   "3d": "illus/emoji/3d/broom.png"
+  },
+  "sponge": {
+   "nombre": "Sponge",
+   "flat": "illus/emoji/flat/sponge.svg",
+   "3d": "illus/emoji/3d/sponge.png"
+  },
+  "plunger": {
+   "nombre": "Plunger",
+   "flat": "illus/emoji/flat/plunger.svg",
+   "3d": "illus/emoji/3d/plunger.png"
+  },
+  "paintbrush": {
+   "nombre": "Paintbrush",
+   "flat": "illus/emoji/flat/paintbrush.svg",
+   "3d": "illus/emoji/3d/paintbrush.png"
+  },
+  "artist_palette": {
+   "nombre": "Artist palette",
+   "flat": "illus/emoji/flat/artist_palette.svg",
+   "3d": "illus/emoji/3d/artist_palette.png"
+  },
+  "straight_ruler": {
+   "nombre": "Straight ruler",
+   "flat": "illus/emoji/flat/straight_ruler.svg",
+   "3d": "illus/emoji/3d/straight_ruler.png"
+  },
+  "triangular_ruler": {
+   "nombre": "Triangular ruler",
+   "flat": "illus/emoji/flat/triangular_ruler.svg",
+   "3d": "illus/emoji/3d/triangular_ruler.png"
+  },
+  "bathtub": {
+   "nombre": "Bathtub",
+   "flat": "illus/emoji/flat/bathtub.svg",
+   "3d": "illus/emoji/3d/bathtub.png"
+  },
+  "shower": {
+   "nombre": "Shower",
+   "flat": "illus/emoji/flat/shower.svg",
+   "3d": "illus/emoji/3d/shower.png"
+  },
+  "toilet": {
+   "nombre": "Toilet",
+   "flat": "illus/emoji/flat/toilet.svg",
+   "3d": "illus/emoji/3d/toilet.png"
+  },
+  "bed": {
+   "nombre": "Bed",
+   "flat": "illus/emoji/flat/bed.svg",
+   "3d": "illus/emoji/3d/bed.png"
+  },
+  "couch_and_lamp": {
+   "nombre": "Couch and lamp",
+   "flat": "illus/emoji/flat/couch_and_lamp.svg",
+   "3d": "illus/emoji/3d/couch_and_lamp.png"
+  },
+  "chair": {
+   "nombre": "Chair",
+   "flat": "illus/emoji/flat/chair.svg",
+   "3d": "illus/emoji/3d/chair.png"
+  },
+  "door": {
+   "nombre": "Door",
+   "flat": "illus/emoji/flat/door.svg",
+   "3d": "illus/emoji/3d/door.png"
+  },
+  "window": {
+   "nombre": "Window",
+   "flat": "illus/emoji/flat/window.svg",
+   "3d": "illus/emoji/3d/window.png"
+  },
+  "mirror": {
+   "nombre": "Mirror",
+   "flat": "illus/emoji/flat/mirror.svg",
+   "3d": "illus/emoji/3d/mirror.png"
+  },
+  "potted_plant": {
+   "nombre": "Potted plant",
+   "flat": "illus/emoji/flat/potted_plant.svg",
+   "3d": "illus/emoji/3d/potted_plant.png"
+  },
+  "light_bulb": {
+   "nombre": "Light bulb",
+   "flat": "illus/emoji/flat/light_bulb.svg",
+   "3d": "illus/emoji/3d/light_bulb.png"
+  },
+  "electric_plug": {
+   "nombre": "Electric plug",
+   "flat": "illus/emoji/flat/electric_plug.svg",
+   "3d": "illus/emoji/3d/electric_plug.png"
+  },
+  "droplet": {
+   "nombre": "Droplet",
+   "flat": "illus/emoji/flat/droplet.svg",
+   "3d": "illus/emoji/3d/droplet.png"
+  },
+  "sweat_droplets": {
+   "nombre": "Sweat droplets",
+   "flat": "illus/emoji/flat/sweat_droplets.svg",
+   "3d": "illus/emoji/3d/sweat_droplets.png"
+  },
+  "water_wave": {
+   "nombre": "Water wave",
+   "flat": "illus/emoji/flat/water_wave.svg",
+   "3d": "illus/emoji/3d/water_wave.png"
+  },
+  "cloud_with_rain": {
+   "nombre": "Cloud with rain",
+   "flat": "illus/emoji/flat/cloud_with_rain.svg",
+   "3d": "illus/emoji/3d/cloud_with_rain.png"
+  },
+  "cloud_with_lightning_and_rain": {
+   "nombre": "Cloud with lightning and rain",
+   "flat": "illus/emoji/flat/cloud_with_lightning_and_rain.svg",
+   "3d": "illus/emoji/3d/cloud_with_lightning_and_rain.png"
+  },
+  "tornado": {
+   "nombre": "Tornado",
+   "flat": "illus/emoji/flat/tornado.svg",
+   "3d": "illus/emoji/3d/tornado.png"
+  },
+  "cyclone": {
+   "nombre": "Cyclone",
+   "flat": "illus/emoji/flat/cyclone.svg",
+   "3d": "illus/emoji/3d/cyclone.png"
+  },
+  "sun": {
+   "nombre": "Sun",
+   "flat": "illus/emoji/flat/sun.svg",
+   "3d": "illus/emoji/3d/sun.png"
+  },
+  "snowflake": {
+   "nombre": "Snowflake",
+   "flat": "illus/emoji/flat/snowflake.svg",
+   "3d": "illus/emoji/3d/snowflake.png"
+  },
+  "fire": {
+   "nombre": "Fire",
+   "flat": "illus/emoji/flat/fire.svg",
+   "3d": "illus/emoji/3d/fire.png"
+  },
+  "fire_extinguisher": {
+   "nombre": "Fire extinguisher",
+   "flat": "illus/emoji/flat/fire_extinguisher.svg",
+   "3d": "illus/emoji/3d/fire_extinguisher.png"
+  },
+  "thermometer": {
+   "nombre": "Thermometer",
+   "flat": "illus/emoji/flat/thermometer.svg",
+   "3d": "illus/emoji/3d/thermometer.png"
+  },
+  "umbrella_with_rain_drops": {
+   "nombre": "Umbrella with rain drops",
+   "flat": "illus/emoji/flat/umbrella_with_rain_drops.svg",
+   "3d": "illus/emoji/3d/umbrella_with_rain_drops.png"
+  },
+  "money_bag": {
+   "nombre": "Money bag",
+   "flat": "illus/emoji/flat/money_bag.svg",
+   "3d": "illus/emoji/3d/money_bag.png"
+  },
+  "money_with_wings": {
+   "nombre": "Money with wings",
+   "flat": "illus/emoji/flat/money_with_wings.svg",
+   "3d": "illus/emoji/3d/money_with_wings.png"
+  },
+  "dollar_banknote": {
+   "nombre": "Dollar banknote",
+   "flat": "illus/emoji/flat/dollar_banknote.svg",
+   "3d": "illus/emoji/3d/dollar_banknote.png"
+  },
+  "coin": {
+   "nombre": "Coin",
+   "flat": "illus/emoji/flat/coin.svg",
+   "3d": "illus/emoji/3d/coin.png"
+  },
+  "receipt": {
+   "nombre": "Receipt",
+   "flat": "illus/emoji/flat/receipt.svg",
+   "3d": "illus/emoji/3d/receipt.png"
+  },
+  "credit_card": {
+   "nombre": "Credit card",
+   "flat": "illus/emoji/flat/credit_card.svg",
+   "3d": "illus/emoji/3d/credit_card.png"
+  },
+  "calendar": {
+   "nombre": "Calendar",
+   "flat": "illus/emoji/flat/calendar.svg",
+   "3d": "illus/emoji/3d/calendar.png"
+  },
+  "spiral_calendar": {
+   "nombre": "Spiral calendar",
+   "flat": "illus/emoji/flat/spiral_calendar.svg",
+   "3d": "illus/emoji/3d/spiral_calendar.png"
+  },
+  "hourglass_not_done": {
+   "nombre": "Hourglass not done",
+   "flat": "illus/emoji/flat/hourglass_not_done.svg",
+   "3d": "illus/emoji/3d/hourglass_not_done.png"
+  },
+  "stopwatch": {
+   "nombre": "Stopwatch",
+   "flat": "illus/emoji/flat/stopwatch.svg",
+   "3d": "illus/emoji/3d/stopwatch.png"
+  },
+  "alarm_clock": {
+   "nombre": "Alarm clock",
+   "flat": "illus/emoji/flat/alarm_clock.svg",
+   "3d": "illus/emoji/3d/alarm_clock.png"
+  },
+  "warning": {
+   "nombre": "Warning",
+   "flat": "illus/emoji/flat/warning.svg",
+   "3d": "illus/emoji/3d/warning.png"
+  },
+  "stop_sign": {
+   "nombre": "Stop sign",
+   "flat": "illus/emoji/flat/stop_sign.svg",
+   "3d": "illus/emoji/3d/stop_sign.png"
+  },
+  "police_car_light": {
+   "nombre": "Police car light",
+   "flat": "illus/emoji/flat/police_car_light.svg",
+   "3d": "illus/emoji/3d/police_car_light.png"
+  },
+  "check_mark_button": {
+   "nombre": "Check mark button",
+   "flat": "illus/emoji/flat/check_mark_button.svg",
+   "3d": "illus/emoji/3d/check_mark_button.png"
+  },
+  "cross_mark": {
+   "nombre": "Cross mark",
+   "flat": "illus/emoji/flat/cross_mark.svg",
+   "3d": "illus/emoji/3d/cross_mark.png"
+  },
+  "red_question_mark": {
+   "nombre": "Red question mark",
+   "flat": "illus/emoji/flat/red_question_mark.svg",
+   "3d": "illus/emoji/3d/red_question_mark.png"
+  },
+  "red_exclamation_mark": {
+   "nombre": "Red exclamation mark",
+   "flat": "illus/emoji/flat/red_exclamation_mark.svg",
+   "3d": "illus/emoji/3d/red_exclamation_mark.png"
+  },
+  "magnifying_glass_tilted_right": {
+   "nombre": "Magnifying glass tilted right",
+   "flat": "illus/emoji/flat/magnifying_glass_tilted_right.svg",
+   "3d": "illus/emoji/3d/magnifying_glass_tilted_right.png"
+  },
+  "clipboard": {
+   "nombre": "Clipboard",
+   "flat": "illus/emoji/flat/clipboard.svg",
+   "3d": "illus/emoji/3d/clipboard.png"
+  },
+  "memo": {
+   "nombre": "Memo",
+   "flat": "illus/emoji/flat/memo.svg",
+   "3d": "illus/emoji/3d/memo.png"
+  },
+  "pencil": {
+   "nombre": "Pencil",
+   "flat": "illus/emoji/flat/pencil.svg",
+   "3d": "illus/emoji/3d/pencil.png"
+  },
+  "page_facing_up": {
+   "nombre": "Page facing up",
+   "flat": "illus/emoji/flat/page_facing_up.svg",
+   "3d": "illus/emoji/3d/page_facing_up.png"
+  },
+  "scroll": {
+   "nombre": "Scroll",
+   "flat": "illus/emoji/flat/scroll.svg",
+   "3d": "illus/emoji/3d/scroll.png"
+  },
+  "locked_with_key": {
+   "nombre": "Locked with key",
+   "flat": "illus/emoji/flat/locked_with_key.svg",
+   "3d": "illus/emoji/3d/locked_with_key.png"
+  },
+  "key": {
+   "nombre": "Key",
+   "flat": "illus/emoji/flat/key.svg",
+   "3d": "illus/emoji/3d/key.png"
+  },
+  "handshake": {
+   "nombre": "Handshake",
+   "flat": "illus/emoji/flat/handshake.svg",
+   "3d": "illus/emoji/3d/handshake.png"
+  },
+  "thumbs_up": {
+   "nombre": "Thumbs up",
+   "flat": "illus/emoji/flat/thumbs_up.svg",
+   "3d": "illus/emoji/3d/thumbs_up.png"
+  },
+  "thumbs_down": {
+   "nombre": "Thumbs down",
+   "flat": "illus/emoji/flat/thumbs_down.svg",
+   "3d": "illus/emoji/3d/thumbs_down.png"
+  },
+  "clapping_hands": {
+   "nombre": "Clapping hands",
+   "flat": "illus/emoji/flat/clapping_hands.svg",
+   "3d": "illus/emoji/3d/clapping_hands.png"
+  },
+  "thinking_face": {
+   "nombre": "Thinking face",
+   "flat": "illus/emoji/flat/thinking_face.svg",
+   "3d": "illus/emoji/3d/thinking_face.png"
+  },
+  "face_with_raised_eyebrow": {
+   "nombre": "Face with raised eyebrow",
+   "flat": "illus/emoji/flat/face_with_raised_eyebrow.svg",
+   "3d": "illus/emoji/3d/face_with_raised_eyebrow.png"
+  },
+  "face_with_monocle": {
+   "nombre": "Face with monocle",
+   "flat": "illus/emoji/flat/face_with_monocle.svg",
+   "3d": "illus/emoji/3d/face_with_monocle.png"
+  },
+  "grimacing_face": {
+   "nombre": "Grimacing face",
+   "flat": "illus/emoji/flat/grimacing_face.svg",
+   "3d": "illus/emoji/3d/grimacing_face.png"
+  },
+  "exploding_head": {
+   "nombre": "Exploding head",
+   "flat": "illus/emoji/flat/exploding_head.svg",
+   "3d": "illus/emoji/3d/exploding_head.png"
+  },
+  "face_screaming_in_fear": {
+   "nombre": "Face screaming in fear",
+   "flat": "illus/emoji/flat/face_screaming_in_fear.svg",
+   "3d": "illus/emoji/3d/face_screaming_in_fear.png"
+  },
+  "money_mouth_face": {
+   "nombre": "Money-mouth face",
+   "flat": "illus/emoji/flat/money_mouth_face.svg",
+   "3d": "illus/emoji/3d/money_mouth_face.png"
+  },
+  "partying_face": {
+   "nombre": "Partying face",
+   "flat": "illus/emoji/flat/partying_face.svg",
+   "3d": "illus/emoji/3d/partying_face.png"
+  },
+  "smiling_face_with_sunglasses": {
+   "nombre": "Smiling face with sunglasses",
+   "flat": "illus/emoji/flat/smiling_face_with_sunglasses.svg",
+   "3d": "illus/emoji/3d/smiling_face_with_sunglasses.png"
+  },
+  "face_with_rolling_eyes": {
+   "nombre": "Face with rolling eyes",
+   "flat": "illus/emoji/flat/face_with_rolling_eyes.svg",
+   "3d": "illus/emoji/3d/face_with_rolling_eyes.png"
+  },
+  "downcast_face_with_sweat": {
+   "nombre": "Downcast face with sweat",
+   "flat": "illus/emoji/flat/downcast_face_with_sweat.svg",
+   "3d": "illus/emoji/3d/downcast_face_with_sweat.png"
+  },
+  "grinning_face_with_sweat": {
+   "nombre": "Grinning face with sweat",
+   "flat": "illus/emoji/flat/grinning_face_with_sweat.svg",
+   "3d": "illus/emoji/3d/grinning_face_with_sweat.png"
+  },
+  "party_popper": {
+   "nombre": "Party popper",
+   "flat": "illus/emoji/flat/party_popper.svg",
+   "3d": "illus/emoji/3d/party_popper.png"
+  },
+  "sparkles": {
+   "nombre": "Sparkles",
+   "flat": "illus/emoji/flat/sparkles.svg",
+   "3d": "illus/emoji/3d/sparkles.png"
+  },
+  "trophy": {
+   "nombre": "Trophy",
+   "flat": "illus/emoji/flat/trophy.svg",
+   "3d": "illus/emoji/3d/trophy.png"
+  },
+  "bomb": {
+   "nombre": "Bomb",
+   "flat": "illus/emoji/flat/bomb.svg",
+   "3d": "illus/emoji/3d/bomb.png"
+  },
+  "package": {
+   "nombre": "Package",
+   "flat": "illus/emoji/flat/package.svg",
+   "3d": "illus/emoji/3d/package.png"
+  },
+  "mobile_phone": {
+   "nombre": "Mobile phone",
+   "flat": "illus/emoji/flat/mobile_phone.svg",
+   "3d": "illus/emoji/3d/mobile_phone.png"
+  },
+  "cockroach": {
+   "nombre": "Cockroach",
+   "flat": "illus/emoji/flat/cockroach.svg",
+   "3d": "illus/emoji/3d/cockroach.png"
+  },
+  "mosquito": {
+   "nombre": "Mosquito",
+   "flat": "illus/emoji/flat/mosquito.svg",
+   "3d": "illus/emoji/3d/mosquito.png"
+  },
+  "bellhop_bell": {
+   "nombre": "Bellhop bell",
+   "flat": "illus/emoji/flat/bellhop_bell.svg",
+   "3d": "illus/emoji/3d/bellhop_bell.png"
+  },
+  "round_pushpin": {
+   "nombre": "Round pushpin",
+   "flat": "illus/emoji/flat/round_pushpin.svg",
+   "3d": "illus/emoji/3d/round_pushpin.png"
+  },
+  "gear": {
+   "nombre": "Gear",
+   "flat": "illus/emoji/flat/gear.svg",
+   "3d": "illus/emoji/3d/gear.png"
+  },
+  "nut_and_bolt": {
+   "nombre": "Nut and bolt",
+   "flat": "illus/emoji/flat/nut_and_bolt.svg",
+   "3d": "illus/emoji/3d/nut_and_bolt.png"
+  },
+  "magnet": {
+   "nombre": "Magnet",
+   "flat": "illus/emoji/flat/magnet.svg",
+   "3d": "illus/emoji/3d/magnet.png"
+  },
+  "link": {
+   "nombre": "Link",
+   "flat": "illus/emoji/flat/link.svg",
+   "3d": "illus/emoji/3d/link.png"
+  }
+ }
+}

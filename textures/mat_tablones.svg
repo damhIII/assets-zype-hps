@@ -1,0 +1,9 @@
+<svg width="240" height="72" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="tablones" width="240" height="72" patternUnits="userSpaceOnUse">
+      <path d="M0 0.5 H240 M0 24.5 H240 M0 48.5 H240 M80.5 0 V24 M200.5 24 V48 M40.5 48 V72" stroke="#85776A" stroke-width="1.2" stroke-opacity="0.22" fill="none"/>
+      <path d="M10 12 C60 9 110 15 160 11 M90 36 C130 33 170 39 230 35 M5 60 C60 57 120 63 235 59" stroke="#85776A" stroke-width="0.8" stroke-opacity="0.12" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#tablones)" />
+</svg>

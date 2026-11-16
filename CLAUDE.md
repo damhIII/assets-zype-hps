@@ -13,8 +13,10 @@ Todo lo demás lo haces tú con la skill **reel-remodelacion** (`.claude/skills/
 - `editorial/`: marca y declaraciones permitidas (`marca.md`), ADN y checklist (`adn.md`), temas (`temas.json`), los 7 formatos (`formatos.json`), datos con fuente (`datos_verificados.json`: solo valen los `verificado: true`), prompt del guionista (`prompt_guion.md`) y perfil de voz (`voz_tts.md`).
 - `.claude/skills/reel-remodelacion/`: la skill, `plantillas/` (una ficha por formato + `plantillas.json` con sus parámetros), `diseno/tokens.json` (rojo del logo como acento + paleta cálida de apoyo con matices intermedios, tipografías, logos, tamaños, márgenes seguros, movimiento) y `referencias/`.
 - `brand/en_bruto/`: **logo oficial de EN BRUTO** (PNG transparente) en variantes para fondo claro y oscuro, con y sin lema. Va en el header y en el CTA de cada video, con `<Img>`, sin teñir ni deformar. (`logo_transparente.png`, `logo_hps.png` y `brand/paletas.json` de la raíz son de otra marca: no los uses aquí.)
-- `icons/` Lucide (trazo, `currentColor`) · `logos/` canales (monocromos) → siempre con máscara CSS.
-- `ui/`, `textures/`: SVG en los colores del ambiente `lino` → para otros ambientes, `scripts/tenir_svg.py`.
+- `icons/` Lucide y Tabler (`tb-*`), de trazo y `currentColor` · `logos/` canales (monocromos) → siempre con máscara CSS.
+- `illus/planta/`: símbolos de planta 2D a escala real (1 unidad = 1 cm; medidas en `catalogo.json`) · `illus/emoji/`: emoji Fluent de Microsoft (`flat/` SVG, `3d/` PNG) para pegatinas puntuales.
+- `audio/`: efectos (`sfx/`) y música de fondo (`musica/`) con licencia CC0, normalizados; qué hay y de dónde sale en `audio/catalogo.json`. Cómo usarlos: `referencias/audio.md`.
+- `ui/`, `textures/` (incluidos los materiales `mat_*`: azulejo, madera, ladrillo, terrazo…): SVG en los colores del ambiente `lino` → para otros ambientes, `scripts/tenir_svg.py`.
 - `contactos.png`: hoja con todos los assets gráficos (logo incluido). Ábrela antes de diseñar.
 - `fonts/css/`: `@font-face` con woff2 en base64 (se usan Barlow Condensed, DM Sans y Space Mono).
 - `scripts/`: `alinear.py` (guion ↔ voz), `preparar_brief.py` (decisiones → brief con frames), `validar_repo.py` (editorial y plantillas), `validar_tokens.py` (contrastes), `tenir_svg.py`, `contactos.py`.
@@ -28,7 +30,7 @@ Todo lo demás lo haces tú con la skill **reel-remodelacion** (`.claude/skills/
 - El marco (barra de progreso, header con logo, titular, subtítulos, CTA con logo) es fijo; solo cambian el ambiente y la escena.
 - **El cierre manda al perfil y al enlace de la bio**: nada de palabras clave, "comenta", DM ni enlace de la descripción.
 - **Duración**: el guionista elige entre 30 y 60 s de voz según la idea.
-- La voz no se toca: ni recortes, ni cambios de velocidad, ni música encima.
+- La voz no se toca: ni recortes ni cambios de velocidad. Música de fondo y efectos de sonido solo del catálogo `audio/` y siempre por debajo de la voz (`referencias/audio.md`).
 - Determinismo: nada de `Math.random()` en Remotion.
 
 ## Qué se edita dónde

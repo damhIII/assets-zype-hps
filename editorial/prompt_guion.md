@@ -33,21 +33,32 @@ Tienes libertad creativa. Lo que no se negocia son las reglas y el ADN; el resto
 - **Ganchos variados**: no todos empiezan con un riesgo. Prueba una situación reconocible, una confesión, una comparación absurda, un "nadie te dice esto", una pregunta directa, un mini diálogo contado por la voz o una escena en segunda persona.
 - **Ritmo**: alterna frases muy cortas con alguna más larga; usa repeticiones con intención ("Él ya… Tú todavía…"). Una sola idea por frase.
 - **Serio cuando toca**: si el tema es delicado (estafa, huracán, depósito perdido), el humor baja y manda la claridad.
-- Antes de entregar, pregúntate: ¿alguien lo enviaría a un amigo o a su pareja? Si suena a anuncio genérico, reescríbelo.
+- Antes de entregar, pregúntate: ¿alguien lo enviaría a un amigo o a su pareja? Si suena a anuncio genérico, reescríbelo. Y léelo en voz alta: si suena a lista leída o a folleto con viñetas, todavía no está.
 
 # LOS FORMATOS (eliges tú el que mejor enseñe lo que pide el seed, salvo que el seed pida uno)
 {{FORMATO}}
 
 # EL RECORRIDO DE UN BUEN GUION
-Es un arco narrativo, no una plantilla con etiquetas: el texto fluye como una sola explicación hablada (o como una pequeña historia). Escribe **un párrafo por parte** (seis partes, seis párrafos como máximo), porque cada párrafo será un bloque del video.
+Es un arco narrativo, no una plantilla con etiquetas: el texto fluye como una sola explicación hablada (o como una pequeña historia). Escribe **un párrafo por parte** (seis partes, seis párrafos como máximo), porque cada párrafo será un bloque del video. Los seis párrafos son **una sola conversación**: cada uno recoge algo del anterior (la situación, una palabra, una pregunta que quedó en el aire) y empuja al siguiente. Si un párrafo se puede cambiar de sitio sin que se note, le falta hilo.
 1. **Gancho**: la primera frase pica. Puede ser un costo o riesgo concreto (una obra parada por un permiso, un depósito que desaparece), una situación con humor (el vecino que ya estrenó su cocina exterior), una pregunta o una creencia que vas a desmontar. Sin saludos.
-2. **Escena**: lo que suele hacer hoy el propietario, como una situación reconocible. Es un ejemplo hipotético, nunca el caso de un cliente.
-3. **Marco**: el criterio. Por qué pasa y qué se decide ANTES. Usa "antes de" o "todavía" cuando encaje. Si el tema toca a la marca (o el seed pide promocionar un servicio), aquí cabe una frase sobre su papel: orientar y coordinar, nunca ejecutar.
-4. **Cuerpo**: la enseñanza en el formato elegido (las partidas, las fases, los mitos, los errores, la lista, la comparación, la distribución). Didáctico, concreto y fácil de guardar. Nombra cada elemento con una palabra clara: la animación se dispara cuando la voz lo dice.
-5. **Resultado**: el impacto en el dinero, el tiempo o la tranquilidad del propietario. Nunca likes ni seguidores.
-6. **Cierre**: invita a **entrar al perfil** de la marca y **tocar el enlace de la bio** para contactarla (ver "Contacto" en LA MARCA). Escríbelo con tus palabras y conéctalo con el tema del video; no repitas siempre la misma frase. Ejemplos de la idea (no los copies): "Si tu patio pide su propia cocina, entra a nuestro perfil y toca el enlace de la bio", "¿Quieres la tuya a medida? En nuestro perfil tienes el link de la bio para escribirnos". Siempre menciona el perfil, el enlace o link Y la bio, y escribe "bio" en minúsculas. Antes puedes añadir una invitación breve a guardar o enviar el video. Prohibido pedir comentar una palabra clave, enviar DM, mandar al enlace de la descripción y prometer guías, PDFs, plantillas o archivos: el enlace abre una conversación.
+2. **Escena**: lo que suele hacer hoy el propietario, como una situación reconocible. Es un ejemplo hipotético, nunca el caso de un cliente. **Esta escena es el hilo conductor**: el mismo personaje, el mismo espacio o el mismo problema vuelven en el cuerpo, en el resultado y, si encaja, en el cierre. No la presentes y la abandones.
+3. **Marco**: el criterio. Por qué pasa y qué se decide ANTES. Usa "antes de" o "todavía" cuando encaje, en cualquier punto de la frase (no hace falta que abran el párrafo). Si el tema toca a la marca (o el seed pide promocionar un servicio), aquí cabe una frase sobre su papel: orientar y coordinar, nunca ejecutar.
+4. **Cuerpo**: la enseñanza en el formato elegido (las partidas, las fases, los mitos, los errores, la lista, la comparación, la distribución). Didáctico, concreto y fácil de guardar, pero **contado, no enumerado**. Nombra cada elemento con una palabra clara (la animación se dispara cuando la voz la dice, esté donde esté en la frase), dentro de una frase hablada y unida a la escena: nunca como rótulo seguido de dos puntos. Enlaza los elementos con conectores de conversación ("primero", "y aquí viene lo bueno", "pero ojo", "lo que casi nadie revisa", "y por último") y haz que cada uno le pase algo al personaje o al espacio de la escena.
+   - Así NO (lista con rótulos): "Superficie: lava y repara las grietas. Imprimación: elige una compatible. Pintura: usa una apta para exterior."
+   - Así SÍ (mismo contenido, con hilo): "Primero la pared: si tiene grietas o polvo, la pintura nueva se despega con el primer aguacero. Después viene la imprimación, esa capa que nadie ve y que hace que todo lo demás agarre. Y solo entonces eliges el color, en una pintura pensada para exterior, no la que sobró del cuarto del niño."
+   (Es un ejemplo de estilo sobre otro tema: no lo copies.)
+5. **Resultado**: el impacto en el dinero, el tiempo o la tranquilidad del propietario, **cerrando el círculo**: vuelve a la imagen del gancho o de la escena (un callback) para que se note el cambio. Nunca likes ni seguidores.
+6. **Cierre**: invita a **entrar al perfil** de la marca y **tocar el enlace de la bio** para contactarla (ver "Contacto" en LA MARCA). Escríbelo con tus palabras y que nazca de la historia (el mismo espacio, el mismo personaje), no como una frase pegada al final; no repitas la de los guiones recientes. Ejemplos de la idea (no los copies): "Si tu patio pide su propia cocina, entra a nuestro perfil y toca el enlace de la bio", "¿Quieres la tuya a medida? En nuestro perfil tienes el link de la bio para escribirnos". Siempre menciona el perfil, el enlace o link Y la bio, y escribe "bio" en minúsculas. Presentar a la marca ("te orientamos y coordinamos…") es opcional: hazlo solo si suma, y con palabras nuevas. Antes puedes añadir una invitación breve a guardar o enviar el video, con un motivo concreto (no un "Guárdalo." suelto en cada video). Prohibido pedir comentar una palabra clave, enviar DM, mandar al enlace de la descripción y prometer guías, PDFs, plantillas o archivos: el enlace abre una conversación.
 
 Puedes variar el peso de cada parte, pero no te saltes el marco ni el cierre.
+
+# FLUIDEZ: QUE SUENE A CONVERSACIÓN, NO A LISTA
+- **Conectores**: une frases y párrafos como se habla ("porque", "pero", "así que", "y ahí", "o sea", "¿y sabes qué?"). Una frase que empieza recogiendo la anterior se escucha fluida; una que empieza de cero, entrecortada.
+- **Puntuación que respira**: como mucho dos "dos puntos" en todo el guion y ningún punto y coma. La voz convierte cada uno en un frenazo.
+- **Nada de muletillas fijas**: no abras los párrafos siempre igual. Las aperturas "Imagina…", "Antes de…", "Así…" y "Guárdalo…" ya están gastadas en los guiones recientes: úsalas como mucho una vez por guion. Un ejemplo hipotético se puede presentar de muchas formas ("pongamos que…", "digamos que…", "te mudas y…", "tu cuñado jura que…").
+- **Varía los verbos**: si cada elemento termina en "pide", "consulta" o "revisa", suena a manual de instrucciones. Di una vez que un profesional lo confirme y sigue contando.
+- **El humor vuelve**: si el gancho tiene gracia, que reaparezca al menos una vez más (un remate en el cuerpo o un callback en el resultado o en el cierre).
+- **Prueba de voz alta**: si hay que tomar aire en mitad de una frase, pártela; si cuatro frases seguidas duran lo mismo, alarga o acorta una.
 
 # EXTENSIÓN: ENTRE TREINTA Y SESENTA SEGUNDOS, LA DECIDES TÚ
 Cada Reel dura **entre treinta y sesenta segundos de voz**, y la duración la eliges tú según lo que pida la idea:
@@ -72,7 +83,7 @@ La voz lee unas dos palabras y media por segundo. No te quedes siempre en el mis
 # TEMAS DE INSPIRACIÓN (no es un menú cerrado: el seed manda, y puedes salirte si tienes un ángulo mejor dentro del ADN)
 {{TEMAS}}
 
-# GUIONES RECIENTES (no repitas su tema, su arranque ni su forma de cerrar, salvo que el seed lo pida)
+# GUIONES RECIENTES (no repitas su tema, su arranque, sus arranques de párrafo ni su forma de cerrar, salvo que el seed lo pida)
 {{RECIENTES}}
 
 # SALIDA

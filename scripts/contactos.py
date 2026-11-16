@@ -2,7 +2,7 @@
 """Regenera contactos.png: hoja con todos los assets gráficos del repo (logo de la marca, iconos, logos de canales, ui, texturas).
 
 Uso: python3 scripts/contactos.py            (necesita rsvg-convert y Pillow: apt install librsvg2-bin · pip install pillow)
-Ejecútalo cada vez que añadas o cambies assets en icons/, logos/, ui/ o textures/.
+Ejecútalo cada vez que añadas o cambies assets en icons/, logos/, ui/, textures/ o illus/.
 """
 import subprocess, sys, io, re
 from pathlib import Path
@@ -28,10 +28,12 @@ def render(svg, w, h, color=None, tile=False):
     png = subprocess.run(["rsvg-convert", "-w", str(w), "-h", str(h), "--keep-aspect-ratio"], input=data.encode(), capture_output=True).stdout
     return Image.open(io.BytesIO(png)).convert("RGBA")
 
-secciones = [("icons", "ICONOS (Lucide · máscara CSS)", 9, 96, "#85776A", False),
+secciones = [("icons", "ICONOS (Lucide y Tabler tb-* · máscara CSS)", 15, 72, "#85776A", False),
              ("logos", "LOGOS de canales y herramientas (máscara CSS)", 9, 96, "#241F1C", False),
              ("ui", "UI (ambiente lino · teñir con scripts/tenir_svg.py)", 5, 190, None, False),
-             ("textures", "TEXTURAS (opacidad baja)", 5, 190, None, True)]
+             ("textures", "TEXTURAS y MATERIALES (opacidad baja)", 5, 190, None, True),
+             ("illus/planta", "PLANTA 2D (escala real, 1 u = 1 cm · inline y recolorear)", 8, 160, None, False),
+             ("illus/emoji/flat", "EMOJI Fluent (pegatinas puntuales · <Img>)", 15, 72, None, False)]
 W, M = 1800, 30
 bloques = []
 for carpeta, titulo, cols, cel, color, tile in secciones:
@@ -53,8 +55,9 @@ for carpeta, titulo, cols, cel, color, tile in secciones:
             img.paste(im, (x + 4 + (cw - 8 - im.width) // 2, y + (cel - im.height) // 2), im)
         except Exception as e:
             d.text((x + 10, y + 10), "error", font=F(14), fill=(229, 72, 77))
-        nombre = f.stem if len(f.stem) <= (cw // 11) else f.stem[: cw // 11 - 1] + "…"
-        d.text((x + cw // 2, y + cel + 6), nombre, font=F(15), fill=TXT, anchor="ma")
+        fs, ancho_letra = (12, 7) if cw < 130 else (15, 11)       # rejillas densas: letra más pequeña para que quepa el nombre
+        nombre = f.stem if len(f.stem) <= (cw // ancho_letra) else f.stem[: cw // ancho_letra - 1] + "…"
+        d.text((x + cw // 2, y + cel + 6), nombre, font=F(fs), fill=TXT, anchor="ma")
     bloques.append(img)
 # logo de la marca (PNG en brand/en_bruto/, con <Img>): cada variante sobre el fondo para el que está hecha
 logos = [("logo_fondo_claro", BG), ("logo_fondo_claro_sin_lema", BG), ("logo_fondo_oscuro", (42, 36, 33)), ("logo_fondo_oscuro_sin_lema", (42, 36, 33))]

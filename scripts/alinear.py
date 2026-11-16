@@ -17,6 +17,7 @@ import difflib, json, re, sys, unicodedata
 from pathlib import Path
 
 PAUSA_S = 0.3
+COBERTURA_MIN = 0.8                     # por debajo, palabras.json no corresponde al guion (Whisper alucinó)
 IDIOMAS = ("es", "en")
 
 
@@ -77,6 +78,15 @@ def alinear(guion_palabras, whisper):
     return out
 
 
+def cobertura(guion_palabras, whisper):
+    """Parte del guion (0-1) que aparece, en orden, en lo que oyó Whisper. Baja = palabras.json no sirve."""
+    A, B = [tok(w) for w in guion_palabras], [tok(p[0]) for p in whisper]
+    if not A or not B:
+        return 0.0
+    iguales = sum(b.size for b in difflib.SequenceMatcher(None, A, B, autojunk=False).get_matching_blocks())
+    return iguales / len(A)
+
+
 def construir(dir_base):
     d = Path(dir_base)
     texto = (d / "guion.txt").read_text(encoding="utf-8")
@@ -84,6 +94,11 @@ def construir(dir_base):
     palabras = texto.split()
     if not palabras:
         raise SystemExit("guion.txt está vacío")
+    cob = cobertura(palabras, pj["palabras"])
+    if cob < COBERTURA_MIN:
+        print(f"⚠️ Whisper solo coincide con el {cob:.0%} del guion: los tiempos de palabras.json no son fiables y los "
+              "subtítulos y anclas saldrían desincronizados. Pide una toma nueva (celda 2 del notebook) antes de "
+              "dirigir el video, o avísalo en la entrega.", file=sys.stderr)
     tiempos = alinear(palabras, pj["palabras"])
     en_idioma = d.name in IDIOMAS
     base = d.parent.name if en_idioma else d.name

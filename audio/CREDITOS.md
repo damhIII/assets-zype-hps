@@ -1,0 +1,86 @@
+# Créditos de audio (todo CC0: no exige atribución; se listan por cortesía)
+
+- `acustico_positivo_01` · Komiku - Animal Summer Music Camp - 07 Play the guitar for me ! · komiku (Internet Archive) · https://archive.org/download/komiku-animal-summer-music-camp/Komiku%20-%20Animal%20Summer%20Music%20Camp%20-%2007%20Play%20the%20guitar%20for%20me%20%21.mp3
+- `acustico_positivo_02` · Loyalty_Freak_Music_-_01_-_Go_to_the_Picnic · Loyalty Freak Music (Internet Archive) · https://archive.org/download/LoyaltyFreakMusicPOSITIVEATTITUDE20170920175908839/Loyalty_Freak_Music_-_01_-_Go_to_the_Picnic.mp3
+- `acustico_positivo_03` · Loyalty_Freak_Music_-_04_-_Sweet_Sun · Loyalty Freak Music (Internet Archive) · https://archive.org/download/LoyaltyFreakMusicPOSITIVEATTITUDE20170920175908839/Loyalty_Freak_Music_-_04_-_Sweet_Sun.mp3
+- `alegre_ukelele_01` · Komiku - Animal Summer Music Camp - 21 Ukulele is easy to play but hard to master ! · komiku (Internet Archive) · https://archive.org/download/komiku-animal-summer-music-camp/Komiku%20-%20Animal%20Summer%20Music%20Camp%20-%2021%20Ukulele%20is%20easy%20to%20play%20but%20hard%20to%20master%20%21.mp3
+- `alegre_ukelele_02` · Komiku - Animal Summer Music Camp - 12 A happy mandolin is a happy mandolin ! · komiku (Internet Archive) · https://archive.org/download/komiku-animal-summer-music-camp/Komiku%20-%20Animal%20Summer%20Music%20Camp%20-%2012%20A%20happy%20mandolin%20is%20a%20happy%20mandolin%20%21.mp3
+- `alegre_ukelele_03` · Komiku - Animal Summer Music Camp - 26 All jumpy for you ! · komiku (Internet Archive) · https://archive.org/download/komiku-animal-summer-music-camp/Komiku%20-%20Animal%20Summer%20Music%20Camp%20-%2026%20All%20jumpy%20for%20you%20%21.mp3
+- `funk_groove_01` · Komiku - Animal Summer Music Camp - 22 Groove all together ! · komiku (Internet Archive) · https://archive.org/download/komiku-animal-summer-music-camp/Komiku%20-%20Animal%20Summer%20Music%20Camp%20-%2022%20Groove%20all%20together%20%21.mp3
+- `funk_groove_02` · Loyalty Freak Music - ROLLER DISCO DANCE DANCE - 01 Roller Fever · Loyalty freak music (Internet Archive) · https://archive.org/download/LoyaltyFreakMusic-ROLLERDISCODANCEDANCE/Loyalty%20Freak%20Music%20-%20ROLLER%20DISCO%20DANCE%20DANCE%20-%2001%20Roller%20Fever.mp3
+- `funk_groove_03` · Loyalty Freak Music - ROLLER DISCO DANCE DANCE - 06 Take A Break · Loyalty freak music (Internet Archive) · https://archive.org/download/LoyaltyFreakMusic-ROLLERDISCODANCEDANCE/Loyalty%20Freak%20Music%20-%20ROLLER%20DISCO%20DANCE%20DANCE%20-%2006%20Take%20A%20Break.mp3
+- `hiphop_beat_01` · Loyalty_Freak_Music_-_01_-_Sunglasses · loyalty freak music (Internet Archive) · https://archive.org/download/LoyaltyFreakMusic-INSTRUMENTALRBBEATSTOSINGORRAPON/Loyalty_Freak_Music_-_01_-_Sunglasses.mp3
+- `hiphop_beat_02` · Loyalty_Freak_Music_-_15_-_Walking_Shoes · loyalty freak music (Internet Archive) · https://archive.org/download/LoyaltyFreakMusic-INSTRUMENTALRBBEATSTOSINGORRAPON/Loyalty_Freak_Music_-_15_-_Walking_Shoes.mp3
+- `lofi_relajado_01` · Loyalty Freak Music - CHILL FOR REAL ! - 02 Happy Sadie · Loyalty freak music (Internet Archive) · https://archive.org/download/loyalty-freak-music-chill-for-real/Loyalty%20Freak%20Music%20-%20CHILL%20FOR%20REAL%20%21%20-%2002%20Happy%20Sadie.mp3
+- `lofi_relajado_02` · Loyalty Freak Music - LOFI AMBIENT SONGS ! - 08 Lack of Color - Sugar and coffee · Loyalty Freak Music (Internet Archive) · https://archive.org/download/loyalty-freak-music-lofi-ambient-songs/Loyalty%20Freak%20Music%20-%20LOFI%20AMBIENT%20SONGS%20%21%20-%2008%20Lack%20of%20Color%20-%20Sugar%20and%20coffee.mp3
+- `lofi_relajado_03` · Komiku - Cliff Road Chill · Komiku (Internet Archive) · https://archive.org/download/komiku-cliff-road-chill/Komiku%20-%20Cliff%20Road%20Chill.mp3
+- `lofi_relajado_04` · Komiku - Animal Summer Music Camp - 08 Duet guitar to chill ! · komiku (Internet Archive) · https://archive.org/download/komiku-animal-summer-music-camp/Komiku%20-%20Animal%20Summer%20Music%20Camp%20-%2008%20Duet%20guitar%20to%20chill%20%21.mp3
+- `minimal_suave_01` · Loyalty_Freak_Music_-_02_-_One_Cool_Minute · Loyalty Freak Music (Internet Archive) · https://archive.org/download/LoyaltyFreakMusic-minimalAmbientBounce/Loyalty_Freak_Music_-_02_-_One_Cool_Minute.mp3
+- `minimal_suave_02` · Loyalty_Freak_Music_-_05_-_Waiting_TTTT · Loyalty Freak Music (Internet Archive) · https://archive.org/download/LoyaltyFreakMusic-minimalAmbientBounce/Loyalty_Freak_Music_-_05_-_Waiting_TTTT.mp3
+- `campana_01` · Impact Sounds · impact_bell_heavy_000.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#impact_bell_heavy_000.ogg
+- `campana_02` · Impact Sounds · impact_bell_heavy_001.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#impact_bell_heavy_001.ogg
+- `campana_03` · Impact Sounds · impact_bell_heavy_002.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#impact_bell_heavy_002.ogg
+- `cerrojo_01` · RPG Audio · metal_click.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-rpg-audio-for-godot#metal_click.ogg
+- `cerrojo_02` · RPG Audio · metal_latch.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-rpg-audio-for-godot#metal_latch.ogg
+- `click_01` · Interface Sounds · select_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#select_001.wav
+- `click_02` · Interface Sounds · switch_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#switch_001.wav
+- `click_03` · Interface Sounds · toggle_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#toggle_001.wav
+- `cristal_01` · Interface Sounds · glass_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#glass_001.wav
+- `cristal_02` · Interface Sounds · glass_002.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#glass_002.wav
+- `cristal_03` · Interface Sounds · glass_003.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#glass_003.wav
+- `crujido_01` · RPG Audio · creak_1.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-rpg-audio-for-godot#creak_1.ogg
+- `crujido_02` · RPG Audio · creak_2.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-rpg-audio-for-godot#creak_2.ogg
+- `crujido_03` · RPG Audio · creak_3.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-rpg-audio-for-godot#creak_3.ogg
+- `desaparecer_01` · Interface Sounds · back_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#back_001.wav
+- `desaparecer_02` · Interface Sounds · close_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#close_001.wav
+- `desaparecer_03` · Interface Sounds · minimize_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#minimize_001.wav
+- `deslizar_01` · Interface Sounds · scroll_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#scroll_001.wav
+- `deslizar_02` · Interface Sounds · scroll_002.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#scroll_002.wav
+- `deslizar_03` · Interface Sounds · scroll_003.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#scroll_003.wav
+- `ding_01` · Interface Sounds · bong_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#bong_001.wav
+- `ding_02` · Interface Sounds · confirmation_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#confirmation_001.wav
+- `ding_03` · Interface Sounds · confirmation_002.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#confirmation_002.wav
+- `error_01` · Interface Sounds · error_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#error_001.wav
+- `error_02` · Interface Sounds · error_002.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#error_002.wav
+- `error_03` · Interface Sounds · glitch_002.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#glitch_002.wav
+- `golpe_madera_01` · Impact Sounds · impact_plank_medium_000.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#impact_plank_medium_000.ogg
+- `golpe_madera_02` · Impact Sounds · impact_wood_heavy_000.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#impact_wood_heavy_000.ogg
+- `golpe_madera_03` · Impact Sounds · impact_wood_light_000.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#impact_wood_light_000.ogg
+- `golpe_metal_01` · Impact Sounds · impact_metal_heavy_000.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#impact_metal_heavy_000.ogg
+- `golpe_metal_02` · Impact Sounds · impact_metal_light_000.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#impact_metal_light_000.ogg
+- `golpe_metal_03` · Impact Sounds · impact_metal_medium_000.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#impact_metal_medium_000.ogg
+- `golpe_obra_01` · Impact Sounds · impact_mining_000.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#impact_mining_000.ogg
+- `golpe_obra_02` · Impact Sounds · impact_mining_001.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#impact_mining_001.ogg
+- `golpe_obra_03` · Impact Sounds · impact_mining_002.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#impact_mining_002.ogg
+- `golpe_suave_01` · Impact Sounds · impact_generic_light_000.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#impact_generic_light_000.ogg
+- `golpe_suave_02` · Impact Sounds · impact_soft_heavy_000.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#impact_soft_heavy_000.ogg
+- `golpe_suave_03` · Impact Sounds · impact_soft_medium_000.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#impact_soft_medium_000.ogg
+- `goteo_01` · generado con ffmpeg · notebook de assets (generado) · Actualizar_repo_assets.ipynb
+- `goteo_02` · generado con ffmpeg · notebook de assets (generado) · Actualizar_repo_assets.ipynb
+- `monedas_01` · RPG Audio · handle_coins.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-rpg-audio-for-godot#handle_coins.ogg
+- `monedas_02` · RPG Audio · handle_coins_2.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-rpg-audio-for-godot#handle_coins_2.ogg
+- `papel_01` · RPG Audio · book_close.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-rpg-audio-for-godot#book_close.ogg
+- `papel_02` · RPG Audio · book_flip_1.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-rpg-audio-for-godot#book_flip_1.ogg
+- `papel_03` · RPG Audio · book_open.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-rpg-audio-for-godot#book_open.ogg
+- `pasos_01` · Impact Sounds · footstep_wood_000.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#footstep_wood_000.ogg
+- `pasos_02` · Impact Sounds · footstep_wood_001.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#footstep_wood_001.ogg
+- `pasos_03` · Impact Sounds · footstep_wood_002.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-impact-sounds-for-godot#footstep_wood_002.ogg
+- `pop_01` · Interface Sounds · drop_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#drop_001.wav
+- `pop_02` · Interface Sounds · maximize_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#maximize_001.wav
+- `pop_03` · Interface Sounds · open_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#open_001.wav
+- `pregunta_01` · Interface Sounds · question_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#question_001.wav
+- `pregunta_02` · Interface Sounds · question_002.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#question_002.wav
+- `pregunta_03` · Interface Sounds · question_003.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#question_003.wav
+- `puerta_01` · RPG Audio · door_close_1.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-rpg-audio-for-godot#door_close_1.ogg
+- `puerta_02` · RPG Audio · door_open_1.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-rpg-audio-for-godot#door_open_1.ogg
+- `puerta_03` · RPG Audio · door_close_2.ogg · Kenney (Kenney (kenney.nl)) · https://github.com/Boyquotes/kenney-rpg-audio-for-godot#door_close_2.ogg
+- `scratch_01` · Interface Sounds · scratch_001.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#scratch_001.wav
+- `scratch_02` · Interface Sounds · scratch_002.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#scratch_002.wav
+- `scratch_03` · Interface Sounds · scratch_003.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#scratch_003.wav
+- `swoosh_transicion_01` · generado con ffmpeg · notebook de assets (generado) · Actualizar_repo_assets.ipynb
+- `swoosh_transicion_02` · generado con ffmpeg · notebook de assets (generado) · Actualizar_repo_assets.ipynb
+- `tic_01` · Interface Sounds · tick_004.wav · Kenney (Kenney (kenney.nl)) · https://github.com/Calinou/kenney-interface-sounds#tick_004.wav
+- `tic_tac_01` · generado con ffmpeg · notebook de assets (generado) · Actualizar_repo_assets.ipynb
+- `whoosh_01` · generado con ffmpeg · notebook de assets (generado) · Actualizar_repo_assets.ipynb
+- `whoosh_02` · generado con ffmpeg · notebook de assets (generado) · Actualizar_repo_assets.ipynb
+- `whoosh_03` · generado con ffmpeg · notebook de assets (generado) · Actualizar_repo_assets.ipynb

@@ -16,7 +16,7 @@ Estos videos son **instructivos-educativos** y **solo de animación**: no hay fo
 `python3 scripts/alinear.py briefs/<BASE>/es`: escribe `subtitulos.json` e imprime el guion numerado con pausas (`‖0.45s`). Los `[n]` son las **anclas** de todo lo que decidas. No oyes el audio: el ritmo está ahí. Un guion = un párrafo por bloque; las pausas largas son cortes naturales.
 
 ## 3. Lee la marca, el formato y el encargo
-- Siempre: `editorial/marca.md` (incluida la sección **Declaraciones permitidas**), `editorial/adn.md`, `referencias/layout.md`, `referencias/sincronizacion.md`, `referencias/decisiones.md`, `diseno/tokens.json`.
+- Siempre: `editorial/marca.md` (incluida la sección **Declaraciones permitidas**), `editorial/adn.md`, `referencias/layout.md`, `referencias/sincronizacion.md`, `referencias/decisiones.md`, `referencias/audio.md`, `diseno/tokens.json`.
 - La ficha del formato: `plantillas/<formato>.md` y sus parámetros en `plantillas/plantillas.json`. Usa el que eligió el guionista (`encargo.formato_guion`) salvo que el guion pida claramente otro: dilo en la entrega. Si viene `null`, elige tú la plantilla que mejor cuente el guion.
 - `encargo.seed` te dice la intención (tema, ángulo, servicio a promocionar…): úsala para la etiqueta, los titulares y el tono visual.
 - Abre `contactos.png` (logo de la marca, iconos, logos de canales, UI y texturas del repo).
@@ -32,13 +32,13 @@ Formato completo en `referencias/decisiones.md`. En resumen: los 6 bloques (`gan
 Después: `python3 scripts/preparar_brief.py briefs/<BASE>`. Valida contra marca, plantillas y datos, y escribe `briefs/<BASE>/es/brief.json` con frames exactos. Si da errores, corrige `decisiones.json` y repite. Nunca edites frames a mano en `brief.json`.
 
 ## 6. Construye
-Un proyecto Remotion con la composición `Reel-es`, que lee `src/brief_es.json` (`referencias/tecnico.md`). Las escenas del bloque `cuerpo` (y lo que la ficha diga de otros bloques) salen de la plantilla del formato; todo lo que no esté en las referencias, decídelo con el sistema de diseño de `tokens.json` (rojo y corchetes del logo como acento; neutros cálidos y la paleta `apoyo` de matices intermedios en las escenas). Todo se dibuja (SVG, iconos, texturas y tipografía), salvo el **logo de la marca** (`brand/en_bruto/`), que se usa tal cual en el header y en el CTA.
+Un proyecto Remotion con la composición `Reel-es`, que lee `src/brief_es.json` (`referencias/tecnico.md`). Las escenas del bloque `cuerpo` (y lo que la ficha diga de otros bloques) salen de la plantilla del formato; todo lo que no esté en las referencias, decídelo con el sistema de diseño de `tokens.json` (rojo y corchetes del logo como acento; neutros cálidos y la paleta `apoyo` de matices intermedios en las escenas). Todo se dibuja (SVG, iconos, texturas y tipografía), salvo el **logo de la marca** (`brand/en_bruto/`), que se usa tal cual en el header y en el CTA. Antes de dibujar algo desde cero, mira si ya existe en el repo (`contactos.png`: iconos, símbolos de planta, materiales, emoji). Suma la música y los efectos según `referencias/audio.md`.
 
 ## 7. Revisa como un editor
 `python3 scripts/preparar_brief.py briefs/<BASE> --stills` imprime un comando de still por bloque, transición de ambiente, ancla de la plantilla, CTA y final. Ejecútalos y mira cada imagen con la lista de `referencias/entrega.md` → "Antes de entregar". Corrige y repite.
 
 ## 8. Render y entrega
-Comandos, formato de salida y qué decir en la entrega: `referencias/entrega.md`. Si tienes permiso de escritura en el repo, sube `briefs/<BASE>/decisiones.json`, `briefs/<BASE>/es/brief.json` y `briefs/<BASE>/es/subtitulos.json` (así el siguiente video ve qué ambientes se usaron).
+Comandos, formato de salida y qué decir en la entrega: `referencias/entrega.md`. Si tienes permiso de escritura en el repo, sube `briefs/<BASE>/decisiones.json`, `briefs/<BASE>/audio.json`, `briefs/<BASE>/es/brief.json` y `briefs/<BASE>/es/subtitulos.json` (así el siguiente video ve qué ambientes y qué música se usaron).
 
 ## Reglas fijas
 - El marco (barra de progreso, header con logo, titular, subtítulos, CTA con logo) es igual en todos los videos; solo cambian el ambiente y la escena.
@@ -46,5 +46,5 @@ Comandos, formato de salida y qué decir en la entrega: `referencias/entrega.md`
 - Ninguna cifra en pantalla sin un dato verificado de `datos_verificados.json`. Lo ilustrativo se marca como **EJEMPLO ILUSTRATIVO**.
 - La marca coordina; nunca aparece como quien construye, instala o repara. Ni sellos de "licenciado", "asegurado" ni "garantizado" salvo lo que `marca.md` declare con `si`.
 - Animación pura: nada de fotos ni videos (ni de obras, ni de bancos de imágenes, ni de internet), ni logos de contratistas o fabricantes.
-- La voz no se toca: ni recortes, ni cambios de velocidad, ni música encima.
+- La voz no se toca: ni recortes ni cambios de velocidad. Música y efectos solo de `audio/catalogo.json`, por debajo de la voz (`referencias/audio.md`).
 - Determinismo: nada de `Math.random()` en Remotion.

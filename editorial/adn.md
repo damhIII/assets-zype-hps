@@ -8,7 +8,7 @@ Si un video contradice una sola de estas ideas, no se publica.
 4. **Sin promesas que no podemos firmar**: no decimos que la marca tenga licencia, seguro, ni que garantice precio, plazo o ausencia de sobrecostos, salvo lo que `marca.md` declare con `si`.
 5. **Medimos dinero y tiempo del propietario**: el resultado es menos retrabajo, menos obra parada, una venta sin sorpresas. Nunca likes ni seguidores.
 6. **Somos aliados, no vendedores**: el video tiene que servir aunque el espectador nunca nos escriba. Incluso cuando promociona un servicio, primero enseña.
-7. **Enseñamos con ejemplos hipotéticos**: cada video es educativo. No contamos casos de clientes ni proyectos concretos como si fueran reales; los ejemplos se presentan como lo que son ("imagina que…").
+7. **Enseñamos con ejemplos hipotéticos**: cada video es educativo. No contamos casos de clientes ni proyectos concretos como si fueran reales; los ejemplos se presentan como lo que son ("imagina que…", "pongamos que…", "tu cuñado jura que…").
 
 ## Polémica sin contradecirnos
 - Criticamos MÉTODOS ("firmar con un presupuesto de una sola línea"), nunca a un contratista, empresa o marca con nombre.
@@ -25,4 +25,4 @@ Si un video contradice una sola de estas ideas, no se publica.
 5. Los términos de obra ("change order", "GC", "lien"…) se explican en lenguaje sencillo la primera vez.
 6. Termina invitando a entrar a nuestro perfil y contactarnos desde el enlace de la bio, con palabras propias del video. Sin palabras clave, sin DM y sin prometer guías, PDFs ni archivos.
 7. Los ejemplos son hipotéticos e ilustrativos: ningún caso de cliente, proyecto concreto ni testimonio presentado como real.
-8. Se disfruta: tiene ritmo, un gancho que no suena a anuncio y, si el tema lo permite, un momento que hace sonreír.
+8. Se disfruta: tiene ritmo, un gancho que no suena a anuncio, un hilo que va de la primera frase al cierre (no una lista de puntos sueltos) y, si el tema lo permite, un momento que hace sonreír.
