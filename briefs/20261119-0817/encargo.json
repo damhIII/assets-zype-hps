@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "base": "20261119-0817",
+ "tipo": "educativo",
+ "marca": "EN BRUTO",
+ "formato": "auto",
+ "formato_guion": "cronograma",
+ "idiomas": [
+  "es"
+ ],
+ "seed": "Cocina de exteriores: Falta de agua y desague para el fregadero: tendido de tuberias de agua y drenaje enterradas con la pendiente correcta y conexion a la red de la casa.",
+ "cierre": "enlace_bio",
+ "duracion_objetivo_s": [
+  30,
+  60
+ ],
+ "creado": "2026-11-19T08:18:39-05:00"
+}
