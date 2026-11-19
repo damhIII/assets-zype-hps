@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "base": "20261119-0810",
+ "tipo": "educativo",
+ "marca": "EN BRUTO",
+ "formato": "auto",
+ "formato_guion": "planta",
+ "idiomas": [
+  "es"
+ ],
+ "seed": "Cocina de exteriores: Falta de almacenamiento para utensilios, carbon y gas: gabinetes de polimero marino con puertas ventiladas, cajon para tanque de gas oculto y ganchos de acero para herramientas de parrilla.",
+ "cierre": "enlace_bio",
+ "duracion_objetivo_s": [
+  30,
+  60
+ ],
+ "creado": "2026-11-19T08:10:59-05:00"
+}
