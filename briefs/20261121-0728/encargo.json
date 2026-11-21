@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "base": "20261121-0728",
+ "tipo": "educativo",
+ "marca": "EN BRUTO",
+ "formato": "auto",
+ "formato_guion": "comparador",
+ "idiomas": [
+  "es"
+ ],
+ "seed": "Cocina de exterior: Piso que se mancha de grasa y resbala: cambio a porcelanato antideslizante o concreto pulido con sellador repelente de aceite, con ligera pendiente hacia un desague de rejilla.",
+ "cierre": "enlace_bio",
+ "duracion_objetivo_s": [
+  30,
+  60
+ ],
+ "creado": "2026-11-21T07:28:50-05:00"
+}
