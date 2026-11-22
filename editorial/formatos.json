@@ -1,53 +1,53 @@
 {
-  "_nota": "Lo que el generador de temas rota en cada video. 'formatos': los 6 formatos (cada uno con su plantilla de escena en la skill; 'peso' > 1 = sale más a menudo). 'tipos_gancho': cómo puede arrancar el video; se rotan para no repetir. 'tramos': las dos duraciones que se alternan (para comparar en las estadísticas de Instagram cuál retiene mejor). 'bloques': el máximo de palabras de los bloques cortos (la voz lee unas 2,5 palabras por segundo).",
+  "_nota": "Lo que el generador de temas rota en cada video. 'formatos': los 6 formatos (cada uno con su plantilla de escena en la skill; 'peso' > 1 = sale más a menudo; 'guion' = cómo se cuenta el cuerpo). 'tipos_gancho': cómo puede arrancar el video; se rotan para no repetir. 'duracion': el rango de voz que recibe el guionista (la voz lee unas 2,5 palabras por segundo); dentro de él decide según lo que pida la explicación.",
   "formatos": {
     "errores": {
       "nombre": "Errores caros",
       "plantilla": "errores",
       "peso": 1.5,
-      "guion": "El valor cuenta dos a cuatro errores encadenados (le pasan al mismo espacio o uno lleva al siguiente), cada uno con su consecuencia concreta (retrabajo, algo que se rompe, dinero tirado, riesgo) y termina con el antídoto: qué hacer antes.",
+      "guion": "El cuerpo cuenta dos a cuatro errores encadenados (le pasan al mismo espacio o uno lleva al siguiente), cada uno con su consecuencia concreta (retrabajo, algo que se rompe, dinero tirado, riesgo) y termina con el antídoto: qué hacer antes.",
       "guardable": "una lista de errores para evitar antes de empezar"
     },
     "mito_realidad": {
       "nombre": "Mito vs. realidad",
       "plantilla": "mito_realidad",
       "peso": 1.5,
-      "guion": "El valor desmonta uno a tres mitos: primero el mito tal como lo diría un propietario, luego la realidad en una o dos frases, marcando el giro con palabras como 'en realidad' o 'la verdad es que'. Si hay varios, se enlazan ('y ya que estamos…').",
+      "guion": "El cuerpo desmonta uno a tres mitos: primero el mito tal como lo diría un propietario, luego la realidad en una o dos frases, marcando el giro con palabras como 'en realidad' o 'la verdad es que'. Si hay varios, se enlazan ('y ya que estamos…').",
       "guardable": "una creencia corregida que el espectador querrá enviar a quien va a remodelar"
     },
     "planta": {
       "nombre": "Antes y después en planta",
       "plantilla": "planta",
       "peso": 1.3,
-      "guion": "El valor recorre el espacio como si caminaras con el espectador ('entras, a la izquierda…'): cómo está mal resuelto y qué cambia para resolverlo. Nombra cada elemento (isla, ducha, barra, ventilador) cuando aparece, para que la planta lo dibuje al oírlo. Si se habla de tirar un muro, di que antes un profesional confirma si es de carga.",
+      "guion": "El cuerpo recorre el espacio como si caminaras con el espectador ('entras, a la izquierda…'): cómo está mal resuelto y qué cambia para resolverlo. Nombra cada elemento (isla, ducha, barra, ventilador) cuando aparece, para que la planta lo dibuje al oírlo. Si se habla de tirar un muro, di que antes un profesional confirma si es de carga.",
       "guardable": "una idea de distribución aplicable a su casa"
     },
     "comparador": {
       "nombre": "Comparador de materiales",
       "plantilla": "comparador",
       "peso": 1.0,
-      "guion": "El valor presenta dos o tres opciones como candidatas para el mismo espacio y las compara en dos a cuatro criterios (humedad, calor, resistencia, mantenimiento, costo relativo). Di el criterio antes de comparar. Usa 'más', 'menos', 'depende'. Termina con un criterio de decisión, nunca con 'el mejor'.",
+      "guion": "El cuerpo presenta dos o tres opciones como candidatas para el mismo espacio y las compara en dos a cuatro criterios (humedad, calor, resistencia, mantenimiento, costo relativo). Di el criterio antes de comparar. Usa 'más', 'menos', 'depende'. Termina con un criterio de decisión, nunca con 'el mejor'.",
       "guardable": "una tabla mental para elegir material"
     },
     "checklist": {
       "nombre": "Checklist",
       "plantilla": "checklist",
       "peso": 1.0,
-      "guion": "El valor da tres a cinco comprobaciones que el propietario puede hacer o pedir él mismo, contadas como pasos de una misma visita o conversación (no como lista leída), cada una con qué mirar o qué preguntar exactamente. Incluye una señal de alarma.",
+      "guion": "El cuerpo da tres a cinco comprobaciones que el propietario puede hacer o pedir él mismo, contadas como pasos de una misma visita o conversación (no como lista leída), cada una con qué mirar o qué preguntar exactamente. Incluye una señal de alarma.",
       "guardable": "una lista para revisar antes de contratar o comprar"
     },
     "cronograma": {
       "nombre": "Paso a paso",
       "plantilla": "cronograma",
       "peso": 0.8,
-      "guion": "El valor avanza fase por fase en el orden real del trabajo, cada fase con una palabra clara y contada como lo que pasa después en el mismo espacio ('y cuando por fin llega el enchape…'), y señala dónde suele fallar o retrasarse.",
+      "guion": "El cuerpo avanza fase por fase en el orden real del trabajo, cada fase con una palabra clara y contada como lo que pasa después en el mismo espacio ('y cuando por fin llega el enchape…'), y señala dónde suele fallar o retrasarse.",
       "guardable": "el orden correcto del trabajo y el punto donde suele fallar"
     }
   },
   "tipos_gancho": {
     "pregunta": {
       "descripcion": "Una pregunta directa que el espectador se responde por dentro porque le pasa a él.",
-      "ejemplo": "¿Otra vez pegando la piedra suelta de la piscina?"
+      "ejemplo": "¿Otra vez pegando la piedra suelta del borde de la piscina?"
     },
     "error_2a_persona": {
       "descripcion": "El error que el espectador está a punto de cometer, dicho en segunda persona y con su consecuencia.",
@@ -55,7 +55,7 @@
     },
     "dato_concreto": {
       "descripcion": "Un detalle técnico o una cifra de oficio que sorprende y abre la curiosidad.",
-      "ejemplo": "Una ducha se prueba inundada un día entero."
+      "ejemplo": "Una ducha se prueba llena de agua un día entero antes de enchapar."
     },
     "antes_despues": {
       "descripcion": "El contraste entre el problema y el resultado en una sola frase.",
@@ -70,40 +70,14 @@
       "ejemplo": "Prendes la parrilla y el humo entra a la sala."
     }
   },
-  "tramos": {
-    "corto": {
-      "segundos": [
-        30,
-        40
-      ],
-      "palabras": [
-        75,
-        100
-      ]
-    },
-    "largo": {
-      "segundos": [
-        50,
-        60
-      ],
-      "palabras": [
-        125,
-        150
-      ]
-    }
-  },
-  "bloques": {
-    "gancho": {
-      "segundos": 3,
-      "palabras_max": 10
-    },
-    "problema": {
-      "segundos": 5,
-      "palabras_max": 14
-    },
-    "cierre": {
-      "segundos": 5,
-      "palabras_max": 14
-    }
+  "duracion": {
+    "segundos": [
+      40,
+      60
+    ],
+    "palabras": [
+      100,
+      150
+    ]
   }
 }

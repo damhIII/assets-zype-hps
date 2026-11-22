@@ -4,7 +4,7 @@
 | | |
 |---|---|
 | Resolución | 1080 × 1920 (9:16), 30 fps |
-| Duración | voz + `cola_s` (1-2 s). La voz sigue el tramo de `encargo.tramo` (corto 30-40 s, largo 50-60 s); no se recorta ni se acelera. Si queda fuera, menciónalo en la entrega como dato (no como error) |
+| Duración | voz + `cola_s` (1-2 s). La voz dura entre 40 y 60 s; no se recorta ni se acelera. Si queda fuera, menciónalo en la entrega como dato (no como error) |
 | Video | H.264, `yuv420p`, CRF 18 |
 | Audio | la locución sin tocar + música y efectos del catálogo por debajo (`referencias/audio.md`), AAC 48 kHz |
 | Archivos | `out/<BASE>_es.mp4` y `out/<BASE>_es_portada.png` (1080 × 1920, el frame 0 del gancho; lo esencial dentro del recorte 3:4 de `zonas_seguras.recorte_grilla_3x4`) |
@@ -20,7 +20,7 @@ Si el entorno no puede renderizar, entrega el proyecto en zip (sin `node_modules
 - [ ] `python3 scripts/preparar_brief.py briefs/<BASE>` sin errores ni avisos de ritmo, y los stills revisados uno por uno.
 - [ ] El frame 0 muestra el problema del gancho (`brief.gancho.primer_frame`) ya en movimiento y el titular `brief.gancho.pantalla` legible; sin header ni logo hasta `header_entra_f`.
 - [ ] Nunca pasan más de 4 s de voz sin algo nuevo en pantalla.
-- [ ] El valor termina con el objeto del gancho ya resuelto y el último frame vuelve a la composición del frame 0 (bucle).
+- [ ] El resultado muestra el objeto del gancho ya resuelto y el último frame vuelve a la composición del frame 0 (bucle).
 - [ ] Ningún texto vital fuera de x 72–940 / y 220–1580; nada se solapa con titular, subtítulos ni aviso legal.
 - [ ] Las fuentes cargaron (Barlow Condensed, DM Sans y Space Mono; ninguna fuente por defecto del navegador).
 - [ ] El logo aparece en el header y en el CTA, en la variante correcta para el fondo, sin deformar ni teñir; el nombre de la marca no está escrito con tipografía.

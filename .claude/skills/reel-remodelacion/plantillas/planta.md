@@ -1,7 +1,7 @@
 # Plantilla `planta` · Antes y después en planta
 
 **Cuándo**: el guion recorre un espacio mal resuelto y cómo cambia: se amuebla, se redistribuye (abrir la cocina, separar zonas de una cocina exterior) o cambia de estilo.
-**Bloque principal**: `valor`. En el `problema` se ve la planta **antes** (mal resuelta: el paso bloqueado, la basura junto a la preparación); el valor la transforma y termina en el **después**, que es también lo que vuelve al final (bucle).
+**Bloque principal**: `cuerpo`. En la `escena` se ve la planta **antes** (mal resuelta: el paso bloqueado, la basura junto a la preparación); el cuerpo la transforma y el `resultado` muestra el **después**, que es también lo que vuelve al final (bucle).
 
 ## Parámetros
 ```jsonc

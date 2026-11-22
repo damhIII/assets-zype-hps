@@ -1,7 +1,7 @@
 # Plantilla `checklist` · Checklist
 
 **Cuándo**: el guion da comprobaciones que el propietario puede hacer o pedir él mismo (antes de contratar, de comprar un material, de una tormenta…).
-**Bloque principal**: `valor`; al final del valor la lista completa queda marcada (ideal para que la guarden: deja 1,5 s quieta y legible).
+**Bloque principal**: `cuerpo`; el `resultado` puede mostrar la lista completa marcada (ideal para que la guarden: deja 1,5 s quieta y legible).
 
 ## Parámetros
 ```jsonc

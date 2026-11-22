@@ -1,7 +1,7 @@
 # Plantilla `cronograma` · Paso a paso
 
 **Cuándo**: el guion cuenta un trabajo fase por fase en su orden real (desengrasar → lijar → imprimar → pintar; excavar → grava → tubo → cubrir) y dónde suele fallar.
-**Bloque principal**: `valor`. La última fase deja el objeto del gancho resuelto.
+**Bloque principal**: `cuerpo`. En el `resultado`, el objeto del gancho ya resuelto.
 
 ## Parámetros
 ```jsonc

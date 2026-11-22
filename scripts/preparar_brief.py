@@ -23,7 +23,7 @@ import validar_repo  # noqa: E402
 
 SKILL = RAIZ / ".claude" / "skills" / "reel-remodelacion"
 FPS, WIDTH, HEIGHT = 30, 1080, 1920
-ORDEN = ["gancho", "problema", "valor", "cierre"]
+ORDEN = ["gancho", "escena", "marco", "cuerpo", "resultado", "cta"]   # un bloque por párrafo del guion (el último párrafo, "cierre", es el bloque cta)
 IDIOMA = "es"
 # Palabras con las que la voz manda al perfil y al enlace de la bio (el CTA hace pop en la última que aparezca)
 CTA_VOZ = re.compile(r"^(link|links|enlace|enlaces|bio|biografia|perfil)$")
@@ -198,7 +198,7 @@ def preparar(dir_base):
     datos_ok = {k for k, v in datos.items() if v.get("verificado") is True}
 
     if dec.get("version") != 5:
-        err.append("decisiones.json debe ser 'version': 5 (cuatro bloques: gancho, problema, valor, cierre)")
+        err.append("decisiones.json debe ser 'version': 5 (seis bloques: gancho, escena, marco, cuerpo, resultado, cta)")
     e = d / IDIOMA
     faltan = [f"falta {d.name}/{IDIOMA}/{f}" for f in ("guion.txt", "palabras.json") if not (e / f).is_file()]
     if faltan:
@@ -280,7 +280,7 @@ def preparar(dir_base):
         else:
             inicio = desdes[-1] if desdes else n - 1
             idx_cta = inicio if 0 <= inicio < n else max(0, n - 1)
-            avisos.append("la voz no menciona el enlace ni la bio: el CTA hará pop al empezar el cierre "
+            avisos.append("la voz no menciona el enlace ni la bio: el CTA hará pop al empezar el bloque cta "
                           "(el cierre debe mandar al perfil y al enlace de la bio)")
     etiqueta = str(dec.get("etiqueta") or "").strip()
     if not etiqueta:

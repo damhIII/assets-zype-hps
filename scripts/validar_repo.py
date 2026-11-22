@@ -84,14 +84,9 @@ def _validar_formatos(raiz, plantillas, err):
     for tid, t in tipos.items():
         if not str((t or {}).get("descripcion") or "").strip():
             err.append(f"editorial/formatos.json: el tipo de gancho '{tid}' necesita 'descripcion'")
-    tramos = cfg.get("tramos") or {}
-    for tid in ("corto", "largo"):
-        p = (tramos.get(tid) or {}).get("palabras")
-        if not (isinstance(p, list) and len(p) == 2 and all(isinstance(x, int) for x in p) and p[0] < p[1]):
-            err.append(f"editorial/formatos.json: el tramo '{tid}' necesita 'palabras': [mínimo, máximo]")
-    for bid in ("gancho", "problema", "cierre"):
-        if not isinstance(((cfg.get("bloques") or {}).get(bid) or {}).get("palabras_max"), int):
-            err.append(f"editorial/formatos.json: 'bloques.{bid}.palabras_max' debe ser un entero")
+    p = (cfg.get("duracion") or {}).get("palabras")
+    if not (isinstance(p, list) and len(p) == 2 and all(isinstance(x, int) for x in p) and p[0] < p[1]):
+        err.append("editorial/formatos.json: 'duracion' necesita 'palabras': [mínimo, máximo]")
 
 
 def _validar_espacios(raiz, err, avisos):

@@ -1,8 +1,8 @@
 Cada video tiene aquí su carpeta `<BASE>/` (`AAAAMMDD-HHMM`, hora de Nueva York).
 
 Lo sube el notebook de Colab:
-- `encargo.json` (versión 3): marca, espacio, dolor del catálogo, tema (seed, tesis, puntos), formato, tipo de gancho, tramo (corto o largo), gancho (`voz`, `pantalla`, `primer_frame`), cifra de oficio, a quién mandárselo y palabras clave.
-- `es/guion.txt`: el texto locutado, en cuatro párrafos (gancho, problema, valor, cierre).
+- `encargo.json` (versión 3): marca, espacio, dolor del catálogo, tema (seed, tesis, puntos), formato, tipo de gancho, gancho (`voz`, `pantalla`, `primer_frame`), cifra de oficio, a quién mandárselo y palabras clave.
+- `es/guion.txt`: el texto locutado, en seis párrafos (gancho, escena, marco, cuerpo, resultado, cierre).
 - `es/locucion.wav`: la voz (Gemini TTS).
 - `es/palabras.json` (versión 4): idioma, duración de la voz y cada palabra con su inicio y fin (Whisper).
 

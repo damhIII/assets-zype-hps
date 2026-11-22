@@ -1,7 +1,7 @@
 # Plantilla `mito_realidad` · Mito vs. realidad
 
 **Cuándo**: el guion corrige una o varias creencias ("si es por dentro no necesita permiso").
-**Bloque principal**: `valor`; el primer mito puede abrir ya en el `gancho` (es un gancho excelente).
+**Bloque principal**: `cuerpo`; el primer mito puede abrir ya en el `gancho` (es un gancho excelente).
 
 ## Parámetros
 ```jsonc

@@ -5,16 +5,16 @@ Contenido editorial, sistema de diseño, assets e instrucciones para dirigir y c
 Para dirigir un reel usa **solo** la skill **reel-remodelacion** (`.claude/skills/reel-remodelacion/SKILL.md`). La skill `zype-reel` es de otra marca: no la uses para EN BRUTO.
 
 ## Cómo llega un encargo
-El notebook de Colab (`Crear_reel_En_Bruto`, versión 6) solo pide un **espacio de la casa** (cocina de exteriores, baños, piscina…). Con él:
-1. **Tema**: un algoritmo elige un dolor de `editorial/espacios.json` que no se haya usado hace poco (más peso a los de temporada), rota el formato, el tipo de gancho y la duración (corta o larga), y una llamada corta al modelo lo convierte en un brief con tres ganchos. El usuario elige uno.
-2. **Guion**: una llamada al modelo con `editorial/prompt_guion.md`: cuatro párrafos (gancho, problema, valor, cierre).
+El notebook de Colab (`Crear_reel_En_Bruto`, versión 6.1) solo pide un **espacio de la casa** (cocina de exteriores, baños, piscina…). Con él:
+1. **Tema**: un algoritmo elige un dolor de `editorial/espacios.json` que no se haya usado hace poco (más peso a los de temporada), rota el formato y el tipo de gancho, y una llamada corta al modelo lo convierte en un brief con tres ganchos. El usuario elige uno.
+2. **Guion**: una llamada al modelo con `editorial/prompt_guion.md`: seis párrafos (gancho, escena, marco, cuerpo, resultado, cierre).
 3. **Voz y tiempos**: Gemini TTS y Whisper.
 4. **Subida**: deja en `briefs/<BASE>/` (BASE = `AAAAMMDD-HHMM`, hora de Nueva York) `encargo.json` y `es/{guion.txt, locucion.wav, palabras.json}`, y añade una línea a `editorial/historial.jsonl`.
 
 Todo lo demás lo haces tú con la skill: revisar el guion, decidir bloques, titulares, ambientes y parámetros (`briefs/<BASE>/decisiones.json`), construir, revisar y renderizar.
 
 ## Estructura
-- `editorial/`: prompt del guionista con la marca, las declaraciones permitidas, las cifras y los límites (`prompt_guion.md`), prompts del generador de temas (`prompt_tema.md`, `prompt_catalogo.md`), catálogo de dolores por espacio (`espacios.json`), historial de videos publicados (`historial.jsonl`), los 6 formatos, los tipos de gancho y las duraciones (`formatos.json`), datos con fuente (`datos_verificados.json`: solo valen los `verificado: true`) y perfil de voz (`voz_tts.md`).
+- `editorial/`: prompt del guionista con la marca, las declaraciones permitidas, las cifras y los límites (`prompt_guion.md`), prompts del generador de temas (`prompt_tema.md`, `prompt_catalogo.md`), catálogo de dolores por espacio (`espacios.json`), historial de videos publicados (`historial.jsonl`), los 6 formatos, los tipos de gancho y la duración (`formatos.json`), datos con fuente (`datos_verificados.json`: solo valen los `verificado: true`) y perfil de voz (`voz_tts.md`).
 - `.claude/skills/reel-remodelacion/`: la skill, `plantillas/` (una ficha por formato + `plantillas.json` con sus parámetros), `diseno/tokens.json` (colores, tipografías, logos, tamaños, márgenes seguros, movimiento) y `referencias/`.
 - `brand/en_bruto/`: **logo oficial de EN BRUTO** (PNG transparente) en variantes para fondo claro y oscuro, con y sin lema. Va en el header y en el CTA de cada video, con `<Img>`, sin teñir ni deformar. (`logo_hps.png`, `logo_zype.png` y `brand/paletas.json` son de otra marca: no los uses aquí.)
 - `icons/` Lucide y Tabler (`tb-*`), de trazo y `currentColor` · `logos/` canales (monocromos) → siempre con máscara CSS.
@@ -32,10 +32,10 @@ Todo lo demás lo haces tú con la skill: revisar el guion, decidir bloques, tit
 - **La marca coordina, no ejecuta**: nunca "construimos", "remodelamos", "instalamos". Nada de licencia, seguro o garantías salvo lo que `editorial/prompt_guion.md` → Declaraciones permitidas marque con `si`.
 - **Animación pura**: nada de fotos ni videos (de obras, de bancos de imágenes o de internet), ni logos de contratistas o fabricantes.
 - **Los primeros tres segundos mandan**: el frame 0 muestra el problema del gancho en movimiento, con su texto en pantalla; el header con el logo entra a los 1,5 s.
-- **Cuatro bloques** (gancho, problema, valor, cierre), algo nuevo en pantalla como mucho cada 4 s, y el final vuelve a la imagen del principio (bucle).
+- **Seis bloques**, uno por párrafo del guion (gancho, escena, marco, cuerpo, resultado, cta), algo nuevo en pantalla como mucho cada 4 s, y el final vuelve a la imagen del principio (bucle).
 - El marco (barra de progreso, header con logo, titular, subtítulos, CTA con logo) es fijo; solo cambian el ambiente y la escena.
-- **El cierre invita a mandar el video a alguien y a entrar al perfil para tocar el enlace de la bio**: nada de palabras clave, "comenta", DM ni enlace de la descripción.
-- **Duración**: el notebook alterna videos cortos (30-40 s de voz) y largos (50-60 s).
+- **El cierre manda al perfil y al enlace de la bio**: nada de palabras clave, "comenta", DM ni enlace de la descripción.
+- **Duración**: entre 40 y 60 s de voz, según lo que pida la explicación.
 - La voz no se toca: ni recortes ni cambios de velocidad. Música y efectos solo del catálogo `audio/` y siempre por debajo de la voz.
 - Determinismo: nada de `Math.random()` en Remotion.
 

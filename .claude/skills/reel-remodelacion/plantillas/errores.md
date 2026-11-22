@@ -1,7 +1,7 @@
 # Plantilla `errores` · Errores caros
 
 **Cuándo**: el guion enumera errores con su consecuencia y cierra con qué hacer antes.
-**Bloque principal**: `valor`; el `gancho` suele ir en ambiente `noche`. El antídoto deja el objeto del gancho resuelto.
+**Bloque principal**: `cuerpo`; el `gancho` suele ir en ambiente `noche`. En el `resultado`, el objeto del gancho ya resuelto.
 
 ## Parámetros
 ```jsonc
