@@ -1,19 +1,19 @@
-# Plantilla `checklist` · Checklist para verificar a un contratista (o una compra, o una asociación)
+# Plantilla `checklist` · Checklist
 
-**Cuándo**: el guion da comprobaciones que el propietario puede hacer él mismo.
-**Bloque principal**: `cuerpo`; el `resultado` puede mostrar la lista completa marcada (ideal para que la guarden: deja 1,5 s quieta y legible).
+**Cuándo**: el guion da comprobaciones que el propietario puede hacer o pedir él mismo (antes de contratar, de comprar un material, de una tormenta…).
+**Bloque principal**: `valor`; al final del valor la lista completa queda marcada (ideal para que la guarden: deja 1,5 s quieta y legible).
 
 ## Parámetros
 ```jsonc
 {
-  "titulo": "Antes de contratar",
+  "titulo": "Antes de la tormenta",
   "items": [                           // 3-7
-    { "texto": "Licencia activa",
-      "como_verificar": "Búscala en la web oficial del estado",
-      "fuente": null,                  // "verificar_licencia" cuando esté verificado → su corta al pie
+    { "texto": "Tejas bien fijas",
+      "como_verificar": "Míralas desde el suelo, con prismáticos",
+      "fuente": null,                  // id verificado de datos_verificados.json si cita una norma → su corta al pie
       "icono": "badge-check", "ancla": 24 }
   ],
-  "bandera_roja": { "texto": "Te pide todo en efectivo", "ancla": 66 }
+  "bandera_roja": { "texto": "Manchas nuevas en el techo", "ancla": 66 }
 }
 ```
 
@@ -33,4 +33,4 @@
 ## Honestidad
 - `aviso_legal` activo por defecto.
 - `como_verificar` no inventa procedimientos: si no hay dato verificado, usa fórmulas generales ("pídelo por escrito", "compruébalo en la fuente oficial del estado / del condado").
-- No digas que la marca verifica licencias salvo que `marca.md` declare `verifica_licencias: si`.
+- No digas que la marca verifica licencias salvo que `editorial/prompt_guion.md` → Declaraciones permitidas diga `verifica_licencias: si`.

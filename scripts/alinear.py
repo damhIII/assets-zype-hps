@@ -2,11 +2,10 @@
 """Alinea el guion (texto) con las palabras de Whisper y deja los subtítulos con la ortografía del guion.
 
 Uso:
-  python3 scripts/alinear.py briefs/<BASE>/<idioma>   # escribe briefs/<BASE>/<idioma>/subtitulos.json e imprime el guion numerado
-  python3 scripts/alinear.py briefs/<BASE>/<idioma> --quiet
+  python3 scripts/alinear.py briefs/<BASE>/es   # escribe briefs/<BASE>/es/subtitulos.json e imprime el guion numerado
+  python3 scripts/alinear.py briefs/<BASE>/es --quiet
 
-Entrada (la deja el notebook): guion.txt, palabras.json (versión 4: {"idioma", "duracion_s", "palabras": [[palabra, ini_s, fin_s], ...]};
-también acepta la versión 3, sin idioma, y carpetas sin subcarpeta de idioma).
+Entrada (la deja el notebook): guion.txt, palabras.json (versión 4: {"idioma", "duracion_s", "palabras": [[palabra, ini_s, fin_s], ...]}).
 Salida, subtitulos.json:
   {"version": 4, "base", "idioma", "audio", "duracion_s",
    "palabras": [{"i": 0, "w": "Persigues", "ini": 0.12, "fin": 0.41, "frase": 0}, ...],   # i = índice para anclar bloques y pasos
@@ -18,7 +17,7 @@ from pathlib import Path
 
 PAUSA_S = 0.3
 COBERTURA_MIN = 0.8                     # por debajo, palabras.json no corresponde al guion (Whisper alucinó)
-IDIOMAS = ("es", "en")
+IDIOMAS = ("es",)
 
 
 def sin_tildes(s):
@@ -97,7 +96,7 @@ def construir(dir_base):
     cob = cobertura(palabras, pj["palabras"])
     if cob < COBERTURA_MIN:
         print(f"⚠️ Whisper solo coincide con el {cob:.0%} del guion: los tiempos de palabras.json no son fiables y los "
-              "subtítulos y anclas saldrían desincronizados. Pide una toma nueva (celda 2 del notebook) antes de "
+              "subtítulos y anclas saldrían desincronizados. Pide una toma nueva (celda 3 del notebook) antes de "
               "dirigir el video, o avísalo en la entrega.", file=sys.stderr)
     tiempos = alinear(palabras, pj["palabras"])
     en_idioma = d.name in IDIOMAS

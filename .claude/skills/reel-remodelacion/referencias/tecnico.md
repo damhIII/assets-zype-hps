@@ -27,6 +27,6 @@ Carga las fuentes antes del primer frame: importa los `.css` de `brief.fuentes` 
 
 ## Reglas de código
 - Determinismo total: prohibido `Math.random()` (usa `Math.sin`, índices o `random(seed)` de Remotion).
-- Componentes: uno por capa del marco (`ProgressBar`, `Header`, `Titular`, `Subtitulos`, `AvisoLegal`, `Fondo`), uno por bloque y uno por plantilla (`PlantillaPresupuesto`, `PlantillaCronograma`, …) que recibe `brief.plantilla.params`. El ambiente entra con un hook `useAmbiente()` que interpola colores en las fronteras.
-- Ningún texto escrito a mano en los componentes: todo viene del brief (titulares, params, `cta`, `cta_previo`, `aviso_legal`, `ilustrativo`).
+- Componentes: uno por capa del marco (`ProgressBar`, `Header`, `Titular`, `Subtitulos`, `AvisoLegal`, `Fondo`), uno por bloque (`Gancho`, `Problema`, `Valor`, `Cierre`), uno por plantilla (`PlantillaErrores`, `PlantillaCronograma`, …) que recibe `brief.plantilla.params`, uno para los `brief.acentos` y uno para el `Bucle`. El ambiente entra con un hook `useAmbiente()` que interpola colores en las fronteras.
+- Ningún texto escrito a mano en los componentes: todo viene del brief (titulares, `gancho`, params, `acentos`, `cta`, `cta_previo`, `aviso_legal`, `ilustrativo`).
 - Componentes de marca: `Logo` (elige la variante por ambiente y tamaño) y `Corchetes` (SVG nativo animable con `marca.corchetes`).

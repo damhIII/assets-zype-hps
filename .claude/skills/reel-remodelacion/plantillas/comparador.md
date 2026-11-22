@@ -1,7 +1,7 @@
 # Plantilla `comparador` · Comparador de materiales
 
 **Cuándo**: el guion compara 2-3 opciones (pisos, encimeras, ventanas, techos, placas) en varios criterios.
-**Bloque principal**: `cuerpo`.
+**Bloque principal**: `valor`; al final del valor, el veredicto deja ver la opción que encaja en el espacio del gancho.
 
 ## Parámetros
 ```jsonc

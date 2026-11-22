@@ -1,47 +1,109 @@
 {
-  "_nota": "Los 7 formatos de video (todos educativos y animados). 'guion' le dice al guionista cómo ordenar lo que se dice; 'plantilla' es la plantilla de escena de la skill (.claude/skills/reel-remodelacion/plantillas/<plantilla>.md). El guionista elige el formato (o usa el que pida el seed) y lo declara en la primera línea de su respuesta.",
+  "_nota": "Lo que el generador de temas rota en cada video. 'formatos': los 6 formatos (cada uno con su plantilla de escena en la skill; 'peso' > 1 = sale más a menudo). 'tipos_gancho': cómo puede arrancar el video; se rotan para no repetir. 'tramos': las dos duraciones que se alternan (para comparar en las estadísticas de Instagram cuál retiene mejor). 'bloques': el máximo de palabras de los bloques cortos (la voz lee unas 2,5 palabras por segundo).",
   "formatos": {
-    "presupuesto": {
-      "nombre": "Presupuesto desglosado",
-      "plantilla": "presupuesto",
-      "guion": "El cuerpo recorre las partidas de un presupuesto en orden (por ejemplo: materiales, mano de obra, permisos, retiro de escombros, imprevistos) y en cada una dice qué preguntar o qué suele faltar. Nombra cada partida con una palabra clara (la animación la enciende al oírla) dentro de una frase que la enlace con la anterior, como quien repasa el presupuesto en voz alta con el espectador; nunca como rótulo con dos puntos. Montos solo si están en DATOS verificados; si no, habla de proporciones y preguntas, sin cifras.",
-      "guardable": "una lista de partidas que el espectador puede usar para revisar su propio presupuesto"
-    },
-    "cronograma": {
-      "nombre": "Línea de tiempo de obra",
-      "plantilla": "cronograma",
-      "guion": "El cuerpo avanza fase por fase en orden (permiso, demolición, instalaciones, inspección, acabados…). Di cada fase con una palabra clara, contada como lo que pasa después en la misma obra de la escena ('y cuando por fin llega la inspección…'), no como rótulo con dos puntos. Semanas o plazos solo si están en DATOS verificados; si no, cuenta el orden y qué hace que una fase se retrase, sin números de duración.",
-      "guardable": "el orden real de una obra y los puntos donde se retrasa"
+    "errores": {
+      "nombre": "Errores caros",
+      "plantilla": "errores",
+      "peso": 1.5,
+      "guion": "El valor cuenta dos a cuatro errores encadenados (le pasan al mismo espacio o uno lleva al siguiente), cada uno con su consecuencia concreta (retrabajo, algo que se rompe, dinero tirado, riesgo) y termina con el antídoto: qué hacer antes.",
+      "guardable": "una lista de errores para evitar antes de empezar"
     },
     "mito_realidad": {
       "nombre": "Mito vs. realidad",
       "plantilla": "mito_realidad",
-      "guion": "Uno a tres pares; si hay varios, enlázalos ('y ya que estamos…', 'y el favorito de los cuñados…'). Para cada uno, primero el mito tal como lo diría un propietario, luego la realidad en una o dos frases. Marca el giro con palabras como 'en realidad', 'la verdad es que' (en inglés: 'actually', 'here's the truth'). Si la realidad depende de una norma, dila sin cifras salvo que esté en DATOS.",
+      "peso": 1.5,
+      "guion": "El valor desmonta uno a tres mitos: primero el mito tal como lo diría un propietario, luego la realidad en una o dos frases, marcando el giro con palabras como 'en realidad' o 'la verdad es que'. Si hay varios, se enlazan ('y ya que estamos…').",
       "guardable": "una creencia corregida que el espectador querrá enviar a quien va a remodelar"
     },
     "planta": {
-      "nombre": "Planta 2D que se amuebla o cambia de estilo",
+      "nombre": "Antes y después en planta",
       "plantilla": "planta",
-      "guion": "Describe un espacio concreto (cocina, baño, sala, dormitorio) y lo que cambia: qué se mueve, qué se abre, qué estilo entra. Nombra cada elemento (isla, sofá, ducha, ventana) cuando aparece para que la planta lo dibuje al oírlo, como si recorrieras el espacio con el espectador ('entras, a la izquierda la isla…'), no como una lista de piezas. Si se habla de tirar un muro, di que antes un profesional confirma si es de carga.",
-      "guardable": "una idea de distribución o de estilo aplicable a su casa"
-    },
-    "errores": {
-      "nombre": "Errores caros",
-      "plantilla": "errores",
-      "guion": "Dos a cuatro errores, cada uno con su consecuencia concreta (retrabajo, multa, obra parada, problema al vender), encadenados: le pasan al mismo personaje de la escena o uno lleva al siguiente. Cierra con el antídoto: qué hacer antes. Sin montos salvo DATOS verificados: la consecuencia se cuenta en tiempo, retrabajo o riesgo.",
-      "guardable": "una lista de errores para evitar antes de firmar"
-    },
-    "checklist": {
-      "nombre": "Checklist para verificar a un contratista",
-      "plantilla": "checklist",
-      "guion": "Tres a seis comprobaciones que el propietario puede hacer él mismo, contadas como pasos de una misma conversación o visita con el contratista (no como lista leída), cada una con dónde o cómo se verifica (sin inventar procedimientos: si no está en DATOS, di 'pídelo por escrito' o 'compruébalo en la fuente oficial del estado'). Incluye una señal de alarma.",
-      "guardable": "una lista para revisar antes de contratar"
+      "peso": 1.3,
+      "guion": "El valor recorre el espacio como si caminaras con el espectador ('entras, a la izquierda…'): cómo está mal resuelto y qué cambia para resolverlo. Nombra cada elemento (isla, ducha, barra, ventilador) cuando aparece, para que la planta lo dibuje al oírlo. Si se habla de tirar un muro, di que antes un profesional confirma si es de carga.",
+      "guardable": "una idea de distribución aplicable a su casa"
     },
     "comparador": {
       "nombre": "Comparador de materiales",
       "plantilla": "comparador",
-      "guion": "Dos o tres opciones, presentadas como candidatas para el mismo espacio de la escena (el mismo baño, el mismo patio), comparadas en dos a cuatro criterios (humedad, resistencia, mantenimiento, costo relativo, apariencia). Di el criterio antes de comparar. Sin precios ni cifras técnicas salvo DATOS verificados: usa 'más', 'menos', 'depende'. Cierra con un criterio de decisión, nunca con 'el mejor'.",
+      "peso": 1.0,
+      "guion": "El valor presenta dos o tres opciones como candidatas para el mismo espacio y las compara en dos a cuatro criterios (humedad, calor, resistencia, mantenimiento, costo relativo). Di el criterio antes de comparar. Usa 'más', 'menos', 'depende'. Termina con un criterio de decisión, nunca con 'el mejor'.",
       "guardable": "una tabla mental para elegir material"
+    },
+    "checklist": {
+      "nombre": "Checklist",
+      "plantilla": "checklist",
+      "peso": 1.0,
+      "guion": "El valor da tres a cinco comprobaciones que el propietario puede hacer o pedir él mismo, contadas como pasos de una misma visita o conversación (no como lista leída), cada una con qué mirar o qué preguntar exactamente. Incluye una señal de alarma.",
+      "guardable": "una lista para revisar antes de contratar o comprar"
+    },
+    "cronograma": {
+      "nombre": "Paso a paso",
+      "plantilla": "cronograma",
+      "peso": 0.8,
+      "guion": "El valor avanza fase por fase en el orden real del trabajo, cada fase con una palabra clara y contada como lo que pasa después en el mismo espacio ('y cuando por fin llega el enchape…'), y señala dónde suele fallar o retrasarse.",
+      "guardable": "el orden correcto del trabajo y el punto donde suele fallar"
+    }
+  },
+  "tipos_gancho": {
+    "pregunta": {
+      "descripcion": "Una pregunta directa que el espectador se responde por dentro porque le pasa a él.",
+      "ejemplo": "¿Otra vez pegando la piedra suelta de la piscina?"
+    },
+    "error_2a_persona": {
+      "descripcion": "El error que el espectador está a punto de cometer, dicho en segunda persona y con su consecuencia.",
+      "ejemplo": "Pintas esos gabinetes y al mes la pintura se pela."
+    },
+    "dato_concreto": {
+      "descripcion": "Un detalle técnico o una cifra de oficio que sorprende y abre la curiosidad.",
+      "ejemplo": "Una ducha se prueba inundada un día entero."
+    },
+    "antes_despues": {
+      "descripcion": "El contraste entre el problema y el resultado en una sola frase.",
+      "ejemplo": "Del deck que quema a caminar descalzo a mediodía."
+    },
+    "nadie_te_dice": {
+      "descripcion": "Lo que casi nadie revisa o te cuenta, nombrando el objeto.",
+      "ejemplo": "Nadie revisa lo que hay debajo de las tejas."
+    },
+    "mini_escena": {
+      "descripcion": "Una situación reconocible con humor, en una o dos frases cortas.",
+      "ejemplo": "Prendes la parrilla y el humo entra a la sala."
+    }
+  },
+  "tramos": {
+    "corto": {
+      "segundos": [
+        30,
+        40
+      ],
+      "palabras": [
+        75,
+        100
+      ]
+    },
+    "largo": {
+      "segundos": [
+        50,
+        60
+      ],
+      "palabras": [
+        125,
+        150
+      ]
+    }
+  },
+  "bloques": {
+    "gancho": {
+      "segundos": 3,
+      "palabras_max": 10
+    },
+    "problema": {
+      "segundos": 5,
+      "palabras_max": 14
+    },
+    "cierre": {
+      "segundos": 5,
+      "palabras_max": 14
     }
   }
 }

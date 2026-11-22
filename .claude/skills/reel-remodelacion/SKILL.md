@@ -1,50 +1,52 @@
 ---
 name: reel-remodelacion
-description: Dirige, construye y renderiza con Remotion un Reel vertical educativo y 100 % animado de remodelación e interiores en Florida, en español, para la marca EN BRUTO, a partir del guion, la locución y los tiempos por palabra que deja el notebook en briefs/<BASE>/es/. Úsala cuando pidan crear, dirigir, renderizar o corregir un reel de la marca, o cuando haya una carpeta nueva en briefs/.
+description: Dirige, construye y renderiza con Remotion un Reel vertical educativo y 100 % animado de remodelación e interiores en Florida, en español, para la marca EN BRUTO, a partir del encargo, el guion, la locución y los tiempos por palabra que deja el notebook en briefs/<BASE>/. Úsala cuando pidan crear, dirigir, renderizar o corregir un reel de EN BRUTO.
 ---
 
-# Reel de remodelación: dirección, montaje y render
+# Reel de EN BRUTO: dirección, montaje y render
 
-Estos videos son **instructivos-educativos** y **solo de animación**: no hay fotos ni videos de obras reales, ni casos de clientes. El notebook te da **el guion** (texto plano en español), **la locución** (`locucion.wav`) y **el tiempo de cada palabra** (`palabras.json` v4) en `briefs/<BASE>/es/`, más un `encargo.json` con la marca (EN BRUTO), el formato que eligió el guionista y el seed del que salió el guion. Todo lo demás es tuyo: bloques, titulares, parámetros de la plantilla, ambientes, cada escena y el render.
+Videos **educativos** y **solo de animación**: nada de fotos ni videos de obras reales, ni casos de clientes. El notebook te deja en `briefs/<BASE>/`:
+- `encargo.json`: el espacio, el tema (seed, tesis, puntos), el **formato**, el **gancho** (`pantalla` = texto del primer segundo, `primer_frame` = lo que se ve en el frame 0), `mandar_a`, `palabras_clave` y `cifra_oficio`.
+- `es/guion.txt` (cuatro párrafos: gancho, problema, valor, cierre), `es/locucion.wav` y `es/palabras.json` (tiempo de cada palabra).
+
+Todo lo demás es tuyo: bloques, titulares, parámetros de la plantilla, ambientes, cada escena y el render. Donde más importa tu criterio es en los **primeros tres segundos**: deciden si alguien sigue mirando.
 
 ## 1. Localiza el material
-- `briefs/<BASE>/encargo.json` + `briefs/<BASE>/es/{guion.txt, locucion.wav, palabras.json}`. "El último" = la carpeta `AAAAMMDD-HHMM` más reciente.
-- Si te adjuntan un `<BASE>.zip` (el notebook no pudo subirlo), descomprímelo en `briefs/<BASE>/`.
+- "El último" = la carpeta `AAAAMMDD-HHMM` más reciente de `briefs/`. Si te adjuntan `<BASE>.zip`, descomprímelo en `briefs/<BASE>/`.
 - `python3 scripts/validar_repo.py` debe pasar antes de empezar.
 
 ## 2. Lee la locución
-`python3 scripts/alinear.py briefs/<BASE>/es`: escribe `subtitulos.json` e imprime el guion numerado con pausas (`‖0.45s`). Los `[n]` son las **anclas** de todo lo que decidas. No oyes el audio: el ritmo está ahí. Un guion = un párrafo por bloque; las pausas largas son cortes naturales.
+`python3 scripts/alinear.py briefs/<BASE>/es`: escribe `subtitulos.json` e imprime el guion numerado con pausas (`‖0.45s`). Los `[n]` son las **anclas** de todo lo que decidas. No oyes el audio: el ritmo está ahí.
 
-## 3. Lee la marca, el formato y el encargo
-- Siempre: `editorial/marca.md` (incluida la sección **Declaraciones permitidas**), `editorial/adn.md`, `referencias/layout.md`, `referencias/sincronizacion.md`, `referencias/decisiones.md`, `referencias/audio.md`, `diseno/tokens.json`.
-- La ficha del formato: `plantillas/<formato>.md` y sus parámetros en `plantillas/plantillas.json`. Usa el que eligió el guionista (`encargo.formato_guion`) salvo que el guion pida claramente otro: dilo en la entrega. Si viene `null`, elige tú la plantilla que mejor cuente el guion.
-- `encargo.seed` te dice la intención (tema, ángulo, servicio a promocionar…): úsala para la etiqueta, los titulares y el tono visual.
-- Abre `contactos.png` (logo de la marca, iconos, logos de canales, UI y texturas del repo).
+## 3. Lee lo necesario
+- `referencias/decisiones.md` (qué escribes y cómo decidir), `referencias/layout.md` (marco, bloques, gancho, cierre y bucle), `referencias/sincronizacion.md`, `referencias/audio.md` y la ficha del formato `plantillas/<formato>.md` (sus parámetros en `plantillas/plantillas.json`).
+- `diseno/tokens.json` para colores, tipografías, tamaños y movimiento; `contactos.png` para ver los assets que ya existen.
+- Las reglas de marca están en `editorial/prompt_guion.md` (secciones **Declaraciones permitidas**, **Cifras** y **Límites**).
 
-## 4. Revisa el guion contra el ADN
-El guion pasó por avisos automáticos, no por un editor. Con el checklist de `editorial/adn.md`:
-- **Cifras**: cada precio, plazo, porcentaje o norma debe estar en `editorial/datos_verificados.json` con `verificado: true`. Si no, **no la pongas en pantalla** y dilo en la entrega. Puedes proponer en la entrega la fuente oficial que la respaldaría, pero no cambies `verificado` a `true`: eso lo hace la persona tras leer la fuente (ver README).
+## 4. Revisa el guion
+El guion pasó por unas pocas comprobaciones automáticas, no por un editor:
+- **Cifras**: precios, plazos de obra, porcentajes, normas o requisitos de permisos solo si están en `editorial/datos_verificados.json` con `verificado: true`. Las **cifras de oficio** (medidas, tiempos de prueba o curado, pendientes) son válidas si la voz las dice como referencia; una o dos por video. Lo que no cumpla, no va a pantalla y lo dices en la entrega.
 - **Marca**: si la voz presenta a la marca como ejecutora ("construimos") o afirma licencia, seguro o garantías no declaradas, no lo tapes con la imagen: dilo en la entrega para que se regrabe. La voz no se toca.
-- **Casos**: si la voz cuenta un caso de cliente o un proyecto concreto como real, dilo en la entrega. En pantalla todo ejemplo es ilustrativo.
+- **Casos**: si la voz cuenta un caso de cliente como real, dilo en la entrega. En pantalla todo ejemplo es ilustrativo.
 
 ## 5. Dirige: escribe `briefs/<BASE>/decisiones.json`
-Formato completo en `referencias/decisiones.md`. En resumen: los 6 bloques (`gancho, escena, marco, cuerpo, resultado, cta`) anclados al guion, titulares de dos líneas, `etiqueta` del header, `cta` (texto de la caja que manda al enlace de la bio), `ambientes` y `plantilla.params` según `plantillas.json`.
-Después: `python3 scripts/preparar_brief.py briefs/<BASE>`. Valida contra marca, plantillas y datos, y escribe `briefs/<BASE>/es/brief.json` con frames exactos. Si da errores, corrige `decisiones.json` y repite. Nunca edites frames a mano en `brief.json`.
+Formato completo en `referencias/decisiones.md`: los **4 bloques** (`gancho`, `problema`, `valor`, `cierre`) anclados al guion, titulares de dos líneas (el del gancho = `encargo.gancho.pantalla`), `etiqueta`, `cta`, `ambientes`, `plantilla.params` y, si hace falta, `acentos` para que nunca pasen más de 4 s sin algo nuevo en pantalla.
+Después: `python3 scripts/preparar_brief.py briefs/<BASE>`. Valida contra marca, plantillas, datos y ritmo, y escribe `briefs/<BASE>/es/brief.json` con frames exactos. Si da errores, corrige `decisiones.json` y repite. Trata los avisos de ritmo como errores salvo que tengas un motivo. Nunca edites frames a mano en `brief.json`.
 
 ## 6. Construye
-Un proyecto Remotion con la composición `Reel-es`, que lee `src/brief_es.json` (`referencias/tecnico.md`). Las escenas del bloque `cuerpo` (y lo que la ficha diga de otros bloques) salen de la plantilla del formato; todo lo que no esté en las referencias, decídelo con el sistema de diseño de `tokens.json` (rojo y corchetes del logo como acento; neutros cálidos y la paleta `apoyo` de matices intermedios en las escenas). Todo se dibuja (SVG, iconos, texturas y tipografía), salvo el **logo de la marca** (`brand/en_bruto/`), que se usa tal cual en el header y en el CTA. Antes de dibujar algo desde cero, mira si ya existe en el repo (`contactos.png`: iconos, símbolos de planta, materiales, emoji). Suma la música y los efectos según `referencias/audio.md`.
+Un proyecto Remotion con la composición `Reel-es` que lee `src/brief_es.json` (`referencias/tecnico.md`). El bloque `valor` sale de la plantilla del formato. El frame 0 es `brief.gancho.primer_frame` dibujado y en movimiento, sin header. El final enlaza con el principio (`brief.bucle`, ver `referencias/layout.md`). Todo se dibuja (SVG, iconos, texturas, tipografía), salvo el logo de `brand/en_bruto/`, que va tal cual en el header y en el CTA. Antes de dibujar algo desde cero, mira si existe en el repo. Suma música y efectos según `referencias/audio.md`.
 
 ## 7. Revisa como un editor
-`python3 scripts/preparar_brief.py briefs/<BASE> --stills` imprime un comando de still por bloque, transición de ambiente, ancla de la plantilla, CTA y final. Ejecútalos y mira cada imagen con la lista de `referencias/entrega.md` → "Antes de entregar". Corrige y repite.
+`python3 scripts/preparar_brief.py briefs/<BASE> --stills` imprime un comando de still para el primer frame, la entrada del header, cada bloque, cada ancla y acento, el CTA y el final. Ejecútalos y mira cada imagen con la lista de `referencias/entrega.md` → "Antes de entregar". Corrige y repite.
 
 ## 8. Render y entrega
-Comandos, formato de salida y qué decir en la entrega: `referencias/entrega.md`. Si tienes permiso de escritura en el repo, sube `briefs/<BASE>/decisiones.json`, `briefs/<BASE>/audio.json`, `briefs/<BASE>/es/brief.json` y `briefs/<BASE>/es/subtitulos.json` (así el siguiente video ve qué ambientes y qué música se usaron).
+Comandos, formato de salida y mensaje de entrega: `referencias/entrega.md`. Si tienes permiso de escritura en el repo, sube `briefs/<BASE>/decisiones.json`, `briefs/<BASE>/audio.json`, `briefs/<BASE>/es/brief.json` y `briefs/<BASE>/es/subtitulos.json`.
 
 ## Reglas fijas
-- El marco (barra de progreso, header con logo, titular, subtítulos, CTA con logo) es igual en todos los videos; solo cambian el ambiente y la escena.
-- El CTA invita a entrar al perfil y tocar el enlace de la bio: nada de palabras clave, comentarios, DM ni "link en la descripción" en pantalla.
-- Ninguna cifra en pantalla sin un dato verificado de `datos_verificados.json`. Lo ilustrativo se marca como **EJEMPLO ILUSTRATIVO**.
-- La marca coordina; nunca aparece como quien construye, instala o repara. Ni sellos de "licenciado", "asegurado" ni "garantizado" salvo lo que `marca.md` declare con `si`.
-- Animación pura: nada de fotos ni videos (ni de obras, ni de bancos de imágenes, ni de internet), ni logos de contratistas o fabricantes.
-- La voz no se toca: ni recortes ni cambios de velocidad. Música y efectos solo de `audio/catalogo.json`, por debajo de la voz (`referencias/audio.md`).
+- El marco (barra de progreso, header con logo, titular, subtítulos, CTA con logo) es igual en todos los videos; el header entra en `brief.header_entra_f` (1,5 s), nunca en el frame 0.
+- El CTA invita a entrar al perfil y tocar el enlace de la bio: nada de palabras clave, comentarios, DM ni "link en la descripción".
+- Ninguna cifra en pantalla salvo un dato verificado o la cifra de oficio que dice la voz. Lo ilustrativo se marca como **EJEMPLO ILUSTRATIVO**.
+- La marca coordina; nunca aparece como quien construye, instala o repara, ni con sellos de "licenciado", "asegurado" o "garantizado" salvo lo declarado con `si`.
+- Animación pura: nada de fotos ni videos, ni logos de contratistas o fabricantes.
+- La voz no se toca: ni recortes ni cambios de velocidad. Música y efectos solo del catálogo de `audio/`, por debajo de la voz.
 - Determinismo: nada de `Math.random()` en Remotion.

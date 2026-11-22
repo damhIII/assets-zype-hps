@@ -14,13 +14,17 @@ Nunca leas `palabras.json` directamente desde Remotion: usa `brief.subtitulos` y
 | Elemento de plantilla (partida, fase, ítem, error, opción, criterio, mueble, estilo) | su `ancla` | entra el elemento (ver la ficha de la plantilla) |
 | Giro (realidad, antídoto, veredicto, retraso) | su `ancla…` | la transformación termina **en** la palabra (empieza unos frames antes) |
 | Cifra verificada | el `ancla` de su elemento | conteo de `conteo_frames`, termina antes de la siguiente palabra larga |
+| Acento | `acentos[].ancla` | lo que diga su `que` (corchetes que se cierran, punch-in, icono, pegatina) |
 | Mención del enlace | `cta_f` (lo calcula el script: la última vez que la voz dice "bio", "link", "enlace" o "perfil", o `cta_ancla`) | pop de la caja CTA y rebote de la flecha hacia el perfil (abajo a la izquierda) |
 | Subtítulo | cada palabra de `subtitulos` | resaltado de la palabra actual |
 | Remate de bloque | última palabra antes de una pausa `‖` ≥ 0,3 s | punch-in suave |
+| Entrada del header | `header_entra_f` (1,5 s) | fundido corto del logo y la etiqueta (antes, el gancho ocupa toda la pantalla) |
+| Bucle | `bucle.ini_f` → `bucle.fin_f` | sale el CTA y la escena vuelve a la composición del frame 0 |
 
 ## Reglas de tiempo
 - **Anticipación**: lo que aparece entra `anticipacion_frames` (2) antes del frame del ancla, para que el ojo lo vea justo cuando el oído lo oye. Las transformaciones largas (cortina, tachado, volteo) empiezan antes y **terminan** en el ancla.
 - Un elemento por palabra ancla: si dos elementos caen a menos de 6 frames, escalónalos 4 frames en el orden en que se nombran.
 - Nada nuevo en los últimos 10 frames de un bloque (se cortaría con el cambio de titular).
 - Transición entre ambientes: `reglas_ambientes.transicion_frames` (12) centrados en `ini_f` del bloque nuevo, con `interpolateColors`; nunca un corte seco de color.
-- La cola (`cola_s`) es imagen quieta con micro-movimiento: CTA visible y legible hasta el último frame.
+- La cola (`cola_s`) es imagen quieta con micro-movimiento: el CTA visible y legible hasta `bucle.ini_f`; en el bucle, la escena vuelve al frame 0.
+- Mientras habla la voz, nunca más de `movimiento.max_sin_cambio_s` (4) segundos sin algo nuevo en pantalla (`preparar_brief.py` avisa).

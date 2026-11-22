@@ -1,7 +1,7 @@
 {
   "_nota": "Parámetros de entrada de cada plantilla de escena. preparar_brief.py valida decisiones.json → plantilla.params contra este archivo. La dirección visual de cada una está en <id>.md.",
   "_tipos": {
-    "texto": "cadena (el video sale solo en español)",
+    "texto": "cadena",
     "numero": "número o null",
     "entero": "entero",
     "bool": "true / false",
@@ -15,35 +15,8 @@
     "_atributos": "requerido (bool) · requerido_si {param, igual} sobre un parámetro raíz · fuente_en: si el valor no es null, el campo hermano indicado debe ser un dato válido · defecto"
   },
   "plantillas": {
-    "presupuesto": {
-      "nombre": { "es": "Presupuesto desglosado", "en": "Budget breakdown" },
-      "md": "presupuesto.md",
-      "aviso_legal": false,
-      "params": {
-        "titulo": { "tipo": "texto", "requerido": true },
-        "modo": { "tipo": "enum", "valores": ["preguntas", "montos"], "requerido": true },
-        "partidas": { "tipo": "lista", "min": 3, "max": 7, "requerido": true, "item": { "tipo": "objeto", "campos": {
-          "etiqueta": { "tipo": "texto", "requerido": true },
-          "icono": { "tipo": "icono" },
-          "pregunta": { "tipo": "texto" },
-          "monto_usd": { "tipo": "numero", "fuente_en": "fuente", "requerido_si": { "param": "modo", "igual": "montos" } },
-          "fuente": { "tipo": "dato" },
-          "ancla": { "tipo": "ancla", "requerido": true }
-        } } },
-        "alerta": { "tipo": "objeto", "campos": {
-          "partida": { "tipo": "entero", "requerido": true },
-          "texto": { "tipo": "texto", "requerido": true },
-          "ancla": { "tipo": "ancla", "requerido": true }
-        } },
-        "total": { "tipo": "objeto", "campos": {
-          "monto_usd": { "tipo": "numero", "fuente_en": "fuente" },
-          "fuente": { "tipo": "dato" },
-          "ancla": { "tipo": "ancla", "requerido": true }
-        } }
-      }
-    },
     "cronograma": {
-      "nombre": { "es": "Línea de tiempo de obra", "en": "Project timeline" },
+      "nombre": "Paso a paso",
       "md": "cronograma.md",
       "aviso_legal": false,
       "params": {
@@ -71,7 +44,7 @@
       }
     },
     "mito_realidad": {
-      "nombre": { "es": "Mito vs. realidad", "en": "Myth vs. reality" },
+      "nombre": "Mito vs. realidad",
       "md": "mito_realidad.md",
       "aviso_legal": true,
       "params": {
@@ -87,7 +60,7 @@
       }
     },
     "planta": {
-      "nombre": { "es": "Planta 2D", "en": "2D floor plan" },
+      "nombre": "Antes y después en planta",
       "md": "planta.md",
       "aviso_legal": false,
       "params": {
@@ -110,7 +83,7 @@
       }
     },
     "errores": {
-      "nombre": { "es": "Errores caros", "en": "Costly mistakes" },
+      "nombre": "Errores caros",
       "md": "errores.md",
       "aviso_legal": false,
       "params": {
@@ -131,7 +104,7 @@
       }
     },
     "checklist": {
-      "nombre": { "es": "Checklist de verificación", "en": "Vetting checklist" },
+      "nombre": "Checklist",
       "md": "checklist.md",
       "aviso_legal": true,
       "params": {
@@ -150,7 +123,7 @@
       }
     },
     "comparador": {
-      "nombre": { "es": "Comparador de materiales", "en": "Material comparison" },
+      "nombre": "Comparador de materiales",
       "md": "comparador.md",
       "aviso_legal": false,
       "params": {

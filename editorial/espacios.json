@@ -1,0 +1,2065 @@
+{
+ "_nota": "Catálogo de dolores por espacio para el generador de temas del notebook. Cada dolor: id único, elemento, dolor (lo que el propietario ve o sufre), solucion (la que el video explica), florida (el factor local, opcional), formatos (los de formatos.json con que se cuenta mejor) y temporadas (huracanes jun-nov, lluvias may-oct, calor jun-sep, seca nov-abr: dan más peso en esos meses). Edítalo a mano cuando quieras; el notebook añade diez dolores nuevos cuando a un espacio le quedan menos de tres sin usar.",
+ "espacios": {
+  "COCINA DE EXTERIORES": {
+   "dolores": [
+    {
+     "id": "ce_gas",
+     "elemento": "Gas de la parrilla",
+     "dolor": "Conexión de gas improvisada, con mangueras a la vista y sin llave de corte",
+     "solucion": "línea de gas propano o natural con tubería apta para exterior, regulador, válvula de corte accesible y prueba de fugas antes de conectar",
+     "florida": "sol y lluvia resecan mangueras y conexiones",
+     "formatos": [
+      "checklist",
+      "errores"
+     ]
+    },
+    {
+     "id": "ce_meson",
+     "elemento": "Mesón exterior",
+     "dolor": "Mesón que se mancha, se decolora y se agrieta con el sol y la lluvia",
+     "solucion": "base de bloque y cubierta de granito flameado o porcelanato para exterior, con sellado contra manchas y humedad",
+     "florida": "sol fuerte y aguaceros diarios",
+     "formatos": [
+      "comparador",
+      "errores"
+     ]
+    },
+    {
+     "id": "ce_fregadero",
+     "elemento": "Fregadero exterior",
+     "dolor": "Fregadero sin agua ni desagüe: se lava todo dentro de la casa",
+     "solucion": "tuberías de agua y drenaje enterradas con pendiente y conexión a la red de la casa, resueltas antes de cerrar el piso",
+     "formatos": [
+      "cronograma",
+      "errores"
+     ]
+    },
+    {
+     "id": "ce_almacenamiento",
+     "elemento": "Almacenamiento",
+     "dolor": "Sin dónde guardar utensilios, carbón ni el tanque de gas",
+     "solucion": "gabinetes de polímero marino con puertas ventiladas, espacio para el tanque diseñado para ese uso y ganchos de acero inoxidable",
+     "florida": "la humedad hincha la madera y oxida el metal común",
+     "formatos": [
+      "planta",
+      "comparador"
+     ]
+    },
+    {
+     "id": "ce_plagas",
+     "elemento": "Moscas y mosquitos",
+     "dolor": "Moscas y mosquitos que llegan a la mesa en cada comida",
+     "solucion": "ventilador de techo para exterior, mallas en cerramientos y basura con tapa lejos de la zona de preparación",
+     "florida": "calor y agua estancada después de la lluvia",
+     "formatos": [
+      "planta",
+      "errores",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "lluvias",
+      "calor"
+     ]
+    },
+    {
+     "id": "ce_luz",
+     "elemento": "Luz y barra",
+     "dolor": "Cocinar de noche sin luz y con los invitados de pie junto a la parrilla",
+     "solucion": "iluminación LED cálida sobre el área de trabajo y barra con taburetes fuera del paso y lejos del calor",
+     "formatos": [
+      "planta",
+      "errores"
+     ],
+     "temporadas": [
+      "seca"
+     ]
+    },
+    {
+     "id": "ce_horno",
+     "elemento": "Horno de leña",
+     "dolor": "Ganas de hacer pizza y pan en casa",
+     "solucion": "horno de leña con base de concreto reforzado, ladrillo refractario, domo aislado y chimenea con buen tiro",
+     "formatos": [
+      "cronograma",
+      "errores"
+     ],
+     "temporadas": [
+      "seca"
+     ]
+    },
+    {
+     "id": "ce_piso",
+     "elemento": "Piso de la cocina exterior",
+     "dolor": "Piso que se mancha de grasa y resbala cuando se moja",
+     "solucion": "porcelanato antideslizante para exterior o concreto con sellador repelente al aceite, con pendiente hacia un desagüe",
+     "florida": "lluvia diaria en verano",
+     "formatos": [
+      "comparador",
+      "errores"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "ce_humo",
+     "elemento": "Humo",
+     "dolor": "El humo de la parrilla entra a la casa o ennegrece el techo de la terraza",
+     "solucion": "ubicar la parrilla lejos de puertas y ventanas, campana para exterior con salida adecuada y separaciones del fabricante bajo techo",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "ce_cubierta",
+     "elemento": "Techo de la cocina exterior",
+     "dolor": "Cocina exterior sin techo que solo se usa cuando no llueve ni quema el sol",
+     "solucion": "techo sólido, pérgola con lamas o toldo, con ventilación y separaciones para la parrilla",
+     "florida": "aguaceros de la tarde y sol de mediodía",
+     "formatos": [
+      "comparador",
+      "planta"
+     ],
+     "temporadas": [
+      "lluvias",
+      "calor"
+     ]
+    },
+    {
+     "id": "ce_electricidad",
+     "elemento": "Enchufes y nevera",
+     "dolor": "Extensiones y regletas para conectar la nevera y los aparatos afuera",
+     "solucion": "circuito dedicado, tomas con protección contra descargas (GFCI) y cajas aptas para intemperie",
+     "florida": "lluvia y salpicaduras",
+     "formatos": [
+      "checklist",
+      "errores"
+     ]
+    },
+    {
+     "id": "ce_oxido",
+     "elemento": "Óxido",
+     "dolor": "Parrilla, tiradores y bisagras con óxido al año de estrenar",
+     "solucion": "acero inoxidable de grado marino en lo que está a la intemperie, fundas y limpieza periódica",
+     "florida": "humedad y salitre cerca de la costa",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "ce_distribucion",
+     "elemento": "Distribución",
+     "dolor": "Preparas lejos del fregadero y cruzas el patio con la carne cruda",
+     "solucion": "zonas en orden de uso: preparar, cocinar, lavar y servir, con superficie libre junto a la parrilla",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "ce_nevera",
+     "elemento": "Nevera exterior",
+     "dolor": "La nevera de la cocina vieja, puesta afuera, se daña en un verano",
+     "solucion": "nevera certificada para exterior y mueble con ventilación",
+     "florida": "calor y humedad",
+     "formatos": [
+      "mito_realidad",
+      "errores"
+     ],
+     "temporadas": [
+      "calor"
+     ]
+    },
+    {
+     "id": "ce_sol_tarde",
+     "elemento": "Orientación",
+     "dolor": "El que cocina se derrite: la parrilla mira al sol de la tarde",
+     "solucion": "orientar la zona de cocina según el sol, sombra fija y ventilador para exterior",
+     "florida": "sol del oeste en verano",
+     "formatos": [
+      "planta",
+      "errores"
+     ],
+     "temporadas": [
+      "calor"
+     ]
+    }
+   ]
+  },
+  "COCINAS": {
+   "dolores": [
+    {
+     "id": "co_gabinetes_oscuros",
+     "elemento": "Gabinetes oscuros",
+     "dolor": "Gabinetes de madera oscura de los años dos mil que hacen ver la cocina vieja",
+     "solucion": "desengrase, lijado y laca o esmalte de poliuretano en color neutro, en vez de cambiarlos",
+     "formatos": [
+      "cronograma",
+      "errores"
+     ]
+    },
+    {
+     "id": "co_esquinas",
+     "elemento": "Esquinas ciegas",
+     "dolor": "Ollas perdidas al fondo del mueble esquinero",
+     "solucion": "herrajes extraíbles esquineros que soporten el peso de ollas pesadas",
+     "formatos": [
+      "errores",
+      "comparador"
+     ]
+    },
+    {
+     "id": "co_salpicadero",
+     "elemento": "Salpicadero",
+     "dolor": "Manchas de aceite quemado en la pared de la estufa",
+     "solucion": "salpicadero de porcelanato de gran formato con pocas juntas y fácil de limpiar",
+     "formatos": [
+      "mito_realidad",
+      "comparador"
+     ]
+    },
+    {
+     "id": "co_encimera",
+     "elemento": "Encimera",
+     "dolor": "No sabes si elegir cuarzo, granito o laminado para la encimera",
+     "solucion": "comparar resistencia al calor, a las manchas, mantenimiento y costo relativo",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "co_abrir",
+     "elemento": "Abrir la cocina",
+     "dolor": "Cocina cerrada y oscura que te aísla de la sala",
+     "solucion": "abrirla a la sala comprobando antes si el muro es de carga y qué instalaciones pasan por dentro",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "co_zonas",
+     "elemento": "Recorrido de trabajo",
+     "dolor": "Caminas de más entre nevera, fregadero y estufa",
+     "solucion": "ubicar nevera, fregadero y estufa en un recorrido corto, con encimera libre entre ellos",
+     "formatos": [
+      "planta",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "co_campana",
+     "elemento": "Campana",
+     "dolor": "Olor a fritura y grasa pegada en toda la casa",
+     "solucion": "campana con salida al exterior del tamaño adecuado en vez de una que solo recircula",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "co_iluminacion",
+     "elemento": "Iluminación",
+     "dolor": "Cortas los alimentos en tu propia sombra",
+     "solucion": "luz bajo los gabinetes y capas de iluminación: general, de trabajo y decorativa",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "co_enchufes",
+     "elemento": "Enchufes",
+     "dolor": "Regletas y cables sobre la encimera porque no hay enchufes",
+     "solucion": "más tomas en el salpicadero y la isla, con protección contra descargas (GFCI) y circuitos para los aparatos grandes",
+     "formatos": [
+      "checklist",
+      "errores"
+     ]
+    },
+    {
+     "id": "co_isla",
+     "elemento": "Isla",
+     "dolor": "Una isla que estorba el paso y no deja abrir el lavavajillas",
+     "solucion": "medir el pasillo alrededor de la isla y la apertura de puertas antes de decidir su tamaño",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "co_fuga_fregadero",
+     "elemento": "Mueble del fregadero",
+     "dolor": "Mueble del fregadero hinchado por una fuga silenciosa",
+     "solucion": "reparar la fuga, base resistente a la humedad y bandeja protectora bajo el fregadero",
+     "florida": "humedad ambiente alta",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "co_despensa",
+     "elemento": "Despensa",
+     "dolor": "No ves lo que hay al fondo de la alacena y compras repetido",
+     "solucion": "cajones extraíbles en vez de puertas con estantes y despensa con módulos a la vista",
+     "formatos": [
+      "comparador",
+      "planta"
+     ]
+    },
+    {
+     "id": "co_piso",
+     "elemento": "Piso de cocina",
+     "dolor": "Piso de cocina que se raya, se mancha o se hincha con el agua",
+     "solucion": "comparar porcelanato, vinílico de lujo y madera según agua, golpes y mantenimiento",
+     "florida": "humedad",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "co_orden_obra",
+     "elemento": "Orden de la remodelación",
+     "dolor": "Remodelar la cocina sin saber qué va primero",
+     "solucion": "medir, diseñar, pedir gabinetes, demoler, instalaciones, inspección, gabinetes, encimera y salpicadero, en ese orden",
+     "formatos": [
+      "cronograma",
+      "errores"
+     ]
+    },
+    {
+     "id": "co_pedido_gabinetes",
+     "elemento": "Pedido de gabinetes",
+     "dolor": "Gabinetes comprados antes de cerrar la distribución que luego no encajan",
+     "solucion": "cerrar el plano y las medidas reales, incluidos los electrodomésticos, antes de pedir gabinetes",
+     "formatos": [
+      "errores",
+      "cronograma"
+     ]
+    },
+    {
+     "id": "co_fregadero",
+     "elemento": "Fregadero",
+     "dolor": "Fregadero que salpica y donde no cabe la olla grande",
+     "solucion": "elegir profundidad, tipo bajo encimera y grifo según cómo cocinas",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    }
+   ]
+  },
+  "BAÑOS": {
+   "dolores": [
+    {
+     "id": "ba_impermeabilizacion",
+     "elemento": "Impermeabilización de la ducha",
+     "dolor": "Mancha de humedad en la pared o el techo del cuarto vecino",
+     "solucion": "impermeabilizar la ducha con membrana líquida o en lámina bajo el porcelanato y hacer una prueba de inundación antes de enchapar",
+     "formatos": [
+      "cronograma",
+      "errores"
+     ]
+    },
+    {
+     "id": "ba_moho",
+     "elemento": "Moho en el techo",
+     "dolor": "Moho negro que vuelve al techo del baño aunque lo pintes",
+     "solucion": "extractor con salida al exterior, encenderlo el tiempo suficiente y tratar la causa antes de pintar",
+     "florida": "humedad alta casi todo el año",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "lluvias",
+      "calor"
+     ]
+    },
+    {
+     "id": "ba_banera_ducha",
+     "elemento": "Bañera a ducha",
+     "dolor": "Bañera que nadie usa y estorba para entrar a la ducha",
+     "solucion": "cambiarla por una ducha a ras de piso con desagüe lineal y pendiente bien resuelta",
+     "formatos": [
+      "planta",
+      "cronograma"
+     ]
+    },
+    {
+     "id": "ba_juntas",
+     "elemento": "Juntas",
+     "dolor": "Juntas negras entre azulejos que ya no se limpian",
+     "solucion": "boquilla epóxica o porcelanato de gran formato con menos juntas",
+     "florida": "humedad",
+     "formatos": [
+      "comparador",
+      "errores"
+     ]
+    },
+    {
+     "id": "ba_resbalon",
+     "elemento": "Piso de ducha",
+     "dolor": "Piso de ducha que resbala y da miedo con niños o mayores",
+     "solucion": "porcelanato antideslizante o mosaico pequeño en la ducha y pendiente correcta hacia el desagüe",
+     "formatos": [
+      "comparador",
+      "checklist"
+     ]
+    },
+    {
+     "id": "ba_pequeno",
+     "elemento": "Baño pequeño",
+     "dolor": "Baño tan pequeño que la puerta choca con el lavamanos",
+     "solucion": "lavamanos suspendido, puerta corredera, espejo grande y nicho en la ducha",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "ba_guardar",
+     "elemento": "Almacenamiento",
+     "dolor": "Todo amontonado en la encimera porque no hay dónde guardar",
+     "solucion": "nicho empotrado en la ducha, mueble suspendido con cajones y espejo con gabinete",
+     "formatos": [
+      "planta",
+      "comparador"
+     ]
+    },
+    {
+     "id": "ba_mueble",
+     "elemento": "Mueble del lavamanos",
+     "dolor": "Mueble del lavamanos hinchado y despegado por la humedad",
+     "solucion": "material resistente a la humedad, bordes sellados y ventilación del baño",
+     "florida": "humedad",
+     "formatos": [
+      "comparador",
+      "errores"
+     ]
+    },
+    {
+     "id": "ba_inodoro",
+     "elemento": "Inodoro",
+     "dolor": "Inodoro que se mueve o deja una mancha de agua en la base",
+     "solucion": "revisar el sello de la base, nivelarlo y comprobar que el piso de debajo esté sano",
+     "formatos": [
+      "errores",
+      "checklist"
+     ]
+    },
+    {
+     "id": "ba_mampara",
+     "elemento": "Mampara",
+     "dolor": "La cortina deja el baño inundado después de cada ducha",
+     "solucion": "mampara de vidrio templado fija, corredera o abatible según el espacio",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "ba_agua_caliente",
+     "elemento": "Agua caliente",
+     "dolor": "El agua caliente tarda una eternidad en llegar a la ducha",
+     "solucion": "revisar distancia al calentador, recirculación o calentador de paso cerca del baño",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "ba_accesible",
+     "elemento": "Baño para mayores",
+     "dolor": "Baño que se vuelve peligroso para tus padres",
+     "solucion": "barras de apoyo sobre refuerzo en la pared, ducha sin escalón e inodoro a altura cómoda",
+     "formatos": [
+      "checklist",
+      "planta"
+     ]
+    },
+    {
+     "id": "ba_orden_obra",
+     "elemento": "Orden de la remodelación",
+     "dolor": "Remodelar el baño sin saber qué va primero",
+     "solucion": "demolición, plomería, impermeabilización, prueba de inundación, enchape y accesorios, en ese orden",
+     "formatos": [
+      "cronograma",
+      "errores"
+     ]
+    },
+    {
+     "id": "ba_sin_ventana",
+     "elemento": "Baño sin ventana",
+     "dolor": "Baño sin ventana que nunca termina de secarse",
+     "solucion": "extractor del tamaño adecuado con salida al exterior y temporizador o sensor de humedad",
+     "florida": "humedad alta",
+     "formatos": [
+      "planta",
+      "errores"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "ba_doble_lavamanos",
+     "elemento": "Doble lavamanos",
+     "dolor": "Dos personas, un lavamanos y peleas cada mañana",
+     "solucion": "doble lavamanos o uno largo con dos grifos, con espacio cómodo para cada uno",
+     "formatos": [
+      "planta",
+      "comparador"
+     ]
+    }
+   ]
+  },
+  "AMPLIACIÓN DE LA CASA": {
+   "dolores": [
+    {
+     "id": "am_cuarto_extra",
+     "elemento": "Ganar un cuarto",
+     "dolor": "La familia creció y falta un cuarto",
+     "solucion": "comparar ampliar hacia el patio, convertir el garaje o construir un segundo piso",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "am_garaje",
+     "elemento": "Garaje a habitación",
+     "dolor": "Convertir el garaje en habitación y que siga pareciendo garaje",
+     "solucion": "piso nivelado, aislamiento, ventana, aire acondicionado y permiso antes de empezar",
+     "florida": "calor",
+     "formatos": [
+      "checklist",
+      "errores"
+     ]
+    },
+    {
+     "id": "am_aire",
+     "elemento": "Aire acondicionado",
+     "dolor": "La ampliación queda caliente porque el aire de la casa no alcanza",
+     "solucion": "evaluar la capacidad del aire actual y planificar un equipo para la zona nueva, como un mini split",
+     "florida": "calor y humedad",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "calor"
+     ]
+    },
+    {
+     "id": "am_union_techo",
+     "elemento": "Unión de techos",
+     "dolor": "Goteras justo donde se une el techo nuevo con el viejo",
+     "solucion": "diseñar la unión con tapajuntas y pendientes antes de construir",
+     "florida": "aguaceros",
+     "formatos": [
+      "errores",
+      "cronograma"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "am_sin_planos",
+     "elemento": "Planos y permisos",
+     "dolor": "Empezar a construir sin planos ni permiso",
+     "solucion": "planos, permiso, cimientos, estructura e inspecciones, en ese orden",
+     "formatos": [
+      "cronograma",
+      "errores"
+     ]
+    },
+    {
+     "id": "am_cimientos",
+     "elemento": "Cimientos",
+     "dolor": "Creer que se puede construir encima de la losa existente sin revisarla",
+     "solucion": "que un ingeniero revise la cimentación antes de cargar más peso",
+     "formatos": [
+      "mito_realidad",
+      "errores"
+     ]
+    },
+    {
+     "id": "am_pegada",
+     "elemento": "Que no se vea pegada",
+     "dolor": "La ampliación se ve como un parche pegado a la casa",
+     "solucion": "repetir techo, ventanas, alturas y acabados exteriores de la casa original",
+     "formatos": [
+      "errores",
+      "planta"
+     ]
+    },
+    {
+     "id": "am_suite",
+     "elemento": "Suite para visitas",
+     "dolor": "Los suegros vienen largas temporadas y no hay espacio para ellos",
+     "solucion": "suite con baño propio y, si se puede, entrada independiente",
+     "formatos": [
+      "planta",
+      "checklist"
+     ]
+    },
+    {
+     "id": "am_terraza",
+     "elemento": "Cerrar la terraza",
+     "dolor": "Cerrar la terraza para ganar espacio y que se vuelva un horno",
+     "solucion": "ventanas adecuadas para viento, piso, aislamiento, aire acondicionado y permiso",
+     "florida": "huracanes y calor",
+     "formatos": [
+      "checklist",
+      "cronograma"
+     ],
+     "temporadas": [
+      "huracanes"
+     ]
+    },
+    {
+     "id": "am_segundo_piso",
+     "elemento": "Segundo piso",
+     "dolor": "Construir hacia arriba sin pensar en la escalera ni en dónde vivir durante la obra",
+     "solucion": "ubicar la escalera sin robar espacio abajo, revisar estructura y planear la mudanza temporal",
+     "formatos": [
+      "errores",
+      "planta"
+     ]
+    },
+    {
+     "id": "am_oscuridad",
+     "elemento": "Luz natural",
+     "dolor": "Tras ampliar, el centro de la casa queda oscuro",
+     "solucion": "ventanas bien ubicadas, tragaluces e iluminación planificada en el plano",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "am_imprevistos",
+     "elemento": "Imprevistos",
+     "dolor": "La ampliación descubre problemas que nadie vio en el presupuesto",
+     "solucion": "reservar una parte del presupuesto para imprevistos y pedir partidas detalladas",
+     "formatos": [
+      "errores",
+      "checklist"
+     ]
+    },
+    {
+     "id": "am_drenaje",
+     "elemento": "Agua del terreno",
+     "dolor": "La ampliación cambia hacia dónde corre el agua y aparecen charcos junto a la casa",
+     "solucion": "revisar pendientes del terreno, canaletas y bajantes en el diseño",
+     "florida": "aguaceros de verano",
+     "formatos": [
+      "errores",
+      "planta"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "am_panel",
+     "elemento": "Panel eléctrico",
+     "dolor": "El panel eléctrico no aguanta todo lo nuevo",
+     "solucion": "que un electricista evalúe la capacidad del panel antes de diseñar",
+     "formatos": [
+      "checklist",
+      "errores"
+     ]
+    }
+   ]
+  },
+  "PINTURA EXTERIOR E INTERIOR": {
+   "dolores": [
+    {
+     "id": "pi_se_pela",
+     "elemento": "Pintura que se pela",
+     "dolor": "Pintura exterior que se pela después de la temporada de lluvias",
+     "solucion": "lavado a presión, reparar grietas, imprimación y pintura elastomérica o acrílica para exterior",
+     "florida": "lluvia y sol intensos",
+     "formatos": [
+      "cronograma",
+      "errores"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "pi_moho_fachada",
+     "elemento": "Moho en la fachada",
+     "dolor": "Manchas negras de moho en la fachada",
+     "solucion": "limpieza con fungicida, dejar secar y pintura con protección antimoho",
+     "florida": "humedad alta",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "pi_color_calor",
+     "elemento": "Color y calor",
+     "dolor": "Fachada de color oscuro que se calienta como plancha",
+     "solucion": "colores claros o pinturas reflectantes en las paredes que dan al sol",
+     "florida": "sol del oeste",
+     "formatos": [
+      "mito_realidad",
+      "comparador"
+     ],
+     "temporadas": [
+      "calor"
+     ]
+    },
+    {
+     "id": "pi_acabado",
+     "elemento": "Acabado",
+     "dolor": "No sabes si usar mate, satinado o semibrillo en cada cuarto",
+     "solucion": "mate para techos y salas, satinado para cuartos y pasillos, semibrillo para cocina, baño y puertas",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "pi_ampollas",
+     "elemento": "Pintura en el baño",
+     "dolor": "Pintura que se ampolla en el baño o detrás de la estufa",
+     "solucion": "pintura para zonas húmedas, superficie limpia y seca, y ventilación",
+     "florida": "humedad",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "pi_grietas_estuco",
+     "elemento": "Grietas en el estuco",
+     "dolor": "Grietas en el estuco de la fachada que vuelven a salir",
+     "solucion": "abrir y sellar la grieta con material elástico, diferenciar una grieta fina de una que pide revisión estructural",
+     "formatos": [
+      "mito_realidad",
+      "checklist"
+     ]
+    },
+    {
+     "id": "pi_preparacion",
+     "elemento": "Preparación",
+     "dolor": "Pintar encima sin preparar la pared y ver salir los defectos",
+     "solucion": "limpiar, lijar, masillar, imprimar y después dos manos de pintura",
+     "formatos": [
+      "cronograma",
+      "errores"
+     ]
+    },
+    {
+     "id": "pi_mancha_techo",
+     "elemento": "Mancha en el techo",
+     "dolor": "Mancha amarilla en el techo interior que atraviesa la pintura",
+     "solucion": "encontrar y reparar la fuga primero, luego sellador bloqueador de manchas y pintura",
+     "florida": "aguaceros",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "pi_puertas",
+     "elemento": "Puertas y marcos",
+     "dolor": "Puertas y marcos exteriores que hacen ver la casa vieja",
+     "solucion": "lijado, imprimación y esmalte para exterior en puertas, marcos y rejas",
+     "florida": "sol y salitre",
+     "formatos": [
+      "cronograma",
+      "comparador"
+     ]
+    },
+    {
+     "id": "pi_muestra",
+     "elemento": "Elegir color",
+     "dolor": "Elegir el color por la muestrita del catálogo y odiarlo en la pared",
+     "solucion": "probar muestras grandes en varias paredes y a distintas horas del día",
+     "florida": "luz muy intensa",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "pi_paleta",
+     "elemento": "Paleta de la casa",
+     "dolor": "Cada cuarto de un color distinto y la casa se ve sin unidad",
+     "solucion": "paleta de tres colores repartida con la regla sesenta, treinta, diez",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "pi_epoca",
+     "elemento": "Cuándo pintar el exterior",
+     "dolor": "Pintar la fachada en plena temporada de aguaceros",
+     "solucion": "elegir la temporada seca, mirar el pronóstico y respetar los tiempos de secado entre manos",
+     "florida": "lluvias de verano",
+     "formatos": [
+      "mito_realidad",
+      "checklist"
+     ],
+     "temporadas": [
+      "seca"
+     ]
+    },
+    {
+     "id": "pi_hoa",
+     "elemento": "Color y asociación",
+     "dolor": "Pintar la fachada sin preguntar a la asociación de vecinos (HOA)",
+     "solucion": "pedir la paleta aprobada y la autorización antes de comprar la pintura",
+     "formatos": [
+      "errores",
+      "checklist"
+     ]
+    },
+    {
+     "id": "pi_piso_concreto",
+     "elemento": "Piso de concreto pintado",
+     "dolor": "Terraza o garaje con pintura que se pela a los pocos meses",
+     "solucion": "preparar el concreto y usar sellador o recubrimiento específico para pisos",
+     "florida": "humedad que sube del suelo",
+     "formatos": [
+      "comparador",
+      "errores"
+     ]
+    },
+    {
+     "id": "pi_una_mano",
+     "elemento": "Una mano y listo",
+     "dolor": "Creer que una mano de pintura basta",
+     "solucion": "imprimación cuando hace falta y dos manos, respetando el tiempo entre ellas",
+     "formatos": [
+      "mito_realidad",
+      "errores"
+     ]
+    }
+   ]
+  },
+  "PATIOS": {
+   "dolores": [
+    {
+     "id": "pa_charcos",
+     "elemento": "Charcos",
+     "dolor": "Charcos que no se van días después de cada lluvia",
+     "solucion": "drenaje francés con grava y tubo perforado oculto bajo el césped, con una salida adecuada",
+     "florida": "aguaceros de verano",
+     "formatos": [
+      "cronograma",
+      "errores"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "pa_pavers_hundidos",
+     "elemento": "Pavers hundidos",
+     "dolor": "Pavers hundidos y desnivelados donde se acumula el agua",
+     "solucion": "base compactada por capas, cama de arena y bordillo de contención",
+     "florida": "lluvia y suelo arenoso",
+     "formatos": [
+      "errores",
+      "cronograma"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "pa_superficie",
+     "elemento": "Superficie del patio",
+     "dolor": "No sabes si poner pavers, concreto estampado o porcelanato exterior",
+     "solucion": "comparar calor al pisar, reparación, mantenimiento y comportamiento con el agua",
+     "florida": "sol fuerte",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "pa_maleza",
+     "elemento": "Hierba entre pavers",
+     "dolor": "Hierba y hormigas entre las juntas de los pavers",
+     "solucion": "arena polimérica en las juntas y sellado",
+     "florida": "lluvias",
+     "formatos": [
+      "comparador",
+      "errores"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "pa_sol",
+     "elemento": "Sombra",
+     "dolor": "Patio que nadie usa porque el sol no deja",
+     "solucion": "pérgola, vela de sombra o árboles bien ubicados según el recorrido del sol",
+     "florida": "sol de mediodía",
+     "formatos": [
+      "comparador",
+      "planta"
+     ],
+     "temporadas": [
+      "calor"
+     ]
+    },
+    {
+     "id": "pa_privacidad",
+     "elemento": "Privacidad",
+     "dolor": "Los vecinos ven todo desde su ventana",
+     "solucion": "cerca, celosía o plantas altas según el espacio y las reglas de la zona",
+     "formatos": [
+      "comparador",
+      "planta"
+     ]
+    },
+    {
+     "id": "pa_noche",
+     "elemento": "Iluminación del patio",
+     "dolor": "Patio oscuro y sin vida por la noche",
+     "solucion": "luces de bajo voltaje en capas: caminos, plantas y zona de estar",
+     "formatos": [
+      "comparador",
+      "planta"
+     ],
+     "temporadas": [
+      "seca"
+     ]
+    },
+    {
+     "id": "pa_cesped",
+     "elemento": "Césped",
+     "dolor": "Césped que se quema al sol o muere en la sombra",
+     "solucion": "variedad adecuada a cada zona, zonas sin pasto y plantas nativas",
+     "florida": "calor y lluvias intensas",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "pa_riego",
+     "elemento": "Riego",
+     "dolor": "Aspersores que mojan la pared de la casa y encharcan la base",
+     "solucion": "reorientar aspersores, riego por goteo en canteros y horarios adecuados",
+     "florida": "humedad",
+     "formatos": [
+      "errores",
+      "checklist"
+     ]
+    },
+    {
+     "id": "pa_fogata",
+     "elemento": "Fogata",
+     "dolor": "Quieres una fogata para reunirte con amigos",
+     "solucion": "distancia a la casa y a la vegetación, base resistente al calor y elegir entre gas o leña",
+     "formatos": [
+      "checklist",
+      "comparador"
+     ],
+     "temporadas": [
+      "seca"
+     ]
+    },
+    {
+     "id": "pa_zonas",
+     "elemento": "Zonas del patio",
+     "dolor": "Muebles sueltos y un patio sin orden",
+     "solucion": "definir zonas para comer, conversar y jugar, con caminos claros entre ellas",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "pa_tormenta",
+     "elemento": "Antes de la tormenta",
+     "dolor": "Muebles y macetas que salen volando con el viento",
+     "solucion": "lista de lo que se guarda, lo que se ancla y dónde, antes de cada tormenta",
+     "florida": "huracanes",
+     "formatos": [
+      "checklist",
+      "errores"
+     ],
+     "temporadas": [
+      "huracanes"
+     ]
+    },
+    {
+     "id": "pa_mosquitos",
+     "elemento": "Mosquitos",
+     "dolor": "Mosquitos que te echan del patio al atardecer",
+     "solucion": "eliminar agua estancada, ventiladores y mallas en la zona de estar",
+     "florida": "lluvias y calor",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "pa_losa_grietas",
+     "elemento": "Losa agrietada",
+     "dolor": "La losa del patio se agrieta y se levanta",
+     "solucion": "juntas de control, reparar o cubrir con pavers según la causa",
+     "formatos": [
+      "mito_realidad",
+      "errores"
+     ]
+    },
+    {
+     "id": "pa_mascotas",
+     "elemento": "Patio y perros",
+     "dolor": "Los perros destrozan el césped y llenan la casa de barro",
+     "solucion": "zona de grava o césped artificial para ellos y cerca bien resuelta",
+     "florida": "lluvias",
+     "formatos": [
+      "comparador",
+      "planta"
+     ]
+    }
+   ]
+  },
+  "PÉRGOLAS": {
+   "dolores": [
+    {
+     "id": "pe_material",
+     "elemento": "Material",
+     "dolor": "No sabes si hacer la pérgola de madera, aluminio o vinil",
+     "solucion": "comparar mantenimiento, resistencia a la humedad, al sol y apariencia",
+     "florida": "humedad, sol y termitas",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "pe_madera_pudre",
+     "elemento": "Madera podrida",
+     "dolor": "Pérgola de madera que se pudre por las bases",
+     "solucion": "bases metálicas que separan la madera del suelo, madera tratada y sellado periódico",
+     "florida": "humedad y termitas",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "pe_viento",
+     "elemento": "Viento",
+     "dolor": "Pérgola que se mueve con el viento y preocupa en cada tormenta",
+     "solucion": "anclajes y zapatas diseñados para viento y permiso cuando corresponde",
+     "florida": "huracanes",
+     "formatos": [
+      "checklist",
+      "errores"
+     ],
+     "temporadas": [
+      "huracanes"
+     ]
+    },
+    {
+     "id": "pe_lluvia",
+     "elemento": "Lluvia",
+     "dolor": "La pérgola da sombra pero no protege del aguacero",
+     "solucion": "comparar techo de lamas orientables, policarbonato o lona",
+     "florida": "aguaceros de la tarde",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "pe_sombra",
+     "elemento": "Sombra real",
+     "dolor": "La pérgola da mucha menos sombra de la que esperabas",
+     "solucion": "orientación según el sol, separación de las vigas o lamas y cortinas laterales",
+     "florida": "sol alto en verano",
+     "formatos": [
+      "mito_realidad",
+      "planta"
+     ],
+     "temporadas": [
+      "calor"
+     ]
+    },
+    {
+     "id": "pe_luz_ventilador",
+     "elemento": "Luz y ventilador",
+     "dolor": "Pérgola sin luz ni ventilador porque nadie pensó en los cables",
+     "solucion": "planificar el cableado antes de construir y usar ventilador y luces aptos para exterior",
+     "formatos": [
+      "cronograma",
+      "errores"
+     ]
+    },
+    {
+     "id": "pe_adosada",
+     "elemento": "Pérgola adosada",
+     "dolor": "Filtraciones donde la pérgola se une a la pared de la casa",
+     "solucion": "anclaje a la estructura y tapajuntas en la unión",
+     "florida": "aguaceros",
+     "formatos": [
+      "errores",
+      "checklist"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "pe_tamano",
+     "elemento": "Tamaño",
+     "dolor": "La mesa del comedor no cabe bajo la pérgola nueva",
+     "solucion": "medir los muebles más el espacio para circular antes de definir el tamaño",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "pe_cortinas",
+     "elemento": "Sol de la tarde",
+     "dolor": "Sol y viento de lado que hacen inútil la pérgola por la tarde",
+     "solucion": "cortinas laterales, mallas o persianas exteriores en el lado del sol",
+     "florida": "sol del oeste",
+     "formatos": [
+      "comparador",
+      "planta"
+     ],
+     "temporadas": [
+      "calor"
+     ]
+    },
+    {
+     "id": "pe_enredaderas",
+     "elemento": "Enredaderas",
+     "dolor": "Enredaderas preciosas que traen insectos y pudren la madera",
+     "solucion": "elegir plantas adecuadas y separarlas de la estructura con guías",
+     "formatos": [
+      "mito_realidad",
+      "errores"
+     ]
+    },
+    {
+     "id": "pe_orden",
+     "elemento": "Paso a paso",
+     "dolor": "Construir una pérgola sin saber el orden",
+     "solucion": "autorización de la asociación y permiso si corresponde, ubicación, zapatas, postes, vigas y techo",
+     "formatos": [
+      "cronograma",
+      "errores"
+     ]
+    },
+    {
+     "id": "pe_piso",
+     "elemento": "Piso debajo",
+     "dolor": "Pérgola sobre el césped que se convierte en barro",
+     "solucion": "piso debajo: pavers, deck o grava, decidido antes de los postes",
+     "florida": "lluvias",
+     "formatos": [
+      "comparador",
+      "cronograma"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "pe_hoa",
+     "elemento": "Asociación de vecinos",
+     "dolor": "Construir la pérgola y recibir una carta de la asociación",
+     "solucion": "pedir requisitos y aprobación de la asociación (HOA) antes de comprar materiales",
+     "formatos": [
+      "errores",
+      "checklist"
+     ]
+    },
+    {
+     "id": "pe_aluminio",
+     "elemento": "Aluminio que se mancha",
+     "dolor": "Pérgola de aluminio que se decolora y se mancha",
+     "solucion": "acabado con pintura en polvo de buena calidad y limpieza suave periódica",
+     "florida": "salitre y sol",
+     "formatos": [
+      "mito_realidad",
+      "comparador"
+     ]
+    }
+   ]
+  },
+  "CUARTOS": {
+   "dolores": [
+    {
+     "id": "cu_pequeno",
+     "elemento": "Cuarto pequeño",
+     "dolor": "Dormitorio tan pequeño que la cama ocupa todo",
+     "solucion": "cama con almacenaje, muebles a medida y puerta corredera",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "cu_closet",
+     "elemento": "Clóset",
+     "dolor": "Clóset desordenado donde nunca encuentras nada",
+     "solucion": "sistema de clóset por módulos, doble barra y cajones",
+     "formatos": [
+      "planta",
+      "comparador"
+     ]
+    },
+    {
+     "id": "cu_oficina",
+     "elemento": "Cuarto a oficina",
+     "dolor": "Trabajar desde casa en un cuarto que no está pensado para eso",
+     "solucion": "escritorio de lado a la ventana, luz de trabajo, enchufes suficientes y algo de aislamiento acústico",
+     "formatos": [
+      "planta",
+      "checklist"
+     ]
+    },
+    {
+     "id": "cu_calor",
+     "elemento": "Cuarto caliente",
+     "dolor": "El cuarto que siempre está más caliente que el resto de la casa",
+     "solucion": "revisar ductos y rejillas, aislamiento, ventana y cortinas térmicas",
+     "florida": "sol del oeste",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "calor"
+     ]
+    },
+    {
+     "id": "cu_ruido",
+     "elemento": "Ruido",
+     "dolor": "Desde el cuarto se oye todo lo que pasa en la sala",
+     "solucion": "puerta sólida, burletes, aislamiento en la pared compartida y textiles",
+     "formatos": [
+      "comparador",
+      "errores"
+     ]
+    },
+    {
+     "id": "cu_oscuro",
+     "elemento": "Cuarto oscuro",
+     "dolor": "Cuarto oscuro y triste aunque tenga ventana",
+     "solucion": "luz en capas, colores claros, espejos y cortinas que no tapen la ventana",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "cu_ninos",
+     "elemento": "Cuarto de niños",
+     "dolor": "Rehacer el cuarto de los niños cada dos años",
+     "solucion": "muebles que crecen con ellos, base neutra y decoración fácil de cambiar",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "cu_alfombra",
+     "elemento": "Alfombra vieja",
+     "dolor": "Alfombra vieja que guarda humedad y olor",
+     "solucion": "cambiar a porcelanato, vinílico de lujo o laminado según el uso",
+     "florida": "humedad",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "cu_cama",
+     "elemento": "Ubicación de la cama",
+     "dolor": "La cama bajo la ventana o frente a la puerta y el cuarto no funciona",
+     "solucion": "distribución con la cama en la pared principal y pasos libres a los lados",
+     "formatos": [
+      "planta",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "cu_humedad_closet",
+     "elemento": "Ropa con olor",
+     "dolor": "Ropa con olor a humedad dentro del clóset",
+     "solucion": "ventilación, puertas con rejilla, deshumidificador y nada pegado a paredes frías",
+     "florida": "humedad alta",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "cu_huespedes",
+     "elemento": "Cuarto de huéspedes",
+     "dolor": "Un cuarto de huéspedes que se usa tres días al año",
+     "solucion": "doble uso: sofá cama, escritorio plegable y almacenaje",
+     "formatos": [
+      "planta",
+      "comparador"
+     ],
+     "temporadas": [
+      "seca"
+     ]
+    },
+    {
+     "id": "cu_ventilador",
+     "elemento": "Ventilador de techo",
+     "dolor": "Ventilador de techo que bambolea o no refresca",
+     "solucion": "tamaño según el cuarto, altura correcta y sentido de giro según la temporada",
+     "florida": "calor",
+     "formatos": [
+      "mito_realidad",
+      "checklist"
+     ],
+     "temporadas": [
+      "calor"
+     ]
+    },
+    {
+     "id": "cu_cabecero",
+     "elemento": "Pared del cabecero",
+     "dolor": "La pared detrás de la cama no tiene ningún carácter",
+     "solucion": "panelado, papel, color o iluminación detrás del cabecero",
+     "formatos": [
+      "comparador",
+      "planta"
+     ]
+    },
+    {
+     "id": "cu_suite",
+     "elemento": "Cuarto principal a suite",
+     "dolor": "Cuarto principal sin baño propio ni vestidor",
+     "solucion": "convertirlo en suite con baño y clóset vestidor, revisando por dónde pasa la plomería",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "cu_ventanas",
+     "elemento": "Ventanas viejas",
+     "dolor": "Ventanas viejas que dejan pasar calor, ruido y agua",
+     "solucion": "ventanas de impacto o de doble vidrio, bien selladas",
+     "florida": "huracanes y calor",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "huracanes"
+     ]
+    }
+   ]
+  },
+  "PISCINA": {
+   "dolores": [
+    {
+     "id": "pc_borde",
+     "elemento": "Borde de la piscina",
+     "dolor": "Borde con grietas y piedras sueltas que se despegan una y otra vez",
+     "solucion": "revisar la base y la junta de expansión entre borde y deck antes de volver a pegar y sellar",
+     "florida": "sol y lluvia",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "pc_deck_caliente",
+     "elemento": "Deck que quema",
+     "dolor": "Deck que quema los pies a mediodía",
+     "solucion": "comparar acabado tipo cool deck, travertino y porcelanato exterior claro",
+     "florida": "sol intenso",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "calor"
+     ]
+    },
+    {
+     "id": "pc_agua_verde",
+     "elemento": "Agua verde",
+     "dolor": "El agua se pone verde después de cada aguacero",
+     "solucion": "circulación suficiente, filtro limpio, química equilibrada después de la lluvia",
+     "florida": "aguaceros de verano",
+     "formatos": [
+      "errores",
+      "checklist"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "pc_bomba",
+     "elemento": "Bomba",
+     "dolor": "Bomba ruidosa y factura de luz alta",
+     "solucion": "bomba de velocidad variable y horarios de funcionamiento ajustados",
+     "formatos": [
+      "mito_realidad",
+      "comparador"
+     ]
+    },
+    {
+     "id": "pc_superficie",
+     "elemento": "Superficie interior",
+     "dolor": "Superficie áspera, manchada o que raspa los pies",
+     "solucion": "renovar el acabado interior: comparar marcite, cuarzo y pebble",
+     "formatos": [
+      "comparador",
+      "cronograma"
+     ]
+    },
+    {
+     "id": "pc_jaula",
+     "elemento": "Screen enclosure",
+     "dolor": "La jaula de malla de la piscina rota o con paneles sueltos",
+     "solucion": "reparar paneles o reemplazar la estructura según su estado",
+     "florida": "huracanes",
+     "formatos": [
+      "checklist",
+      "comparador"
+     ],
+     "temporadas": [
+      "huracanes"
+     ]
+    },
+    {
+     "id": "pc_ninos",
+     "elemento": "Seguridad con niños",
+     "dolor": "Niños pequeños y una piscina sin barreras",
+     "solucion": "barrera alrededor, puertas con cierre automático y alarmas, comprobando lo que exige tu condado",
+     "formatos": [
+      "checklist",
+      "errores"
+     ]
+    },
+    {
+     "id": "pc_luces",
+     "elemento": "Luces de la piscina",
+     "dolor": "Luces viejas que ya no encienden o se ven amarillas",
+     "solucion": "luces LED para piscina instaladas con la protección eléctrica adecuada",
+     "formatos": [
+      "comparador",
+      "errores"
+     ]
+    },
+    {
+     "id": "pc_fria",
+     "elemento": "Piscina fría",
+     "dolor": "La piscina se queda sin usar en invierno porque está helada",
+     "solucion": "comparar bomba de calor, calentador a gas y solar",
+     "florida": "noches frescas de invierno",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "seca"
+     ]
+    },
+    {
+     "id": "pc_sal_cloro",
+     "elemento": "Sal o cloro",
+     "dolor": "No sabes si pasar la piscina a sal o seguir con cloro",
+     "solucion": "comparar mantenimiento, costo relativo, sensación en la piel y efecto en bordes y equipos",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "pc_fuga",
+     "elemento": "Pierde agua",
+     "dolor": "La piscina baja de nivel y no sabes si es evaporación o una fuga",
+     "solucion": "prueba del cubo para comparar evaporación y pérdida antes de buscar la fuga",
+     "florida": "calor y evaporación",
+     "formatos": [
+      "checklist",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "calor"
+     ]
+    },
+    {
+     "id": "pc_deck_grietas",
+     "elemento": "Deck agrietado",
+     "dolor": "Deck de concreto agrietado alrededor de la piscina",
+     "solucion": "reparar juntas, resellar o colocar pavers sobre el concreto existente",
+     "formatos": [
+      "comparador",
+      "errores"
+     ]
+    },
+    {
+     "id": "pc_huracan",
+     "elemento": "Piscina y huracán",
+     "dolor": "No saber qué hacer con la piscina antes de un huracán",
+     "solucion": "no vaciarla, cortar la electricidad del equipo y retirar muebles y objetos sueltos",
+     "florida": "huracanes",
+     "formatos": [
+      "mito_realidad",
+      "checklist"
+     ],
+     "temporadas": [
+      "huracanes"
+     ]
+    },
+    {
+     "id": "pc_sombra",
+     "elemento": "Sombra junto a la piscina",
+     "dolor": "No hay dónde refugiarse del sol junto a la piscina",
+     "solucion": "pérgola, velas de sombra o sombrillas ancladas en la zona de descanso",
+     "florida": "sol",
+     "formatos": [
+      "planta",
+      "comparador"
+     ],
+     "temporadas": [
+      "calor"
+     ]
+    },
+    {
+     "id": "pc_linea_azulejo",
+     "elemento": "Línea de azulejo",
+     "dolor": "Línea blanca de calcio en el azulejo del borde del agua",
+     "solucion": "limpieza adecuada, control de la química del agua y cambio de azulejo si está dañado",
+     "florida": "agua dura y evaporación",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ]
+    }
+   ]
+  },
+  "SALA Y COMEDOR": {
+   "dolores": [
+    {
+     "id": "sc_sofa_pared",
+     "elemento": "Distribución de la sala",
+     "dolor": "Sofá pegado a la pared y una sala que se siente vacía",
+     "solucion": "crear una zona de conversación con alfombra, sofá separado de la pared y mesa de centro",
+     "formatos": [
+      "planta",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "sc_tv",
+     "elemento": "Altura del televisor",
+     "dolor": "Televisor tan alto que te duele el cuello",
+     "solucion": "altura y distancia del televisor según el sofá",
+     "formatos": [
+      "mito_realidad",
+      "planta"
+     ]
+    },
+    {
+     "id": "sc_luz",
+     "elemento": "Iluminación",
+     "dolor": "Una sola lámpara en el techo y la sala parece consultorio",
+     "solucion": "luz en capas: general, lámparas de pie y de mesa, y luz cálida",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "sc_alfombra",
+     "elemento": "Alfombra",
+     "dolor": "Alfombra tan pequeña que parece un tapete flotando",
+     "solucion": "alfombra donde al menos las patas delanteras de los muebles quedan encima",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "sc_comedor",
+     "elemento": "Mesa del comedor",
+     "dolor": "Para pasar detrás de las sillas hay que pedir permiso",
+     "solucion": "medir el espacio de paso alrededor de la mesa antes de comprarla",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "sc_abrir",
+     "elemento": "Abrir sala y comedor",
+     "dolor": "Sala y comedor separados por un muro que corta la luz",
+     "solucion": "abrir el espacio comprobando antes si el muro es de carga",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "sc_estilo",
+     "elemento": "Estilo de la sala",
+     "dolor": "Muebles de épocas distintas y una sala sin estilo",
+     "solucion": "definir paleta, materiales y dos o tres piezas protagonistas",
+     "formatos": [
+      "planta",
+      "comparador"
+     ]
+    },
+    {
+     "id": "sc_cortinas",
+     "elemento": "Cortinas",
+     "dolor": "Cortinas mal colgadas que achican la ventana y el techo",
+     "solucion": "barra más alta y más ancha que la ventana y cortinas que llegan al piso",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "sc_piso",
+     "elemento": "Piso de la sala",
+     "dolor": "No sabes si poner porcelanato, vinílico o madera en la sala",
+     "solucion": "comparar humedad, ruido, sensación al pisar y mantenimiento",
+     "florida": "humedad",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "sc_techo_bajo",
+     "elemento": "Techo bajo",
+     "dolor": "Techo bajo que aplasta la sala",
+     "solucion": "luz indirecta, colores claros en el techo y líneas verticales",
+     "formatos": [
+      "mito_realidad",
+      "planta"
+     ]
+    },
+    {
+     "id": "sc_desorden",
+     "elemento": "Desorden a la vista",
+     "dolor": "Juguetes, cables y papeles a la vista en la sala",
+     "solucion": "mueble bajo con puertas, empotrados y cajas en lugares fijos",
+     "formatos": [
+      "planta",
+      "comparador"
+     ]
+    },
+    {
+     "id": "sc_cuadros",
+     "elemento": "Cuadros",
+     "dolor": "Cuadros colgados casi en el techo",
+     "solucion": "colgarlos a la altura de los ojos y agrupados con intención",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "sc_eco",
+     "elemento": "Eco",
+     "dolor": "Sala con eco donde cuesta conversar",
+     "solucion": "alfombras, cortinas, textiles y estanterías con objetos",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "sc_ventanales",
+     "elemento": "Ventanales al oeste",
+     "dolor": "Sala con ventanales que se vuelve un horno en la tarde",
+     "solucion": "película para vidrio, cortinas térmicas o toldos exteriores",
+     "florida": "sol del oeste",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "calor"
+     ]
+    }
+   ]
+  },
+  "PISOS": {
+   "dolores": [
+    {
+     "id": "ps_madera_losa",
+     "elemento": "Madera sobre losa",
+     "dolor": "Piso de madera en planta baja que se hincha y se levanta",
+     "solucion": "barrera de humedad, o elegir vinílico de lujo o porcelanato sobre la losa",
+     "florida": "humedad que sube del suelo",
+     "formatos": [
+      "errores",
+      "comparador"
+     ]
+    },
+    {
+     "id": "ps_cual",
+     "elemento": "Qué piso aguanta",
+     "dolor": "No sabes qué piso aguanta la humedad de Florida",
+     "solucion": "comparar vinílico de lujo, porcelanato y laminado según agua, golpes y precio relativo",
+     "florida": "humedad",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "ps_hueco",
+     "elemento": "Piezas huecas",
+     "dolor": "Porcelanato que suena hueco o se levanta",
+     "solucion": "adhesivo bien extendido en la pieza y el piso, y juntas de dilatación en los bordes",
+     "florida": "cambios de temperatura",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "ps_desnivel",
+     "elemento": "Losa desnivelada",
+     "dolor": "Piso nuevo con piezas desparejas porque la losa no estaba nivelada",
+     "solucion": "nivelar la losa con autonivelante antes de instalar",
+     "formatos": [
+      "errores",
+      "cronograma"
+     ]
+    },
+    {
+     "id": "ps_juntas",
+     "elemento": "Juntas",
+     "dolor": "Juntas anchas y sucias que arruinan el piso",
+     "solucion": "porcelanato rectificado con juntas finas y boquilla resistente a manchas",
+     "formatos": [
+      "comparador",
+      "errores"
+     ]
+    },
+    {
+     "id": "ps_formato",
+     "elemento": "Tamaño de la pieza",
+     "dolor": "Creer que en espacios pequeños hay que usar baldosas pequeñas",
+     "solucion": "piezas de gran formato que reducen juntas y amplían visualmente",
+     "formatos": [
+      "mito_realidad",
+      "comparador"
+     ]
+    },
+    {
+     "id": "ps_continuidad",
+     "elemento": "Piso continuo",
+     "dolor": "Un piso distinto en cada cuarto y la casa se ve cortada",
+     "solucion": "un piso continuo en zonas comunes y transiciones bien resueltas",
+     "formatos": [
+      "planta",
+      "errores"
+     ]
+    },
+    {
+     "id": "ps_mascotas",
+     "elemento": "Pisos y mascotas",
+     "dolor": "Perros que rayan el piso nuevo en una semana",
+     "solucion": "comparar resistencia a rayones, agua y limpieza de cada piso",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    },
+    {
+     "id": "ps_orden",
+     "elemento": "Cambiar el piso de la casa",
+     "dolor": "Cambiar el piso de toda la casa sin saber el orden",
+     "solucion": "vaciar, retirar el piso viejo, nivelar, instalar, dejar curar y colocar zócalos",
+     "formatos": [
+      "cronograma",
+      "errores"
+     ]
+    },
+    {
+     "id": "ps_terrazo",
+     "elemento": "Terrazo escondido",
+     "dolor": "Descubrir terrazo antiguo bajo la alfombra",
+     "solucion": "comparar restaurarlo y pulirlo frente a cubrirlo",
+     "formatos": [
+      "mito_realidad",
+      "comparador"
+     ]
+    },
+    {
+     "id": "ps_inundacion",
+     "elemento": "Piso después de inundarse",
+     "dolor": "La casa se inundó y no sabes qué piso se puede salvar",
+     "solucion": "secar rápido, revisar humedad bajo el piso y decidir qué se retira",
+     "florida": "huracanes y lluvias",
+     "formatos": [
+      "checklist",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "huracanes"
+     ]
+    },
+    {
+     "id": "ps_zocalos",
+     "elemento": "Zócalos",
+     "dolor": "Zócalos viejos que no combinan con el piso nuevo",
+     "solucion": "zócalo de altura y material acordes al piso y al estilo",
+     "formatos": [
+      "errores",
+      "comparador"
+     ]
+    },
+    {
+     "id": "ps_adentro_afuera",
+     "elemento": "Interior y terraza",
+     "dolor": "El piso de la sala y el de la terraza no se hablan",
+     "solucion": "porcelanato con versión interior y exterior antideslizante para dar continuidad",
+     "formatos": [
+      "planta",
+      "comparador"
+     ]
+    },
+    {
+     "id": "ps_espiga",
+     "elemento": "Diseño de colocación",
+     "dolor": "No sabes si colocar el piso recto, en diagonal o en espiga",
+     "solucion": "comparar efecto visual, desperdicio de material y mano de obra",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ]
+    }
+   ]
+  },
+  "TECHOS": {
+   "dolores": [
+    {
+     "id": "te_material",
+     "elemento": "Material del techo",
+     "dolor": "No sabes si cambiar a shingle, metal o teja",
+     "solucion": "comparar resistencia al viento, vida útil, calor y mantenimiento",
+     "florida": "huracanes y sol",
+     "formatos": [
+      "comparador",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "huracanes"
+     ]
+    },
+    {
+     "id": "te_madera",
+     "elemento": "Madera de debajo",
+     "dolor": "Techar encima sin revisar la madera de abajo",
+     "solucion": "retirar, revisar y reemplazar la madera dañada antes de la nueva cubierta",
+     "florida": "humedad",
+     "formatos": [
+      "errores",
+      "cronograma"
+     ]
+    },
+    {
+     "id": "te_gotera",
+     "elemento": "Gotera engañosa",
+     "dolor": "Gotera que aparece lejos de donde entra el agua",
+     "solucion": "revisar desde el ático y el techo para encontrar la entrada real",
+     "florida": "aguaceros",
+     "formatos": [
+      "mito_realidad",
+      "errores"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "te_antes_temporada",
+     "elemento": "Revisión antes de la temporada",
+     "dolor": "Llegar a la temporada de huracanes sin revisar el techo",
+     "solucion": "revisión visual de tejas, tapajuntas, canaletas y ático antes de junio",
+     "florida": "huracanes",
+     "formatos": [
+      "checklist",
+      "errores"
+     ],
+     "temporadas": [
+      "huracanes"
+     ]
+    },
+    {
+     "id": "te_canaletas",
+     "elemento": "Canaletas",
+     "dolor": "Canaletas que desbordan y empapan la base de la casa",
+     "solucion": "limpiarlas, revisar su tamaño y alejar los bajantes de la casa",
+     "florida": "aguaceros",
+     "formatos": [
+      "errores",
+      "checklist"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "te_atico",
+     "elemento": "Ático caliente",
+     "dolor": "Ático hirviendo que calienta toda la casa",
+     "solucion": "ventilación del ático y aislamiento adecuados",
+     "florida": "calor",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "calor"
+     ]
+    },
+    {
+     "id": "te_tapajuntas",
+     "elemento": "Tapajuntas",
+     "dolor": "Filtraciones alrededor de tragaluces, chimeneas y salidas",
+     "solucion": "tapajuntas bien instalados y sellados en cada encuentro",
+     "florida": "aguaceros",
+     "formatos": [
+      "errores",
+      "checklist"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "te_reparar",
+     "elemento": "Reparar o cambiar",
+     "dolor": "No sabes si reparar el techo o cambiarlo completo",
+     "solucion": "evaluar edad, extensión del daño y estado de la madera",
+     "formatos": [
+      "checklist",
+      "comparador"
+     ]
+    },
+    {
+     "id": "te_color",
+     "elemento": "Color del techo",
+     "dolor": "Techo oscuro y una factura de aire acondicionado alta",
+     "solucion": "cubiertas claras o reflectantes",
+     "florida": "sol intenso",
+     "formatos": [
+      "mito_realidad",
+      "comparador"
+     ],
+     "temporadas": [
+      "calor"
+     ]
+    },
+    {
+     "id": "te_orden",
+     "elemento": "Cambio de techo",
+     "dolor": "Cambiar el techo sin saber por qué fases pasa",
+     "solucion": "permiso, retiro, revisión de la madera, membrana, cubierta e inspección final",
+     "formatos": [
+      "cronograma",
+      "errores"
+     ]
+    },
+    {
+     "id": "te_plano",
+     "elemento": "Techo plano",
+     "dolor": "Techo plano con charcos que no se van",
+     "solucion": "corregir la pendiente hacia los desagües y renovar la membrana",
+     "florida": "aguaceros",
+     "formatos": [
+      "errores",
+      "mito_realidad"
+     ],
+     "temporadas": [
+      "lluvias"
+     ]
+    },
+    {
+     "id": "te_tormenta",
+     "elemento": "Después de la tormenta",
+     "dolor": "Tejas sueltas o levantadas después de una tormenta",
+     "solucion": "revisar desde el suelo, documentar con fotos y pedir una inspección",
+     "florida": "huracanes",
+     "formatos": [
+      "checklist",
+      "errores"
+     ],
+     "temporadas": [
+      "huracanes"
+     ]
+    },
+    {
+     "id": "te_membrana",
+     "elemento": "Lo que no se ve",
+     "dolor": "Creer que el techo es solo lo que se ve desde la calle",
+     "solucion": "la membrana bajo la cubierta es la que frena el agua cuando el viento levanta tejas",
+     "florida": "huracanes",
+     "formatos": [
+      "mito_realidad",
+      "cronograma"
+     ],
+     "temporadas": [
+      "huracanes"
+     ]
+    },
+    {
+     "id": "te_solar",
+     "elemento": "Paneles solares",
+     "dolor": "Poner paneles solares sobre un techo que pronto habrá que cambiar",
+     "solucion": "revisar o cambiar el techo antes de instalar paneles",
+     "formatos": [
+      "errores",
+      "cronograma"
+     ]
+    }
+   ]
+  }
+ }
+}

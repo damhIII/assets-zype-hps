@@ -1,7 +1,7 @@
-# Plantilla `planta` · Planta 2D que se amuebla o cambia de estilo
+# Plantilla `planta` · Antes y después en planta
 
-**Cuándo**: el guion describe un espacio y cómo cambia: se amuebla, se redistribuye (abrir cocina, mover el panel eléctrico) o cambia de estilo.
-**Bloque principal**: `cuerpo`; en `escena` puede verse la planta vacía o "mal resuelta".
+**Cuándo**: el guion recorre un espacio mal resuelto y cómo cambia: se amuebla, se redistribuye (abrir la cocina, separar zonas de una cocina exterior) o cambia de estilo.
+**Bloque principal**: `valor`. En el `problema` se ve la planta **antes** (mal resuelta: el paso bloqueado, la basura junto a la preparación); el valor la transforma y termina en el **después**, que es también lo que vuelve al final (bucle).
 
 ## Parámetros
 ```jsonc

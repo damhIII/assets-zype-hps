@@ -1,15 +1,15 @@
 # Plantilla `mito_realidad` · Mito vs. realidad
 
 **Cuándo**: el guion corrige una o varias creencias ("si es por dentro no necesita permiso").
-**Bloque principal**: `cuerpo`; el primer mito puede abrir ya en `gancho` (es un gancho excelente).
+**Bloque principal**: `valor`; el primer mito puede abrir ya en el `gancho` (es un gancho excelente).
 
 ## Parámetros
 ```jsonc
 {
   "pares": [                                       // 1-3
-    { "mito": "Si es por dentro, no necesita permiso",
-      "realidad": "Depende del condado y del tipo de obra",
-      "icono": "stamp",
+    { "mito": "Con cloro de más, el agua no se pone verde",
+      "realidad": "Sin circulación ni filtro limpio, se pone igual",
+      "icono": "droplets",
       "fuente": null,                              // id verificado si la realidad cita una norma concreta
       "ancla_mito": 0, "ancla_realidad": 9 }
   ],
@@ -32,5 +32,5 @@
 | tarjeta realidad | `ancla_realidad_f` |
 
 ## Honestidad
-- `aviso_legal` activo por defecto (`textos_fijos.aviso_legal`): estos videos suelen tocar normas.
+- `aviso_legal` activo por defecto (`textos_fijos.aviso_legal`); desactívalo (`aviso_legal: false` en decisiones) si el mito no toca normas ni dinero.
 - La realidad nunca contiene cifras sin `fuente` verificada; si el guion las dice, avisa en la entrega.

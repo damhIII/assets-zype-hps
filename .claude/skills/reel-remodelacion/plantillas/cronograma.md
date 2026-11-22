@@ -1,17 +1,17 @@
-# Plantilla `cronograma` · Línea de tiempo de obra
+# Plantilla `cronograma` · Paso a paso
 
-**Cuándo**: el guion cuenta una obra fase por fase (permiso → demolición → instalaciones → inspección → acabados) o explica qué la retrasa.
-**Bloque principal**: `cuerpo`. En `gancho` puede verse el calendario "ideal" que luego se estira.
+**Cuándo**: el guion cuenta un trabajo fase por fase en su orden real (desengrasar → lijar → imprimar → pintar; excavar → grava → tubo → cubrir) y dónde suele fallar.
+**Bloque principal**: `valor`. La última fase deja el objeto del gancho resuelto.
 
 ## Parámetros
 ```jsonc
 {
-  "titulo": "Cambio de techo",
+  "titulo": "Drenaje francés",
   "unidad": "fases",                   // "fases": solo orden, sin duraciones (por defecto) · "semanas": cada fase con semanas + fuente
   "fases": [                           // 3-8
-    { "etiqueta": "Permiso", "icono": "stamp", "ancla": 30 },
-    { "etiqueta": "Retiro", "icono": "hammer", "riesgo": "Madera dañada", "ancla": 36 },
-    { "etiqueta": "Inspección", "icono": "clipboard-check", "inspeccion": true, "ancla": 44 }
+    { "etiqueta": "Zanja con pendiente", "icono": "shovel", "ancla": 30 },
+    { "etiqueta": "Tela y grava", "icono": "layers", "riesgo": "Sin salida, no sirve", "ancla": 36 },
+    { "etiqueta": "Revisión", "icono": "clipboard-check", "inspeccion": true, "ancla": 44 }
     // con unidad "semanas": "semanas": 2, "fuente": "<id verificado de datos_verificados.json>"
   ],
   "retraso": { "fase": 1, "texto": "Todo lo de después se mueve", "ancla": 50 },

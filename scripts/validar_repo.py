@@ -3,34 +3,36 @@
 
 Uso: python3 scripts/validar_repo.py [raiz]   (sale con código 1 si hay errores)
 
-También se importa desde el notebook de Colab (preparar_repo) y desde preparar_brief.py:
+También lo importa preparar_brief.py:
   validar(raiz) -> (errores, avisos)        mensajes en español, listos para mostrar
-  cargar_datos(raiz) / declaraciones(texto_marca) / secciones_voz(texto_voz)
+  cargar_datos(raiz) / declaraciones(texto) / secciones_voz(texto_voz)
 Solo lee: nunca modifica archivos.
 """
 import json, re, sys
 from pathlib import Path
 
 SKILL = Path(".claude/skills/reel-remodelacion")
-EDITORIAL = ("editorial/prompt_guion.md", "editorial/marca.md", "editorial/adn.md",
-             "editorial/temas.json", "editorial/formatos.json", "editorial/datos_verificados.json", "editorial/voz_tts.md")
+EDITORIAL = ("editorial/prompt_guion.md", "editorial/prompt_tema.md", "editorial/prompt_catalogo.md", "editorial/formatos.json",
+             "editorial/espacios.json", "editorial/historial.jsonl", "editorial/datos_verificados.json", "editorial/voz_tts.md")
 REQUERIDOS = EDITORIAL + ("CLAUDE.md", str(SKILL / "SKILL.md"), str(SKILL / "plantillas" / "plantillas.json"),
                           str(SKILL / "diseno" / "tokens.json"))
-FORMATOS = ("presupuesto", "cronograma", "mito_realidad", "planta", "errores", "checklist", "comparador")
+FORMATOS = ("errores", "mito_realidad", "planta", "comparador", "checklist", "cronograma")
+TEMPORADAS = ("huracanes", "lluvias", "calor", "seca")
 IDIOMA = "es"
 FECHA_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 DECLARACIONES = ("licencia", "seguro", "garantia_precio", "garantia_plazo", "sin_sobrecostos", "verifica_licencias")
 PLACEHOLDERS = {
-    "editorial/prompt_guion.md": ("{{NOMBRE_MARCA}}", "{{MARCA}}", "{{ADN}}", "{{FORMATO}}", "{{FORMATOS}}",
-                                  "{{DATOS}}", "{{TEMAS}}", "{{RECIENTES}}"),
+    "editorial/prompt_guion.md": ("{{MARCA}}", "{{DATOS}}", "{{RECIENTES}}"),
+    "editorial/prompt_tema.md": ("{{MARCA}}",),
+    "editorial/prompt_catalogo.md": ("{{MARCA}}",),
 }
-OBSOLETOS = {  # restos del pipeline anterior (bilingüe y con obras reales): avisan para que se borren
-    "editorial/prompt_adaptacion.md": "la adaptación al inglés ya no existe",
+OBSOLETOS = {  # restos de versiones anteriores: avisan para que se borren
+    "editorial/marca.md": "se fusionó en prompt_guion.md",
+    "editorial/adn.md": "se fusionó en prompt_guion.md",
+    "editorial/temas.json": "los temas los genera el notebook a partir de editorial/espacios.json",
+    str(SKILL / "plantillas" / "presupuesto.md"): "el formato presupuesto se eliminó",
     "assets/obras": "este pipeline solo hace animaciones, sin fotos de obras reales",
-    ".claude/skills/reel-remodelacion/referencias/activos_reales.md": "este pipeline solo hace animaciones",
-    ".claude/skills/reel-remodelacion/plantillas/antes_despues.md": "el formato antes_despues se eliminó",
 }
-CAMPOS_VIEJOS = {"toca_hps": "toca_marca", "sistema": "formato"}
 
 
 def _json(raiz, rel, err):
@@ -43,17 +45,17 @@ def _json(raiz, rel, err):
     return None
 
 
-def declaraciones(texto_marca):
+def declaraciones(texto):
     """'- licencia: no' → {'licencia': False, ...} (solo las claves conocidas)."""
     out = {}
-    for m in re.finditer(r"^\s*-\s*([a-z_]+)\s*:\s*(si|sí|no)\s*$", texto_marca, re.M | re.I):
+    for m in re.finditer(r"^\s*-\s*([a-z_]+)\s*:\s*(si|sí|no)\s*$", texto, re.M | re.I):
         if m.group(1) in DECLARACIONES:
             out[m.group(1)] = m.group(2).lower() in ("si", "sí")
     return out
 
 
 def secciones_voz(texto):
-    """voz_tts.md → {'es': perfil, 'en': perfil} (secciones '# IDIOMA: xx')."""
+    """voz_tts.md → {'es': perfil} (secciones '# IDIOMA: xx')."""
     partes = re.split(r"^#\s*IDIOMA:\s*([a-z]{2})\s*$", texto, flags=re.M)
     return {partes[i]: partes[i + 1].strip() for i in range(1, len(partes) - 1, 2)}
 
@@ -61,6 +63,84 @@ def secciones_voz(texto):
 def cargar_datos(raiz, solo_verificados=False):
     d = json.loads((Path(raiz) / "editorial/datos_verificados.json").read_text(encoding="utf-8"))["datos"]
     return {k: v for k, v in d.items() if v.get("verificado") is True} if solo_verificados else d
+
+
+def _validar_formatos(raiz, plantillas, err):
+    cfg = _json(raiz, "editorial/formatos.json", err) or {}
+    formatos = cfg.get("formatos", {})
+    if sorted(formatos) != sorted(FORMATOS):
+        err.append(f"editorial/formatos.json: los formatos deben ser exactamente {', '.join(FORMATOS)} (llegaron {', '.join(formatos) or 'ninguno'})")
+    for fid, f in formatos.items():
+        for k in ("nombre", "guion", "guardable"):
+            if not str(f.get(k) or "").strip():
+                err.append(f"editorial/formatos.json: '{fid}' necesita '{k}'")
+        if not isinstance(f.get("peso"), (int, float)) or f["peso"] <= 0:
+            err.append(f"editorial/formatos.json: '{fid}' necesita 'peso' (número mayor que 0)")
+        if f.get("plantilla") not in plantillas:
+            err.append(f"editorial/formatos.json: '{fid}' apunta a una plantilla que no existe ({f.get('plantilla')})")
+    tipos = cfg.get("tipos_gancho") or {}
+    if len(tipos) < 3:
+        err.append("editorial/formatos.json: 'tipos_gancho' necesita al menos tres tipos")
+    for tid, t in tipos.items():
+        if not str((t or {}).get("descripcion") or "").strip():
+            err.append(f"editorial/formatos.json: el tipo de gancho '{tid}' necesita 'descripcion'")
+    tramos = cfg.get("tramos") or {}
+    for tid in ("corto", "largo"):
+        p = (tramos.get(tid) or {}).get("palabras")
+        if not (isinstance(p, list) and len(p) == 2 and all(isinstance(x, int) for x in p) and p[0] < p[1]):
+            err.append(f"editorial/formatos.json: el tramo '{tid}' necesita 'palabras': [mínimo, máximo]")
+    for bid in ("gancho", "problema", "cierre"):
+        if not isinstance(((cfg.get("bloques") or {}).get(bid) or {}).get("palabras_max"), int):
+            err.append(f"editorial/formatos.json: 'bloques.{bid}.palabras_max' debe ser un entero")
+
+
+def _validar_espacios(raiz, err, avisos):
+    espacios = (_json(raiz, "editorial/espacios.json", err) or {}).get("espacios")
+    if not isinstance(espacios, dict) or not espacios:
+        err.append("editorial/espacios.json: necesita un objeto 'espacios'")
+        return {}
+    ids = {}
+    for esp, e in espacios.items():
+        dolores = (e or {}).get("dolores")
+        if not isinstance(dolores, list) or not dolores:
+            avisos.append(f"espacios.json → {esp}: no tiene dolores (el notebook generará diez la primera vez)")
+            continue
+        for d in dolores:
+            pre = f"espacios.json → {esp} → {d.get('id', '?')}"
+            if not str(d.get("id") or "").strip():
+                err.append(f"{pre}: falta 'id'")
+            elif d["id"] in ids:
+                err.append(f"{pre}: id repetido (también está en {ids[d['id']]})")
+            else:
+                ids[d["id"]] = esp
+            for k in ("elemento", "dolor", "solucion"):
+                if not str(d.get(k) or "").strip():
+                    err.append(f"{pre}: falta '{k}'")
+            fm = d.get("formatos")
+            if not isinstance(fm, list) or not fm or any(f not in FORMATOS for f in fm):
+                err.append(f"{pre}: 'formatos' debe ser una lista con ids de {', '.join(FORMATOS)}")
+            if any(t not in TEMPORADAS for t in d.get("temporadas") or []):
+                err.append(f"{pre}: 'temporadas' solo admite {', '.join(TEMPORADAS)}")
+    return ids
+
+
+def _validar_historial(raiz, ids, err, avisos):
+    p = Path(raiz) / "editorial/historial.jsonl"
+    if not p.is_file():
+        return
+    for n, linea in enumerate(p.read_text(encoding="utf-8").splitlines(), 1):
+        if not linea.strip():
+            continue
+        try:
+            h = json.loads(linea)
+        except ValueError:
+            err.append(f"editorial/historial.jsonl, línea {n}: no es JSON válido")
+            continue
+        for k in ("base", "espacio", "formato"):
+            if not h.get(k):
+                err.append(f"editorial/historial.jsonl, línea {n}: falta '{k}'")
+        if h.get("dolor_id") and h["dolor_id"] != "libre" and h["dolor_id"] not in ids:
+            avisos.append(f"editorial/historial.jsonl, línea {n}: el dolor '{h['dolor_id']}' ya no está en espacios.json")
 
 
 def validar(raiz):
@@ -86,10 +166,10 @@ def validar(raiz):
     elif "{{GUION}}" not in voz[IDIOMA]:
         err.append(f"editorial/voz_tts.md: la sección '{IDIOMA}' no tiene {{{{GUION}}}}")
 
-    decl = declaraciones((raiz / "editorial/marca.md").read_text(encoding="utf-8"))
+    decl = declaraciones((raiz / "editorial/prompt_guion.md").read_text(encoding="utf-8"))
     falta = [k for k in DECLARACIONES if k not in decl]
     if falta:
-        err.append(f"editorial/marca.md: en 'Declaraciones permitidas' faltan las líneas '- <clave>: si|no' de: {', '.join(falta)}")
+        err.append(f"editorial/prompt_guion.md: en 'Declaraciones permitidas' faltan las líneas '- <clave>: si|no' de: {', '.join(falta)}")
 
     plantillas = (_json(raiz, SKILL / "plantillas" / "plantillas.json", err) or {}).get("plantillas", {})
     for fid in FORMATOS:
@@ -97,17 +177,13 @@ def validar(raiz):
             err.append(f"plantillas.json: falta la plantilla '{fid}'")
         elif not (raiz / SKILL / "plantillas" / plantillas[fid].get("md", "")).is_file():
             err.append(f"plantillas.json: no existe la ficha {plantillas[fid].get('md')} de '{fid}'")
+    for fid in plantillas:
+        if fid not in FORMATOS:
+            err.append(f"plantillas.json: '{fid}' no es uno de los formatos ({', '.join(FORMATOS)})")
 
-    formatos = (_json(raiz, "editorial/formatos.json", err) or {}).get("formatos", {})
-    if sorted(formatos) != sorted(FORMATOS):
-        err.append(f"editorial/formatos.json: los formatos deben ser exactamente {', '.join(FORMATOS)} (llegaron {', '.join(formatos) or 'ninguno'})")
-    for fid, f in formatos.items():
-        if not isinstance(f.get("nombre"), str) or not f["nombre"].strip():
-            err.append(f"editorial/formatos.json: '{fid}' necesita 'nombre' (texto)")
-        if not str(f.get("guion") or "").strip():
-            err.append(f"editorial/formatos.json: '{fid}' necesita 'guion'")
-        if f.get("plantilla") not in plantillas:
-            err.append(f"editorial/formatos.json: '{fid}' apunta a una plantilla que no existe ({f.get('plantilla')})")
+    _validar_formatos(raiz, plantillas, err)
+    ids = _validar_espacios(raiz, err, avisos)
+    _validar_historial(raiz, ids, err, avisos)
 
     datos = (_json(raiz, "editorial/datos_verificados.json", err) or {}).get("datos")
     if not isinstance(datos, dict):
@@ -129,44 +205,6 @@ def validar(raiz):
                 err.append(f"{pre}: un dato verificado necesita 'fecha_consulta' (AAAA-MM-DD)")
             if not str(d.get("corta") or "").strip():
                 err.append(f"{pre}: un dato verificado necesita 'corta' (la fuente que va en pantalla)")
-    if datos and not any(d.get("verificado") is True for d in datos.values()):
-        avisos.append("datos_verificados.json: ningún dato está verificado todavía; el guion no podrá citar cifras")
-
-    temas = (_json(raiz, "editorial/temas.json", err) or {}).get("temas")
-    if not isinstance(temas, list) or not temas:
-        err.append("editorial/temas.json: necesita una lista 'temas'")
-        temas = []
-    vistas = {}
-    for t in temas:
-        pre = f"temas.json → tema {t.get('id', '?')}"
-        for viejo, nuevo in CAMPOS_VIEJOS.items():
-            if viejo in t or any(isinstance(i, dict) and viejo in i for i in t.get("ideas", [])):
-                err.append(f"{pre}: campo antiguo '{viejo}': renómbralo a '{nuevo}'")
-        for k in ("titulo", "tesis"):
-            if not str(t.get(k) or "").strip():
-                err.append(f"{pre}: falta '{k}'")
-        if not isinstance(t.get("toca_marca"), bool):
-            err.append(f"{pre}: 'toca_marca' debe ser true o false")
-        for did in t.get("datos", []):
-            if did not in datos:
-                err.append(f"{pre}: el dato '{did}' no existe en datos_verificados.json")
-        ideas = t.get("ideas")
-        if not isinstance(ideas, list) or not ideas:
-            err.append(f"{pre}: necesita al menos una idea")
-            continue
-        for j, idea in enumerate(ideas):
-            p = f"{pre}, idea {j + 1}"
-            if not isinstance(idea, dict):
-                err.append(f"{p}: debe ser un objeto con gancho y formato")
-                continue
-            if not str(idea.get("gancho") or "").strip():
-                err.append(f"{p}: falta 'gancho'")
-            if idea.get("formato") not in FORMATOS:
-                err.append(f"{p}: 'formato' debe ser uno de {', '.join(FORMATOS)}")
-            if "cta" in idea:
-                vistas[p] = idea["cta"]
-    if vistas:  # el cierre ya no usa palabra clave: lleva al perfil y al enlace de la bio
-        avisos.append(f"temas.json: {len(vistas)} ideas aún traen 'cta' (palabra clave); ya no se usa: bórralo")
 
     tokens = _json(raiz, SKILL / "diseno" / "tokens.json", err) or {}
     for rol in ("display", "texto", "mono"):
