@@ -1,0 +1,35 @@
+{
+ "version": 3,
+ "base": "20261123-0859",
+ "marca": "EN BRUTO",
+ "espacio": "PATIOS",
+ "dolor_id": "pa_fogata",
+ "tema": {
+  "titulo": "Fogata de gas o leña para tu patio",
+  "tesis": "Elegir entre gas y leña depende del espacio libre, la tolerancia al humo y el mantenimiento que exige un patio húmedo en Florida.",
+  "seed": "PATIOS: Quieres una fogata, pero el calor y las chispas amenazan muebles y plantas: comparar gas y leña según ubicación, base y mantenimiento",
+  "puntos": [
+   "Ubicación y calor: dibuja la huella de cada candidata y sus separaciones antes de comprar; gas y leña necesitan espacio libre, pero la leña añade chispas que pueden alcanzar vegetación seca. Compara los manuales de modelos concretos y descarta ubicaciones bajo ramas o cubiertas no aptas.",
+   "Base y resistencia: compara el sistema completo, no solo el acabado; ambas opciones necesitan una superficie estable, no combustible y apta para el calor del equipo. La leña puede concentrar brasas sobre la base; en gas, el aislamiento depende del diseño. Pregunta: «¿Este modelo puede instalarse sobre mi piso sin dañarlo y qué protección especifica el fabricante?»",
+   "Humo y limpieza: el gas produce menos humo y no deja cenizas de leña; la leña ofrece más crepitar, pero exige retirar cenizas completamente frías y guardar combustible seco. Antes de elegir, observa hacia dónde lleva el viento el humo respecto a puertas, ventanas y asientos.",
+   "Humedad y mantenimiento: compara cómo se protege cada opción de la lluvia; en gas hay quemador y encendido que mantener secos según el manual, mientras que en leña hay combustible y cenizas que proteger del agua. Busca drenaje y una cubierta compatible, colocada solo cuando todo esté frío. Decide por el espacio seguro disponible y el mantenimiento que realmente aceptarás, no por cuál luce más."
+  ]
+ },
+ "formato": "comparador",
+ "tipo_gancho": "dato_concreto",
+ "gancho": {
+  "voz": "La fogata de gas no lanza brasas de leña, pero también puede dañar el piso del patio.",
+  "pantalla": "La base también decide",
+  "primer_frame": "Una fogata de gas encendida transmite calor hacia unas tablas del patio que empiezan a oscurecerse en un corte animado."
+ },
+ "cifra_oficio": "",
+ "mandar_a": "a quien quiere poner una fogata junto a los muebles y las plantas del patio",
+ "palabras_clave": [
+  "fogata de gas o leña para patio",
+  "base resistente al calor para fogata",
+  "distancia de fogata a casa y plantas",
+  "proteger fogata exterior de la lluvia",
+  "fogata para patio en Florida"
+ ],
+ "creado": "2026-11-23T09:00:26-05:00"
+}
