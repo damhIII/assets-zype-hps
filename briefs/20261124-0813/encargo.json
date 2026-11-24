@@ -1,0 +1,33 @@
+{
+ "version": 3,
+ "base": "20261124-0813",
+ "marca": "EN BRUTO",
+ "espacio": "PISCINA",
+ "dolor_id": "pc_huracan",
+ "tema": {
+  "titulo": "Piscina antes del huracán: tres mitos peligrosos",
+  "tesis": "Antes de un huracán, preparar la piscina significa conservar el agua, desconectar el equipo de forma segura y guardar los objetos sueltos, no hundirlos.",
+  "seed": "PISCINA: Muebles sueltos y equipo encendido ante un huracán: mantener el agua, cortar la electricidad del equipo y guardar los objetos sueltos bajo techo",
+  "puntos": [
+   "Mito: «La vacío para que no se desborde». En realidad, conserva el agua: vaciarla puede favorecer que la presión del agua del terreno levante o dañe el vaso. Animar un corte del terreno saturado empujando una piscina vacía; no proponer un nivel de vaciado universal.",
+   "Mito: «Dejo la bomba funcionando para mantenerla limpia». En realidad, antes de que lleguen el viento fuerte y la lluvia, apaga el equipo y corta su alimentación en el interruptor correspondiente del tablero, únicamente con acceso seco y seguro. Detener el temporizador no equivale a desconectar la electricidad; si el tablero ya está mojado o rodeado de agua, no acercarse.",
+   "Mito: «Tiro las sillas al agua para que no vuelen». En realidad, guarda muebles, juguetes y accesorios sueltos en un espacio cerrado: pueden convertirse en proyectiles y, dentro de la piscina, dañar el acabado. Mostrar el mismo patio con los objetos guardados, no simplemente amontonados junto a la casa."
+  ]
+ },
+ "formato": "mito_realidad",
+ "tipo_gancho": "antes_despues",
+ "gancho": {
+  "voz": "¿Sillas volando hacia tu piscina? Despeja el patio antes del huracán.",
+  "pantalla": "Al agua no: bajo techo",
+  "primer_frame": "Una ráfaga levanta una silla junto a la piscina y la inclina hacia el agua."
+ },
+ "cifra_oficio": "",
+ "mandar_a": "A quien tiene piscina en Florida y piensa vaciarla o meter las sillas al agua antes de un huracán.",
+ "palabras_clave": [
+  "cómo preparar piscina para huracán en Florida",
+  "hay que vaciar la piscina antes de un huracán",
+  "cuándo apagar bomba de piscina por huracán",
+  "meter muebles en piscina durante huracán"
+ ],
+ "creado": "2026-11-24T08:14:26-05:00"
+}
