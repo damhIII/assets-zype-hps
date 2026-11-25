@@ -1,0 +1,35 @@
+{
+ "version": 3,
+ "base": "20261125-0805",
+ "marca": "EN BRUTO",
+ "espacio": "SALA Y COMEDOR",
+ "dolor_id": "libre",
+ "tema": {
+  "titulo": "Tu televisor no necesita otra lámpara enfrente",
+  "tesis": "El espectador aprende a detectar qué luces se reflejan en el televisor y a redistribuirlas para mejorar la imagen sin dejar la sala y el comedor a oscuras.",
+  "seed": "SALA Y COMEDOR: Reflejos de ventanas y lámparas que tapan la imagen del televisor: probar la vista desde el sofá y redistribuir la iluminación antes de cambiar la pantalla",
+  "puntos": [
+   "Entras a la sala y caminas hasta el sofá: en el antes, la ventana y la lámpara de pie aparecen reflejadas en el televisor. Apaga la pantalla y observa desde cada asiento, primero con luz natural y después encendiendo cada lámpara por separado; así identificas qué fuente produce cada reflejo antes de comprar otro televisor.",
+   "Desde el sofá miras hacia la ventana: en el después, el televisor queda en una pared perpendicular a ella, si la distribución lo permite. Esto evita tener la ventana directamente reflejada frente a ti; prueba la ubicación a la hora en que sueles jugar, porque el sol de Florida cambia de ángulo y una cortina translúcida puede no controlar suficiente luz.",
+   "A la izquierda del sofá aparece la lámpara de pie: en el antes, su bombilla se refleja en plena imagen; en el después, se desplaza a un lateral fuera del reflejo y usa una pantalla que oculta la bombilla desde el asiento. Prueba su posición encendida antes de definir el enchufe; importa dónde ilumina, no solo dónde cabe.",
+   "Sigues hasta la mesa del comedor: en el antes, la lámpara colgante queda encendida a máxima intensidad y también aparece en el televisor. En el después, sala y comedor se controlan por separado, con bombillas y regulador compatibles; puedes bajar la luz del comedor al jugar sin apagar toda la casa. Como apoyo, prueba una luz tenue detrás del televisor, dirigida a la pared y sin puntos luminosos visibles."
+  ]
+ },
+ "formato": "planta",
+ "tipo_gancho": "mini_escena",
+ "gancho": {
+  "voz": "Abres GTA seis y tu lámpara invade la pantalla sin invitación.",
+  "pantalla": "Antes de culpar al televisor",
+  "primer_frame": "Un personaje avanza en el videojuego y desaparece detrás del reflejo brillante de una lámpara de pie."
+ },
+ "cifra_oficio": "",
+ "mandar_a": "A quien compró un televisor carísimo para jugar y termina apagando todas las lámparas para poder ver.",
+ "palabras_clave": [
+  "cómo quitar reflejos del televisor",
+  "dónde poner la televisión respecto a la ventana",
+  "iluminación de sala para jugar videojuegos",
+  "lámparas que no se reflejen en la televisión",
+  "cortinas para sala con mucho sol en Florida"
+ ],
+ "creado": "2026-11-25T08:06:09-05:00"
+}
