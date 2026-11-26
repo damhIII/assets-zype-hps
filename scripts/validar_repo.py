@@ -13,7 +13,8 @@ from pathlib import Path
 
 SKILL = Path(".claude/skills/reel-remodelacion")
 EDITORIAL = ("editorial/prompt_guion.md", "editorial/prompt_tema.md", "editorial/prompt_catalogo.md", "editorial/formatos.json",
-             "editorial/espacios.json", "editorial/historial.jsonl", "editorial/datos_verificados.json", "editorial/voz_tts.md")
+             "editorial/espacios.json", "editorial/historial.jsonl", "editorial/datos_verificados.json", "editorial/voz_tts.md",
+             "editorial/prompt_caption.md")
 REQUERIDOS = EDITORIAL + ("CLAUDE.md", str(SKILL / "SKILL.md"), str(SKILL / "plantillas" / "plantillas.json"),
                           str(SKILL / "diseno" / "tokens.json"))
 FORMATOS = ("errores", "mito_realidad", "planta", "comparador", "checklist", "cronograma")
@@ -25,6 +26,7 @@ PLACEHOLDERS = {
     "editorial/prompt_guion.md": ("{{MARCA}}", "{{DATOS}}", "{{RECIENTES}}"),
     "editorial/prompt_tema.md": ("{{MARCA}}",),
     "editorial/prompt_catalogo.md": ("{{MARCA}}",),
+    "editorial/prompt_caption.md": ("{{MARCA}}",),
 }
 OBSOLETOS = {  # restos de versiones anteriores: avisan para que se borren
     "editorial/marca.md": "se fusionó en prompt_guion.md",

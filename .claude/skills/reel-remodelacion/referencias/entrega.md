@@ -26,7 +26,8 @@ Si el entorno no puede renderizar, entrega el proyecto en zip (sin `node_modules
 - [ ] El logo aparece en el header y en el CTA, en la variante correcta para el fondo, sin deformar ni teñir; el nombre de la marca no está escrito con tipografía.
 - [ ] Cada elemento de la plantilla entra cuando la voz lo nombra (mira los stills de anclas) y el CTA hace pop en `cta_f`.
 - [ ] Toda cifra en pantalla es un dato verificado con su fuente visible (`fuente_dato`) o la cifra de oficio que dice la voz (una o dos como mucho); lo ilustrativo dice **EJEMPLO ILUSTRATIVO**.
-- [ ] Ningún texto ni sello dice o insinúa que la marca construye, tiene licencia o seguro, o garantiza precio, plazo o costo (salvo lo declarado con `si` en `editorial/prompt_guion.md` → Declaraciones permitidas).
+- [ ] Ningún texto ni sello dice o insinúa que la marca construye, tiene licencia o seguro, o garantiza precio, plazo o costo.
+- [ ] Si hay `encargo.peligro`, el gancho lo hace sentir (sin nada gráfico) y el resultado muestra el mismo objeto ya seguro.
 - [ ] No hay ninguna foto ni video: todo es animación.
 - [ ] El CTA invita a entrar al perfil y dice dónde está el enlace (la bio), hace pop cuando la voz lo menciona y la flecha apunta hacia la foto y el nombre de la cuenta (abajo a la izquierda); no hay iconos de comentario ni DM.
 - [ ] El rojo (`foco`) solo está en el marcador del titular, el subrayado de la palabra activa, la barra, los corchetes, el foco de cada escena y el CTA; las escenas usan neutros cálidos y 2-3 matices de `apoyo`, no un video monocromo gris y rojo.
@@ -34,7 +35,5 @@ Si el entorno no puede renderizar, entrega el proyecto en zip (sin `node_modules
 - [ ] Duración = `video.frames`; la voz no se recortó ni se aceleró.
 - [ ] La voz se entiende por encima de la música en todo el video; los efectos caen en anclas reales y no tapan ninguna palabra clave.
 
-## Mensaje de entrega (3-6 líneas)
-- Formato y plantilla usados (y por qué, si cambiaste el del guionista), ambientes, y la música y los efectos elegidos (ids de `audio/catalogo.json`).
-- Cualquier problema del guion visto en el paso 4 (cifra sin verificar, marca como ejecutora, caso presentado como real) y qué dato habría que verificar, con su fuente oficial.
-- Un caption sugerido: dos líneas con el tono del video que usen las `encargo.palabras_clave` de forma natural (Instagram las usa en la búsqueda), una invitación a mandárselo a quien dice `encargo.mandar_a` y una línea que recuerde que el enlace para escribirnos está en la bio del perfil. Sin promesas de archivos.
+## Mensaje de entrega (1-2 líneas)
+Los dos archivos y una línea con formato, ambientes y efectos usados. Nada más: ni caption, ni comentarios sobre el guion o la voz.

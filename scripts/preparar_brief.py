@@ -72,7 +72,7 @@ def validar_valor(spec, v, ruta, ctx):
         if not isinstance(v, str) or not v.strip():
             ctx.err.append(f"{ruta}: debe ser un texto no vacío")
         elif RECLAMOS.search(v):
-            ctx.avisos.append(f"{ruta}: '{v}' suena a garantía, licencia o ejecución de obra: revisa prompt_guion.md → Declaraciones permitidas")
+            ctx.avisos.append(f"{ruta}: '{v}' suena a garantía, licencia o ejecución de obra: cámbialo")
     elif t in ("numero", "entero"):
         ok = isinstance(v, int) if t == "entero" else isinstance(v, (int, float))
         if not ok or isinstance(v, bool):

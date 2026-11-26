@@ -5,14 +5,14 @@
       "nombre": "Errores caros",
       "plantilla": "errores",
       "peso": 1.5,
-      "guion": "El cuerpo cuenta dos a cuatro errores encadenados (le pasan al mismo espacio o uno lleva al siguiente), cada uno con su consecuencia concreta (retrabajo, algo que se rompe, dinero tirado, riesgo) y termina con el antídoto: qué hacer antes.",
+      "guion": "El cuerpo cuenta dos a cuatro errores encadenados (le pasan al mismo espacio o uno lleva al siguiente), cada uno con su consecuencia concreta y, si existe, el peligro real que esconde (una descarga, agua dentro del muro, algo que cede o se cae, retrabajo y dinero tirado), y termina con el antídoto: qué hacer antes.",
       "guardable": "una lista de errores para evitar antes de empezar"
     },
     "mito_realidad": {
       "nombre": "Mito vs. realidad",
       "plantilla": "mito_realidad",
       "peso": 1.5,
-      "guion": "El cuerpo desmonta uno a tres mitos: primero el mito tal como lo diría un propietario, luego la realidad en una o dos frases, marcando el giro con palabras como 'en realidad' o 'la verdad es que'. Si hay varios, se enlazan ('y ya que estamos…').",
+      "guion": "El cuerpo desmonta uno a tres mitos: primero el mito tal como lo diría un propietario, luego la realidad en una o dos frases (con lo que de verdad puede pasar si alguien se cree el mito), marcando el giro con palabras como 'en realidad' o 'la verdad es que'. Si hay varios, se enlazan ('y ya que estamos…').",
       "guardable": "una creencia corregida que el espectador querrá enviar a quien va a remodelar"
     },
     "planta": {
@@ -33,7 +33,7 @@
       "nombre": "Checklist",
       "plantilla": "checklist",
       "peso": 1.0,
-      "guion": "El cuerpo da tres a cinco comprobaciones que el propietario puede hacer o pedir él mismo, contadas como pasos de una misma visita o conversación (no como lista leída), cada una con qué mirar o qué preguntar exactamente. Incluye una señal de alarma.",
+      "guion": "El cuerpo da tres a cinco comprobaciones que el propietario puede hacer o pedir él mismo, contadas como pasos de una misma visita o conversación (no como lista leída), cada una con qué mirar o qué preguntar exactamente. Incluye la señal de alarma que delata el peligro y qué significa si aparece.",
       "guardable": "una lista para revisar antes de contratar o comprar"
     },
     "cronograma": {
@@ -68,6 +68,10 @@
     "mini_escena": {
       "descripcion": "Una situación reconocible con humor, en una o dos frases cortas.",
       "ejemplo": "Prendes la parrilla y el humo entra a la sala."
+    },
+    "peligro_oculto": {
+      "descripcion": "El peligro real que esconde algo cotidiano mal hecho: el objeto concreto y lo que puede pasar, sin exagerar.",
+      "ejemplo": "Ese tomacorriente del patio, sin protección, puede darle una descarga al primero que lo toque con las manos mojadas."
     }
   },
   "duracion": {

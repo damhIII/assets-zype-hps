@@ -17,11 +17,11 @@ Todo es **CC0** (dominio público, sin atribución, válido para Reels comercial
 
 **Efectos** (`audio/sfx/<id>.wav`, ≤ 1,6 s, sin silencio inicial, pico a −3 dBFS): `campana_01-03`, `cerrojo_01-02`, `click_01-03`, `cristal_01-03`, `crujido_01-03`, `desaparecer_01-03`, `deslizar_01-03`, `ding_01-03`, `error_01-03`, `golpe_madera_01-03`, `golpe_metal_01-03`, `golpe_obra_01-03`, `golpe_suave_01-03`, `goteo_01-02`, `monedas_01-02`, `papel_01-03`, `pasos_01-03`, `pop_01-03`, `pregunta_01-03`, `puerta_01-03`, `scratch_01-03`, `swoosh_transicion_01-02`, `tic_01`, `tic_tac_01`, `whoosh_01-03`.
 
-## Tu decisión: `briefs/<BASE>/audio.json`
-Escríbelo junto a `decisiones.json` y súbelo con el resto: así el siguiente video ve qué música se usó y no la repite.
+## `briefs/<BASE>/audio.json`
+Escríbelo junto a `decisiones.json` (solo para tu proyecto, no se sube). La música la copias de `encargo.musica`; los efectos son tu decisión.
 ```jsonc
 {
-  "musica": { "id": "lofi_relajado_01", "volumen": 0.12 },     // o null si el tema pide silencio
+  "musica": { "id": "lofi_relajado_01", "volumen": 0.12 },     // = encargo.musica (null = sin música)
   "sfx": [
     { "id": "whoosh_01", "ancla": 0,  "volumen": 0.35 },          // ancla = índice de palabra de subtitulos.json
     { "id": "pop_02",    "ancla": 24, "volumen": 0.4 },
@@ -32,8 +32,7 @@ Escríbelo junto a `decisiones.json` y súbelo con el resto: así el siguiente v
 En Remotion, el frame de cada efecto es `round(subtitulos.palabras[ancla].ini × fps) − anticipacion_frames` (2), igual que las animaciones.
 
 ## Música
-- **Una sola pista** por video, elegida por `mood` según el tono del guion: divertido → `alegre_ukelele`, `funk_groove`, `acustico_positivo`; explicativo → `lofi_relajado`, `hiphop_beat`; serio o delicado → `minimal_suave` muy baja, o sin música.
-- No repitas la pista de los últimos tres videos (mira `briefs/*/audio.json`).
+- **Llega elegida** en `encargo.musica` (`id`, `archivo`, `volumen`) según el tono del guion: úsala tal cual, sin buscar otra ni mirar otros videos. Si es `null`, sin música.
 - Volumen bajo la voz: **0.10–0.15**. En los huecos de voz de más de 0,6 s y en la cola (`cola_s`) puede subir a 0.22–0.25.
 - Fundido de entrada de 10 frames y de salida en los últimos 30 frames. Las pistas duran hasta 100 s, más que cualquier Reel: no hace falta `loop`.
 ```tsx
@@ -65,6 +64,6 @@ En Remotion, el frame de cada efecto es `round(subtitulos.palabras[ancla].ini ×
 - Como mucho un efecto cada 2 s de media, y nunca dos a la vez.
 - Ningún efecto encima de una palabra clave: entra 2 frames antes del ancla y es más corto que la palabra.
 - Volumen de los efectos: 0.3–0.5 (ya vienen normalizados). Si uno tapa la voz en el still de audio o al escucharlo, bájalo o quítalo.
-- Tema serio (estafa, depósito perdido, huracán): sin efectos cómicos (`scratch`, `campana`) y música muy baja o ninguna.
+- `encargo.tono` = `serio` (riesgo para la salud o la casa): sin efectos cómicos (`scratch`, `campana`, `pop` juguetón). El peligro se subraya con un golpe seco y grave (`golpe_obra`, `golpe_metal`, `crujido`, `goteo`), uno solo, en el ancla donde la voz nombra el riesgo.
 - Determinismo: los ids y frames salen de `audio.json`; nada aleatorio.
 - En la entrega, di qué música y qué efectos usaste (ids).

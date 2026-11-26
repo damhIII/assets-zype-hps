@@ -33,4 +33,4 @@
 ## Honestidad
 - `aviso_legal` activo por defecto.
 - `como_verificar` no inventa procedimientos: si no hay dato verificado, usa fórmulas generales ("pídelo por escrito", "compruébalo en la fuente oficial del estado / del condado").
-- No digas que la marca verifica licencias salvo que `editorial/prompt_guion.md` → Declaraciones permitidas diga `verifica_licencias: si`.
+- No digas que la marca verifica licencias.
