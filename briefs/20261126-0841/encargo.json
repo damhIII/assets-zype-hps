@@ -1,0 +1,30 @@
+{
+ "version": 4,
+ "base": "20261126-0841",
+ "marca": "EN BRUTO",
+ "espacio": "COCINAS",
+ "tema": {
+  "titulo": "La isla cabe, pero la cocina no funciona",
+  "tesis": "El tamaño de una isla se decide por el espacio que queda para circular y abrir los equipos, no solo por el hueco disponible.",
+  "puntos": [
+   "Error: medir solo el mueble de la isla. Marca también el borde de la encimera y los tiradores con cinta en el piso; esas salientes reducen el paso aunque los gabinetes parezcan caber.",
+   "Error: comprobar el pasillo con todo cerrado. Simula la puerta del lavavajillas completamente abierta usando las dimensiones del modelo elegido; si obliga a pasar por encima o queda atravesada en la ruta habitual, esa es la señal de alarma de tropiezo.",
+   "Error: olvidar los usos simultáneos. Coloca una silla donde iría el taburete y sepárala como al sentarte; después comprueba si otra persona podría abrir la nevera y pasar sin moverla. Así detectas una distribución que solo funciona cuando nadie usa la cocina.",
+   "Antídoto antes de encargar: ensaya la isla con cajas y cinta, y exige que el plano muestre encimeras, tiradores y puertas abiertas. Como referencia inicial, considera unos 107 cm de pasillo de trabajo libre con todo cerrado, sin asumir que eso garantiza paso con el lavavajillas abierto; si la prueba falla, reduce o reubica la isla."
+  ]
+ },
+ "formato": "errores",
+ "tono": "serio",
+ "peligro": "La puerta abierta del lavavajillas puede convertirse en un obstáculo de tropiezo si la isla obliga a cruzarla para circular. Además, descubrir la interferencia después de instalar puede exigir modificar la encimera y los gabinetes.",
+ "gancho": {
+  "pantalla": "El paso desaparece al abrir",
+  "primer_frame": "La puerta del lavavajillas baja frente a la isla y una ruta animada de paso choca contra ella."
+ },
+ "cifra_oficio": "Como referencia inicial, unos 107 cm de pasillo de trabajo libre con puertas cerradas; hay que comprobar aparte las aperturas y el uso simultáneo.",
+ "musica": {
+  "id": "minimal_suave_02",
+  "archivo": "audio/musica/minimal_suave_02.mp3",
+  "volumen": 0.1
+ },
+ "creado": "2026-11-26T08:42:13-05:00"
+}
