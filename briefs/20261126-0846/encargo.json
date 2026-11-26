@@ -1,0 +1,30 @@
+{
+ "version": 4,
+ "base": "20261126-0846",
+ "marca": "EN BRUTO",
+ "espacio": "AMPLIACIÓN DE LA CASA",
+ "tema": {
+  "titulo": "Cerrar la terraza sin crear un horno",
+  "tesis": "Cerrar una terraza exige resolver viento, entrada de calor y humedad como un solo sistema, no simplemente añadir ventanas y una salida de aire.",
+  "puntos": [
+   "Empieza por los apoyos y las uniones del techo: busca postes inclinados, madera deteriorada o separaciones visibles entre terraza y casa. Son señales de alarma de posibles fallos de soporte; pregunta «¿Qué sostendrá las nuevas ventanas y cómo se conectará hasta la cimentación para resistir el viento?». Una unión abierta no demuestra por sí sola un fallo estructural, pero no debe ocultarse con acabados.",
+   "En esa misma visita, pide identificar las ventanas y su instalación: «¿Qué documentación confirma que este conjunto sirve para el viento y la exposición de esta ubicación, y cómo se ancla?». Importan vidrio, marco y anclajes juntos; que una ventana sea de impacto no demuestra por sí solo que todo el cerramiento sea adecuado.",
+   "Recorre techo, paredes y piso antes de elegir acabados: pide aislamiento continuo y una prueba de humedad de la losa compatible con el piso previsto. Pregunta «¿Cómo se resolverán el agua exterior y el vapor antes de instalar el piso?», porque una losa de terraza no debe darse por apta para cubrirla como un interior.",
+   "Termina la conversación con el calor y la climatización: pide comparar la ganancia solar de los vidrios y calcular la carga térmica del nuevo recinto, incluida la humedad. Pregunta «¿El sistema existente puede atender este espacio sin perjudicar el resto de la casa y quién coordina el permiso de la conversión?». Añadir una rejilla no sustituye ese cálculo."
+  ]
+ },
+ "formato": "checklist",
+ "tono": "serio",
+ "peligro": "Durante un huracán, un cerramiento o sus anclajes inadecuados pueden desprenderse y herir a quienes estén cerca. Además, cerrar sin controlar la entrada de agua y la condensación puede mantener húmedos los materiales ocultos y favorecer moho.",
+ "gancho": {
+  "pantalla": "No tapes esa señal de alarma",
+  "primer_frame": "Un marco se separa simbólicamente de su apoyo mientras flechas de viento golpean la terraza teñida de rojo por el calor."
+ },
+ "cifra_oficio": "",
+ "musica": {
+  "id": "minimal_suave_01",
+  "archivo": "audio/musica/minimal_suave_01.mp3",
+  "volumen": 0.1
+ },
+ "creado": "2026-11-26T08:47:29-05:00"
+}
