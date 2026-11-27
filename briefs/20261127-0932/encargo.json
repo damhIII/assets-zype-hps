@@ -1,0 +1,30 @@
+{
+ "version": 4,
+ "base": "20261127-0932",
+ "marca": "EN BRUTO",
+ "espacio": "CUARTOS",
+ "tema": {
+  "titulo": "Cuarto de huéspedes con doble uso",
+  "tesis": "Un cuarto de huéspedes puede funcionar como oficina diaria si comparas los materiales del mobiliario por humedad, mantenimiento y uso, y compruebas cómo queda con la cama abierta.",
+  "puntos": [
+   "Humedad: compara MDF melaminado con contrachapado sellado para el escritorio plegable y el almacenaje. El MDF suele costar menos, pero sus cantos expuestos se hinchan si reciben agua; el contrachapado tolera mejor la humedad ocasional, aunque también necesita protección. Pide ver cómo terminan los cantos, las perforaciones y la cara inferior, no solo el frente bonito; en Florida, el aire acondicionado no elimina una filtración ni la condensación.",
+   "Señal de alarma: busca cantos abultados, melamina levantada o una trasera húmeda antes de reutilizar el mueble. Estas señales pueden indicar humedad, no simple desgaste; cubrirlas con otro tablero puede estropear también el material nuevo. Separa el mueble de la pared y revisa si hay manchas o humedad detrás antes de instalar el almacenaje.",
+   "Mantenimiento y resistencia: para una superficie de escritorio de limpieza frecuente, la melamina exige menos cuidado superficial; el contrachapado con acabado transparente puede admitir más reparaciones, dependiendo del acabado. Pide una muestra y pregunta: «¿Qué pasa si se raya y cómo se repara?». En el escritorio plegable, solicita herrajes adecuados para el tablero y la carga prevista: un tablero más grueso no compensa una fijación mal resuelta.",
+   "Uso y espacio: marca con cinta la huella del sofá cama completamente abierto y del escritorio desplegado; comprueba que puedes acceder al almacenaje sin mover muebles. Decide por el uso diario y la exposición real a humedad: melamina bien rematada si buscas limpieza sencilla y menor costo inicial; contrachapado sellado si priorizas reparación y mayor tolerancia a humedad ocasional. Ninguno compensa una distribución incómoda ni una pared húmeda."
+  ]
+ },
+ "formato": "comparador",
+ "tono": "explicativo",
+ "peligro": "El riesgo principal es gastar en muebles que se hinchen, pierdan el acabado o deban reemplazarse si reciben humedad por cantos y perforaciones sin proteger. También puedes terminar con una oficina que haya que desmontar cada vez que se abre el sofá cama.",
+ "gancho": {
+  "pantalla": "El acabado no lo cuenta todo",
+  "primer_frame": "Un escritorio impecable gira en corte animado y revela un canto abultado bajo la superficie."
+ },
+ "cifra_oficio": "",
+ "musica": {
+  "id": "lofi_relajado_04",
+  "archivo": "audio/musica/lofi_relajado_04.mp3",
+  "volumen": 0.12
+ },
+ "creado": "2026-11-27T09:33:35-05:00"
+}
