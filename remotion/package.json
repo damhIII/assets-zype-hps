@@ -1,0 +1,22 @@
+{
+  "name": "reel-en-bruto",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Plantilla Remotion de los Reels de EN BRUTO: el marco, el audio y las plantillas ya están hechos; por video solo cambian src/escenas/actual.tsx y el brief.",
+  "scripts": {
+    "estudio": "remotion studio",
+    "tipos": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.547",
+    "@remotion/cli": "4.0.547",
+    "@remotion/renderer": "4.0.547",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.547"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.8",
+    "typescript": "5.8.3"
+  }
+}

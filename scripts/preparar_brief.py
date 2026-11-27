@@ -3,14 +3,14 @@
 
 Uso:
   python3 scripts/preparar_brief.py briefs/<BASE>            # valida decisiones.json y escribe briefs/<BASE>/es/brief.json
-  python3 scripts/preparar_brief.py briefs/<BASE> --stills   # además imprime los comandos de stills de revisión
+  (normalmente no hace falta llamarlo: scripts/revisar.py y scripts/render.py lo ejecutan solos)
 
 Entrada (en briefs/<BASE>/):
   encargo.json                                  → lo deja el notebook (espacio, tema, formato, gancho, mandar_a…)
   es/guion.txt, es/palabras.json, es/locucion.wav → los deja el notebook
   es/subtitulos.json                            → scripts/alinear.py (se genera solo si falta)
   decisiones.json                               → lo escribes tú (formato en .claude/skills/reel-remodelacion/referencias/decisiones.md)
-Salida: briefs/<BASE>/es/brief.json (versión 5), la única fuente de datos del proyecto (cópialo a src/brief_es.json).
+Salida: briefs/<BASE>/es/brief.json (versión 5), la única fuente de datos del proyecto (preparar_proyecto.py lo copia a remotion/src/).
 Las anclas ("desde", "ancla…") son índices de palabra del guion: los [n] que imprime alinear.py.
 """
 import json, math, re, sys, unicodedata
@@ -225,7 +225,7 @@ def preparar(dir_base):
     else:
         pedido = encargo.get("formato") or encargo.get("formato_guion")
         if pedido and pedido != formato:
-            avisos.append(f"el encargo pide el formato '{pedido}' y decidiste '{formato}': explícalo en la entrega")
+            avisos.append(f"el encargo pide el formato '{pedido}' y decidiste '{formato}': asegúrate de que el guion lo pide")
 
     # --- bloques
     bloques_d = dec.get("bloques") or []
@@ -261,7 +261,7 @@ def preparar(dir_base):
     if bloques_d and gancho_enc.get("pantalla"):
         tit0 = " ".join(map(str, bloques_d[0].get("titular") or []))
         if sin_tildes(re.sub(r"\W+", " ", tit0)).split() != sin_tildes(re.sub(r"\W+", " ", gancho_enc["pantalla"])).split():
-            avisos.append(f"el titular del gancho ('{tit0}') no es el texto de pantalla del encargo ('{gancho_enc['pantalla']}'): explícalo en la entrega")
+            avisos.append(f"el titular del gancho ('{tit0}') no es el texto de pantalla del encargo ('{gancho_enc['pantalla']}'): úsalo tal cual salvo que no quepa")
 
     # --- CTA: lleva al perfil y al enlace de la bio
     cta = str(dec.get("cta") or tokens["textos_fijos"]["cta_defecto"]).strip().upper()
@@ -409,39 +409,58 @@ def preparar(dir_base):
     return brief, err, avisos
 
 
+def escribir(d):
+    """Valida decisiones.json y, si no hay errores, escribe es/brief.json. Devuelve (brief | None, errores, avisos)."""
+    d = Path(d)
+    brief, err, avisos = preparar(d)
+    if not err:
+        (d / IDIOMA / "brief.json").write_text(json.dumps(brief, ensure_ascii=False, indent=1), encoding="utf-8")
+    return brief, err, avisos
+
+
+def marcas_stills(brief):
+    """[(nombre, frame)] de los momentos que hay que revisar: primer frame, header, cada bloque, transiciones de ambiente,
+    cada ancla de la plantilla, cada acento, el CTA y el final."""
+    total = brief["video"]["frames"]
+    marcas = [("primer_frame", 0), ("header", brief["header_entra_f"] + 6)]
+    marcas += [(b["id"], (b["ini_f"] + b["fin_f"]) // 2) for b in brief["bloques"]]
+    prev = None
+    for b in brief["bloques"]:
+        amb = brief["ambientes"].get(b["id"], "lino")
+        if prev is not None and amb != prev:
+            marcas.append((f"transicion_{b['id']}", b["ini_f"]))
+        prev = amb
+    for nombre, f in anclas_f(brief["plantilla"]["params"], "plantilla_"):
+        marcas.append((nombre, min(f + 8, total - 1)))
+    for k, ac in enumerate(brief["acentos"]):
+        marcas.append((f"acento_{k + 1}", min(ac["ancla_f"] + 6, total - 1)))
+    marcas.append(("cta_pop", min(brief["cta_f"] + 12, total - 1)))
+    marcas.append(("final", total - 1))
+    vistos, out = set(), []
+    for nombre, f in sorted(marcas, key=lambda x: x[1]):
+        if nombre not in vistos:
+            vistos.add(nombre)
+            out.append((nombre, f))
+    return out
+
+
 def main():
     if len(sys.argv) < 2:
         raise SystemExit(__doc__)
     d = Path(sys.argv[1])
-    brief, err, avisos = preparar(d)
+    brief, err, avisos = escribir(d)
     for a in avisos:
         print(f"  aviso: {a}")
     if err:
         print("ERRORES (corrige decisiones.json y vuelve a ejecutar):\n - " + "\n - ".join(err))
         sys.exit(1)
-    (d / IDIOMA / "brief.json").write_text(json.dumps(brief, ensure_ascii=False, indent=1), encoding="utf-8")
     a = ", ".join(f"{k}={v}" for k, v in brief["ambientes"].items() if v != "lino") or "todo lino"
     print(f"brief.json listo · {brief['video']['frames']} frames ({brief['video']['voz_s']} s de voz + {brief['video']['cola_s']} s) · "
           f"formato {brief['formato']} · ambientes {a}")
     for b in brief["bloques"]:
         print(f"  {b['id']:<9} {b['ini_f']:>5}–{b['fin_f']:<5} {b['titular'][0]} / {b['titular'][1]}")
     if "--stills" in sys.argv:
-        marcas = [("primer_frame", 0), ("header", brief["header_entra_f"] + 6)]
-        marcas += [(b["id"], (b["ini_f"] + b["fin_f"]) // 2) for b in brief["bloques"]]
-        prev = None
-        for b in brief["bloques"]:
-            amb = brief["ambientes"].get(b["id"], "lino")
-            if prev is not None and amb != prev:
-                marcas.append((f"transicion_{b['id']}", b["ini_f"]))
-            prev = amb
-        for nombre, f in anclas_f(brief["plantilla"]["params"], "plantilla_"):
-            marcas.append((nombre, min(f + 8, brief["video"]["frames"] - 1)))
-        for k, ac in enumerate(brief["acentos"]):
-            marcas.append((f"acento_{k + 1}", min(ac["ancla_f"] + 6, brief["video"]["frames"] - 1)))
-        marcas.append(("cta", min(brief["cta_f"] + 10, brief["video"]["frames"] - 1)))
-        marcas.append(("final", brief["video"]["frames"] - 1))
-        for nombre, f in marcas:
-            print(f"npx remotion still Reel-es out/stills/{nombre}.png --frame={f}")
+        print("Los stills se revisan con: python3 scripts/revisar.py " + str(d))
 
 
 if __name__ == "__main__":

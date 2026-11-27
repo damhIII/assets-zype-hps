@@ -1,0 +1,6 @@
+node_modules/
+public/
+out/
+src/brief_es.json
+src/audio_es.json
+src/escenas/actual.tsx

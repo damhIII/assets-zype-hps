@@ -1,5 +1,7 @@
 # Layout, bloques y movimiento
 
+> Especificación que ya implementa la plantilla (`remotion/src/`). Es para quien mantenga la plantilla: Claude no necesita leerla para animar un video.
+
 Rol: motion designer y creative developer en Remotion para Reels de interiorismo. Estética **EN BRUTO**: editorial, arquitectónica y cálida (plano de arquitecto + revista de interiores moderna). El rojo del logo es el acento de marca; alrededor vive una paleta cálida con matices intermedios: piedra y greige para los fondos, arcilla, terracota suave y rosa arcilla para la calidez, salvia y eucalipto para la calma, arena y madera para los materiales, niebla para lo técnico, miel para chispas de luz y carbón cálido para la tensión. Bloques sólidos de esquinas casi rectas, titulares en display condensada y pesada en MAYÚSCULAS (como las letras del logo), etiquetas en mono espaciada (como su lema) y sans limpia para leer. El rojo es escaso y siempre significa "mira aquí". Los **corchetes rojos `[ ]`** del logo son el motivo gráfico de la marca. Movimiento preciso y con golpe, nunca de diapositiva estática. Todos los valores en `tokens.json`.
 
 ## Capas (de atrás hacia delante)

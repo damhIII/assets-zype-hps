@@ -19,7 +19,7 @@ Solo se puede afirmar de la marca lo que aquí diga `si` (cambia un `no` por `si
 # El recorrido del guion: seis párrafos
 Es un arco narrativo, no una plantilla con etiquetas: el texto fluye como una sola explicación hablada. Escribe **un párrafo por parte**, porque cada párrafo será un bloque del video. Los seis párrafos son una sola conversación: cada uno recoge algo del anterior (la situación, una palabra, una pregunta que quedó en el aire) y empuja al siguiente.
 
-1. **Gancho**: parte del gancho elegido (úsalo tal cual o púlelo sin cambiar su idea). Una o dos frases que nombran el espacio o el objeto y lo que está en juego. Sin saludos.
+1. **Gancho**: empieza **siempre** con la APERTURA que recibes, palabra por palabra (es la firma de la serie: el tono de quien te cuenta algo útil sin que se lo pidas). Justo después, sin otra introducción, va el gancho elegido (úsalo tal cual o púlelo sin cambiar su idea): una o dos frases que nombran el espacio o el objeto y lo que está en juego. La apertura y el gancho se dicen de corrido, como una sola idea. Sin saludos.
 2. **Escena**: la situación del propietario, reconocible y en segunda persona ("digamos que…", "llueve y tu patio…"). Es un ejemplo hipotético y es el **hilo conductor**: el mismo espacio, objeto o personaje vuelve en el cuerpo y en el resultado.
 3. **Marco**: el criterio. Por qué pasa, qué está ocurriendo donde no se ve y qué hay que decidir o revisar antes. Es la explicación de fondo: si el espectador entiende el mecanismo del peligro, entiende todo lo demás. Si encaja, aquí cabe una frase sobre el papel de la marca: orientar y coordinar, nunca ejecutar.
 4. **Cuerpo**: la enseñanza, según el formato. Recorre los puntos del tema en orden y **explica cada uno**: qué es, por qué importa y cómo se hace bien, con el detalle concreto que lo hace útil (un material, una medida, una prueba, la pregunta exacta para el contratista). Nombra cada elemento con una palabra clara (la animación se dispara cuando la voz la dice) dentro de una frase hablada y unida a la escena, nunca como rótulo seguido de dos puntos. Enlaza los puntos con conectores de conversación ("primero", "y aquí viene lo importante", "pero ojo", "lo que casi nadie revisa", "y por último").
@@ -29,7 +29,7 @@ Es un arco narrativo, no una plantilla con etiquetas: el texto fluye como una so
 5. **Resultado**: el alivio. Lo que gana el propietario en seguridad, dinero, tiempo o tranquilidad, cerrando el círculo: vuelve a la imagen del gancho o de la escena, ya resuelta y segura. El video nunca termina en miedo. Nunca likes ni seguidores.
 6. **Cierre**: invita a entrar al perfil de {{MARCA}} y contactarnos desde el enlace de la bio. Escríbelo con tus palabras, que nazca de la historia (el mismo espacio, el mismo problema) y que no repita el de los guiones recientes. Ejemplos de la idea, no los copies: "Para orientarte con tu cocina exterior, entra a nuestro perfil y contáctanos desde el enlace de la bio." / "¿Quieres resolver ese patio? En nuestro perfil tienes el link de la bio para escribirnos." Siempre menciona el perfil, el enlace o link y la bio ("bio" en minúsculas). Presentar a la marca ("te orientamos y coordinamos…") es opcional: hazlo solo si suma. Antes puedes añadir una invitación breve a guardar o enviar el video, con un motivo concreto.
 
-Puedes variar el peso de cada parte según el tema, pero no te saltes el marco ni el cierre. La duración llega con el tema: dentro de ese rango, decide tú según lo que pida la explicación. No rellenes, pero tampoco recortes hasta dejar un paso sin explicar.
+Puedes variar el peso de cada parte según el tema, pero no te saltes el marco ni el cierre. La duración llega con el tema (la apertura cuenta dentro de ella): dentro de ese rango, decide tú según lo que pida la explicación. No rellenes, pero tampoco recortes hasta dejar un paso sin explicar.
 
 # El miedo que protege
 Recibes el **peligro real** del tema (lo que puede pasar si el trabajo se hace mal o se ignora) y el **tono**. Úsalo para que el espectador sienta lo que se juega, y enseguida dale el control:
@@ -75,7 +75,7 @@ Ganchos, así sí y así no:
 
 {{DATOS}}
 
-# Guiones recientes (no repitas sus ganchos, sus arranques de párrafo ni su forma de cerrar)
+# Guiones recientes (no repitas sus ganchos, sus arranques de párrafo ni su forma de cerrar; la apertura es la única repetición permitida)
 {{RECIENTES}}
 
 # Salida

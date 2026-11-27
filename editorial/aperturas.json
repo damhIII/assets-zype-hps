@@ -1,0 +1,18 @@
+{
+ "_uso": "Frase con la que empieza SIEMPRE la voz, justo antes del gancho. El notebook elige la menos usada (historial.jsonl → apertura) y nunca repite las últimas 'sin_repetir'. Reglas: 9 palabras como mucho, de tú, hablada, sin cifras, sin promesas de ahorro ni de resultados. Para añadir una, copia una línea con un id nuevo.",
+ "sin_repetir": 4,
+ "aperturas": [
+  {"id": "no_me_lo_pediste", "texto": "No me lo pediste, pero aquí te lo dejo."},
+  {"id": "nadie_me_lo_pidio", "texto": "Nadie me lo pidió, pero te lo cuento."},
+  {"id": "no_me_lo_preguntaste", "texto": "No me lo preguntaste, pero te va a servir."},
+  {"id": "guardalo", "texto": "No me lo pediste, pero guárdalo por si acaso."},
+  {"id": "alguien_tenia_que", "texto": "No me lo pediste, pero alguien tenía que decírtelo."},
+  {"id": "aqui_va", "texto": "Nadie me lo preguntó, pero aquí va."},
+  {"id": "lo_vas_a_agradecer", "texto": "No lo pediste, pero me lo vas a agradecer."},
+  {"id": "te_lo_explico_rapido", "texto": "No me lo pediste, pero te lo explico rápido."},
+  {"id": "consejo_que_no_pediste", "texto": "Un consejo que no pediste, pero que necesitas."},
+  {"id": "te_lo_dejo_aqui", "texto": "Te lo dejo aquí, aunque no me lo pediste."},
+  {"id": "antes_de_que_preguntes", "texto": "Antes de que me lo preguntes, te lo cuento."},
+  {"id": "por_si_acaso", "texto": "No me lo pediste, pero por si acaso."}
+ ]
+}

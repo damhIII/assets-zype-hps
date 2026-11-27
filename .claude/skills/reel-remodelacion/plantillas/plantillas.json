@@ -130,6 +130,7 @@
         "opciones": { "tipo": "lista", "min": 2, "max": 3, "requerido": true, "item": { "tipo": "objeto", "campos": {
           "nombre": { "tipo": "texto", "requerido": true },
           "icono": { "tipo": "icono" },
+          "muestra": { "tipo": "enum", "valores": ["tablones", "espiga", "azulejo_hex", "azulejo_metro", "baldosa", "terrazo", "concreto", "ladrillo", "agua", "cesped", "ajedrez", "rayado_muro"] },
           "ancla": { "tipo": "ancla", "requerido": true }
         } } },
         "criterios": { "tipo": "lista", "min": 2, "max": 5, "requerido": true, "item": { "tipo": "objeto", "campos": {

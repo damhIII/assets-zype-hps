@@ -12,7 +12,7 @@
       "consecuencia": "Vuelve, y ahora detrás del drywall",
       "nivel": "alto", "icono": "droplets", "ancla": 20 }
   ],
-  "antidoto": { "texto": "Primero la causa: ventilación", "ancla": 70 }
+  "antidoto": { "texto": "Primero la causa: *ventilación*", "ancla": 70 }   // *asteriscos* = marcador rojo (sin ellos: lo que sigue a «:»)
 }
 ```
 

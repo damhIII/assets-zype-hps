@@ -1,5 +1,7 @@
 # Construcción técnica (Remotion)
 
+> Especificación que ya implementa la plantilla (`remotion/src/`). Es para quien mantenga la plantilla: Claude no necesita leerla para animar un video.
+
 ## Proyecto
 - Remotion 4 en TypeScript. Una composición, `Reel-es`, con `width`, `height`, `fps` y **`frames`** exactos del brief.
 - Copia `briefs/<BASE>/es/brief.json` a `src/brief_es.json` e impórtalo; pasa el brief por props a un único componente `<Reel brief={…} />`.

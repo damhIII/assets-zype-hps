@@ -11,7 +11,7 @@ Devuelve:
 - **tono**: "serio" si el peligro afecta a la salud o la seguridad de personas; "explicativo" si es daño a la casa o un costo importante; "ligero" si es estético o de comodidad.
 - **cifra_oficio**: como mucho una cifra de oficio que de verdad ayude (una medida, un tiempo de prueba o de curado, una pendiente) y que sea práctica habitual, dicha como referencia. Vacío si no hace falta. Nunca precios, plazos de obra, porcentajes de ahorro, normas, multas ni requisitos de permisos.
 - **ganchos**: tres ganchos distintos del tipo pedido, del más fuerte al más débil. Si el tema esconde un peligro real, al menos dos de los tres lo ponen delante (lo que puede pasar, con el objeto concreto), sin exagerar ni sonar a anuncio sensacionalista. Cada uno con:
-  - **voz**: una o dos frases cortas. Nombra el espacio o el objeto y el problema que se ve. Sin juegos de palabras abstractos y sin saludos.
+  - **voz**: una o dos frases cortas. Nombra el espacio o el objeto y el problema que se ve. Sin juegos de palabras abstractos y sin saludos. En el video la voz siempre arranca con una apertura fija del tipo «No me lo pediste, pero aquí te lo dejo» y tu gancho va justo después: no empieces con otra introducción ni repitas esa idea.
   - **pantalla**: seis palabras como mucho, el texto que se lee sin sonido en el primer segundo. Complementa la voz, no la repite.
   - **primer_frame**: una frase con lo que se ve en el primer frame de la animación: el problema o el peligro en acción, de forma simbólica y sin personas heridas (el charco que crece, la chispa que salta del enchufe, la grieta que avanza).
 - **mandar_a**: a quién concreto se lo mandaría alguien que lo ve ("a quien tiene piscina y ya pegó esa piedra dos veces").

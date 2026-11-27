@@ -1,39 +1,23 @@
 # Salida y entrega
 
-## Especificación
+## Especificación (la aplica `scripts/render.py`)
 | | |
 |---|---|
 | Resolución | 1080 × 1920 (9:16), 30 fps |
-| Duración | voz + `cola_s` (1-2 s). La voz dura entre 40 y 60 s; no se recorta ni se acelera. Si queda fuera, menciónalo en la entrega como dato (no como error) |
+| Duración | voz + `cola_s` (1-2 s). La voz no se recorta ni se acelera |
 | Video | H.264, `yuv420p`, CRF 18 |
-| Audio | la locución sin tocar + música y efectos del catálogo por debajo (`referencias/audio.md`), AAC 48 kHz |
-| Archivos | `out/<BASE>_es.mp4` y `out/<BASE>_es_portada.png` (1080 × 1920, el frame 0 del gancho; lo esencial dentro del recorte 3:4 de `zonas_seguras.recorte_grilla_3x4`) |
+| Audio | la locución sin tocar + música y efectos del catálogo por debajo, AAC 48 kHz |
+| Archivo | `out/<BASE>_es.mp4` |
 
-## Comandos
-```bash
-npx remotion render Reel-es out/<BASE>_es.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p --audio-codec=aac
-npx remotion still Reel-es out/<BASE>_es_portada.png --frame=0
-```
-Si el entorno no puede renderizar, entrega el proyecto en zip (sin `node_modules`) y los comandos exactos.
-
-## Antes de entregar (todas deben ser ciertas)
-- [ ] `python3 scripts/preparar_brief.py briefs/<BASE>` sin errores ni avisos de ritmo, y los stills revisados uno por uno.
-- [ ] El frame 0 muestra el problema del gancho (`brief.gancho.primer_frame`) ya en movimiento y el titular `brief.gancho.pantalla` legible; sin header ni logo hasta `header_entra_f`.
-- [ ] Nunca pasan más de 4 s de voz sin algo nuevo en pantalla.
-- [ ] El resultado muestra el objeto del gancho ya resuelto y el último frame vuelve a la composición del frame 0 (bucle).
-- [ ] Ningún texto vital fuera de x 72–940 / y 220–1580; nada se solapa con titular, subtítulos ni aviso legal.
-- [ ] Las fuentes cargaron (Barlow Condensed, DM Sans y Space Mono; ninguna fuente por defecto del navegador).
-- [ ] El logo aparece en el header y en el CTA, en la variante correcta para el fondo, sin deformar ni teñir; el nombre de la marca no está escrito con tipografía.
-- [ ] Cada elemento de la plantilla entra cuando la voz lo nombra (mira los stills de anclas) y el CTA hace pop en `cta_f`.
-- [ ] Toda cifra en pantalla es un dato verificado con su fuente visible (`fuente_dato`) o la cifra de oficio que dice la voz (una o dos como mucho); lo ilustrativo dice **EJEMPLO ILUSTRATIVO**.
-- [ ] Ningún texto ni sello dice o insinúa que la marca construye, tiene licencia o seguro, o garantiza precio, plazo o costo.
+## Lo que comprueban las hojas de `revisar.py` (lo demás lo garantiza la plantilla)
+- [ ] El frame 0 muestra el problema del gancho ya en movimiento, con el titular legible.
+- [ ] Cada elemento entra cuando la voz lo nombra (stills de anclas y acentos) y nada se solapa con el titular ni los subtítulos.
+- [ ] Ningún texto de tus escenas fuera del recuadro azul (zona segura).
 - [ ] Si hay `encargo.peligro`, el gancho lo hace sentir (sin nada gráfico) y el resultado muestra el mismo objeto ya seguro.
-- [ ] No hay ninguna foto ni video: todo es animación.
-- [ ] El CTA invita a entrar al perfil y dice dónde está el enlace (la bio), hace pop cuando la voz lo menciona y la flecha apunta hacia la foto y el nombre de la cuenta (abajo a la izquierda); no hay iconos de comentario ni DM.
-- [ ] El rojo (`foco`) solo está en el marcador del titular, el subrayado de la palabra activa, la barra, los corchetes, el foco de cada escena y el CTA; las escenas usan neutros cálidos y 2-3 matices de `apoyo`, no un video monocromo gris y rojo.
-- [ ] Las transiciones de ambiente son fundidos, no cortes.
-- [ ] Duración = `video.frames`; la voz no se recortó ni se aceleró.
-- [ ] La voz se entiende por encima de la música en todo el video; los efectos caen en anclas reales y no tapan ninguna palabra clave.
+- [ ] El resultado repite la composición del gancho, resuelta; el still `final` vuelve al frame 0.
+- [ ] Rojo solo en el foco de cada escena y los corchetes; 2-3 matices de apoyo por escena, no un video gris y rojo.
+- [ ] Toda cifra es un dato verificado o la cifra de oficio que dice la voz; lo ilustrativo lleva el sello.
+- [ ] Nada dice o insinúa que la marca construye, tiene licencia o seguro, o garantiza precio, plazo o costo.
 
-## Mensaje de entrega (1-2 líneas)
-Los dos archivos y una línea con formato, ambientes y efectos usados. Nada más: ni caption, ni comentarios sobre el guion o la voz.
+## Entrega
+Cuando `render.py` diga `OK`, envía `out/<BASE>_es.mp4` como archivo. Esa es toda la respuesta: ni portada, ni resumen, ni caption, ni lista de música o efectos. Si el entorno no puede renderizar, entrega `remotion/` en zip (sin `node_modules` ni `public`) con `briefs/<BASE>/` y el comando `python3 scripts/render.py briefs/<BASE>`.

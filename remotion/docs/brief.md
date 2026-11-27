@@ -1,5 +1,7 @@
 # brief.json (versión 5) — los datos de render del video
 
+> Especificación que ya implementa la plantilla (`remotion/src/`). Es para quien mantenga la plantilla: Claude no necesita leerla para animar un video.
+
 Lo genera `scripts/preparar_brief.py` en `briefs/<BASE>/es/brief.json` a partir de `decisiones.json`, `encargo.json`, el guion y los tiempos de la voz. No lo edites a mano. Cópialo a `src/brief_es.json` e impórtalo; lee de él frames, textos, colores y tipografías: **no copies números a mano**.
 
 ```jsonc

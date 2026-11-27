@@ -18,7 +18,7 @@ Todo es **CC0** (dominio público, sin atribución, válido para Reels comercial
 **Efectos** (`audio/sfx/<id>.wav`, ≤ 1,6 s, sin silencio inicial, pico a −3 dBFS): `campana_01-03`, `cerrojo_01-02`, `click_01-03`, `cristal_01-03`, `crujido_01-03`, `desaparecer_01-03`, `deslizar_01-03`, `ding_01-03`, `error_01-03`, `golpe_madera_01-03`, `golpe_metal_01-03`, `golpe_obra_01-03`, `golpe_suave_01-03`, `goteo_01-02`, `monedas_01-02`, `papel_01-03`, `pasos_01-03`, `pop_01-03`, `pregunta_01-03`, `puerta_01-03`, `scratch_01-03`, `swoosh_transicion_01-02`, `tic_01`, `tic_tac_01`, `whoosh_01-03`.
 
 ## `briefs/<BASE>/audio.json`
-Escríbelo junto a `decisiones.json` (solo para tu proyecto, no se sube). La música la copias de `encargo.musica`; los efectos son tu decisión.
+Escríbelo junto a `decisiones.json` (no se sube al repo). La música la copias de `encargo.musica`; los efectos son tu decisión.
 ```jsonc
 {
   "musica": { "id": "lofi_relajado_01", "volumen": 0.12 },     // = encargo.musica (null = sin música)
@@ -29,18 +29,11 @@ Escríbelo junto a `decisiones.json` (solo para tu proyecto, no se sube). La mú
   ]
 }
 ```
-En Remotion, el frame de cada efecto es `round(subtitulos.palabras[ancla].ini × fps) − anticipacion_frames` (2), igual que las animaciones.
+La plantilla pone cada efecto 2 frames antes de su ancla, igual que las animaciones. `revisar.py` comprueba que los ids existen.
 
 ## Música
-- **Llega elegida** en `encargo.musica` (`id`, `archivo`, `volumen`) según el tono del guion: úsala tal cual, sin buscar otra ni mirar otros videos. Si es `null`, sin música.
-- Volumen bajo la voz: **0.10–0.15**. En los huecos de voz de más de 0,6 s y en la cola (`cola_s`) puede subir a 0.22–0.25.
-- Fundido de entrada de 10 frames y de salida en los últimos 30 frames. Las pistas duran hasta 100 s, más que cualquier Reel: no hace falta `loop`.
-```tsx
-<Audio src={staticFile("audio/musica/lofi_relajado_01.mp3")}
-  volume={(f) => Math.min(interpolate(f, [0, 10], [0, 1], {extrapolateRight: "clamp"}),
-                          interpolate(f, [frames - 30, frames], [1, 0], {extrapolateLeft: "clamp"})) * musicaVol(f)} />
-```
-`musicaVol(f)` devuelve 0.12 mientras hay voz (a partir de `subtitulos`) y 0.22 en los huecos, con 6 frames de rampa. La locución sigue siendo su propio `<Audio>` a volumen 1, sin tocar.
+- **Llega elegida** en `encargo.musica`: cópiala tal cual en `audio.json` (`id` y `volumen`, 0.10–0.15). Si es `null`, sin música.
+- La plantilla ya la mezcla: fundidos de entrada y salida, y sube un poco en las pausas largas (≥ 1 s) y en la cola. No hace falta nada más.
 
 ## Efectos: qué va con qué
 | Momento | Categoría del catálogo | Notas |
@@ -65,5 +58,3 @@ En Remotion, el frame de cada efecto es `round(subtitulos.palabras[ancla].ini ×
 - Ningún efecto encima de una palabra clave: entra 2 frames antes del ancla y es más corto que la palabra.
 - Volumen de los efectos: 0.3–0.5 (ya vienen normalizados). Si uno tapa la voz en el still de audio o al escucharlo, bájalo o quítalo.
 - `encargo.tono` = `serio` (riesgo para la salud o la casa): sin efectos cómicos (`scratch`, `campana`, `pop` juguetón). El peligro se subraya con un golpe seco y grave (`golpe_obra`, `golpe_metal`, `crujido`, `goteo`), uno solo, en el ancla donde la voz nombra el riesgo.
-- Determinismo: los ids y frames salen de `audio.json`; nada aleatorio.
-- En la entrega, di qué música y qué efectos usaste (ids).

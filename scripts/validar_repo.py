@@ -121,6 +121,29 @@ def _validar_espacios(raiz, err, avisos):
     return ids
 
 
+def _validar_aperturas(raiz, err):
+    """editorial/aperturas.json: frases con las que arranca siempre la voz (opcional; sin él, el notebook usa las suyas)."""
+    if not (Path(raiz) / "editorial/aperturas.json").is_file():
+        return
+    cfg = _json(raiz, "editorial/aperturas.json", err) or {}
+    ap = cfg.get("aperturas")
+    if not isinstance(ap, list) or len(ap) < 3:
+        err.append("editorial/aperturas.json: 'aperturas' necesita al menos tres frases")
+        return
+    ids = set()
+    for a in ap:
+        i, t = a.get("id"), (a.get("texto") or "").strip()
+        if not i or i in ids:
+            err.append(f"editorial/aperturas.json: id vacío o repetido ({i})")
+        ids.add(i)
+        if not t or len(t.split()) > 9:
+            err.append(f"editorial/aperturas.json → {i}: el texto debe tener entre 1 y 9 palabras")
+        if re.search(r"[\d$%€]", t):
+            err.append(f"editorial/aperturas.json → {i}: sin dígitos ni símbolos (la voz los lee mal)")
+    if not isinstance(cfg.get("sin_repetir", 4), int) or not 0 <= cfg.get("sin_repetir", 4) < len(ap):
+        err.append("editorial/aperturas.json: 'sin_repetir' debe ser un entero menor que el número de aperturas")
+
+
 def _validar_historial(raiz, ids, err, avisos):
     p = Path(raiz) / "editorial/historial.jsonl"
     if not p.is_file():
@@ -181,6 +204,7 @@ def validar(raiz):
     _validar_formatos(raiz, plantillas, err)
     ids = _validar_espacios(raiz, err, avisos)
     _validar_historial(raiz, ids, err, avisos)
+    _validar_aperturas(raiz, err)
 
     datos = (_json(raiz, "editorial/datos_verificados.json", err) or {}).get("datos")
     if not isinstance(datos, dict):

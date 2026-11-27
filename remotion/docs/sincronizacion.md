@@ -1,5 +1,7 @@
 # Sincronización con la voz (`palabras.json` → `subtitulos.json` → `brief.json`)
 
+> Especificación que ya implementa la plantilla (`remotion/src/`). Es para quien mantenga la plantilla: Claude no necesita leerla para animar un video.
+
 ## De dónde salen los tiempos
 1. El notebook guarda en `palabras.json` (v4) lo que Whisper oyó: `[[palabra, inicio_s, fin_s], …]`, con `idioma`.
 2. `alinear.py` casa esas palabras con las del **guion** (que es la ortografía buena) y deja `subtitulos.json`: cada palabra del guion con su inicio y fin. Los números que Whisper escribe en dígitos se casan con su versión en palabras.

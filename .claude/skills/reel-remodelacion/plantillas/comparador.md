@@ -7,8 +7,8 @@
 ```jsonc
 {
   "opciones": [                        // 2-3
-    { "nombre": "Vinílico", "icono": "layers", "ancla": 20 },
-    { "nombre": "Porcelanato", "icono": "box", "ancla": 22 }
+    { "nombre": "Vinílico", "icono": "layers", "muestra": "tablones", "ancla": 20 },   // muestra opcional: textures/mat_<muestra>.svg
+    { "nombre": "Porcelanato", "icono": "box", "muestra": "baldosa", "ancla": 22 }
   ],
   "criterios": [                       // 2-5; "valores" en el mismo orden que "opciones"
     { "nombre": "Humedad", "mejor_si_alto": true,
@@ -18,7 +18,7 @@
       "valores": [ { "nivel": "bajo" }, { "nivel": "medio", "texto": "según formato" } ],
       "ancla": 38 }
   ],
-  "veredicto": { "texto": "Depende de tu planta baja", "ancla": 70 }
+  "veredicto": { "texto": "Depende de *tu planta baja*", "ancla": 70 }
 }
 ```
 
