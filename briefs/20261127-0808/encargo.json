@@ -1,0 +1,30 @@
+{
+ "version": 4,
+ "base": "20261127-0808",
+ "marca": "EN BRUTO",
+ "espacio": "PINTURA EXTERIOR E INTERIOR",
+ "tema": {
+  "titulo": "Pintar entre aguaceros: tres mitos",
+  "tesis": "Para pintar la fachada en Florida no basta con que haya dejado de llover: el muro y el pronóstico deben permitir aplicar y secar la pintura según su ficha técnica.",
+  "puntos": [
+   "Mito: «En temporada seca puedo pintar cualquier día». En realidad, conviene priorizar esa temporada, pero revisar el pronóstico por horas antes de empezar: debe haber una ventana sin lluvia suficiente para la aplicación y la resistencia inicial al agua indicada por el fabricante, no solo para terminar de pintar.",
+   "Mito: «Si la fachada ya se ve seca, está lista». En realidad, el estuco puede conservar humedad aunque cambie de color por fuera. Comprobarlo con un medidor adecuado para mampostería y comparar la lectura con lo admitido por el sistema de pintura; prestar especial atención a zonas sombreadas y bajo ventanas.",
+   "Mito: «Si está seca al tacto, doy la otra mano». En realidad, secado al tacto y tiempo de repintado no son lo mismo, y la humedad ambiental puede retrasarlos. Preguntar al contratista: «¿Qué intervalo entre manos y qué condiciones indica la ficha técnica de esta pintura?»",
+   "Señal de alarma: si después del aguacero aparecen ampollas, desprendimientos o manchas que siguen húmedas, detener el repintado y marcar esas zonas. Pueden indicar mala adherencia o humedad persistente; revisar el origen y retirar lo que esté suelto antes de preparar y volver a pintar, en vez de esconderlo con otra mano."
+  ]
+ },
+ "formato": "mito_realidad",
+ "tono": "explicativo",
+ "peligro": "La lluvia sobre pintura que todavía no resiste el agua puede lavarla, marcarla o perjudicar su adherencia. Si además se pinta sobre humedad persistente, el recubrimiento puede ampollarse y desprenderse, obligando a retirar material y repetir la preparación y la pintura.",
+ "gancho": {
+  "pantalla": "No tapes la señal",
+  "primer_frame": "Una ampolla de pintura crece en la fachada y un corte animado revela humedad bajo la capa."
+ },
+ "cifra_oficio": "",
+ "musica": {
+  "id": "lofi_relajado_02",
+  "archivo": "audio/musica/lofi_relajado_02.mp3",
+  "volumen": 0.12
+ },
+ "creado": "2026-11-27T08:09:20-05:00"
+}
