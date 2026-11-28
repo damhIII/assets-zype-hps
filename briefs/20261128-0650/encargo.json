@@ -1,0 +1,25 @@
+{
+ "version": 4,
+ "base": "20261128-0650",
+ "marca": "EN BRUTO",
+ "espacio": "PISOS",
+ "tema": {
+  "titulo": "Piso inundado: qué salvar y qué retirar",
+  "tesis": "Después de una inundación, que el piso parezca seco no demuestra que pueda conservarse: importan el origen del agua, el material y la humedad atrapada debajo."
+ },
+ "formato": "mito_realidad",
+ "tono": "serio",
+ "peligro": "La humedad atrapada bajo el piso puede favorecer moho y afectar especialmente a personas con asma o alergias; además, el agua de inundación puede dejar contaminantes aunque la superficie parezca limpia. Cubrir sin revisar puede mantener mojadas y deteriorar las capas inferiores.",
+ "apertura": "No me lo pediste, pero alguien tenía que decírtelo.",
+ "gancho": {
+  "pantalla": "Seco arriba no significa seco abajo",
+  "primer_frame": "Una superficie aparentemente seca se vuelve transparente y revela humedad extendiéndose bajo las tablas, junto a pequeñas manchas simbólicas de moho."
+ },
+ "cifra_oficio": "",
+ "musica": {
+  "id": "lofi_relajado_01",
+  "archivo": "audio/musica/lofi_relajado_01.mp3",
+  "volumen": 0.1
+ },
+ "creado": "2026-11-28T06:51:52-05:00"
+}
