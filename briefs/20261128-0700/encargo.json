@@ -1,0 +1,25 @@
+{
+ "version": 4,
+ "base": "20261128-0700",
+ "marca": "EN BRUTO",
+ "espacio": "TECHOS",
+ "tema": {
+  "titulo": "Tres errores de techo antes del huracán",
+  "tesis": "Una revisión antes de junio permite detectar piezas sueltas y rutas de entrada de agua que pueden pasar inadvertidas hasta la primera tormenta."
+ },
+ "formato": "errores",
+ "tono": "serio",
+ "peligro": "Durante un huracán, las tejas ya sueltas pueden desprenderse y golpear a alguien. Además, el agua que entra por piezas desplazadas o encuentros defectuosos puede humedecer aislamiento y madera sin verse desde las habitaciones, favorecer moho y deteriorar el soporte del techo.",
+ "apertura": "No me lo pediste, pero aquí te lo dejo.",
+ "gancho": {
+  "pantalla": "La revisión era antes",
+  "primer_frame": "Una teja desplazada tiembla con el viento y empieza a separarse del techo."
+ },
+ "cifra_oficio": "",
+ "musica": {
+  "id": "lofi_relajado_03",
+  "archivo": "audio/musica/lofi_relajado_03.mp3",
+  "volumen": 0.1
+ },
+ "creado": "2026-11-28T07:01:23-05:00"
+}
